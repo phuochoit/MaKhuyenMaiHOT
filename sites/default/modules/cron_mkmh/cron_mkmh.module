@@ -1,0 +1,146 @@
+<?php
+define('CONTENT_TYPE', 'application/json'); // current CONTENT_TYPE
+define('AUTHORIZATION', 'Token iDKOG4khkBOkyMHYS7Y3jFS09Yy4WYX5'); // current CONTENT_TYPE
+
+
+function cron_mkmh_cron() {
+    $data_km =  _cron_mkmh_get_offers_informations();
+    $data_topproduct =  _cron_mkmh_get_top_products();
+    $data_product =  _cron_mkmh_get_offers_informations();
+    
+    _cron_mkmh_km_save_node($data_km->data);
+    // watchdog('my_debug', '<pre>' . var_export($data_km->data) . '</pre>');
+    // watchdog('my_debug', '<pre>' . var_export($data_topproduct->data) . '</pre>');
+    // watchdog('my_debug', '<pre>' . var_export($data_product->data) . '</pre>');
+}
+
+function _cron_mkmh_km_save_node($data){
+    // watchdog('my_debug', '<pre>' . var_export($data) . '</pre>');
+    if(empty($data))
+        return;
+    // dpm($data);
+    $vidTags = taxonomy_get_term_by_name('tags');
+
+    foreach ($data as $key => $val) {
+        $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = 'khuyen_mai' AND node.status = 1 AND node.title = :title", array(':title' => $val->name))->rowCount();
+
+        if(!$query){
+            // watchdog('my_debug', '<pre>' . var_export($val) . '</pre>');
+
+            $title = $val->name;
+
+            $node = new stdClass();
+            $node->type = 'publication';
+            $node->uid = 1;
+            $node->title = $title;
+            $node->created = time();
+            $node->changed = $node->created;
+            $node->promote = $node->created;
+            $node->sticky  = 0;
+            $node->language = LANGUAGE_NONE;
+            $node->comment = 0;
+            $node->yoast_seo['und']['focus_keyword'] = $title;
+            $node->field_aff_link['und'][0]['url'] = $val->aff_link;
+            $node->field_teaser['und'][0]['value'] = $val->content;
+            $node->body[LANGUAGE_NONE][0]['value'] = $val->content;
+            $node->field_id_khuyen_mai['und'][0]['value'] = $val->id;
+            $node->field_merchant['und'][0]['value'] = $val->merchant;
+            $node->field_url_khuyen_mai['und'][0]['value'] = $val->link;
+            $node->field_domain_san_pham['und'][0]['value'] = $val->domain;
+            // check coupon
+            if(iseet($val->coupons) && !empty($val->coupons)){
+                $node->field_coupon_code['und'][0]['value'] = !empty($val->coupons[0]->coupon_code) ? $val->coupons[0]->coupon_code : null ;
+                $node->field_coupon_desc['und'][0]['value'] = !empty($val->coupons[0]->coupon_desc) ? $val->coupons[0]->coupon_desc : null ;
+                $node->field_coupon_save['und'][0]['value'] = !empty($val->coupons[0]->coupon_save) ? $val->coupons[0]->coupon_save : null ;
+            }
+            // field tag
+            $tags = explode(" ",$title);
+            
+            foreach ($tags as $kTags => $valTags) {
+                $tid = _get_tid_by_name($valTags);
+                if(empty($tid)){
+                    $tid = _create_taxonomy_term($valTags,$vidTags);
+                }
+                $node->field_tags['und'][$kTags]['value'] = $tid;
+            }
+        }
+        
+    }
+    // 
+
+}
+
+// create taxonomy
+function _create_taxonomy_term($name, $vid) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+    return $term->tid;
+}
+
+// get tid of taxonomy
+function _get_tid_by_name($name){
+    $term = taxonomy_get_term_by_name($name);
+    $tid = !empty($term->tid) ? $term->tid : null;
+    return $tid;
+}
+// get vid of taxonomy
+function _get_vid_by_name($name){
+    $vocab = taxonomy_vocabulary_machine_name_load($name);
+    $vid = $vocab->vid;
+    return $vid;
+}
+// get all chuong trinh khuyen mai
+function _cron_mkmh_get_offers_informations(){
+    $url = 'https://api.accesstrade.vn/v1/offers_informations';
+    $opts = [
+        "http" => [
+            "method" => "GET",
+            "header" => "Authorization: ".AUTHORIZATION."\r\n" .
+                "Content-Type: ".CONTENT_TYPE."\r\n"
+        ]
+    ];
+    $context = stream_context_create($opts);
+    // Open the file using the HTTP headers set above
+    $file = file_get_contents($url, false, $context);
+    $data = json_decode($file);
+    return !empty($data) ? $data : null;
+    // watchdog('my_debug', '<pre>' . var_export($data) . '</pre>');
+    
+}
+
+// get all content of top product
+function _cron_mkmh_get_top_products(){
+    $url = 'https://api.accesstrade.vn/v1/top_products';
+    $opts = [
+        "http" => [
+            "method" => "GET",
+            "header" => "Authorization: ".AUTHORIZATION."\r\n" .
+                "Content-Type: ".CONTENT_TYPE."\r\n"
+        ]
+    ];
+    $context = stream_context_create($opts);
+    $file = file_get_contents($url, false, $context);
+    $data = json_decode($file);
+    return !empty($data) ? $data : null;
+}
+
+// get all content of product
+function _cron_mkmh_get_products(){
+    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=50';
+    $opts = [
+        "http" => [
+            "method" => "GET",
+            "header" => "Authorization: ".AUTHORIZATION."\r\n" .
+                "Content-Type: ".CONTENT_TYPE."\r\n"
+        ]
+    ];
+
+    $context = stream_context_create($opts);
+    $file = file_get_contents($url, false, $context);
+    $data = json_decode($file);
+    return !empty($data) ? $data : null;
+}
+
+

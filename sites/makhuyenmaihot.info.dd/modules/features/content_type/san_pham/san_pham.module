@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sản Phẩm feature.
+ */
+
+include_once 'san_pham.features.inc';
