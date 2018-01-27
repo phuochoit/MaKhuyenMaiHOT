@@ -25,12 +25,12 @@ function _cron_mkmh_km_save_node($data){
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = 'khuyen_mai' AND node.status = 1 AND node.title = :title", array(':title' => $val->name))->rowCount();
 
         if(!$query){
-            // watchdog('my_debug', '<pre>' . var_export($val) . '</pre>');
+            watchdog('my_debug', '<pre>' . var_export($val) . '</pre>');
 
             $title = $val->name;
 
             $node = new stdClass();
-            $node->type = 'publication';
+            $node->type = 'khuyen_mai';
             $node->uid = 1;
             $node->title = $title;
             $node->created = time();
@@ -48,7 +48,7 @@ function _cron_mkmh_km_save_node($data){
             $node->field_url_khuyen_mai['und'][0]['value'] = $val->link;
             $node->field_domain_san_pham['und'][0]['value'] = $val->domain;
             // check coupon
-            if(iseet($val->coupons) && !empty($val->coupons)){
+            if(!empty($val->coupons)){
                 $node->field_coupon_code['und'][0]['value'] = !empty($val->coupons[0]->coupon_code) ? $val->coupons[0]->coupon_code : null ;
                 $node->field_coupon_desc['und'][0]['value'] = !empty($val->coupons[0]->coupon_desc) ? $val->coupons[0]->coupon_desc : null ;
                 $node->field_coupon_save['und'][0]['value'] = !empty($val->coupons[0]->coupon_save) ? $val->coupons[0]->coupon_save : null ;
