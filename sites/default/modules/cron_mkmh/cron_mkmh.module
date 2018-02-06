@@ -18,15 +18,23 @@ function _cron_mkmh_km_save_node($data){
     // watchdog('my_debug', '<pre>' . var_export($data) . '</pre>');
     if(empty($data))
         return;
-    // dpm($data);
-    $vidTags = taxonomy_get_term_by_name('tags');
 
-    foreach ($data as $key => $val) {
-        $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = 'khuyen_mai' AND node.status = 1 AND node.title = :title", array(':title' => $val->name))->rowCount();
-
+    // get vid
+    $vidTags = _get_vid_by_name('tags');
+    $vidCategory = _get_vid_by_name('categories_khuyen_mai');
+    
+    for ($i=0; $i < count($data); $i++) { 
+        $val = $data[$i];
+        
+        $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->name, ':type' => 'khuyen_mai'))->rowCount();
         if(!$query){
-            watchdog('my_debug', '<pre>' . var_export($val) . '</pre>');
-
+            
+            $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'thuong_hieu', ':merchant' => $val->merchant) )->fetchObject();
+             
+            if(empty($query_merchant)){
+                continue;
+            }
+            
             $title = $val->name;
 
             $node = new stdClass();
@@ -47,6 +55,17 @@ function _cron_mkmh_km_save_node($data){
             $node->field_merchant['und'][0]['value'] = $val->merchant;
             $node->field_url_khuyen_mai['und'][0]['value'] = $val->link;
             $node->field_domain_san_pham['und'][0]['value'] = $val->domain;
+            $node->field_thuong_hieu['und'][0]['nid'] = $query_merchant->nid;
+            $node->field_start_time['und'][0]['value'] = $val->start_time;
+            $node->field_end_time['und'][0]['value'] = $val->end_time;
+            
+            // check category
+            if(!empty($val->categories)){
+               
+                $tidCategories = _get_tid_by_name($val->categories[0]->category_name_show);
+                watchdog('my_debug', '<pre>' . var_export($val->categories[0]) . '</pre>');
+            }
+            
             // check coupon
             if(!empty($val->coupons)){
                 $node->field_coupon_code['und'][0]['value'] = !empty($val->coupons[0]->coupon_code) ? $val->coupons[0]->coupon_code : null ;
@@ -63,12 +82,12 @@ function _cron_mkmh_km_save_node($data){
                 }
                 $node->field_tags['und'][$kTags]['value'] = $tid;
             }
-        }
-        
-    }
-    // 
 
+           
+        }
+    }
 }
+
 
 // create taxonomy
 function _create_taxonomy_term($name, $vid) {
@@ -82,6 +101,12 @@ function _create_taxonomy_term($name, $vid) {
 // get tid of taxonomy
 function _get_tid_by_name($name){
     $term = taxonomy_get_term_by_name($name);
+    $tid = !empty($term->tid) ? $term->tid : null;
+    return $tid;
+}
+
+function _get_tid_by_name($name, $vid) {
+    $term =  taxonomy_term_load_multiple(array(), array('name' => trim($name), 'vid' => $vid));
     $tid = !empty($term->tid) ? $term->tid : null;
     return $tid;
 }

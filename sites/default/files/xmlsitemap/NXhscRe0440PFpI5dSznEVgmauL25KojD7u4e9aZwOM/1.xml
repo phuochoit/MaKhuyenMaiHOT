@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="//makhuyenmaihot.info.dd:8083/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>http://makhuyenmaihot.info.dd:8083/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/</loc><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/fadovn</loc><lastmod>2018-02-06T04:38Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/lottevn</loc><lastmod>2018-02-06T06:58Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/canifa</loc><lastmod>2018-02-06T07:01Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/hnammobile</loc><lastmod>2018-02-06T07:04Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/vua-bia</loc><lastmod>2018-02-06T07:06Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/ala-pro</loc><lastmod>2018-02-06T07:09Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/clip-tv-box</loc><lastmod>2018-02-06T07:20Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/lazada</loc><lastmod>2018-02-06T07:24Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/dyoss</loc><lastmod>2018-02-06T07:26Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/fpt-shop</loc><lastmod>2018-02-06T07:28Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/sieu-thi-dien-may-vien-thong</loc><lastmod>2018-02-06T07:32Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/adayroi</loc><lastmod>2018-02-06T07:35Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/fpt</loc><lastmod>2018-02-06T07:38Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/vinabook</loc><lastmod>2018-02-06T07:48Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/viviane</loc><lastmod>2018-02-06T07:50Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/nguyen-kim</loc><lastmod>2018-02-06T07:52Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/uberrider</loc><lastmod>2018-02-06T07:55Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/fiditour</loc><lastmod>2018-02-06T07:58Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/agoda</loc><lastmod>2018-02-06T08:03Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/kyna-hoc-online-cung-chuyen-gia</loc><lastmod>2018-02-06T08:18Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/khuyen-main/uu-dai-tai-yes24vn-danh-cho-khach-hang-mytourvn</loc><lastmod>2018-02-06T03:07Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/shopee</loc><lastmod>2018-02-06T04:25Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/yes24</loc><lastmod>2018-02-06T04:24Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/tiki</loc><lastmod>2018-02-06T06:53Z</lastmod><changefreq>hourly</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/vinaphone</loc><lastmod>2018-02-06T04:29Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/dao-nu</loc><lastmod>2018-02-06T04:23Z</lastmod><changefreq>daily</changefreq></url>
+<url><loc>http://makhuyenmaihot.info.dd:8083/thuong-hieu/mykingdom</loc><lastmod>2018-02-06T04:35Z</lastmod><changefreq>daily</changefreq></url>
 </urlset>
