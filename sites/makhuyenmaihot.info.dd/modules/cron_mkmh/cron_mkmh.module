@@ -20,20 +20,18 @@ function _cron_mkmh_km_save_node($data){
         return;
 
     // get vid
-    
-    // $vidCategory = _get_vid_by_name('categories_khuyen_mai');
-    
+    $vidCategory = _get_vid_by_name('categories_khuyen_mai');
     for ($i=0; $i < count($data); $i++) { 
         $val = $data[$i];
         
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->name, ':type' => 'khuyen_mai'))->rowCount();
         if(!$query){
             
-            // $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'thuong_hieu', ':merchant' => $val->merchant) )->fetchObject();
+            $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'thuong_hieu', ':merchant' => $val->merchant) )->fetchObject();
              
-            // if(empty($query_merchant)){
-            //     continue;
-            // }
+            if(empty($query_merchant)){
+                continue;
+            }
             
             $title = $val->name;
 
@@ -58,13 +56,13 @@ function _cron_mkmh_km_save_node($data){
             $node->field_merchant['und'][0]['value'] = $val->merchant;
             $node->field_url_khuyen_mai['und'][0]['url'] = $val->link;
             $node->field_domain_san_pham['und'][0]['value'] = $val->domain;
-            // $node->field_thuong_hieu['und'][0]['nid'] = $query_merchant->nid;
+            $node->field_thuong_hieu['und'][0]['nid'] = $query_merchant->nid;
             $node->field_start_time['und'][0]['value'] = $val->start_time;
             $node->field_end_time['und'][0]['value'] = $val->end_time;
             
             // check category
             if(!empty($val->categories)){
-                $tidCategories = _get_tid_by_name(trim($val->categories[0]->category_name_show),'categories');
+                $tidCategories = _get_tid_by_name(trim($val->categories[0]->category_name_show),'categories_khuyen_mai');
                 if(!empty($tidCategories)){
                     $node->field_category['und'][0]['tid'] = $tidCategories;
                 }
@@ -88,7 +86,7 @@ function _cron_mkmh_km_save_node($data){
             if(!empty($tags)){
                  
                 for ($i=0; $i < count($tags); $i++) { 
-                   $node->field_category['und'][$i]['tid'] = $tags[$i];
+                   $node->field_tags['und'][$i]['tid'] = $tags[$i];
                 }    
             }
                 
