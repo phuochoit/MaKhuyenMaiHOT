@@ -21,7 +21,7 @@ function san_pham_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Giá',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'field_price',
       1 => 'field_discount',
@@ -54,7 +54,7 @@ function san_pham_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Info',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_domain_san_pham',
       1 => 'field_url_khuyen_mai',

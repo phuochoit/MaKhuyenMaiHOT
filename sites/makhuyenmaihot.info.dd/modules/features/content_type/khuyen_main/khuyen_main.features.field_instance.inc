@@ -57,7 +57,7 @@ function khuyen_main_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -383,7 +383,7 @@ function khuyen_main_field_default_field_instances() {
     'label' => 'Thời gian kết thúc',
     'required' => 1,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -394,7 +394,7 @@ function khuyen_main_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 1,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'd/m/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
         'no_fieldset' => 0,
@@ -588,7 +588,7 @@ function khuyen_main_field_default_field_instances() {
     'label' => 'Thời gian bắt đầu',
     'required' => 1,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -599,7 +599,7 @@ function khuyen_main_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 1,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'd/m/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
         'no_fieldset' => 0,
@@ -697,7 +697,54 @@ function khuyen_main_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-khuyen_mai-field_thuong_hieu'.
+  $field_instances['node-khuyen_mai-field_thuong_hieu'] = array(
+    'bundle' => 'khuyen_mai',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 16,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_thuong_hieu',
+    'label' => 'Thương Hiệu',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 5,
     ),
   );
 
@@ -776,6 +823,7 @@ function khuyen_main_field_default_field_instances() {
   t('Merchant');
   t('Tags');
   t('Teaser');
+  t('Thương Hiệu');
   t('Thời gian bắt đầu');
   t('Thời gian kết thúc');
   t('Url khuyến mại');

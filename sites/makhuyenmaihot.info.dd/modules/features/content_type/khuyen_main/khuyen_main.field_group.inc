@@ -21,7 +21,7 @@ function khuyen_main_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'coupons',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'field_coupon_desc',
       1 => 'field_coupon_save',
@@ -51,7 +51,7 @@ function khuyen_main_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Info ',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_start_time',
       1 => 'field_end_time',

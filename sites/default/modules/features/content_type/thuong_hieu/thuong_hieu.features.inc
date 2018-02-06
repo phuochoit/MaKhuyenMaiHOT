@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * thuong_hieu.features.inc
+ */
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function thuong_hieu_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function thuong_hieu_node_info() {
+  $items = array(
+    'thuong_hieu' => array(
+      'name' => t('Thương Hiệu'),
+      'base' => 'node_content',
+      'description' => t('thông tin Thương Hiệu  cung cấp khuyến mãi'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  drupal_alter('node_info', $items);
+  return $items;
+}

@@ -9,9 +9,9 @@
  */
 function san_pham_taxonomy_default_vocabularies() {
   return array(
-    'categories' => array(
-      'name' => 'categories',
-      'machine_name' => 'categories',
+    'categories_khuyen_mai' => array(
+      'name' => 'Categories Khuyến Mãi',
+      'machine_name' => 'categories_khuyen_mai',
       'description' => 'danh sách category của khuyến mại, Sản phẩm',
       'hierarchy' => 0,
       'module' => 'taxonomy',
