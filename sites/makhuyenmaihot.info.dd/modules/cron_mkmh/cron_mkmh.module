@@ -201,5 +201,3 @@ function _cron_mkmh_get_products(){
     $data = json_decode($file);
     return !empty($data) ? $data : null;
 }
-
-
