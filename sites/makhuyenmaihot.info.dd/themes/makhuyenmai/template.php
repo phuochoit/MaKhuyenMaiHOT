@@ -142,10 +142,11 @@ function _getUrlContent($url){
 function _dom_html_from_url($url, $domain){
     if(empty($url) || empty($domain)) return;
     switch ($domain) {
-        case 'fptshop.com.vn':
+        case 'fptshop':
             $dom = _getUrlContent($url);
-            $html = str_get_html($dom);
-            $bodycontainer = $html->find("div[id=dac-diem-noi-bat] div[class=fs-dtctbox clearfix]",0);
+            $classname = 'fs-dtctbox clearfix';
+            $dom = _getUrlContent($url);
+            $bodycontainer = _getHTMLByCLASS($classname,$dom);
             return $bodycontainer;
         case 'lazada':
             $classname = 'l-fluid-description__text-wrap';
@@ -177,6 +178,7 @@ function _getHTMLByCLASS($class, $html){
         $tmp_doc->appendChild($tmp_doc->importNode($child,true));   
         $innerHTML .= $tmp_doc->saveHTML(); 
     }
+    dpm($innerHTML);
     if(!empty($innerHTML)){
         return _preg_replace_content($innerHTML);
     }
@@ -185,7 +187,7 @@ function _getHTMLByCLASS($class, $html){
 
 function _preg_replace_content($html){
     $html = preg_replace('#<noscript(.*?)>(.*?)</noscript>#is', '', $html);
-    $html = preg_replace('/src="(.+?)"/','',$html); // Removes the old src
+    // $html = preg_replace('/src="(.+?)"/','',$html); // Removes the old src
     $html = str_replace('data-original','src',$html); 
     return $html;
 }
