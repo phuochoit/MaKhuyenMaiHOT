@@ -4,7 +4,8 @@ define('AUTHORIZATION', 'Token iDKOG4khkBOkyMHYS7Y3jFS09Yy4WYX5'); // current CO
 
 
 function cron_mkmh_cron() {
-    
+    ini_set('memory_limit', -1);
+    ini_set('max_execution_time', 0);
     if(isset($_GET['cron_key']) && !empty($_GET['cron_key'])){
         $data_km =  _cron_mkmh_get_offers_informations();
         $data_coupon = _cron_mkmh_get_coupon();
@@ -12,7 +13,7 @@ function cron_mkmh_cron() {
         $data_topproduct = _cron_mkmh_get_topproducts();
         if(!empty($data_topproduct)){
             _cron_mkmh_topsp_save_node($data_topproduct->data,1);
-            watchdog('my_debug', '<pre>' . var_export($data_topproduct) . '</pre>');
+            // watchdog('my_debug', '<pre>' . var_export($data_topproduct) . '</pre>');
         }
         if(!empty($data_product)){
             _cron_mkmh_topsp_save_node($data_product->data,0);
@@ -35,9 +36,75 @@ function _cron_mkmh_topsp_save_node($data, $top){
     if($top == 1){
         
         for ($i=0; $i < count($data) ; $i++) { 
-           $val = $data[$i];
-           $host = _parse_url($val->link);
-           watchdog('my_debug', '<pre>' . var_export($host) . '</pre>');
+            $val = $data[$i];
+            $host = _parse_url($val->link);
+            $title = $val->name;
+            $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $title, ':type' => 'san_pham'))->rowCount();
+            if(!$query){
+                $merchant = _get_merchant_name($host);
+                $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'thuong_hieu', ':merchant' => $merchant) )->fetchObject();
+                
+                if(!empty($query_merchant)){
+                    $category_name = _convert_category_name($val->category_name);
+                    $tid = null;
+                    if(!empty($category_name)){
+                        $query_tid = db_query("SELECT td.tid FROM {taxonomy_term_data} AS td LEFT JOIN  {field_data_field_slug} AS sl ON sl.entity_id = td.tid WHERE td.vid = :vid AND sl.field_slug_value = :slug", array(':vid' => 2, ':slug' => $category_name))->fetchObject();
+                        $tid = $query_tid->tid;
+                    }
+                    $node = new stdClass();
+                    $node->type = 'san_pham';
+                    $node->uid = 1;
+                    $node->title = $title;
+                    $node->created = time();
+                    $node->changed = $node->created;
+                    $node->promote = $node->created;
+                    $node->sticky  = 0;
+                    $node->language = LANGUAGE_NONE;
+                    $node->comment = 0;
+                    $node->field_get_content['und'][0]['value'] = 1;
+
+                    $node->field_aff_link['und'][0]['url'] = $val->aff_link;
+                    $node->field_domain_san_pham['und'][0]['value'] = $host;
+                    $node->field_url_khuyen_mai['und'][0]['url'] = $val->link;
+
+                    // seo
+                    $node->yoast_seo['und']['focus_keyword'] = $title;
+                    $node->yoast_seo['und']['seo_status'] = '5';
+
+                    // merchant
+                    $node->field_merchant['und'][0]['value'] = $merchant;
+                    $node->field_id_khuyen_mai['und'][0]['value'] = $val->product_id;
+                    $node->field_price['und'][0]['value'] = $val->price;
+                    $node->field_discount['und'][0]['value'] = $val->discount;
+                    $node->field_hot['und'][0]['value'] = $top;
+                    $node->field_thuong_hieu['und'][0]['nid'] = $query_merchant->nid;
+                    
+                    // save tid
+                    if(!empty($tid)){
+                        $node->field_category['und'][0]['tid'] = $tid;
+                    }
+
+                    // tag
+                    $tags = _save_tag_by_title($title);
+                    if(!empty($tags)){
+                        for ($i=0; $i < count($tags); $i++) { 
+                            $node->field_tags['und'][$i]['tid'] = $tags[$i];
+                        }    
+                    }
+
+                    //save image
+                    $fid = _save_image_form_url($val->image);
+                    if(!empty($fid)){
+                        $node->field_image['und'][0]['fid'] = $fid->fid;
+                    }
+
+                    // custom teaser
+                    $teaser = 'Top Những Sản Phẩm Bán Chạy '.$title.' giá rẻ nhất '.$val->price.'đ . Mua hàng tiết kiệm tại Mã Khuyến Mãi HOT.';
+                    $node->field_teaser['und'][0]['value'] = $teaser;
+                    // save node
+                    node_save($node);
+                }
+            }
         }
     }else{
         for ($i=0; $i < count($data); $i++) {
@@ -61,6 +128,8 @@ function _cron_mkmh_topsp_save_node($data, $top){
                     $node->sticky  = 0;
                     $node->language = LANGUAGE_NONE;
                     $node->comment = 0;
+                    $node->field_get_content['und'][0]['value'] = 1;
+
                     $node->field_aff_link['und'][0]['url'] = $val->aff_link;
                     $node->field_domain_san_pham['und'][0]['value'] = $val->domain;
                     $node->field_url_khuyen_mai['und'][0]['url'] = $val->url;
@@ -231,13 +300,46 @@ function _cron_mkmh_remove_node(){
     
 }
 
+// convert category name
+function _convert_category_name($name){
+    if(empty($name) || $name == 1) return;
+    switch ($name) {
+        case 'Mobiles & Tablets':
+        $name = 'dien-thoai-may-tinh-bang';
+        return $name;
+        case 'Tivi - Audio > Tivi':
+        case 'TV, Audio / Video, Gaming & Wearables':
+        $name = 'tivi-am-thanh';
+        return $name;
+        case 'Mother & Baby':
+        $name = 'me-va-be';
+        return $name;
+        case 'Điện Tử':
+        $name = 'dien-tu-thiet-bi-so-khac';
+        return $name;
+    }
+        
+}
 // _get_merchant_name
 function _get_merchant_name($merchant){
     if(empty($merchant)) return;
     $name = null;
     switch ($merchant) {
         case 'lazada':
-            $name = 'lazadaapp';
+        case 'www.lazada.vn':
+            $name = 'lazada';
+            break;
+        case 'fptshop.com.vn':
+            $name = 'fptshop';
+            break;
+        case 'www.nguyenkim.com':
+            $name = 'nguyenkimvn';
+            break;
+        case 'tiki.vn':
+            $name = 'tikivn';
+            break;
+        case 'www.lotte.vn':
+            $name = 'lottevn';
             break;
         default:
             $name = $merchant ;
@@ -359,31 +461,9 @@ function _cron_mkmh_get_coupon(){
     return !empty($data) ? $data : null;
 }
 
-function _getUrlContent($url){
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-    $data = curl_exec($ch);
-    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    return ($httpcode>=200 && $httpcode<300) ? $data : false;
-}
-
 // parse_url return host
 function _parse_url($url){
     if(empty($url)) return;
     $result = parse_url($url);
     return $result['host'];
-}
-
-function _dom_html_from_url($url, $domain){
-    $module_path = drupal_get_path('module', 'cron_mkmh');
-    require_once($module_path ."/html_dom.php");
-
-    // $dom = _getUrlContent('https://fptshop.com.vn/dien-thoai/samsung-galaxy-s8');
-    // $html = str_get_html($dom);
-    watchdog('my_debug', '<pre>' . var_export($html) . '</pre>');
 }
