@@ -4,21 +4,35 @@ define('AUTHORIZATION', 'Token iDKOG4khkBOkyMHYS7Y3jFS09Yy4WYX5'); // current CO
 
 
 function cron_mkmh_cron() {
-    $data_km =  _cron_mkmh_get_offers_informations();
-    $data_topproduct =  _cron_mkmh_get_top_products();
-    $data_product =  _cron_mkmh_get_offers_informations();
-    $data_coupon = _cron_mkmh_get_coupon();
-    _cron_mkmh_km_save_node($data_km->data);
-    _cron_mkmh_save_coupon($data_coupon);
+    
+    if(isset($_GET['cron_key']) && !empty($_GET['cron_key'])){
+        $data_km =  _cron_mkmh_get_offers_informations();
+        $data_topproduct =  _cron_mkmh_get_top_products();
+        $data_product =  _cron_mkmh_get_offers_informations();
+        $data_coupon = _cron_mkmh_get_coupon();
+        _cron_mkmh_topsp_save_node($data_topproduct->data,1);
+        _cron_mkmh_topsp_save_node($data_product->data,0);
+        _cron_mkmh_km_save_node($data_km->data);
+        _cron_mkmh_save_coupon($data_coupon);
+    }
     // watchdog('my_debug', '<pre>' . var_export($data_km->data) . '</pre>');
     // watchdog('my_debug', '<pre>' . var_export($data_topproduct->data) . '</pre>');
     // watchdog('my_debug', '<pre>' . var_export($data_product->data) . '</pre>');
 }
+// save san pham
+function _cron_mkmh_topsp_save_node($data, $top){
+    if(empty($data))
+        return;
 
+    for ($i=0; $i < count($data); $i++) {
+        watchdog('my_debug', '<pre>' . var_export($data) . '</pre>');
+    }    
+}
 // get and save coupon 
 function _cron_mkmh_save_coupon($data){
     if(empty($data))
         return;
+    
     for ($i=0; $i < count($data); $i++) { 
         $val = $data[$i];
         $query = db_query("SELECT c.id FROM {coupon} AS c WHERE c.title = :title", array(':title' => `$val->title`))->rowCount();
@@ -221,7 +235,7 @@ function _cron_mkmh_get_top_products(){
 
 // get all content of product
 function _cron_mkmh_get_products(){
-    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=50';
+    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=30';
     $opts = [
         "http" => [
             "method" => "GET",
