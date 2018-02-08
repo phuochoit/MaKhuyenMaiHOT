@@ -27,6 +27,7 @@ function thuong_hieu_field_group_info() {
       1 => 'field_start_time',
       2 => 'field_end_time',
       3 => 'field_id_khuyen_mai',
+      4 => 'field_domain_san_pham',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -445,8 +445,12 @@ function san_pham_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
         'weight' => 2,
       ),
       'search_index' => array(
@@ -680,15 +684,16 @@ function san_pham_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'type' => 'text_default',
+        'weight' => 18,
       ),
       'search_index' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -700,7 +705,7 @@ function san_pham_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_teaser',
     'label' => 'Teaser',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -725,9 +730,8 @@ function san_pham_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'node_reference',
         'settings' => array(),
-        'type' => 'node_reference_default',
+        'type' => 'hidden',
         'weight' => 17,
       ),
       'search_index' => array(
@@ -793,7 +797,7 @@ function san_pham_field_default_field_instances() {
     'label' => 'Thời gian update',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -878,6 +882,39 @@ function san_pham_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-categories_khuyen_mai-field_slug'.
+  $field_instances['taxonomy_term-categories_khuyen_mai-field_slug'] = array(
+    'bundle' => 'categories_khuyen_mai',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_slug',
+    'label' => 'slug',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Aff_link');
@@ -900,6 +937,7 @@ function san_pham_field_default_field_instances() {
   t('Trạng thái khuyến mại');
   t('Url khuyến mại');
   t('giá sản phẩm trước khuyến mại');
+  t('slug');
 
   return $field_instances;
 }

@@ -13,6 +13,7 @@ function metatag_san_pham_khuyen_mai_thuong_hieu_metatag_export_default() {
   // Exported Metatag config instance: node:khuyen_mai.
   $config['node:khuyen_mai'] = array(
     'instance' => 'node:khuyen_mai',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => '[node:title] |[site:name]',
@@ -41,12 +42,18 @@ function metatag_san_pham_khuyen_mai_thuong_hieu_metatag_export_default() {
   // Exported Metatag config instance: node:san_pham.
   $config['node:san_pham'] = array(
     'instance' => 'node:san_pham',
-    'config' => array(),
+    'disabled' => FALSE,
+    'config' => array(
+      'description' => array(
+        'value' => '[node:field_teaser]',
+      ),
+    ),
   );
 
   // Exported Metatag config instance: node:thuong_hieu.
   $config['node:thuong_hieu'] = array(
     'instance' => 'node:thuong_hieu',
+    'disabled' => FALSE,
     'config' => array(
       'description' => array(
         'value' => '[node:field_teaser]',
