@@ -22,7 +22,6 @@ features[field_instance][] = node-thuong_hieu-field_id_khuyen_mai
 features[field_instance][] = node-thuong_hieu-field_image
 features[field_instance][] = node-thuong_hieu-field_merchant
 features[field_instance][] = node-thuong_hieu-field_start_time
-features[field_instance][] = node-thuong_hieu-field_tags
 features[field_instance][] = node-thuong_hieu-field_teaser
 features[node][] = thuong_hieu
 features[taxonomy][] = categories_thuong_hieu
