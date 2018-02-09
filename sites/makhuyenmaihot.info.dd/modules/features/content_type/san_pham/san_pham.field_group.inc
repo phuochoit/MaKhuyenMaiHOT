@@ -61,6 +61,7 @@ function san_pham_field_group_info() {
       2 => 'field_merchant',
       3 => 'field_id_khuyen_mai',
       4 => 'field_hot',
+      5 => 'field_get_content',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

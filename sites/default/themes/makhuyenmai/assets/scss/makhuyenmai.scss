@@ -1,0 +1,16 @@
+$baseFontSize: 16;
+$baseColorWhite: #fff;
+$baseBackgroundHeader: #407ed2;
+$baseBackgroundFooter: #191E28;
+
+.full-left-right{
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+}
+
+#header {
+    background:$baseBackgroundHeader;
+    position: relative;
+    padding: 25px 0 15px;
+    margin: 0 auto 2px;
+}

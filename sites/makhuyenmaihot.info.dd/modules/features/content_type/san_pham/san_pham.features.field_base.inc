@@ -170,6 +170,31 @@ function san_pham_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_get_content'.
+  $field_bases['field_get_content'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_get_content',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Yes',
+        0 => 'No',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
   // Exported field_base: 'field_hot'.
   $field_bases['field_hot'] = array(
     'active' => 1,

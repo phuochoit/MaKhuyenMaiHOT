@@ -1,0 +1,11 @@
+.full-left-right {
+  margin-left: -15px !important;
+  margin-right: -15px !important;
+}
+
+#header {
+  background: #407ed2;
+  position: relative;
+  padding: 25px 0 15px;
+  margin: 0 auto 2px;
+}
