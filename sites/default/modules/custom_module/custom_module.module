@@ -1,0 +1,39 @@
+<?php
+
+/**
+ *  @see hook_menu()
+ */
+function custom_module_menu() {
+
+    $items['chuyen-huong/%'] = array(
+        'title' => 'Chuyển Hướng',
+        'page callback' => 'custom_module_page_navigation',
+        'page arguments' => array(1),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access simple page'),
+    );
+
+    return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function custom_module_permission() {
+    return array(
+        'access simple page' => array(
+            'title' => t('Access simple page'),
+            'description' => t('Allow users to access simple page'),
+        ),
+    );
+}
+
+function custom_module_page_navigation($nav){
+    if (empty($nav)) {
+        drupal_access_denied();
+        return;
+    }
+
+    return array('#markup' => '<p>' . t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>');
+}

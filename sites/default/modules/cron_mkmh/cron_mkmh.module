@@ -211,7 +211,7 @@ function _cron_mkmh_km_save_node($data){
                 $node->yoast_seo['und']['seo_status'] = '5';
                 //aff_link
                 $node->field_aff_link['und'][0]['url'] = $val->aff_link;
-                $node->field_teaser['und'][0]['value'] = $val->content;
+                
                 $node->body[LANGUAGE_NONE][0]['value'] = $val->content;
                 $node->field_id_khuyen_mai['und'][0]['value'] = $val->id;
                 // merchant
@@ -251,7 +251,10 @@ function _cron_mkmh_km_save_node($data){
                     $node->field_tags['und'][$i]['tid'] = $tags[$i];
                     }    
                 }
-                    
+                // teaser
+                $teaser = "Chương Trình Khuyến Mãi, $title. Còn rất nhiều chương trình khuyến mãi hấp dẫn tai Mã Khuyến Mãi HOT";
+                $node->field_teaser['und'][0]['value'] = $teaser;
+
                 // save node
                 node_save($node);
             }            
@@ -302,9 +305,10 @@ function _cron_mkmh_remove_node(){
 
 // convert category name
 function _convert_category_name($name){
-    if(empty($name) || $name == 1) return;
+    if(empty($name)) return;
     switch ($name) {
         case 'Mobiles & Tablets':
+        case 1;
         $name = 'dien-thoai-may-tinh-bang';
         return $name;
         case 'Tivi - Audio > Tivi':
@@ -438,7 +442,7 @@ function _cron_mkmh_get_offers_informations(){
 
 // get all content of product
 function _cron_mkmh_get_products(){
-    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=5';
+    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=7';
     $opts = [
         "http" => [
             "method" => "GET",

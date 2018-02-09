@@ -54,14 +54,14 @@ function makhuyenmai_menu_local_tasks(&$variables) {
  * Override or insert variables into the node template.
  */
 function makhuyenmai_preprocess_node(&$variables) {
-    
+
     $variables['submitted'] = t('Published by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
     if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
         $variables['classes_array'][] = 'node-full';
     }
+
     if($variables['node']->type == 'san_pham'){
         if(empty($variables['node']->field_get_content) || $variables['node']->field_get_content['und'][0]['value'] == 1){
-            dpm($variables['node']);
             $url = $variables['node']->field_url_khuyen_mai['und'][0]['url'];
             $merchant = $variables['node']->field_merchant['und'][0]['value'];
             $content = _dom_html_from_url($url,$merchant);
@@ -69,7 +69,9 @@ function makhuyenmai_preprocess_node(&$variables) {
                 $node = node_load($variables['node']->nid);
                 $node->field_get_content['und'][0]['value'] = 0;
                 $node->body['und'][0]['value'] = $content;
+                $node->body['und'][0]['format'] = 'full_html';
                 node_save($node);
+                drupal_goto('node/'.$variables['node']->nid);
             }
         }
     }
@@ -143,7 +145,6 @@ function _dom_html_from_url($url, $domain){
     if(empty($url) || empty($domain)) return;
     switch ($domain) {
         case 'fptshop':
-            $dom = _getUrlContent($url);
             $classname = 'fs-dtctbox clearfix';
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByCLASS($classname,$dom);
@@ -153,13 +154,17 @@ function _dom_html_from_url($url, $domain){
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByCLASS($classname,$dom);
             return $bodycontainer;
-        case 'tiki.vn':
+        case 'tikivn':
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByID('gioi-thieu', $dom);
             return $bodycontainer;
-        case 'www.lotte.vn':
+        case 'lottevn':
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByID('tab_content_product_introduction', $dom);
+            return $bodycontainer;
+        case 'nguyenkimvn':
+            $dom = _getUrlContent($url);
+            $bodycontainer = _getHTMLByID('content_description', $dom);
             return $bodycontainer;
     }
 }
@@ -178,17 +183,37 @@ function _getHTMLByCLASS($class, $html){
         $tmp_doc->appendChild($tmp_doc->importNode($child,true));   
         $innerHTML .= $tmp_doc->saveHTML(); 
     }
-    dpm($innerHTML);
     if(!empty($innerHTML)){
         return _preg_replace_content($innerHTML);
     }
     return FALSE;
 }
 
+function _check_preg_match_image($html){
+    $badWords = array('data-src', 'data-original');
+    $noBadWordsFound = true;
+    foreach ($badWords as $badWord) {
+        if (preg_match("/\b$badWord\b/", $html )) {
+            $noBadWordsFound = false;
+            break;
+    }
+    }
+    if ($noBadWordsFound) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// replace link image
 function _preg_replace_content($html){
     $html = preg_replace('#<noscript(.*?)>(.*?)</noscript>#is', '', $html);
-    // $html = preg_replace('/src="(.+?)"/','',$html); // Removes the old src
-    $html = str_replace('data-original','src',$html); 
+    $html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
+    if(!_check_preg_match_image($html)){
+        $html = str_replace('data-src','data-original',$html); 
+        $html = preg_replace('/src="(.+?)"/','',$html); // Removes the old src
+        $html = str_replace('data-original','src',$html); 
+    }
     return $html;
 }
 // DOMDocument by id
@@ -199,7 +224,23 @@ function _getHTMLByID($id, $html) {
     $dom->encoding = 'UTF-8';
     $node = $dom->getElementById($id);
     if ($node) {
-        return $dom->saveHTML($node);
+        return _preg_replace_content($dom->saveHTML($node));
     }
     return FALSE;
+}
+
+function _endcodeUrl($url){
+    if(empty($url)) return;
+    // end code
+    $new_url = urlencode($url);
+    $new_url = base64_encode($url);
+    return $new_url;
+}
+
+function _decodeUrl($url){
+    if(empty($url)) return;
+    // end code
+    $new_url = urldecode ($url);
+    $new_url = base64_decode($url);
+    return $new_url;
 }
