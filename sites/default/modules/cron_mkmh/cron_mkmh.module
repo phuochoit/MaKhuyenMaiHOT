@@ -438,7 +438,7 @@ function _cron_mkmh_get_offers_informations(){
 
 // get all content of product
 function _cron_mkmh_get_products(){
-    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=20';
+    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=5';
     $opts = [
         "http" => [
             "method" => "GET",
