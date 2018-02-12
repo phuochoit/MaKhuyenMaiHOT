@@ -20,11 +20,7 @@ function makhuyenmai_breadcrumb($variables) {
     $breadcrumb[] = l('Home','<front>');
 
     if (!empty($breadcrumb)) {
-        // Provide a navigational heading to give context for breadcrumb links to
-        // screen-reader users. Make the heading invisible with .element-invisible.
         $heading = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-        // Uncomment to add current page to breadcrumb
-        // $breadcrumb[] = drupal_get_title();
         return '<nav class="breadcrumb">' . $heading . implode(' » ', $breadcrumb) . '</nav>';
     }
 }
@@ -33,21 +29,21 @@ function makhuyenmai_breadcrumb($variables) {
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 function makhuyenmai_menu_local_tasks(&$variables) {
-  $output = '';
+    $output = '';
 
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
-  }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
-  }
-  return $output;
+    if (!empty($variables['primary'])) {
+        $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+        $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs tabs primary clearfix">';
+        $variables['primary']['#suffix'] = '</ul>';
+        $output .= drupal_render($variables['primary']);
+    }
+    if (!empty($variables['secondary'])) {
+        $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+        $variables['secondary']['#prefix'] .= '<ul class="nav nav-tabs tabs secondary clearfix">';
+        $variables['secondary']['#suffix'] = '</ul>';
+        $output .= drupal_render($variables['secondary']);
+    }
+    return $output;
 }
 
 /**
@@ -126,6 +122,17 @@ function makhuyenmai_process_block(&$variables, $hook) {
  */
 function makhuyenmai_preprocess_search_block_form(&$vars) {
   $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
+}
+
+/**
+ * Override or insert variables into the node template.
+ */
+function makhuyenmai_preprocess_page(&$variables) {
+    if(drupal_is_front_page()) {
+        unset($variables['page']['content']['system_main']);
+        drupal_set_title('');
+    }
+    
 }
 
 function _getUrlContent($url){

@@ -1,0 +1,11 @@
+name = Image Style
+description = Custom Image Style
+core = 7.x
+package = HITAU Core
+version = 7.x-1.0
+dependencies[] = image
+features[features_api][] = api:2
+features[image][] = featured_article
+features[image][] = latest_article
+features[image][] = related_news
+features[image][] = standard_article

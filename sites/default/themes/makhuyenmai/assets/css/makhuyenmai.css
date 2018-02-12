@@ -1,11 +1,28 @@
-.full-left-right {
-  margin-left: -15px !important;
-  margin-right: -15px !important;
-}
-
+/* header css */
 #header {
   background: #407ed2;
   position: relative;
   padding: 25px 0 15px;
   margin: 0 auto 2px;
+}
+
+/* end header css */
+/* block-ma-giam-gia-noi-bat */
+.block-ma-giam-gia-noi-bat .view-content .item-list-content {
+  padding-left: 0;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row {
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row-first {
+  width: 100%;
+  display: block;
+}
+
+/* end block-ma-giam-gia-noi-bat */
+.full-left-right {
+  margin-left: -15px !important;
+  margin-right: -15px !important;
 }

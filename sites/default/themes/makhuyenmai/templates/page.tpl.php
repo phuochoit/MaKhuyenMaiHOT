@@ -67,7 +67,9 @@
 	
 	<?php if ($page['ads_banner']): ?>
 		<!-- ads_banner -->
-		<div id="ads_banner"><?php print render($page['ads_banner']); ?></div>
+		<section id="advertise-banner" class="block-mkmh-banner-advertise">
+			<?php print render($page['ads_banner']); ?>
+		</section>
 		<!-- end ads_banner -->
 	<?php endif; ?>  
 	
@@ -80,7 +82,9 @@
 						<?php print $breadcrumb; ?>
 					</div>
 				<?php endif;?>
-				<?php print $messages; ?>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<?php print $messages; ?>
+				</div>
 				<a id="main-content"></a>
 				<?php if ($page['highlighted']): ?>
 					<div id="highlighted">
@@ -105,9 +109,9 @@
 	
 	<?php if ($page['ads_footer']): ?>
 		<!-- ads_footer -->
-		<div id="ads_footer" role="footer" class="block-hitnau-footer-ads">
+		<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
 			<?php print render($page['ads_footer']); ?>
-		</div> 
+		</section> 
 		<!-- end ads_footer -->
 	<?php endif; ?>
 	
