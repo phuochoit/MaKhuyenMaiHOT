@@ -25,6 +25,7 @@ function cron_mkmh_cron() {
             _cron_mkmh_km_save_node($data_km->data);
         }
         _cron_mkmh_remove_node();
+        _cron_mkmh_set_unpublished();
         
     }
 
@@ -290,6 +291,20 @@ function _cron_mkmh_save_coupon($data){
     }
     
 }
+
+// set unpublished node khuyen mai
+
+function _cron_mkmh_set_unpublished(){
+    $end_time = date('Y-m-d',strtotime('-1 day', time()));
+    $query = db_query("SELECT node.nid FROM node AS {node} INNER JOIN {field_data_field_end_time} AS et ON et.entity_id = node.nid WHERE node.type = :type AND node.status = :status AND et.field_end_time_value < :date_end", array(':type' => 'khuyen_mai',':status' => 1,':date_end' => $end_time))->fetchAll();
+    if(!empty($query)){
+        $nid= [];
+        foreach ($query as $key => $val) {
+            db_update('node')->fields(array('status' => 0))->condition('nid', $val->nid, '=')->execute();
+        }
+    }
+}
+
 
 // remove node and file
 function _cron_mkmh_remove_node(){
