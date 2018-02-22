@@ -300,7 +300,9 @@ function _cron_mkmh_set_unpublished(){
     if(!empty($query)){
         $nid= [];
         foreach ($query as $key => $val) {
-            db_update('node')->fields(array('status' => 0))->condition('nid', $val->nid, '=')->execute();
+            $node = node_load($val->nid);
+            $node->status = 0;
+            node_save($node);
         }
     }
 }
@@ -457,7 +459,7 @@ function _cron_mkmh_get_offers_informations(){
 
 // get all content of product
 function _cron_mkmh_get_products(){
-    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=7';
+    $url = 'https://api.accesstrade.vn/v1/datafeeds?limit=50';
     $opts = [
         "http" => [
             "method" => "GET",

@@ -10,9 +10,37 @@
                     width: 50%;
                     float: left;
                     margin-bottom: 20px;
+                    display: block;
                     &-first{
                         width: 100%;
-                        display: block;
+                        .views-field{
+                            &-field-image{
+                                width: 45%;
+                                float: left;
+                            }
+                            &:not(.views-field-field-image){
+                                margin-left: calc(100% - 45%);
+                            }
+                            &-title{
+                                font-size: 36px;
+                                line-height: 45px;
+                            }
+                        }
+                    }
+                    .views-field{
+                        &-field-image{
+                            img{
+                                margin: 0 auto;
+                            }
+                        }
+                        &-title{
+                            a{
+                                font-size: 28px;
+                                color: $baseTextColor;
+                                line-height: 34px;
+                                font-weight: 600;
+                            }
+                        }
                     }
                 }
             }

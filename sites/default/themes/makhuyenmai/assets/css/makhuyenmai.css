@@ -15,10 +15,30 @@
   width: 50%;
   float: left;
   margin-bottom: 20px;
+  display: block;
 }
 .block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row-first {
   width: 100%;
-  display: block;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row-first .views-field-field-image {
+  width: 45%;
+  float: left;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row-first .views-field:not(.views-field-field-image) {
+  margin-left: calc(100% - 45%);
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row-first .views-field-title {
+  font-size: 36px;
+  line-height: 45px;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row .views-field-field-image img {
+  margin: 0 auto;
+}
+.block-ma-giam-gia-noi-bat .view-content .item-list-content .views-row .views-field-title a {
+  font-size: 28px;
+  color: #353941;
+  line-height: 34px;
+  font-weight: 600;
 }
 
 /* end block-ma-giam-gia-noi-bat */

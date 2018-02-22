@@ -76,7 +76,7 @@
 	<!-- main -->
 	<section id="main" role="main" class="clearfix">
 		<div class="container">	
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="row">
 				<?php if($messages):?>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<?php print $messages; ?>
