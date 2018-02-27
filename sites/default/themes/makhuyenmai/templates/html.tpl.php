@@ -9,7 +9,7 @@
         <!-- Set the viewport width to device width for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title><?php print $head_title; ?></title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900i" rel="stylesheet">
         <?php print $styles; ?>
         <?php print $scripts; ?>
         

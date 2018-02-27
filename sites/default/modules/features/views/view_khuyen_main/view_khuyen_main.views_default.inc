@@ -62,7 +62,7 @@ function view_khuyen_main_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'large',
+    'image_style' => '',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -72,6 +72,7 @@ function view_khuyen_main_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = '0';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Teaser */
   $handler->display->display_options['fields']['field_teaser']['id'] = 'field_teaser';
@@ -120,6 +121,122 @@ function view_khuyen_main_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['class'] = 'item-list-content';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Aff_link */
+  $handler->display->display_options['fields']['field_aff_link']['id'] = 'field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['table'] = 'field_data_field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['field'] = 'field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['label'] = '';
+  $handler->display->display_options['fields']['field_aff_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_aff_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aff_link']['click_sort_column'] = 'url';
+  /* Field: Content: Featured */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['text'] = '<span class="marker marker-last-promotion">Khuyến Mãi Mới</span>
+<a href="[path]" title="[field_image-title]">[field_image] </a>';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Teaser */
+  $handler->display->display_options['fields']['field_teaser']['id'] = 'field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['table'] = 'field_data_field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['field'] = 'field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['label'] = '';
+  $handler->display->display_options['fields']['field_teaser']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_teaser']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_teaser']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_teaser']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_teaser']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_teaser']['type'] = 'text_plain';
+
+  /* Display: Block Khuyển Mãi - Home page */
+  $handler = $view->new_display('block', 'Block Khuyển Mãi - Home page', 'block_khuyen_mai_home');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Khuyến Mãi Home ';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
+  $handler->display->display_options['pager']['options']['offset'] = '3';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Xem Thêm';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Aff_link */
+  $handler->display->display_options['fields']['field_aff_link']['id'] = 'field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['table'] = 'field_data_field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['field'] = 'field_aff_link';
+  $handler->display->display_options['fields']['field_aff_link']['label'] = '';
+  $handler->display->display_options['fields']['field_aff_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_aff_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aff_link']['click_sort_column'] = 'url';
+  /* Field: Content: Featured */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'standard_article',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Teaser */
+  $handler->display->display_options['fields']['field_teaser']['id'] = 'field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['table'] = 'field_data_field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['field'] = 'field_teaser';
+  $handler->display->display_options['fields']['field_teaser']['label'] = '';
+  $handler->display->display_options['fields']['field_teaser']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_teaser']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_teaser']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_teaser']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_teaser']['type'] = 'text_plain';
   $export['khuyen_mai'] = $view;
 
   return $export;

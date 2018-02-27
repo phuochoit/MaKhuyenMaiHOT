@@ -111,8 +111,8 @@
 		</section> 
 		<!-- end ads_footer -->
 	<?php endif; ?>
-	
-	<footer id="footer" role="contentinfo" class="clearfix">
+
+	<footer id="footer" role="contentinfo" class="clearfix full-left-right">
 		<div class="container">	
 			<?php print render($page['footer']) ?>
 		</div>

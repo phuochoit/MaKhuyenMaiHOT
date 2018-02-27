@@ -1,39 +1,44 @@
 @import "../common.scss";
 
 /* block-ma-giam-gia-noi-bat */
-.block-ma-giam-gia-noi-bat{
+#featured-ma-giam-gia-noi-bat{
     .view-content{
         .item-list{
             &-content{
                 padding-left: 0;
                 .views-row{
-                    width: 50%;
-                    float: left;
                     margin-bottom: 20px;
                     display: block;
-                    &-first{
-                        width: 100%;
-                        .views-field{
-                            &-field-image{
-                                width: 45%;
-                                float: left;
-                            }
-                            &:not(.views-field-field-image){
-                                margin-left: calc(100% - 45%);
-                            }
-                            &-title{
-                                font-size: 36px;
-                                line-height: 45px;
-                            }
+                    .wrapper-views-row{
+                        &-first{
+                            position: relative;
+                        }
+                        &-not-first{
+                            background-color: $baseColorWhite;
+                            padding-bottom: 30px;
                         }
                     }
                     .views-field{
                         &-field-image{
+                            .marker{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                            }
+                            .field-content{
+                                position: relative;
+                                overflow: hidden;
+                                max-height: 440px;
+                                border-top: solid 3px $baseBackgroundHeader;
+                            }
                             img{
                                 margin: 0 auto;
+                                width: 100%;
                             }
                         }
                         &-title{
+                            margin-top: 15px;
+                            margin-bottom: 20px;
                             a{
                                 font-size: 28px;
                                 color: $baseTextColor;
@@ -41,7 +46,53 @@
                                 font-weight: 600;
                             }
                         }
+                        &-field-teaser{
+                            line-height: 25px;
+                        }
+                        &-title,&-field-teaser {
+                            padding-left: 15px;
+                            padding-right: 15px;
+                        }
                     }
+                    &-first{
+                        width: 100%;
+                        margin-bottom: 30px;
+                        &:before{
+                            @include background-before($baseColorWhite);
+                        }
+                        .views-field{
+                            &-field-image{
+                                width: 45%;
+                                float: left;
+                                height: 300px;
+                                position: relative;
+                                .marker {
+                                    display: none;
+                                }
+                                .field-content{
+                                    position: relative;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    overflow: inherit;
+                                    max-height:inherit;
+                                    border-top: none;
+                                }
+                                img{
+                                    width: auto;
+                                }
+                            }
+                            &-title {
+                                a{
+                                    font-size: 36px;
+                                    line-height: 45px;
+                                }
+                            }
+                            &:not(.views-field-field-image){
+                                margin-left: calc(100% - 45%);
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
