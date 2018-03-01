@@ -1,7 +1,8 @@
 (function ($) { 
     $(document).ready(function () {
-        let result = $("#featured-ma-giam-gia-noi-bat .views-row:not(.views-row-first) .views-field-field-image").height();
-        let resultHieghtKhuyenMai = $("#block-home-khuyen-mai .views-row").height();
+        let result = $("#block-promotion-highlight .views-row:not(.views-row-first) .views-field-field-image").height();
+        
+        let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
 
         if (parseInt(result) > 0 || parseInt(resultHieghtKhuyenMai) > 0) {
             setHeightBlockHighlight(result);
@@ -13,7 +14,7 @@
     });
 
     $(document).ajaxComplete(function (event, xhr, settings) {  
-        let resultHieghtKhuyenMai = $("#block-home-khuyen-mai .views-row").height();
+        let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
         if (parseInt(resultHieghtKhuyenMai) > 0) {
             setHeightBlockKhuyenMai(resultHieghtKhuyenMai);
         } else {
@@ -25,8 +26,8 @@
             $('#subscribe_popup').center();
         }
         // get height menu header
-        let result = $("#featured-ma-giam-gia-noi-bat .views-row:not(.views-row-first) .views-field-field-image").height();
-        let resultHieghtKhuyenMai = $("#block-home-khuyen-mai .views-row").height();
+        let result = $("#block-promotion-highlight .views-row:not(.views-row-first) .views-field-field-image").height();
+        let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
         
         if (parseInt(result) > 0 || parseInt(resultHieghtKhuyenMai) > 0) {
             setHeightBlockHighlight(result);
@@ -39,10 +40,10 @@
     });
 
     function setHeightBlockHighlight(height){
-        $('#featured-ma-giam-gia-noi-bat .views-row:not(.views-row-first) .views-field-field-image').height(height); 
+        $('#block-promotion-highlight .views-row:not(.views-row-first) .views-field-field-image').height(height); 
     }
 
     function setHeightBlockKhuyenMai(height) {
-        $('#block-home-khuyen-mai .views-row .wrapper-view-field').height(height);
+        $('#block-home-promotion .views-row .wrapper-view-field').height(height);
     }
 })(jQuery);
