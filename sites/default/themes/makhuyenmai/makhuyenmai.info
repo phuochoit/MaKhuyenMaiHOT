@@ -11,8 +11,8 @@ stylesheets[all][] = assets/css/makhuyenmai.css
 stylesheets[all][] = assets/css/font-awesome.min.css
 
 ;-----------------------------------------------------
+scripts[] = assets/js/lodash.js
 scripts[] = assets/js/makhuyenmai.js
-
 ;-----------------------------------------------------
 
 regions[header]         = Header
