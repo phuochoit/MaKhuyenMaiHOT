@@ -173,6 +173,10 @@ function _dom_html_from_url($url, $domain){
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByID('content_description', $dom);
             return $bodycontainer;
+        case 'adayroi':
+            $dom = _getUrlContent($url);
+            $bodycontainer = _getHTMLByCLASS('product-detail__description', $dom);
+            return $bodycontainer;
     }
 }
 
