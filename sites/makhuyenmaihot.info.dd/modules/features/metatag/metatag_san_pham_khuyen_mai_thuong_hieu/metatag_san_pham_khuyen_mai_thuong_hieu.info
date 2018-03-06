@@ -1,9 +1,0 @@
-name = Metatag Sản phẩm, khuyến mãi, thương hiệu
-core = 7.x
-package = MKMH Metatag
-dependencies[] = metatag
-features[features_api][] = api:2
-features[metatag][] = node:khuyen_mai
-features[metatag][] = node:san_pham
-features[metatag][] = node:thuong_hieu
-project path = sites\makhuyenmaihot.info.dd\modules\features\metatag

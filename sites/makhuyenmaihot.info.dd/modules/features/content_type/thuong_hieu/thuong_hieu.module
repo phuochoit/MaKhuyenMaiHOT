@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Thương Hiệu feature.
- */
-
-include_once 'thuong_hieu.features.inc';
