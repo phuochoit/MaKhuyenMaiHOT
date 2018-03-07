@@ -7,11 +7,11 @@ engine = phptemplate
 
 ;-----------------------------------------------------
 
+stylesheets[all][] = assets/css/bootstrap.min.css
 stylesheets[all][] = assets/css/makhuyenmai.css
-stylesheets[all][] = assets/css/font-awesome.min.css
 
 ;-----------------------------------------------------
-scripts[] = assets/js/lodash.js
+scripts[] = assets/js/bootstrap.min.js
 scripts[] = assets/js/makhuyenmai.js
 ;-----------------------------------------------------
 
