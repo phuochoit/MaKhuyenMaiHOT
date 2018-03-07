@@ -3,7 +3,7 @@ description = Mã giảm giá, Chương trinh khuyến mãi HOT, kinh nghiệm m
 core = 7.x
 engine = phptemplate
 
-base theme = bootstrap
+; base theme = bootstrap
 
 ;-----------------------------------------------------
 
