@@ -16,13 +16,13 @@
     <?php print $list_type_prefix; ?>
         <?php foreach ($rows as $id => $row): ?>
             <?php if($id == 0):?>
-                <li class="<?php print $classes_array[$id]; ?> col-sm-12 col-xs-12">
+                <li class="<?php print $classes_array[$id]; ?> col-12">
                     <div class="wrapper-views-row-first">
                         <?php print $row; ?>
                     </div>
                 </li>
             <?php else:?>
-                <li class="<?php print $classes_array[$id]; ?> col-sm-6 col-xs-12">
+                <li class="<?php print $classes_array[$id]; ?> col-md-6 col-12">
                     <div class="wrapper-views-row-not-first">
                         <?php print $row; ?>
                     </div>

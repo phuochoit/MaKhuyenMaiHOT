@@ -9,6 +9,13 @@
                 .views-row{
                     margin-bottom: 20px;
                     display: block;
+                    margin-left: 0;
+                    &-even{
+                        padding-right: 15px;
+                    }
+                    &-odd {
+                        padding-left: 15px;
+                    }
                     .wrapper-views-row{
                         &-first{
                             position: relative;
@@ -20,20 +27,26 @@
                     }
                     .views-field{
                         &-field-image{
+                            position: relative;
+                            overflow: hidden;
+                            max-height: 440px;
                             .marker{
                                 position: absolute;
                                 top: 0;
                                 right: 0;
                             }
                             .field-content{
-                                position: relative;
-                                overflow: hidden;
-                                max-height: 440px;
                                 border-top: solid 3px $baseBackgroundHeader;
+                                // a{
+                                //     position: absolute;
+                                //     top: 50%;
+                                //     transform: translateY(-50%);
+                                // }
+                               
                             }
                             img{
-                                margin: 0 auto;
                                 width: 100%;
+                                height: auto;
                             }
                         }
                         &-title{
@@ -57,42 +70,36 @@
                     &-first{
                         width: 100%;
                         margin-bottom: 30px;
+                        padding: 15px 0;
                         &:before{
                             @include background-before($baseColorWhite);
                         }
                         .views-field{
+                           &:not(.views-field-field-image){
+                                margin-left: calc(100% - 45%);
+                            } 
                             &-field-image{
                                 width: 45%;
                                 float: left;
-                                height: 300px;
-                                position: relative;
                                 .marker {
                                     display: none;
                                 }
                                 .field-content{
-                                    position: relative;
-                                    top: 50%;
-                                    transform: translateY(-50%);
-                                    overflow: inherit;
-                                    max-height:inherit;
                                     border-top: none;
                                 }
                                 img{
-                                    width: auto;
+                                    width: 100%;
+                                    height: auto;
                                 }
                             }
-                            &-title {
+                            .article-title {
                                 a{
                                     font-size: 36px;
                                     line-height: 45px;
                                 }
                             }
-                            &:not(.views-field-field-image){
-                                margin-left: calc(100% - 45%);
-                            }
                         }
                     }
-                    
                 }
             }
         }

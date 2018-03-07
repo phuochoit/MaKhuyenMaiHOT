@@ -3,10 +3,10 @@
         let PromotionHighlight = getHeightPromotionHighlight();
         let HeightTopproduct = getHeightTopproduct();
         let HeightPromotionHighlightArticle = getHeightPromotionHighlightArticle();
-        let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
+        let resultHeightPromotioin = getHeightPromotion();
 
         setHeightBlockHighlight(PromotionHighlight);
-        setHeightBlockKhuyenMai(resultHieghtKhuyenMai);
+        setHeightPromotion(resultHeightPromotioin);
         setHeightTopproduct(HeightTopproduct);
         setHeightBlockHighlightArticle(HeightPromotionHighlightArticle);
     });
@@ -60,18 +60,29 @@
         return max_height;
     }
 
+    function getHeightPromotion(){
+        let max_height = 0;
+        $("#block-home-promotion .views-row").each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+
+        return max_height;
+    }
+
     function setHeightTopproduct(height) {
         $('#block-top-product .view-content .views-row .wrapper-view-field').height(height);
     }
     function setHeightBlockHighlightArticle(height){
-        $('#block-promotion-highlight .wrapper-views-row-not-first .field-article-item').height(height); 
+        $('#block-promotion-highlight .wrapper-views-row-not-first .field-article-item').height(height);
+       let image_height =  getHeightPromotionHighlight(); 
+        $('#block-promotion-highlight .wrapper-views-row-not-first .views-field-field-image').height(image_height - height - 30);
     }
 
     function setHeightBlockHighlight(height) {
         $('#block-promotion-highlight .wrapper-views-row-not-first').height(height);
     }
 
-    function setHeightBlockKhuyenMai(height) {
-        $('#block-home-promotion .views-row .wrapper-view-field').height(height);
+    function setHeightPromotion(height) {
+        $('#block-home-promotion .views-row .wrapper-view-field').height(height); 
     }
 })(jQuery);

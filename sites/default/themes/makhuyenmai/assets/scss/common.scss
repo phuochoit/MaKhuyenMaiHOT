@@ -53,7 +53,7 @@ a{
             text-transform: uppercase;
             color: #fff;
             font-size: 13px;
-            padding: 8px 0;
+            padding: 8px 20px;
             text-align: center;
             width: 195px;
             border: solid 2px $baseBackgroundHeader;
@@ -61,5 +61,25 @@ a{
             background: $baseBackgroundHeader !important;
             font-weight: 500;
         }
+    }
+}
+
+.field-article-item{
+    padding-top: 30px;
+    .article-content{
+        .article-title{
+            a{
+                font-size: 28px;
+                color: $baseTextColor;
+                line-height: 34px;
+                font-weight: 600;
+            }
+        }
+        .article-teaser{
+            line-height: 25px;
+        }
+    }
+    .article-footer{
+        padding-top: 30px;
     }
 }

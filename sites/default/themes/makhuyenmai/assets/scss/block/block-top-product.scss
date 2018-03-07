@@ -5,9 +5,16 @@
     .wrapper-view-field{
         background-color: $baseColorWhite;
         padding-bottom: 20px;
+        position: relative;
     }
     .views-row{
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        &-1, &-4{
+            padding-left: 0;
+        }
+        &-3,&-6{
+            padding-right: 0px;
+        }
         .views-field{
             &:not(.views-field-field-image){
                 padding-left: 15px;
@@ -24,6 +31,10 @@
                     position: absolute;
                     top: 0;
                     right: 0;
+                }
+                img{
+                    height: auto;
+                    width: 100%;
                 }
             } 
             &-title{
