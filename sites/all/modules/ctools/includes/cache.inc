@@ -51,6 +51,7 @@
  * @param string $mechanism
  *   A string containing the plugin name, and an optional data element to
  *   send to the plugin separated by two colons.
+ *
  * @param string $key
  *   The key used to identify the cache.
  *
@@ -68,6 +69,7 @@ function ctools_cache_get($mechanism, $key) {
  * @param string $mechanism
  *   A string containing the plugin name, and an optional data element to
  *   send to the plugin separated by two colons.
+ *
  * @param string $key
  *   The key used to identify the cache.
  *
@@ -85,6 +87,7 @@ function ctools_cache_set($mechanism, $key, $object) {
  * @param string $mechanism
  *   A string containing the plugin name, and an optional data element to
  *   send to the plugin separated by two colons.
+ *
  * @param string $key
  *   The key used to identify the cache.
  */
@@ -104,10 +107,13 @@ function ctools_cache_clear($mechanism, $key) {
  * @param string $mechanism
  *   A string containing the plugin name, and an optional data element to
  *   send to the plugin separated by two colons.
+ *
  * @param string $key
  *   The key used to identify the cache.
+ *
  * @param string $op
  *   The operation to call, such as 'break' or 'finalize'.
+ *
  * @param mixed $object
  *   The cache data being operated on, in case it is necessary. This is
  *   optional so no references should be used.

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Provide a global context to allow for token support.
+ *  Provide a global context to allow for token support.
  */
 
 $plugin = array(
@@ -38,7 +38,7 @@ function ctools_context_create_token($empty, $data = NULL, $conf = FALSE) {
 /**
  * Implementation of hook_ctools_context_convert_list().
  *
- * @return array|null
+ * @return array|NULL
  *   An array of token type information, keyed by 'type:id', or NULL if
  *   none found.
  */
@@ -68,10 +68,10 @@ function ctools_context_token_convert_list() {
  * @param string $token
  *   The name of the token.
  *
- * @return array|null
+ * @return array|NULL
  *   The token value, or NULL if not found.
  *
- * @see ctools_context_convert_context()
+ * @see ctools_context_convert_context().
  */
 function ctools_context_token_convert($context, $token) {
   $tokens = token_info();

@@ -135,7 +135,6 @@ function makhuyenmai_preprocess_page(&$variables) {
     
 }
 
-
 function _getUrlContent($url){
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);

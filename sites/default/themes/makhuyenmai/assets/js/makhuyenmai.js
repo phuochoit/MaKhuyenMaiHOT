@@ -1,11 +1,11 @@
 (function ($) { 
     $(document).ready(function () {
-        // let PromotionHighlight = getHeightPromotionHighlight();
+        let PromotionHighlight = getHeightPromotionHighlight();
         let HeightTopproduct = getHeightTopproduct();
         let HeightPromotionHighlightArticle = getHeightPromotionHighlightArticle();
         let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
 
-        // setHeightBlockHighlight(PromotionHighlight);
+        setHeightBlockHighlight(PromotionHighlight);
         setHeightBlockKhuyenMai(resultHieghtKhuyenMai);
         setHeightTopproduct(HeightTopproduct);
         setHeightBlockHighlightArticle(HeightPromotionHighlightArticle);

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Tests the head links for page manager pages.
@@ -9,7 +8,6 @@
  * Test the head links.
  */
 class HeadLinksTestCase extends DrupalWebTestCase {
-
   /**
    * {@inheritdoc}
    */
@@ -73,5 +71,4 @@ class HeadLinksTestCase extends DrupalWebTestCase {
     $canonical = $this->xpath('//head//link[@rel="canonical"]');
     $this->assertEqual(url($url), (string) $canonical[0]['href'], 'canonical url found');
   }
-
 }

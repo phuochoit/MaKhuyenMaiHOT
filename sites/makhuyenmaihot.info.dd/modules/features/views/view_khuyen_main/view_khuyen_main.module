@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the View Khuyến Mãi feature.
- */
-
-include_once 'view_khuyen_main.features.inc';
