@@ -77,6 +77,12 @@ a:hover {
 .field-article-item .article-footer {
   padding-top: 30px;
 }
+.field-article-item .article-footer .left a {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  color: #353941;
+}
 
 /* header css */
 #header {
