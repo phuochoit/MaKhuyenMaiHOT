@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the View  Mã Giảm Giá feature.
+ */
+
+include_once 'view_ma_giam_gia.features.inc';

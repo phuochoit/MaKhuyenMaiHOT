@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Main Menu feature.
+ */
+
+include_once 'main_menu.features.inc';

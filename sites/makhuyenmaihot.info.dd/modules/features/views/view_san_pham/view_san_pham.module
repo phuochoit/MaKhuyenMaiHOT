@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the View Sản Phẩm feature.
+ */
+
+include_once 'view_san_pham.features.inc';
