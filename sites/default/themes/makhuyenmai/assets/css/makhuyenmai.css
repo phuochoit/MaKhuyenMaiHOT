@@ -153,8 +153,7 @@ a:hover {
 #block-promotion-highlight .view-content .item-list-content .views-row-first .views-field-field-image .field-content {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   overflow: inherit;
   max-height: inherit;
   border-top: none;
