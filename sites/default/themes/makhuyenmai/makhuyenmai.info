@@ -8,10 +8,13 @@ engine = phptemplate
 ;-----------------------------------------------------
 
 stylesheets[all][] = assets/css/bootstrap.min.css
+stylesheets[all][] = assets/css/owl.carousel.min.css
+stylesheets[all][] = assets/css/owl.theme.default.min.css
 stylesheets[all][] = assets/css/makhuyenmai.css
 
 ;-----------------------------------------------------
 scripts[] = assets/js/bootstrap.min.js
+scripts[] = assets/js/owl.carousel.min.js
 scripts[] = assets/js/makhuyenmai.js
 ;-----------------------------------------------------
 

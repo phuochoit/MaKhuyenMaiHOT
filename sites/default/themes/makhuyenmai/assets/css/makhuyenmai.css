@@ -128,6 +128,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   max-height: 440px;
+  text-align: center;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image .marker {
   position: absolute;
@@ -138,7 +139,7 @@ a:hover {
   border-top: solid 3px #407ed2;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-title {
@@ -187,7 +188,7 @@ a:hover {
   border-top: none;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row-first .views-field-field-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row-first .views-field .article-title a {
@@ -224,7 +225,7 @@ a:hover {
   height: 200px;
 }
 #block-home-promotion .views-row .views-field-field-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 #block-home-promotion .views-row .views-field-title {
@@ -305,6 +306,8 @@ a:hover {
 }
 
 /* end block-top-product */
+/* block-top-articles-trademark */
+/* end block-top-articles-trademark */
 /* region-ads-footer */
 #advertise-footer .region-ads-footer {
   position: relative;

@@ -9,12 +9,24 @@
         setHeightPromotion(resultHeightPromotioin);
         setHeightTopproduct(HeightTopproduct);
         setHeightBlockHighlightArticle(HeightPromotionHighlightArticle);
+
+        $('#view-content-top-articles-trademark').owlCarousel({
+            loop: true,
+            margin: 10,
+            items:4,
+            responsiveClass: true,
+            autoplay: true,
+            nav:true,
+            dots: false
+        });
+
     });
 
     $(document).ajaxComplete(function (event, xhr, settings) {  
-        let resultHieghtKhuyenMai = $("#block-home-promotion .views-row").height();
         let HeightTopproduct = getHeightTopproduct();
         setHeightTopproduct(HeightTopproduct);
+        let resultHeightPromotioin = getHeightPromotion();
+        setHeightPromotion(resultHeightPromotioin);
     });
     // $(window).resize(function () {
     //     if ($('#subscribe_popup').hasClass('popup-overlay')) {

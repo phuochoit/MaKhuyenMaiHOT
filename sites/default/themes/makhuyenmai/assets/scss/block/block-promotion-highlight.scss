@@ -30,6 +30,7 @@
                             position: relative;
                             overflow: hidden;
                             max-height: 440px;
+                            text-align: center;
                             .marker{
                                 position: absolute;
                                 top: 0;
@@ -45,7 +46,7 @@
                                
                             }
                             img{
-                                width: 100%;
+                                max-width: 100%;
                                 height: auto;
                             }
                         }
@@ -88,7 +89,7 @@
                                     border-top: none;
                                 }
                                 img{
-                                    width: 100%;
+                                    max-width: 100%;
                                     height: auto;
                                 }
                             }

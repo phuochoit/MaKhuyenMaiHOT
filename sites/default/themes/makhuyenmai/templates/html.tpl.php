@@ -11,14 +11,21 @@
         <title><?php print $head_title; ?></title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900i" rel="stylesheet">
         <?php print $styles; ?>
-        <?php print $scripts; ?>
         
         <!-- IE Fix for HTML5 Tags -->
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <script type="text/javascript">
+    </head>
+
+    <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+
+    <?php print $page_top; ?>
+    <?php print $page; ?>
+    <?php print $page_bottom; ?>
+    
+    <script type="text/javascript">
             var __atsmarttag = {
                 pub_id: '4731474359141607542'
             };
@@ -30,14 +37,7 @@
                 (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(script);
             })();
         </script>
-
-    </head>
-
-    <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-
-    <?php print $page_top; ?>
-    <?php print $page; ?>
-    <?php print $page_bottom; ?>
+    <?php print $scripts; ?>
 
     </body>
 
