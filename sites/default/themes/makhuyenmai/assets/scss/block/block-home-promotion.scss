@@ -14,14 +14,19 @@
         .wrapper-view-field{
             position: relative;
             background-color: $baseBackground2;
-            padding-bottom: 20px;
+            // padding-bottom: 20px;
         }
         .views-field{
             &-field-image{
-                height: 200px;
+                border-top: 2px solid $baseBackgroundHeader;
                 img{
                     max-width: 100%;
                     height: auto;
+                }
+                .marker {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
                 }
             }
             &-title{
@@ -46,6 +51,13 @@
                     }
                 }
             }
+        }
+        .article-content{
+            margin-bottom: 10px;
+        }
+        .article-footer{
+            border-top-color: #fff;
+            padding-bottom: 15px;
         }
     }
 }

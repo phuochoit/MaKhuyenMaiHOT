@@ -77,31 +77,34 @@
 	<section id="main" role="main" class="clearfix">
 		<div class="container">	
 			<div class="row">
-				<?php if ($breadcrumb):?>
-					<div id="breadcrumbs" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<?php print $breadcrumb; ?>
-					</div>
-				<?php endif;?>
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				
+				<div class="col-12 col-md-8">
 					<?php print $messages; ?>
+					<a id="main-content"></a>
+					<?php if ($page['highlighted']): ?>
+						<div id="highlighted">
+							<?php print render($page['highlighted']); ?>
+						</div>
+					<?php endif; ?>
+					<?php print render($title_prefix); ?>
+						<?php if ($title): ?>
+							<h1 class="title" id="page-title"><?php print $title; ?></h1>
+						<?php endif; ?>
+					<?php print render($title_suffix); ?>
+					<?php if (!empty($tabs['#primary'])): ?>
+						<div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div>
+					<?php endif; ?>
+					<?php print render($page['help']); ?>
+					<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+					<?php print render($page['content']); ?>
 				</div>
-				<a id="main-content"></a>
-				<?php if ($page['highlighted']): ?>
-					<div id="highlighted">
-						<?php print render($page['highlighted']); ?>
+				<?php if ($page['sidebar_second']): ?>
+					<div class="col-12 col-md-4">
+						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
+							<?php print render($page['sidebar_second']); ?>
+						</aside>  
 					</div>
 				<?php endif; ?>
-				<?php print render($title_prefix); ?>
-					<?php if ($title): ?>
-						<h1 class="title" id="page-title"><?php print $title; ?></h1>
-					<?php endif; ?>
-				<?php print render($title_suffix); ?>
-				<?php if (!empty($tabs['#primary'])): ?>
-					<div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div>
-				<?php endif; ?>
-				<?php print render($page['help']); ?>
-				<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-				<?php print render($page['content']); ?>
 			</div>
 		</div>
 	</section> 

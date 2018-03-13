@@ -78,11 +78,11 @@
 		<div class="container">	
 			<div class="row">
 				<?php if ($breadcrumb):?>
-				<div id="breadcrumbs" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div id="breadcrumbs" class="col12">
 					<?php print $breadcrumb; ?>
 				</div>
 				<?php endif;?>
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<div class="col-12 col-md-8">
 					<?php print $messages; ?>
 					<a id="main-content"></a>
 					<?php if ($page['highlighted']): ?>
@@ -102,10 +102,10 @@
 					<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 					<?php print render($page['content']); ?>
 				</div>
-				<?php if ($page['sidebar_first']): ?>
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<?php if ($page['sidebar_second']): ?>
+					<div class="col-12 col-md-4">
 						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
-							<?php print render($page['sidebar_first']); ?>
+							<?php print render($page['sidebar_second']); ?>
 						</aside>  
 					</div>
 				<?php endif; ?>

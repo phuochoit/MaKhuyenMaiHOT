@@ -23,6 +23,8 @@ function makhuyenmai_breadcrumb($variables) {
         $heading = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
         return '<nav class="breadcrumb">' . $heading . implode(' » ', $breadcrumb) . '</nav>';
     }
+
+    dpm($variables);
 }
 
 /**
@@ -132,8 +134,19 @@ function makhuyenmai_preprocess_page(&$variables) {
         unset($variables['page']['content']['system_main']);
         drupal_set_title('');
     }
-    
+
+    switch ($_GET['q']) {
+        case 'ma-giam-gia':
+            drupal_set_title('');
+            break;
+    }
+
 }
+
+function makhuyenmai_preprocess_image(&$variables) {
+    $variables['attributes']['class'][] = "img-fluid";
+}
+
 
 function _getUrlContent($url){
     $ch = curl_init();

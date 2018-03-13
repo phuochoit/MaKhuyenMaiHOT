@@ -21,10 +21,11 @@
                 padding-right: 15px;
             }
             &-field-image{
+                text-align: center;
+                border-top: 2px solid $baseBackgroundHeader;
                .field-content {
                     position: relative;
                     overflow: hidden;
-                    max-height: 440px;
                     border-top: solid 3px $baseBackgroundHeader;
                 } 
                 .marker {
@@ -33,8 +34,8 @@
                     right: 0;
                 }
                 img{
-                    height: auto;
-                    width: 100%;
+                    width: auto;
+                    max-height: 340px;
                 }
             } 
             &-title{
@@ -56,6 +57,13 @@
                 a{
                     color: $baseBackgroundFooter;
                     font-weight: 500;
+                }
+            }
+        }
+        .article-footer{
+            .left{
+                a{
+                    font-size: 15px;
                 }
             }
         }

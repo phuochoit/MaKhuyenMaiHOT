@@ -25,7 +25,7 @@ regions[ads_banner]     = Ads Banner
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[content]        = Content
-regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
 
 regions[ads_footer]     = Ads Footer
 regions[footer]         = Footer

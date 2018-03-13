@@ -13,7 +13,7 @@
     </div>
     <div class="article-footer">
         <div class="left">
-            <?php print l('Vào Trang Khuyến Mãi', 'node/'.$row->nid); ?>
+            <?php print l('Chi Tiết Khuyến Mãi', 'node/'.$row->nid); ?>
         </div>
     </div>
 </div>
