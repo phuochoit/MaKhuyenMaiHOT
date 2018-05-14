@@ -635,4 +635,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 if (isset($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR']) && file_exists($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR'] . '/loc_makhuyenmaihot_info_dd.inc')) {
   require $_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR'] . '/loc_makhuyenmaihot_info_dd.inc';
 }
+if (isset($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR']) && file_exists($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR'] . '/loc_MaKhuyenMaiHOT_dd.inc')) {
+  require $_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR'] . '/loc_MaKhuyenMaiHOT_dd.inc';
+}
 // </DDSETTINGS>
