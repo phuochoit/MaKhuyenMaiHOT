@@ -13,7 +13,7 @@ function custom_module_menu() {
         'type' => MENU_CALLBACK,
         'access arguments' => array('access simple page'),
     );
-
+    
     return $items;
 }
 
@@ -36,4 +36,9 @@ function custom_module_page_navigation($nav){
     }
 
     return array('#markup' => '<p>' . t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>');
+}
+
+function custom_module_views_query_alter(&$view, &$query) {
+    // dpm($view);
+    // dpm($query);
 }

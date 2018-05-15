@@ -110,18 +110,19 @@
 	</section> 
 	<!-- end #main -->
 	
-	<?php if ($page['ads_footer']): ?>
-		<!-- ads_footer -->
-		<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
-			<?php print render($page['ads_footer']); ?>
-		</section> 
-		<!-- end ads_footer -->
-	<?php endif; ?>
 	
-	<footer id="footer" role="contentinfo" class="clearfix">
-		<div class="container">	
-			<?php print render($page['footer']) ?>
-		</div>
-	</footer> 
-	<!-- /#footer -->
 </div> <!-- /#container -->
+<?php if ($page['ads_footer']): ?>
+	<!-- ads_footer -->
+	<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
+		<?php print render($page['ads_footer']); ?>
+	</section> 
+	<!-- end ads_footer -->
+<?php endif; ?>
+
+<footer id="footer" role="contentinfo" class="clearfix">
+	<div class="container">	
+		<?php print render($page['footer']) ?>
+	</div>
+</footer> 
+<!-- /#footer -->

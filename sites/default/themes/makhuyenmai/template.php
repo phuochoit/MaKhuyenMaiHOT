@@ -24,7 +24,6 @@ function makhuyenmai_breadcrumb($variables) {
         return '<nav class="breadcrumb">' . $heading . implode(' » ', $breadcrumb) . '</nav>';
     }
 
-    dpm($variables);
 }
 
 /**
@@ -52,7 +51,6 @@ function makhuyenmai_menu_local_tasks(&$variables) {
  * Override or insert variables into the node template.
  */
 function makhuyenmai_preprocess_node(&$variables) {
-
     $variables['submitted'] = t('Published by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
     if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
         $variables['classes_array'][] = 'node-full';
@@ -141,6 +139,24 @@ function makhuyenmai_preprocess_page(&$variables) {
             break;
     }
 
+    if (isset($variables['node'])) {
+        
+        // Ref suggestions cuz it's stupid long.
+        $suggests = &$variables['theme_hook_suggestions'];
+        // Get path arguments.
+        $args = arg();
+        // Remove first argument of "node".
+        unset($args[0]);
+        // Set type.
+        $type = "page__type_{$variables['node']->type}";
+
+        // Bring it all together.
+        $suggests = array_merge(
+            $suggests,
+            array($type),
+            theme_get_suggestions($args, $type)
+        );
+    }
 }
 
 function makhuyenmai_preprocess_image(&$variables) {
@@ -170,9 +186,12 @@ function _dom_html_from_url($url, $domain){
             $bodycontainer = _getHTMLByCLASS($classname,$dom);
             return $bodycontainer;
         case 'lazada':
-            $classname = 'l-fluid-description__text-wrap';
+            $classname = 'type="application/ld+json"';
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByCLASS($classname,$dom);
+            if(empty($bodycontainer)){
+                $bodycontainer = _getHTMLByScript('application/ld+json', $dom);
+            }
             return $bodycontainer;
         case 'tikivn':
             $dom = _getUrlContent($url);
@@ -193,7 +212,26 @@ function _dom_html_from_url($url, $domain){
     }
 }
 
-
+function _getHTMLByScript($type, $html){
+    $innerHTML = ''; 
+    $dom = new DOMDocument;
+    libxml_use_internal_errors(true);
+    $dom->loadHTML('<?xml encoding="UTF-8">'.$html);
+    $dom->encoding = 'UTF-8';
+    $xpath   = new DOMXPath($dom);
+    $elements = $xpath->query("//script[@type='$type']");
+    foreach ($elements as $child) { 
+        $tmp_doc = new DOMDocument(); 
+        $tmp_doc->appendChild($tmp_doc->importNode($child,true));   
+        $innerHTML .= $tmp_doc->saveHTML(); 
+    }
+    if(!empty($innerHTML)){
+        preg_match_all('#<script(.*?)>(.*?)</script>#is', $innerHTML, $matches);
+        $html = json_decode($matches[2][0]);
+        return _preg_replace_content($html->description);
+    }
+    return FALSE;
+}
 function _getHTMLByCLASS($class, $html){
     $innerHTML = ''; 
     $dom = new DOMDocument;

@@ -8,6 +8,7 @@ body{
     font-weight: 400;
     color: $baseBackgroundFooter;
     overflow-x: hidden;
+    background: $baseBackground2;
     &.front{
         background: $baseBackground2;
     }

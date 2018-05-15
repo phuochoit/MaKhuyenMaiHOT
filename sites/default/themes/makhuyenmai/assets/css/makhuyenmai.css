@@ -4,9 +4,10 @@ body {
   font-weight: 400;
   color: #191E28;
   overflow-x: hidden;
+  background: #f8f9f9;
 }
 body.front {
-  background: #ececec;
+  background: #f8f9f9;
 }
 
 a {
@@ -80,7 +81,7 @@ a:hover {
   padding-top: 15px;
   position: static;
   width: 100%;
-  border-top: 1px solid #ececec;
+  border-top: 1px solid #f8f9f9;
   bottom: 0;
   margin-top: 15px;
 }
@@ -134,7 +135,10 @@ a:hover {
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image {
   position: relative;
   overflow: hidden;
-  max-height: 440px;
+  max-height: 300px;
+  height: auto;
+  display: table;
+  min-height: 200px;
   text-align: center;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image .marker {
@@ -143,6 +147,8 @@ a:hover {
   right: 0;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image .field-content {
+  display: table-cell;
+  vertical-align: middle;
   border-top: solid 3px #00B7F0;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row .views-field-field-image img {
@@ -193,6 +199,11 @@ a:hover {
 }
 #block-promotion-highlight .view-content .item-list-content .views-row-first .views-field-field-image .field-content {
   border-top: none;
+  display: table;
+}
+#block-promotion-highlight .view-content .item-list-content .views-row-first .views-field-field-image .field-content a {
+  display: table-cell;
+  vertical-align: middle;
 }
 #block-promotion-highlight .view-content .item-list-content .views-row-first .views-field-field-image img {
   max-width: 100%;
@@ -225,7 +236,7 @@ a:hover {
 }
 #block-home-promotion .views-row .wrapper-view-field {
   position: relative;
-  background-color: #ececec;
+  background-color: #f8f9f9;
 }
 #block-home-promotion .views-row .views-field-field-image {
   border-top: 2px solid #00B7F0;
@@ -254,6 +265,9 @@ a:hover {
 }
 #block-home-promotion .views-row .views-field-field-teaser .field-article-item .marker-news-promotion {
   display: none;
+}
+#block-home-promotion .views-row .field-article-item {
+  padding-top: 10px;
 }
 #block-home-promotion .views-row .article-content {
   margin-bottom: 10px;
@@ -318,7 +332,7 @@ a:hover {
 }
 #block-top-product .views-row .views-field-field-category {
   padding-top: 30px;
-  border-top: 1px solid #ececec;
+  border-top: 1px solid #f8f9f9;
   padding-bottom: 10px;
 }
 #block-top-product .views-row .views-field-field-category a {
@@ -341,7 +355,8 @@ a:hover {
   width: 100%;
   position: absolute;
   top: 30%;
-  transform: translateY(-30%);
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
   margin-top: 0;
 }
 #block-top-articles-trademark .owl-nav div {
@@ -384,6 +399,73 @@ a:hover {
 }
 
 /* end page-ma-giam-gia */
+/* page-thuong-hieu */
+.page-store #page-title {
+  display: none;
+}
+.page-store #main .container {
+  background: #fff;
+}
+.page-store #main .view-content h3 {
+  display: block;
+  width: 100%;
+  padding: 20px 15px;
+}
+.page-store #main .view-content .views-row {
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+.page-store #main .view-content .views-row .views-field-field-image {
+  padding: 15px;
+  border: 2px solid #f5f5f5;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 135px;
+  border-radius: 2px;
+}
+.page-store #main .view-content .views-row .views-field-field-image:hover {
+  border-color: #00979d;
+}
+.page-store #main .view-content .views-row .views-field-field-image img {
+  width: auto;
+}
+
+.node-type-thuong-hieu .custom-page-header {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.node-type-thuong-hieu .custom-page-header .container {
+  background: #fff;
+  padding: 30px;
+}
+.node-type-thuong-hieu .custom-page-header .container .header-thumb a {
+  border: 2px solid #f5f5f5;
+  border-radius: 2px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding: 15px;
+}
+.node-type-thuong-hieu .custom-page-header .container .header-thumb a img {
+  max-height: 120px;
+  height: auto;
+}
+.node-type-thuong-hieu .custom-page-header .container .header-content h1 {
+  font-weight: 300;
+  font-size: 35px;
+}
+.node-type-thuong-hieu .custom-page-header .container .header-content h1 strong {
+  font-weight: 700;
+}
+.node-type-thuong-hieu .custom-page-header .container .header-content p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* end page-thuong-hieu */
 /* region-ads-footer */
 #advertise-footer .region-ads-footer {
   position: relative;

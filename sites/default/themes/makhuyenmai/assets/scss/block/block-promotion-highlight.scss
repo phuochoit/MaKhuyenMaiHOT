@@ -29,7 +29,10 @@
                         &-field-image{
                             position: relative;
                             overflow: hidden;
-                            max-height: 440px;
+                            max-height: 300px;
+                            height: auto;
+                            display: table;
+                            min-height: 200px;
                             text-align: center;
                             .marker{
                                 position: absolute;
@@ -37,6 +40,8 @@
                                 right: 0;
                             }
                             .field-content{
+                                display: table-cell;
+                                vertical-align: middle;
                                 border-top: solid 3px $baseBackgroundHeader;
                                 // a{
                                 //     position: absolute;
@@ -87,6 +92,11 @@
                                 }
                                 .field-content{
                                     border-top: none;
+                                    display: table;
+                                    a{
+                                        display: table-cell;
+                                        vertical-align: middle;
+                                    }
                                 }
                                 img{
                                     max-width: 100%;
