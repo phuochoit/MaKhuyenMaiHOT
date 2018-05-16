@@ -68,40 +68,49 @@
 	<?php if ($page['ads_banner']): ?>
 		<!-- ads_banner -->
 		<section id="advertise-banner" class="block-mkmh-banner-advertise">
-			<?php print render($page['ads_banner']); ?>
+			<div class="container">	
+				<div class="row">
+					<?php print render($page['ads_banner']); ?>
+				</div>
+			</div>
 		</section>
 		<!-- end ads_banner -->
 	<?php endif; ?>  
 	
 	<!-- main -->
-	<section id="main" role="main" class="clearfix">
+	<main id="main" role="main" class="clearfix">
 		<div class="container">	
 			<div class="row">
 				<?php if($messages):?>
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<section class="col-sm-12 col-md-12">
 						<?php print $messages; ?>
-					</div>
+					</section>
 				<?php endif;?>
-				<a id="main-content"></a>
 				<?php if ($page['highlighted']): ?>
-					<div id="highlighted">
+					<section id="highlighted">
 						<?php print render($page['highlighted']); ?>
-					</div>
+					</section>
 				<?php endif; ?>
-				<?php print render($title_prefix); ?>
-					<?php if ($title): ?>
-						<h1 class="title" id="page-title"><?php print $title; ?></h1>
-					<?php endif; ?>
-				<?php print render($title_suffix); ?>
 				<?php if (!empty($tabs['#primary'])): ?>
-					<div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div>
+					<section class="tabs-wrapper clearfix">
+						<?php print render($tabs); ?>
+					</section>
 				<?php endif; ?>
 				<?php print render($page['help']); ?>
 				<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-				<?php print render($page['content']); ?>
+				<div class="col-sm-12 col-md-8">
+					<?php print render($page['content']); ?>
+				</div>
+				<?php if ($page['sidebar_second']): ?>
+					<div class="col-sm-12 col-md-4">
+						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
+							<?php print render($page['sidebar_second']); ?>
+						</aside>  
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
-	</section> 
+	</main> 
 	<!-- end #main -->
 	
 	<?php if ($page['ads_footer']): ?>
