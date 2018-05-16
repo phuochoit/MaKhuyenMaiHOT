@@ -1,9 +1,0 @@
-name = Header Logo
-description = Header Logo Block
-core = 7.x
-package = MKMH Block
-version = 7.x-1.0
-dependencies[] = fe_block
-features[fe_block_boxes][] = header_block
-features[fe_block_settings][] = block-header_block
-features[features_api][] = api:2
