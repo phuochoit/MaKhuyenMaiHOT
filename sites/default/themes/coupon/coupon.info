@@ -3,17 +3,14 @@ description = Mã giảm giá, Chương trinh khuyến mãi HOT, kinh nghiệm m
 core = 7.x
 engine = phptemplate
 
-; base theme = bootstrap
+base theme = bootstrap
 
 ;-----------------------------------------------------
-
-stylesheets[all][] = assets/css/bootstrap.min.css
 stylesheets[all][] = assets/css/owl.carousel.min.css
 stylesheets[all][] = assets/css/owl.theme.default.min.css
 stylesheets[all][] = assets/css/makhuyenmai.css
 
 ;-----------------------------------------------------
-scripts[] = assets/js/bootstrap.min.js
 scripts[] = assets/js/owl.carousel.min.js
 scripts[] = assets/js/makhuyenmai.js
 ;-----------------------------------------------------

@@ -3,7 +3,7 @@
  * Implements hook_html_head_alter().
  * We are overwriting the default meta character type tag with HTML5 version.
  */
-function makhuyenmai_html_head_alter(&$head_elements) {
+function coupon_html_head_alter(&$head_elements) {
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8'
   );
@@ -16,7 +16,7 @@ function makhuyenmai_html_head_alter(&$head_elements) {
  *   An array containing the breadcrumb links.
  * @return a string containing the breadcrumb output.
  */
-function makhuyenmai_breadcrumb($variables) {
+function coupon_breadcrumb($variables) {
     $breadcrumb[] = l('Home','<front>');
 
     if (!empty($breadcrumb)) {
@@ -29,7 +29,7 @@ function makhuyenmai_breadcrumb($variables) {
 /**
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
-function makhuyenmai_menu_local_tasks(&$variables) {
+function coupon_menu_local_tasks(&$variables) {
     $output = '';
 
     if (!empty($variables['primary'])) {
@@ -50,15 +50,15 @@ function makhuyenmai_menu_local_tasks(&$variables) {
 /**
  * Override or insert variables into the node template.
  */
-function makhuyenmai_preprocess_node(&$variables) {
+function coupon_preprocess_node(&$variables) {
     $variables['submitted'] = t('Published by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
     if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
         $variables['classes_array'][] = 'node-full';
     }
 
-    if($variables['node']->type == 'san_pham'){
+    if($variables['node']->type == 'products'){
         if(empty($variables['node']->field_get_content) || $variables['node']->field_get_content['und'][0]['value'] == 1){
-            $url = $variables['node']->field_url_khuyen_mai['und'][0]['url'];
+            $url = $variables['node']->field_content_link['und'][0]['url'];
             $merchant = $variables['node']->field_merchant['und'][0]['value'];
             $content = _dom_html_from_url($url,$merchant);
             if(!empty($content)){
@@ -81,7 +81,7 @@ function makhuyenmai_preprocess_node(&$variables) {
  * @param $hook
  *   The name of the template being rendered ("region" in this case.)
  */
-function makhuyenmai_preprocess_region(&$variables, $hook) {
+function coupon_preprocess_region(&$variables, $hook) {
   // Use a bare template for the content region.
   if ($variables['region'] == 'content') {
     $variables['theme_hook_suggestions'][] = 'region__bare';
@@ -96,7 +96,7 @@ function makhuyenmai_preprocess_region(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-function makhuyenmai_preprocess_block(&$variables, $hook) {
+function coupon_preprocess_block(&$variables, $hook) {
   // Use a bare template for the page's main content.
   if ($variables['block_html_id'] == 'block-system-main') {
     $variables['theme_hook_suggestions'][] = 'block__bare';
@@ -112,7 +112,7 @@ function makhuyenmai_preprocess_block(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-function makhuyenmai_process_block(&$variables, $hook) {
+function coupon_process_block(&$variables, $hook) {
   // Drupal 7 should use a $title variable instead of $block->subject.
   $variables['title'] = $variables['block']->subject;
 }
@@ -120,14 +120,14 @@ function makhuyenmai_process_block(&$variables, $hook) {
 /**
  * Changes the search form to use the "search" input element of HTML5.
  */
-function makhuyenmai_preprocess_search_block_form(&$vars) {
+function coupon_preprocess_search_block_form(&$vars) {
   $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
 }
 
 /**
  * Override or insert variables into the node template.
  */
-function makhuyenmai_preprocess_page(&$variables) {
+function coupon_preprocess_page(&$variables) {
     if(drupal_is_front_page()) {
         unset($variables['page']['content']['system_main']);
         drupal_set_title('');
@@ -159,7 +159,7 @@ function makhuyenmai_preprocess_page(&$variables) {
     }
 }
 
-function makhuyenmai_preprocess_image(&$variables) {
+function coupon_preprocess_image(&$variables) {
     $variables['attributes']['class'][] = "img-fluid";
 }
 

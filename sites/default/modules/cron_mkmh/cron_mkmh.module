@@ -47,7 +47,7 @@ function _cron_mkmh_product_save_node($data, $hot){
         if(!$query){
             $merchant = _get_merchant_name($host);
             $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'stores', ':merchant' => $merchant) )->fetchObject();
-            watchdog('my_debug', '<pre>' . var_export("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = ".$merchant) . '</pre>');
+            // watchdog('my_debug', '<pre>' . var_export("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = ".$merchant) . '</pre>');
             if(!empty($query_merchant)){
                 if(!empty($category_name)){
                     $query_tid = db_query("SELECT td.tid FROM {taxonomy_term_data} AS td LEFT JOIN  {field_data_field_categories_slug} AS sl ON sl.entity_id = td.tid WHERE td.vid = :vid AND sl.field_categories_slug_value = :slug", array(':vid' => 2, ':slug' => $category_name))->fetchObject();
