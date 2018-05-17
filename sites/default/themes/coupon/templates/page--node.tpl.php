@@ -77,11 +77,6 @@
 	<section id="main" role="main" class="clearfix">
 		<div class="container">	
 			<div class="row">
-				<?php if ($breadcrumb):?>
-				<div id="breadcrumbs" class="col12">
-					<?php print $breadcrumb; ?>
-				</div>
-				<?php endif;?>
 				<div class="col-12 col-md-8">
 					<?php print $messages; ?>
 					<a id="main-content"></a>

@@ -77,7 +77,6 @@
 	<section id="main" role="main" class="clearfix">
 		<div class="container">	
 			<div class="row">
-				
 				<div class="col-sm-12 col-md-8">
 					<?php print $messages; ?>
 					<a id="main-content"></a>
