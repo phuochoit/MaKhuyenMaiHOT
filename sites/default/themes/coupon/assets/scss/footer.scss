@@ -2,9 +2,11 @@
 @import "./minxins.scss";
 /* footer css */
 #footer {
-    background:$baseBackgroundHeader;
+    background:#191e28;
     position: relative;
     padding: 25px 0 15px;
     margin: 0 auto;
+    @import "./block/footer-left.scss";
 }
+
 /* end footer css */

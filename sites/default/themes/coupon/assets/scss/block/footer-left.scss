@@ -1,0 +1,51 @@
+#block-footer-left{
+    .content{
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 0px;
+        border: none;
+        p{
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+        .app-button{
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.5);
+            border-radius: 3px;
+            width: 160px;
+            display: block;
+            overflow: hidden;
+            margin: 0 auto;
+            height: 53px;
+            &:hover{
+                color: $baseBackgroundHeader;
+            }
+            .fleft{
+                border-right: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 4px 8px 11px 10px;
+                float: left;
+                em{
+                    font-size: 25px;
+                    line-height: 46px;
+                }
+            }
+            .fright{
+                padding: 9px 15px 5px;
+                float: right;
+                text-align: left;
+            }
+            .avail-text{
+                display: block;
+                font-size: 11px;
+                line-height: 1;
+            }
+            .app-service {
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: -0.3px;
+                font-weight: bold;
+                line-height: 1.5;
+            }
+        }
+    }
+}
