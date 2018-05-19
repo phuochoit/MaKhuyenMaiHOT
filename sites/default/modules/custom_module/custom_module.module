@@ -69,10 +69,10 @@ function custom_module_page_outlink($nav){
             <a class="cloakpl-now-btn" rel="nofollow" href="'.$url.'">Chuyển nhanh tới trang »</a>
         </div>
         <div class="cloakpl-frame">
-            <iframe src="'.$acces_link.'?url=https://shopee.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://mytour.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://www.lotte.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://canifa.com/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://shopee.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://mytour.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://www.lotte.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://canifa.com/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
         </div>
     </div>';
                   

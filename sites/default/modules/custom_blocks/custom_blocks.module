@@ -11,6 +11,11 @@ function custom_blocks_block_info() {
 		'info' => t('Featured Coupon Categories'),
         'cache' => DRUPAL_CACHE_GLOBAL,
         'status' => 0,		
+    );
+    $block['list_featured_store_categories'] = array(
+		'info' => t('Featured Store Categories'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
 	);
 
 	return $block;
@@ -22,6 +27,12 @@ function custom_blocks_block_view($delta = '') {
             $block = array(
 				'subject' => "Featured Coupon Categories",
 				'content' => _custom_blocks_featured_coupon_categories()
+            );
+            break;
+        case 'list_featured_store_categories':
+            $block = array(
+				'subject' => "Featured Store Categories",
+				'content' => _custom_blocks_featured_store_categories()
             );
             break;
     }
@@ -46,6 +57,23 @@ function _custom_blocks_featured_coupon_categories(){
     return $result;
 }
 
+function _custom_blocks_featured_store_categories(){
+    $vid = _custom_blocks_get_vid_by_name('stores_categories');
+    $terms = taxonomy_get_tree($vid); 
+    $result = '<ul class="cat-column column">';
+    foreach ($terms as $key => $val) {
+        $count_taxonomy = db_query("SELECT ti.nid FROM taxonomy_index AS ti WHERE ti.tid = :tid", array(':tid' => $val->tid))->rowCount();
+        $term_href = url('taxonomy/term/'.$val->tid);
+        $result .= '<li class="column cat-item cat-item-'.$val->tid.'">';
+        $result .= '<a href="'.$term_href.'" title="'.$val->name.'">';
+        $result .= '<span class="coupon-count">'.$count_taxonomy.'</span> ';
+        $result .= $val->name;
+        $result .='</a>';
+        $result .= '</li>';
+    }
+    $result .= '</ul>';
+    return $result;
+}
 // get vid of taxonomy
 function _custom_blocks_get_vid_by_name($name){
     $vocab = taxonomy_vocabulary_machine_name_load($name);

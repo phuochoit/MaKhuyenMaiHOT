@@ -322,6 +322,50 @@ a:hover, a:focus {
   margin: 0 auto;
 }
 
+.node-type-stores #main .inner {
+  margin: 30px auto;
+  padding: 0px 30px 30px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+.node-type-stores #main .inner .inner-content {
+  padding-top: 20px;
+}
+.node-type-stores #main .inner .inner-content .header-thumb {
+  padding-top: 15px;
+}
+.node-type-stores #main .inner .inner-content .header-thumb .header-store-thumb a {
+  text-align: center;
+  border: 2px solid #f5f5f5;
+  border-radius: 2px;
+  display: block;
+  line-height: 107px;
+}
+.node-type-stores #main .inner .inner-content .header-thumb .header-store-thumb a:hover {
+  border-color: #00b7f0;
+}
+.node-type-stores #main .inner .inner-content .header-thumb .header-store-thumb a img {
+  margin: 0 auto;
+  max-height: 115px;
+  width: auto;
+  max-width: 100%;
+}
+.node-type-stores #main .inner .inner-content .header-thumb .header-store-thumb img {
+  max-width: 200px;
+}
+.node-type-stores #main .inner .inner-content .header-content {
+  font-size: 16px;
+  font-weight: 300;
+}
+.node-type-stores #main .inner .inner-content .header-content h1 {
+  font-weight: 300;
+  margin-bottom: 7px;
+  margin-top: 3px;
+  line-height: 1.6;
+  letter-spacing: -1px;
+}
+
 #block-views-store-block-deals-more {
   margin-bottom: 30px;
 }
@@ -340,7 +384,7 @@ a:hover, a:focus {
   padding: 20px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  background: #FFFFFF;
+  background: white;
 }
 #block-views-store-block-deals-more .content .view-content {
   padding-left: 10px;
@@ -365,10 +409,12 @@ a:hover, a:focus {
   max-width: 100%;
 }
 
-#block-custom-blocks-list-featured-coupon-categories {
+#block-custom-blocks-list-featured-coupon-categories,
+#block-custom-blocks-list-featured-store-categories {
   margin-bottom: 30px;
 }
-#block-custom-blocks-list-featured-coupon-categories .block-title {
+#block-custom-blocks-list-featured-coupon-categories .block-title,
+#block-custom-blocks-list-featured-store-categories .block-title {
   color: #fff;
   font-size: 14px;
   margin-bottom: 20px;
@@ -379,16 +425,19 @@ a:hover, a:focus {
   padding: 15px 10px;
   text-align: center;
 }
-#block-custom-blocks-list-featured-coupon-categories .content {
+#block-custom-blocks-list-featured-coupon-categories .content,
+#block-custom-blocks-list-featured-store-categories .content {
   padding: 20px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: #FFFFFF;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column,
+#block-custom-blocks-list-featured-store-categories .content .cat-column {
   padding: 10px 0;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column li {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column li,
+#block-custom-blocks-list-featured-store-categories .content .cat-column li {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -396,7 +445,8 @@ a:hover, a:focus {
   padding-right: 10px;
   vertical-align: top;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a,
+#block-custom-blocks-list-featured-store-categories .content .cat-column li a {
   width: 100%;
   padding: 7px 0px;
   display: inline-block;
@@ -407,10 +457,12 @@ a:hover, a:focus {
   font-weight: normal;
   color: #00b7f0;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a:hover {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a:hover,
+#block-custom-blocks-list-featured-store-categories .content .cat-column li a:hover {
   color: #ff9900;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a span {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column li a span,
+#block-custom-blocks-list-featured-store-categories .content .cat-column li a span {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
   background: #f9f9f9;
@@ -422,7 +474,8 @@ a:hover, a:focus {
   color: #BBBBBB;
   display: inline-block;
 }
-#block-custom-blocks-list-featured-coupon-categories .content .cat-column li:last-child a {
+#block-custom-blocks-list-featured-coupon-categories .content .cat-column li:last-child a,
+#block-custom-blocks-list-featured-store-categories .content .cat-column li:last-child a {
   padding-bottom: 0;
 }
 

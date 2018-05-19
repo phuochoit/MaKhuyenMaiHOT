@@ -86,22 +86,42 @@
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
+                <?php if(isset($node)) : ?>
+                <?php 
+                    $aff_link = '/outlink/'.base64_encode($node->nid);
+                    $img = file_create_url($node->field_image['und'][0]['uri']);    
+                ?>
+                    <section class="col-sm-12 col-md-12">
+                        <div class="inner shadow-box">
+                            <div class="inner-content clearfix">
+                                <div class="header-thumb col-sm-12 col-md-3">
+                                    <div class="header-store-thumb">
+                                        <a rel="nofollow" target="_blank" title="<?php print $node->title;?>" href="<?php print $aff_link;?>">
+                                            <img src="<?php print $img?>" class="attachment-wpcoupon_small_thumb size-wpcoupon_small_thumb" alt="<?php print $node->title;?>">            
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="header-content col-sm-12 col-md-9">
+                                    <h1> Khuyến mại &amp; Mã giảm giá <strong><?php print $node->title;?></strong></h1>
+                                    <p><?php print $node->field_teaser['und'][0]['value'];?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <?php endif;?>
 				<?php if ($page['highlighted']): ?>
 					<section id="highlighted">
 						<?php print render($page['highlighted']); ?>
 					</section>
 				<?php endif; ?>
-				<?php if (!empty($tabs['#primary'])): ?>
-					<section class="tabs-wrapper clearfix">
-						<?php print render($tabs); ?>
-					</section>
-				<?php endif; ?>
+				
 				<?php print render($page['help']); ?>
 				<?php if ($action_links): ?>
                     <ul class="action-links">
                         <?php print render($action_links); ?>
                     </ul>
                 <?php endif; ?>
+
 				<?php if ($page['sidebar_second']): ?>
 					<div class="col-sm-12 col-md-4">
 						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
@@ -110,6 +130,11 @@
 					</div>
 				<?php endif; ?>
                 <div class="col-sm-12 col-md-8">
+                    <?php if (!empty($tabs['#primary'])): ?>
+                        <section class="tabs-wrapper clearfix">
+                            <?php print render($tabs); ?>
+                        </section>
+                    <?php endif; ?>
 					<?php print render($page['content']); ?>
 				</div>
 
