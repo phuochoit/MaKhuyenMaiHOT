@@ -615,7 +615,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  *
  * Remove the leading hash sign to enable.
  */
-# $conf['theme_debug'] = TRUE;
+$conf['theme_debug'] = TRUE;
 
 /**
  * CSS identifier double underscores allowance:
@@ -628,6 +628,8 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  * @see drupal_clean_css_identifier()
  */
 # $conf['allow_css_double_underscores'] = TRUE;
+
+ini_set('memory_limit',        '2048M');
 
 // <DDSETTINGS>
 // Please don't edit anything between <DDSETTINGS> tags.

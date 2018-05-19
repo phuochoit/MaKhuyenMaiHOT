@@ -1,0 +1,40 @@
+#block-menu-menu-menu-footer{
+    .content {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 0px;
+        border: none;
+        .menu{
+            padding: 0;
+            margin: 0;
+            li{
+                margin: 0 0 10px;
+                padding: 0;
+                list-style-type: none;
+                display: block;
+                padding: 0;
+                background: none ;
+                width: 45%;
+                float: left;
+                margin: 0 10px 10px;
+                a{
+                   color: rgba(255, 255, 255, 0.5);
+                    font-size: 14px;
+                    font-weight: 400;
+                    background: none ;
+                    padding: 0; 
+                    display: block;
+                    padding: 5px 10px 9px 0;
+                    position: relative;
+                    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+                    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+                    &:before{
+                        font: normal normal normal 14px/1 FontAwesome;
+                        margin-right: 10px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}

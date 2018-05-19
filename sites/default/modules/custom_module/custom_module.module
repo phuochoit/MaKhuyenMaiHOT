@@ -5,15 +5,20 @@
  */
 function custom_module_menu() {
 
-    $items['chuyen-huong/%'] = array(
+    $items['outlink/%'] = array(
         'title' => 'Chuyển Hướng',
-        'page callback' => 'custom_module_page_navigation',
+        'page callback' => 'custom_module_page_outlink',
         'page arguments' => array(1),
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
         'access arguments' => array('access simple page'),
     );
-    
+    $items['custom/ajax/%'] = array(
+    'title' => 'Update count',
+    'page callback' => 'custom_module_update_counter',
+    'page arguments' => array(2),
+    'access callback' => array('custom_module_access_control'),
+  );
     return $items;
 }
 
@@ -29,15 +34,94 @@ function custom_module_permission() {
     );
 }
 
-function custom_module_page_navigation($nav){
+/**
+ * page outlink
+ * @param [type] $nav 
+ */
+function custom_module_page_outlink($nav){
+    // if nav empty is return home page
     if (empty($nav)) {
-        drupal_access_denied();
-        return;
+        drupal_goto('<front>');
     }
+    // decode nav link
+    $nid = base64_decode($nav);
+    
+   // get aff link
+    $query_aff_link = db_query("SELECT al.field_aff_link_url AS url FROM {field_data_field_aff_link} AS al WHERE al.entity_id = :entity_id", array(':entity_id' => $nid))->fetchObject();
+    // if node and aff_link return home page
+    if(empty($query_aff_link) ){
+        drupal_goto('<front>');
+    }
+    // update node counter
+    $node_counter = _custom_module_update_node_counter($nid);
 
-    return array('#markup' => '<p>' . t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>');
+    $url = $query_aff_link->url;
+    $acces_link = 'https://fast.accesstrade.com.vn/deep_link/4731474359141607542';
+
+    $content = '
+    <div class="cloakpl col-sm-12 col-md-6 col-md-offset-3">
+        <div class="cloakpl-wrap">
+            <p class="cloakpl-des">Mua sản phẩm tốt rất khó khăn, Mã Khuyến Mãi HOT sẽ giúp bạn</p>
+            <p class="cloakpl-time" id="timer">Bạn đang được chuyển tới trang đích trong <b>3</b> giây nữa</p>
+            <div class="cloakpl-load">
+                <img src="/'.path_to_theme().'/assets/images/loading.gif" alt="Vui lòng chờ trong giây lát">
+            </div>
+            <a class="cloakpl-now-btn" rel="nofollow" href="'.$url.'">Chuyển nhanh tới trang »</a>
+        </div>
+        <div class="cloakpl-frame">
+            <iframe src="'.$acces_link.'?url=https://shopee.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://mytour.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://www.lotte.vn/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+            <iframe src="'.$acces_link.'?url=https://canifa.com/&amp;utm_medium=cokies&amp;utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+        </div>
+    </div>';
+                  
+    $content .= '<script type="text/javascript">
+        let count = 3;
+        let redirect = "'.$url.'";
+        countDown();
+        function countDown(){
+            timer = document.getElementById("timer");
+            setInterval(function () { 
+                count--;
+                if (count > 0){
+                    timer.innerHTML = "Bạn đang được chuyển tới trang đích trong <b>" + count + "</b> giây nữa";
+                }else{
+                    window.location = redirect;
+                }
+            }, 1000);
+        }
+    </script>';
+    return $content;
 }
-
+/**
+ * update node counter
+ * @param [type] $nid 
+ */
+function _custom_module_update_node_counter($nid){
+    if(empty($nid) || !is_numeric($nid))
+        return;
+    // get statistics get by nid
+    $query_node_counter = statistics_get($nid);
+    // if empty is INSERT or not empty is UPDATE
+    if(empty($query_node_counter)){
+        db_query("INSERT INTO {node_counter} (nid, totalcount, daycount, timestamp) VALUES (:nid, :totalcount, :daycount, :timestamp)",array(
+            ':nid' => $nid,
+            ':totalcount' => 1,
+            ':daycount' => 1,
+            ':timestamp' => time()
+            )
+        );
+    }else{
+        db_query('UPDATE {node_counter} SET totalcount=:totalcount, daycount=:daycount, timestamp=:timestamp WHERE nid = :nid', array(
+            ':nid' => $nid,
+            ':totalcount' => $query_node_counter['totalcount']  + 1,
+            ':daycount' => $query_node_counter['daycount'] +  1,
+            ':timestamp' => time()
+            )
+        );
+    }
+}
 function custom_module_views_query_alter(&$view, &$query) {
     // dpm($view);
     // dpm($query);

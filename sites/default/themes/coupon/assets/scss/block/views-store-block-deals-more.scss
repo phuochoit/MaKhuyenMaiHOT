@@ -1,0 +1,21 @@
+#block-views-store-block-deals-more{
+    margin-bottom: 30px;
+    .block-title{
+        @include  block-title();
+    }
+    .content{
+        padding: 20px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        background: #FFFFFF;
+        .view-content{
+            padding-left: 10px;
+            padding-right: 10px;
+            .views-row{
+                padding: 10px;
+                a{
+                    @include  store-thumb();
+                }
+            }
+        }
+    }
+}

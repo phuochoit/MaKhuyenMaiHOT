@@ -2,18 +2,17 @@
 @import "./common.scss";
 @import "./header.scss";
 // header
+@import "./block/views-store-block-store-carousel.scss";
+//region
+@import "./region/region-ads-banner.scss";
+@import "./region/region-ads-footer.scss";
+// page
+@import "./page/outlink.scss";
+// block
+@import "./block/views-store-block-deals-more.scss";
+@import "./block/custom-blocks-list-featured-coupon-categories.scss";
+@import "./block/views-coupon-block.scss";
 // footer
 @import "./footer.scss";
 
-// block
-@import "./block/block-promotion-highlight.scss";
-@import "./block/block-home-promotion.scss";
-@import "./block/block-top-product.scss";
-@import "./block/block-top-articles-trademark.scss";
-
-// page
-@import "./page/page-ma-giam-gia.scss";
-@import "./page/page-thuong-hieu.scss";
-//region
-@import "./region/region-ads-footer.scss";
 

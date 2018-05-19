@@ -1,10 +1,12 @@
 (function ($) {
+    
+
     $(document).ready(function () {
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,
             loop: true,
             autoplayTimeout: 3000,
-            margin: 10,
+            margin: 20,
             responsiveClass: true,
             autoplay: true,
             nav: true,
@@ -14,6 +16,30 @@
         if (parseInt(result) > 0) {
             setHeightHeaderLogo(result);
         }
+        
+        $('body').on( 'click', '.coupon-item .more, .coupon-item .less', function( e ){
+            e.preventDefault();
+            more = $( this );
+            p = more.closest( '.coupon-item' );
+            p.toggleClass('show-full');
+        } );
+        
+        
+
+        // countDown();
+
+        // var count = 3;
+        // var redirect = "https://fast.accesstrade.com.vn/deep_link/4731474359141607542?url=https%3A//www.yes24.vn/mua-sam-tha-ga-km675310.html";
+        // function countDown() {
+        //     var timer = document.getElementById("timer");
+        //     if (count > 0) {
+        //         count--;
+        //         timer.innerHTML = "Bạn đang được chuyển tới trang đích trong <b>" + count + "</b> giây nữa";
+        //         setTimeout("countDown()", 1000);
+        //     } else {
+        //         window.location.href = redirect;
+        //     }
+        // }
 
         // let PromotionHighlight = getHeightPromotionHighlight();
         // let HeightTopproduct = getHeightTopproduct();
@@ -30,6 +56,13 @@
     });
 
     $(document).ajaxComplete(function (event, xhr, settings) {
+        $('body').on('click', '.coupon-item .more, .coupon-item .less', function (e) {
+            e.preventDefault();
+            more = $(this);
+            p = more.closest('.coupon-item');
+            p.toggleClass('show-full');
+        });
+
         // SetHeightPromotionHighlightRowFirst();
         // SetHeightPromotionHighlightRowNotFirst();
         // SetHeightPromotionHighlightArticleRowNotFirst();
@@ -43,6 +76,7 @@
         // setHeightPromotion(resultHeightPromotioin);
         // setHeightPromotiontArticle(HeightPromotionArticle);
     });
+    
     $(window).resize(function () {
         // get height menu header
         result = $("#block-system-main-menu").height();
@@ -53,6 +87,8 @@
         }
 
     });
+
+   
 
     function setHeightHeaderLogo(height) {
         $("#header-logo").height(height);

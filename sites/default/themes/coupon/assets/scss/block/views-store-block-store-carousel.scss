@@ -1,0 +1,40 @@
+/* block-store-carousel */
+#block-views-store-block-store-carousel{
+    margin-bottom: 40px;
+    .content{
+        @include  box-background-shadow();
+        padding: 20px 10px;
+        .views-row{
+            .view-item{
+                a{
+                    @include  store-thumb();
+                }
+            }
+        }
+        .owl-nav{
+            div{
+                cursor: pointer;
+                margin-top: -20px;
+                position: absolute;
+                top: 50%;
+                opacity: 0.2;
+                width: 20px;
+                height: 40px;
+                background-repeat: no-repeat;
+                text-indent: 9999px;
+                background-size: auto;
+                background-position: center;
+            }
+            .owl-prev{
+                left: -50px;
+                background-image: url('/sites/default/themes/coupon/assets/images/arrow-left.png');
+            }
+            .owl-next{
+                right: -50px;
+                background-image: url('/sites/default/themes/coupon/assets/images/arrow-right.png');
+            }
+        }
+    }
+}
+
+/* end block-store-carousel */
