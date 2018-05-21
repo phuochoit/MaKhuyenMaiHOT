@@ -75,7 +75,27 @@ a{
         }
     }
 }
-
+.no-padding{
+    padding: 0;
+    &-left{
+        padding-left: 0;
+    }
+    &-right{
+        padding-right: 0;
+    }
+    &-top{
+        padding-top: 0;
+    }
+    &-bottom{
+        padding-bottom: 0;
+    }
+}
+.content-area{
+    padding-left: 0;
+}
+.sidebar-second{
+    padding-right: 0;
+}
 .field-article-item{
     padding-top: 30px;
     position: relative;

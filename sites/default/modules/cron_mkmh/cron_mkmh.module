@@ -19,7 +19,13 @@ function cron_mkmh_cron() {
         }
         if(!empty($topproduct)){
             _cron_mkmh_product_save_node($topproduct->data,1);
-            // watchdog('my_debug', '<pre>' . var_export($topproduct) . '</pre>');
+            
+        }
+
+        $coupon_masoffer = _cron_mkmh_get_masoffer_promotions();
+        if(!empty($coupon_masoffer)){
+            _cron_mkmh_coupon_masoffer_promotions_save_node($coupon_masoffer->data->promotions);
+            // watchdog('my_debug',  var_export($coupon_masoffer->data->promotions) );
         }
     }
 }
@@ -105,6 +111,79 @@ function _cron_mkmh_product_save_node($data, $hot){
                 $node->field_teaser['und'][0]['value'] = $teaser;
                 // save node
                 node_save($node);
+            }
+        }
+    }
+}
+
+function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
+    if(empty($data))
+        return;
+
+    $vidCategory = _get_vid_by_name('coupon_categories');
+
+    for ($i=0; $i < count($data); $i++) { 
+        $val = $data[$i];
+
+        $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->title, ':type' => 'coupons'))->rowCount();
+        if(!$query){
+            $merchant = _get_merchant_name($val->offer_id);
+            $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'stores', ':merchant' => $merchant) )->fetchObject();
+
+            if(!empty($query_merchant)){
+                $title = $val->title;
+                $node = new stdClass();
+                $node->type = 'coupons';
+                $node->uid = 1;
+                $node->title = $title;
+                $node->created = time();
+                $node->changed = $node->created;
+                $node->promote = $node->created;
+                $node->sticky  = 0;
+                $node->language = LANGUAGE_NONE;
+                $node->comment = 0;
+
+                //aff_link
+                $node->field_aff_link['und'][0]['url'] = $val->aff_url;
+                //field_teaser
+                $node->field_teaser[LANGUAGE_NONE][0]['value'] = $val->description;
+                // start_time
+                if(isset($val->started_date) || !empty($val->started_date)){
+                    $node->field_start_time['und'][0]['value'] = date('Y-m-d', $val->started_date);
+                }
+                // end_time
+                if(isset($val->expired_date) || !empty($val->expired_date)){
+                    $node->field_end_time['und'][0]['value'] = date('Y-m-d', $val->expired_date);
+                }
+                
+                // merchant
+                $node->field_merchant['und'][0]['value'] = $val->offer_id;
+                $node->field_store['und'][0]['nid'] = $query_merchant->nid;
+                // check category
+               
+                // check coupon
+                if(!empty($val->coupons)){
+                    $node->field_coupon_code['und'][0]['value'] = !empty($val->coupon_code) ? $val->coupon_code : null ;
+                }
+
+                if(isset($val->category_name) && !empty($val->category_name)){
+                    $tidCategories = _get_tid_by_name(trim($val->category_name),'coupon_categories');
+                    if(!empty($tidCategories)){
+                        $node->field_coupon_categories['und'][0]['tid'] = $tidCategories;
+                    }
+                    
+                }
+
+                // field tag
+                $tags = _save_tag_by_title($title);
+                if(!empty($tags)){
+                    for ($i=0; $i < count($tags); $i++) { 
+                    $node->field_tags['und'][$i]['tid'] = $tags[$i];
+                    }    
+                }
+                // save node
+                node_save($node);
+                
             }
         }
     }
@@ -286,10 +365,56 @@ function _create_taxonomy_term($name, $vid) {
 
 // get tid of taxonomy
 function _get_tid_by_name($term_name, $vocabulary_name) {
+    
+    
+    
     if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name)) {
         $tree = taxonomy_get_tree($vocabulary->vid);
+        
+        switch (stripUnicode(strtolower($term_name))) {
+            case 'dien-tu':
+                $name = 'Điện tử & Thiết bị số Khác';
+                break;
+            case 'nha cua & doi song':
+            case 'nha cua va doi song':
+                $name = 'Nhà cửa đời sống';
+                break;
+            case 'du lich':
+                $name = 'Đồ dùng du lịch, thể thao, dã ngoại';
+                break;
+            case 'dien gia dung':
+            case 'gia dung':
+                $name = 'Thiết bị gia dụng';
+                break;
+            case 'cac nganh hang':
+                $name = 'Tổng hợp';
+                break;
+            case 'my pham':
+            case 'thoi trang':
+                $name = 'Thời trang - Mỹ phẩm';
+                break;
+            case 'sach':
+                $name = 'Sách - VPP - Quà tặng';
+                break;
+            case 'dien thoai di dong':
+                $name = 'Điện thoại - Máy tính bảng';
+                break;
+            case 'me va be':
+                $name = 'Mẹ & Bé';
+                break;
+            case 'phu kien':
+                $name = 'Điện tử & Thiết bị số Khác';
+                break;
+            case 'dich vu':
+                $name = 'Voucher & Dịch vụ';
+                break;
+            default:
+                $name = $term_name;
+                break;
+        }
+
         foreach ($tree as $term) {
-            if ($term->name == $term_name) {
+            if (stripUnicode(strtolower($term->name)) == stripUnicode(($name))) {
                 return $term->tid;
             }
         }
@@ -353,10 +478,40 @@ function _cron_mkmh_get_products(){
     return !empty($data) ? $data : null;
 }
 
+
 // parse_url return host
 function _parse_url($url){
     if(empty($url)) return;
     $url = preg_replace('#^(http(s)?://)?w{3}\.#', '$1', $url);
     $result = parse_url($url);
     return $result['host'];
+}
+
+function _cron_mkmh_get_masoffer_promotions(){
+    $url = 'http://api.masoffer.com/promotions?publisher_id=phuochoit&token=ByfOVhQf1UTclJGa5bUJ9g%3D%3D';
+    $opts = [
+        "http" => [
+            "method" => "GET",
+        ]
+    ];
+
+    $context = stream_context_create($opts);
+    $file = file_get_contents($url, false, $context);
+    $data = json_decode($file);
+    return !empty($data) ? $data : null;
+}
+
+function stripUnicode($str){
+    if(!$str) return false;
+    $unicode = array(
+        'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+        'd'=>'đ',
+        'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+        'i'=>'í|ì|ỉ|ĩ|ị',
+        'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+        'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+        'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+    );
+    foreach($unicode as $nonUnicode=>$uni) $str = preg_replace("/($uni)/i",$nonUnicode,$str);
+    return $str;
 }

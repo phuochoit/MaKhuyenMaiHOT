@@ -68,7 +68,11 @@
 	<?php if ($page['ads_banner']): ?>
 		<!-- ads_banner -->
 		<section id="advertise-banner" class="block-mkmh-banner-advertise">
-			<?php print render($page['ads_banner']); ?>
+			<div class="container">	
+				<div class="row">
+					<?php print render($page['ads_banner']); ?>
+				</div>
+			</div>
 		</section>
 		<!-- end ads_banner -->
 	<?php endif; ?>  
@@ -76,33 +80,51 @@
 	<!-- main -->
 	<section id="main" role="main" class="clearfix">
 		<div class="container">	
-			<div class="row">
-				<div class="col-sm-12 col-md-8">
-					<?php print $messages; ?>
-					<a id="main-content"></a>
-					<?php if ($page['highlighted']): ?>
-						<div id="highlighted">
-							<?php print render($page['highlighted']); ?>
-						</div>
-					<?php endif; ?>
+			<section class="row">
+				<?php if($messages):?>
+					<section class="col-sm-12 col-md-12 messages-area">
+						<?php print $messages; ?>
+					</section>
+				<?php endif;?>
+				<?php if ($page['highlighted']): ?>
+					<div id="highlighted">
+						<?php print render($page['highlighted']); ?>
+					</div>
+				<?php endif; ?>
+				<section class="col-sm-12 col-md-8 content-area">
 					<?php print render($title_prefix); ?>
 						<?php if ($title): ?>
-							<h1 class="title" id="page-title"><?php print $title; ?></h1>
+							<h1 class="title" id="page-title">
+								<?php print $title; ?>
+							</h1>
 						<?php endif; ?>
 					<?php print render($title_suffix); ?>
+
 					<?php if (!empty($tabs['#primary'])): ?>
-						<div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div>
+						<section class="tabs-wrapper clearfix">
+							<?php print render($tabs); ?>
+						</section>
 					<?php endif; ?>
-					<?php print render($page['help']); ?>
-					<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+					<?php if (!empty($tabs['#help'])): ?>
+						<section class="help-wrapper clearfix">
+							<?php print render($tabs); ?>
+						</section>
+					<?php endif; ?>
+					
+					<?php if ($action_links): ?>
+						<ul class="action-links">
+							<?php print render($action_links); ?>
+						</ul>
+					<?php endif; ?>
+					
 					<?php print render($page['content']); ?>
-				</div>
+				</section>
 				<?php if ($page['sidebar_second']): ?>
-					<div class="col-12 col-md-4">
+					<section class="col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  
-					</div>
+					</section>
 				<?php endif; ?>
 			</div>
 		</div>

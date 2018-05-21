@@ -1,0 +1,24 @@
+.page-store{
+    #main{
+        .content-area{
+            .view-id-store{
+                @include  box-background-shadow();
+                padding: 20px 10px;
+                width: 100%;
+                float: left;
+                .view-content{
+                    .views-row{
+                        margin-bottom: 20px;
+                        .views-field{
+                            &-field-image{
+                                a{
+                                    @include  store-thumb();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

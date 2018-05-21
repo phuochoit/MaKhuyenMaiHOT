@@ -82,12 +82,12 @@
 		<div class="container">	
 			<div class="row">
 				<?php if($messages):?>
-					<section class="col-sm-12 col-md-12">
+					<section class="col-sm-12 col-md-12 messages-area">
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
 				<?php if ($page['highlighted']): ?>
-					<section id="highlighted">
+					<section class="col-sm-12 col-md-12 highlighted-area" id="highlighted">
 						<?php print render($page['highlighted']); ?>
 					</section>
 				<?php endif; ?>
@@ -96,17 +96,26 @@
 						<?php print render($tabs); ?>
 					</section>
 				<?php endif; ?>
-				<?php print render($page['help']); ?>
-				<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-				<div class="col-sm-12 col-md-8">
+				<?php if (!empty($tabs['#help'])): ?>
+					<section class="help-wrapper clearfix">
+						<?php print render($tabs); ?>
+					</section>
+				<?php endif; ?>
+
+				<?php if ($action_links): ?>
+					<ul class="action-links">
+						<?php print render($action_links); ?>
+					</ul>
+				<?php endif; ?>
+				<section class="col-sm-12 col-md-8 content-area">
 					<?php print render($page['content']); ?>
-				</div>
+				</section>
 				<?php if ($page['sidebar_second']): ?>
-					<div class="col-sm-12 col-md-4">
+					<section class="col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  
-					</div>
+					</section>
 				<?php endif; ?>
 			</div>
 		</div>

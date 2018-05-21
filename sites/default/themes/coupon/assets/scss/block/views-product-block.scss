@@ -1,0 +1,86 @@
+.page-san-pham #page-title{
+    display: none;
+}
+
+#block-views-product-block,
+.page-san-pham .view-id-product{
+    .view-content{
+        .views-row{
+            padding-left: 5px;
+            padding-right: 5px;
+            &-1,&-4,&-7,&-10,&-13{
+               padding-left: 0px; 
+            }
+            &-3,&-6,&-9,&-12,&-15{
+               padding-right: 0px; 
+            }
+            .block-dark-border{
+                @include  box-background-shadow();
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }
+            .views-field{
+                
+                &-field-image{
+                    img{
+                        max-width: 100%;
+                        width: auto;
+                        height: auto;
+                        max-height: 225px;
+                    }
+                }
+
+                &-field-teaser{
+                    margin-top: 10px;
+                    .article-title{
+                        a{
+                            color: $baseBackgroundHeader;
+                            margin-top: 0px;
+                            font-size: 17px;
+                            margin-bottom: 5px;
+                            font-weight: 400;
+                            line-height: 1.5;
+                            
+                        }
+                    }
+                    .article-info{
+                        width: 100%;
+                        clear: both;
+                        margin: 10px auto;
+                        span{
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: $baseBackgroundHeader;
+                            &.price_old{
+                                font-weight: normal;
+                                text-decoration: line-through;
+                                float: right;
+                                font-size: 13px;
+                                color: #666666;
+                            }
+                        }
+                    }
+                    .article-footer{
+                        text-align: center;
+                        width: 100%;
+                        clear: both;
+                        margin-top: 25px;
+                        a{
+                            text-transform: uppercase;
+                            color: $baseColorWhite;
+                            font-size: 13px;
+                            padding: 8px 20px;
+                            text-align: center;
+                            width: 195px;
+                            border: solid 2px $baseBackgroundHeader;
+                            border-radius: 5px;
+                            background: $baseBackgroundHeader;
+                            font-weight: 500;
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

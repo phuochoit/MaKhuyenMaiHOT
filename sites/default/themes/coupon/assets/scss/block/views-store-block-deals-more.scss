@@ -13,6 +13,11 @@
                 padding: 10px;
                 a{
                     @include  store-thumb();
+                    line-height: 1;
+                    img{
+                        max-height: 80px;
+                        height: auto;
+                    }
                 }
             }
         }

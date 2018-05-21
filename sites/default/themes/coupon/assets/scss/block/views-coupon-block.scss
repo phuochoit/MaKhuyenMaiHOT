@@ -1,5 +1,11 @@
-#block-views-coupon-block{
-    .content{
+.page-ma-khuyen-mai #page-title{
+    display: none;
+}
+
+#block-views-coupon-coupon-homepage,
+.page-ma-khuyen-mai .view-id-coupon,
+#block-views-coupon-block-coupon-store{
+    .view-content{
         .views-row{
             @include  box-background-shadow();
             padding: 20px 20px 16px 20px;

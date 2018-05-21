@@ -16,15 +16,8 @@
         if (parseInt(result) > 0) {
             setHeightHeaderLogo(result);
         }
-        
-        $('body').on( 'click', '.coupon-item .more, .coupon-item .less', function( e ){
-            e.preventDefault();
-            more = $( this );
-            p = more.closest( '.coupon-item' );
-            p.toggleClass('show-full');
-        } );
-        
-        
+        show_full_coupon_item();
+        SetProductHeight();
 
         // countDown();
 
@@ -56,13 +49,8 @@
     });
 
     $(document).ajaxComplete(function (event, xhr, settings) {
-        $('body').on('click', '.coupon-item .more, .coupon-item .less', function (e) {
-            e.preventDefault();
-            more = $(this);
-            p = more.closest('.coupon-item');
-            p.toggleClass('show-full');
-        });
-
+        show_full_coupon_item();
+        SetProductHeight();
         // SetHeightPromotionHighlightRowFirst();
         // SetHeightPromotionHighlightRowNotFirst();
         // SetHeightPromotionHighlightArticleRowNotFirst();
@@ -88,7 +76,86 @@
 
     });
 
+    function show_full_coupon_item(){
+        $('body').on('click', '.coupon-item .more, .coupon-item .less', function (e) {
+            e.preventDefault();
+            more = $(this);
+            p = more.closest('.coupon-item');
+            p.toggleClass('show-full');
+        });
+    }
+
+    function SetProductHeight(){
+        block_height = getProductHeight();
+        block_height_title = getProductTitleHeight();
+        block_height_article = getProductArticleHeight();
+
+        page_height = getPageProductHeight();
+        page_height_title = getPageProductTitleHeight();
+        page_height_article = getPageProductArticleHeight();
+
+        $('#block-views-product-block .views-row .block-dark-border').height(block_height);
+        $('#block-views-product-block .views-row .article-item').height(block_height_article);
+        $('#block-views-product-block .views-row .article-item .article-title').height(block_height_title);
+
+        $('.page-san-pham .view-id-product  .views-row .block-dark-border').height(page_height);
+        $('.page-san-pham .view-id-product  .views-row .article-item').height(page_height_article);
+        $('.page-san-pham .view-id-product .views-row .article-item .article-title').height(page_height_title);
+
+    }
    
+    // page prodct
+    function getPageProductArticleHeight() {
+        max_height = 0;
+        $('.page-san-pham .view-id-product .views-row .article-item').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+    function getPageProductHeight() {
+        max_height = 0;
+        $('.page-san-pham .view-id-product .views-row .block-dark-border').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+    function getPageProductTitleHeight() {
+        max_height = 0;
+        $('.page-san-pham .view-id-product .views-row .article-item .article-title').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+    // block
+
+    function getProductTitleHeight() {
+        max_height = 0;
+        $('#block-views-product-block .views-row .article-item .article-title').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+    function getProductArticleHeight(){
+        max_height = 0;
+        $('#block-views-product-block .views-row .article-item').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+    function getProductHeight(){
+        max_height = 0;
+        $('#block-views-product-block .views-row .block-dark-border').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        return max_height;
+    }
+
+
 
     function setHeightHeaderLogo(height) {
         $("#header-logo").height(height);

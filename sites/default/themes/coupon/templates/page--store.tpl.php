@@ -68,54 +68,71 @@
 	<?php if ($page['ads_banner']): ?>
 		<!-- ads_banner -->
 		<section id="advertise-banner" class="block-mkmh-banner-advertise">
-			<?php print render($page['ads_banner']); ?>
+			<div class="container">	
+				<div class="row">
+					<?php print render($page['ads_banner']); ?>
+				</div>
+			</div>
 		</section>
 		<!-- end ads_banner -->
 	<?php endif; ?>  
 	
 	<!-- main -->
 	<section id="main" role="main" class="clearfix">
-		
 		<div class="container">	
-			<div class="row">
-				<?php if ($page['sidebar_first']): ?>
-					<div class="col-12 col-md-4 main-sidebar-first" >
-						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
-							<?php print render($page['sidebar_first']); ?>
-						</aside>  
+			<section class="row">
+				<?php if($messages):?>
+					<section class="col-sm-12 col-md-12 messages-area">
+						<?php print $messages; ?>
+					</section>
+				<?php endif;?>
+				<?php if ($page['highlighted']): ?>
+					<div id="highlighted">
+						<?php print render($page['highlighted']); ?>
 					</div>
 				<?php endif; ?>
-				<div class="col-12 col-md-8 main-content">
-					<?php print $messages; ?>
-					<a id="main-content"></a>
-					<?php if ($page['highlighted']): ?>
-						<div id="highlighted">
-							<?php print render($page['highlighted']); ?>
-						</div>
-					<?php endif; ?>
-				
+				<section class="col-sm-12 col-md-8 content-area">				
 					<?php if (!empty($tabs['#primary'])): ?>
-						<div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div>
+						<section class="tabs-wrapper clearfix">
+							<?php print render($tabs); ?>
+						</section>
 					<?php endif; ?>
-					<?php print render($page['help']); ?>
-					<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+					<?php if (!empty($tabs['#help'])): ?>
+						<section class="help-wrapper clearfix">
+							<?php print render($tabs); ?>
+						</section>
+					<?php endif; ?>
+					
+					<?php if ($action_links): ?>
+						<ul class="action-links">
+							<?php print render($action_links); ?>
+						</ul>
+					<?php endif; ?>
+					
 					<?php print render($page['content']); ?>
-				</div>
-				
+				</section>
+				<?php if ($page['sidebar_second']): ?>
+					<section class="col-sm-12 col-md-4 sidebar-second">
+						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
+							<?php print render($page['sidebar_second']); ?>
+						</aside>  
+					</section>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section> 
 	<!-- end #main -->
 	
-	<?php if ($page['ads_footer']): ?>
-		<!-- ads_footer -->
-		<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
-			<?php print render($page['ads_footer']); ?>
-		</section> 
-		<!-- end ads_footer -->
-	<?php endif; ?>
 	
 </div> <!-- /#container -->
+<?php if ($page['ads_footer']): ?>
+	<!-- ads_footer -->
+	<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
+		<?php print render($page['ads_footer']); ?>
+	</section> 
+	<!-- end ads_footer -->
+<?php endif; ?>
+
 <footer id="footer" role="contentinfo" class="clearfix">
 	<div class="container">	
 		<?php print render($page['footer']) ?>
