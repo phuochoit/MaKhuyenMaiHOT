@@ -1,4 +1,5 @@
 (function ($) {
+    show_full_coupon_item();
     $(document).ready(function () {
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,

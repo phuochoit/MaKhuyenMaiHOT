@@ -1,0 +1,8 @@
+.page-node{
+    #main{
+        .content-area{
+            @include  box-background-shadow();
+            padding: 20px 10px;
+        }
+    }
+}
