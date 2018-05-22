@@ -9,6 +9,11 @@
         .view-content{
             padding-left: 10px;
             padding-right: 10px;
+            .views-field{
+                &-field-image{
+                    text-align: center;
+                }
+            }
             .views-row{
                 padding: 10px;
                 a{

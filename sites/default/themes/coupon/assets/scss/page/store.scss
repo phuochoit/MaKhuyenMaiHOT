@@ -9,10 +9,31 @@
                 .view-content{
                     .views-row{
                         margin-bottom: 20px;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        .block-dark-border{
+                            padding: 10px;
+                            height: 100px;
+                            border: 2px solid #f5f5f5;
+                            border-radius: 2px;
+                            &:hover{
+                                border-color: $baseBackgroundHeader;
+                            }
+                        }
                         .views-field{
                             &-field-image{
+                                position: relative;
+                                top: 50%;
+                                text-align: center;
+                                transform: translateY(-50%);
                                 a{
                                     @include  store-thumb();
+                                    border: none;
+                                    
+                                    img{
+                                        max-height: 90px;
+                                        height: auto;
+                                    }
                                 }
                             }
                         }

@@ -117,15 +117,17 @@ function _cron_mkmh_product_save_node($data, $hot){
 }
 
 function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
-    if(empty($data))
+    if(empty($data) )
         return;
 
     $vidCategory = _get_vid_by_name('coupon_categories');
 
     for ($i=0; $i < count($data); $i++) { 
         $val = $data[$i];
-
+        if(($val->aff_url))
+            return;
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->title, ':type' => 'coupons'))->rowCount();
+
         if(!$query){
             $merchant = _get_merchant_name($val->offer_id);
             $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'stores', ':merchant' => $merchant) )->fetchObject();
@@ -162,7 +164,7 @@ function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
                 // check category
                
                 // check coupon
-                if(!empty($val->coupons)){
+                if(!empty($val->coupon_code)){
                     $node->field_coupon_code['und'][0]['value'] = !empty($val->coupon_code) ? $val->coupon_code : null ;
                 }
 
@@ -315,7 +317,14 @@ function _get_merchant_name($merchant){
             $name = 'tikivn';
             break;
         case 'lotte.vn':
+        case 'lotte':
             $name = 'lottevn';
+            break;
+        case 'yes24':
+            $name = 'yes24vn';
+            break;
+        case 'tiki':
+            $name = 'tikivn';
             break;
         case 'adayroi.com':
             $name = 'adayroi';

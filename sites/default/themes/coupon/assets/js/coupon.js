@@ -1,11 +1,9 @@
 (function ($) {
-    
-
     $(document).ready(function () {
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,
             loop: true,
-            autoplayTimeout: 3000,
+            autoplayTimeout: 3000000,
             margin: 20,
             responsiveClass: true,
             autoplay: true,
@@ -95,7 +93,7 @@
         page_height_article = getPageProductArticleHeight();
 
         $('#block-views-product-block .views-row .block-dark-border').height(block_height);
-        $('#block-views-product-block .views-row .article-item').height(block_height_article);
+        $('#block-views-product-block .views-row .article-item').height(block_height_article + 20);
         $('#block-views-product-block .views-row .article-item .article-title').height(block_height_title);
 
         $('.page-san-pham .view-id-product  .views-row .block-dark-border').height(page_height);

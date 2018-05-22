@@ -18,6 +18,10 @@
                 @include  box-background-shadow();
                 padding: 20px 15px;
                 margin-bottom: 15px;
+                width: 100%;
+                        float: left;
+                            overflow: hidden;
+    position: relative;
             }
             .views-field{
                 
@@ -44,9 +48,9 @@
                         }
                     }
                     .article-info{
-                        width: 100%;
-                        clear: both;
                         margin: 10px auto;
+                        display: block;
+                        overflow: hidden;
                         span{
                             font-size: 14px;
                             font-weight: bold;
@@ -62,9 +66,8 @@
                     }
                     .article-footer{
                         text-align: center;
-                        width: 100%;
-                        clear: both;
-                        margin-top: 25px;
+                        margin: 15px auto;
+                        display: block;
                         a{
                             text-transform: uppercase;
                             color: $baseColorWhite;

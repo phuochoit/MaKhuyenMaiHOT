@@ -26,21 +26,26 @@ $path = drupal_get_path_alias('node/'.$row->nid );
 $store_path = drupal_get_path_alias($row->field_field_store[0]['rendered']['#href']); 
 $store_title = $row->field_field_store[0]['rendered']['#title'];
 $aff_link = '/outlink/'.base64_encode($row->nid);
+
 ?>
 
 
-<div class="article-item">
-    <div class="article-title">
+<div class="article-item row">
+    <div class="article-title col-sm-12">
         <a href="<?php print $path;?>" title="<?php print $row->node_title ;?>"><?php print $row->node_title ;?></a>  
     </div>
-    <div class="article-info">
-        <span><?php print $row->field_field_discount[0]['rendered']['#markup'];?></span>
-        <span class="price_old"><?php print $row->field_field_price[0]['rendered']['#markup'];?></span>
+    <div class="article-info col-sm-12">
+        <?php if(empty($row->field_field_discount) || $row->field_field_discount[0]['raw']['value'] == 0) :?>
+            <span><?php print $row->field_field_price[0]['rendered']['#markup'];?></span>
+        <?php else:?>
+            <span><?php print $row->field_field_discount[0]['rendered']['#markup'];?></span>
+            <span class="price_old"><?php print $row->field_field_price[0]['rendered']['#markup'];?></span>
+        <?php endif;?>
         <!-- <a class="brand-info" href="<?php print $store_path;?>" title="<?php print $store_title;?>">
             <?php print $store_title;?>
         </a> -->
     </div>
-    <div class="article-footer">
+    <div class="article-footer col-sm-12">
         <a href="<?php print $aff_link;?>" target="_blank">Mua Ngay</a>
     </div>   
 </div>
