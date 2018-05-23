@@ -9,11 +9,13 @@ body{
     color: $baseBackgroundFooter;
     overflow-x: hidden;
     background: $baseBackground2;
+    font-style: normal;
     &.front{
         background: $baseBackground2;
     }
 }
 p {
+    font-style: normal;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.8;
@@ -21,6 +23,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
     clear: both;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: normal;
@@ -30,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
+    font-style: normal;
     color: $baseBackgroundFooter;
     text-decoration: none;
     &:hover,
@@ -37,7 +41,6 @@ a{
         text-decoration: none;
         color: $baseBackgroundFooter;
     }
-
 }
 
 .full-left-right{
