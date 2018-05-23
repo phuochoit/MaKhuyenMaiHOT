@@ -1,8 +1,35 @@
 .page-node{
     #main{
-        .content-area{
-            @include  box-background-shadow();
-            padding: 20px 10px;
-        }
+       .node-products{
+           @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            &-wrap-content{
+                margin-top: 20px;
+                h3{
+                    font-size: 23px;
+                }
+                h5{
+                    font-size: 20px;
+                }
+                h3,h5{
+                    font-weight: bold;
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                }
+                p{
+                    b{
+                        i{
+                            font-style: normal;
+                        }
+                    }
+                    img{
+                        max-width: 100%;
+                        width: auto !important;
+                        height: auto !important;
+                    }
+                }
+            }
+       }
     }
 }

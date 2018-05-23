@@ -124,7 +124,7 @@ function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
 
     for ($i=0; $i < count($data); $i++) { 
         $val = $data[$i];
-        if(($val->aff_url))
+        if(empty($val->aff_url))
             return;
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->title, ':type' => 'coupons'))->rowCount();
 
@@ -168,12 +168,14 @@ function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
                     $node->field_coupon_code['und'][0]['value'] = !empty($val->coupon_code) ? $val->coupon_code : null ;
                 }
 
-                if(isset($val->category_name) && !empty($val->category_name)){
+                if(isset($val->category_name)){
                     $tidCategories = _get_tid_by_name(trim($val->category_name),'coupon_categories');
                     if(!empty($tidCategories)){
                         $node->field_coupon_categories['und'][0]['tid'] = $tidCategories;
                     }
-                    
+                }
+                if(!isset($val->category_name)){
+                    $node->field_coupon_categories['und'][0]['tid'] = 168;
                 }
 
                 // field tag
@@ -374,12 +376,8 @@ function _create_taxonomy_term($name, $vid) {
 
 // get tid of taxonomy
 function _get_tid_by_name($term_name, $vocabulary_name) {
-    
-    
-    
     if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name)) {
         $tree = taxonomy_get_tree($vocabulary->vid);
-        
         switch (stripUnicode(strtolower($term_name))) {
             case 'dien-tu':
                 $name = 'Điện tử & Thiết bị số Khác';

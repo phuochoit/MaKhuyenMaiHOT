@@ -45,9 +45,11 @@ function _custom_blocks_featured_coupon_categories(){
     $result = '<ul class="cat-column column">';
     foreach ($terms as $key => $val) {
         $count_taxonomy = db_query("SELECT ti.nid FROM taxonomy_index AS ti WHERE ti.tid = :tid", array(':tid' => $val->tid))->rowCount();
-        $term_href = url('taxonomy/term/'.$val->tid);
+        $term_alias = drupal_get_path_alias('taxonomy/term/'.$val->tid);
+        $term_alias = explode('/', $term_alias);
         $result .= '<li class="column cat-item cat-item-'.$val->tid.'">';
-        $result .= '<a href="'.$term_href.'" title="'.$val->name.'">';
+        $result .= '<a href="/danh-muc/'. $term_alias[1].'" title="'.$val->name.'">';
+        // $result .= print l($val->name, 'danh-mucs/'. $term_alias[1]);
         $result .= '<span class="coupon-count">'.$count_taxonomy.'</span> ';
         $result .= $val->name;
         $result .='</a>';
@@ -63,9 +65,13 @@ function _custom_blocks_featured_store_categories(){
     $result = '<ul class="cat-column column">';
     foreach ($terms as $key => $val) {
         $count_taxonomy = db_query("SELECT ti.nid FROM taxonomy_index AS ti WHERE ti.tid = :tid", array(':tid' => $val->tid))->rowCount();
-        $term_href = url('taxonomy/term/'.$val->tid);
+        $term_alias = drupal_get_path_alias('taxonomy/term/'.$val->tid);
+        $term_alias = explode('/', $term_alias);
+
+        // $term_href = url('taxonomy/term/'.$val->tid);
+
         $result .= '<li class="column cat-item cat-item-'.$val->tid.'">';
-        $result .= '<a href="'.$term_href.'" title="'.$val->name.'">';
+        $result .= '<a href="/linh-vuc/'. $term_alias[1].'" title="'.$val->name.'">';
         $result .= '<span class="coupon-count">'.$count_taxonomy.'</span> ';
         $result .= $val->name;
         $result .='</a>';

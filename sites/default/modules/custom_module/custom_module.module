@@ -124,5 +124,10 @@ function _custom_module_update_node_counter($nid){
 }
 function custom_module_views_query_alter(&$view, &$query) {
     // dpm($view);
-    // dpm($query);
+    if($view->name == 'categories' && $view->current_display =='page_coupon_categories'){
+        $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+        $tid = basename($term_path);
+        // $term = taxonomy_term_load($tid);
+        $query->where[1]['conditions'][1]['value'] = $tid;
+    }
 }
