@@ -1,5 +1,4 @@
 (function ($) {
-    show_full_coupon_item();
     $(document).ready(function () {
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,
@@ -11,6 +10,12 @@
             nav: true,
             dots: false
         });
+        if (typeof coupon_categories !== 'undefined'){
+            var categories_lenght = JSON.parse(coupon_categories);
+            $("#block-quicktabs-category #quicktabs-category #quicktabs-tab-category-0").append("<span class='offer-count code-count'>" + categories_lenght.coupon_lenght + "</span>");
+
+            $("#block-quicktabs-category #quicktabs-category #quicktabs-tab-category-1").append("<span class='offer-count product-count'>" + categories_lenght.product_lenght + "</span>");
+        }
         result = $("#block-system-main-menu").height();
         if (parseInt(result) > 0) {
             setHeightHeaderLogo(result);
@@ -83,7 +88,7 @@
             p.toggleClass('show-full');
         });
     }
-
+    
     function SetProductHeight(){
         block_height = getProductHeight();
         block_height_title = getProductTitleHeight();
@@ -102,7 +107,7 @@
         $('.page-san-pham .view-id-product .views-row .article-item .article-title').height(page_height_title);
 
     }
-   
+
     // page prodct
     function getPageProductArticleHeight() {
         max_height = 0;

@@ -13,12 +13,14 @@ function custom_module_menu() {
         'type' => MENU_CALLBACK,
         'access arguments' => array('access simple page'),
     );
-    $items['custom/ajax/%'] = array(
-    'title' => 'Update count',
-    'page callback' => 'custom_module_update_counter',
-    'page arguments' => array(2),
-    'access callback' => array('custom_module_access_control'),
-  );
+   $items['danh-muc/%'] = array(
+        'title' => 'Danh muc',
+        'page callback' => 'custom_module_category_page',
+        'page arguments' => array(1),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access content'),
+    );
     return $items;
 }
 
@@ -94,6 +96,7 @@ function custom_module_page_outlink($nav){
     </script>';
     return $content;
 }
+
 /**
  * update node counter
  * @param [type] $nid 
@@ -122,12 +125,34 @@ function _custom_module_update_node_counter($nid){
         );
     }
 }
+
+function custom_module_category_page(){
+    $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+    $tid = basename($term_path);
+
+    $query_product = db_query("SELECT COUNT(n.nid) AS cproduct FROM  node AS n INNER JOIN field_data_field_coupon_categories As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'products', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    
+    $query_coupon = db_query("SELECT COUNT(n.nid) AS ccoupon FROM  node AS n INNER JOIN field_data_field_coupon_categories As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'coupons', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    $data = array(
+        'product_lenght' => !empty($query_product) ? $query_product->cproduct : 0,
+        'coupon_lenght' => !empty($query_coupon) ? $query_coupon->ccoupon : 0,
+    );
+    $content = '<script type="text/javascript">
+        var coupon_categories = JSON.stringify('.json_encode($data).');
+    </script>';
+    return $content;
+}
+
 function custom_module_views_query_alter(&$view, &$query) {
-    // dpm($view);
-    if($view->name == 'categories' && $view->current_display =='page_coupon_categories'){
-        $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
-        $tid = basename($term_path);
-        // $term = taxonomy_term_load($tid);
-        $query->where[1]['conditions'][1]['value'] = $tid;
+    $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+    $tid = basename($term_path);
+
+    if($view->name == 'coupon' && $view->current_display =='block_coupon_categories' && !path_is_admin(current_path())){
+        $query->where[1]['conditions'][2]['value'] = $tid;
     }
+    if($view->name == 'product' && $view->current_display =='block_product_by_coupon_categories' && !path_is_admin(current_path())){
+        $query->where[1]['conditions'][2]['value'] = $tid;
+    }
+
+
 }
