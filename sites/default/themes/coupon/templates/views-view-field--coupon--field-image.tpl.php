@@ -35,7 +35,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
 <div data-id="<?php print $row->nid;?>" id="coupon-item-<?php print $row->nid;?>" class="coupon-item has-thumb store-listing-item c-type-code coupon-listing-item shadow-box coupon-live coupon-item-<?php print $row->nid;?>">
     <div class="store-thumb-link col-sm-12 col-md-3">
         <div class="store-thumb">
-            <a href="<?php print $store_path;?>">
+            <a href="/<?php print $store_path;?>">
                 <img src="<?php print $img;?>" class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb" alt="" >   
             </a>
         </div>
@@ -107,6 +107,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
         </ul>
     </div>
 </div>
+
 <?php if(!empty($coupon_code)) : ?>
 <script type="text/javascript">
     function CouponRedirect_<?php print $row->nid;?>(){

@@ -612,7 +612,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row,
 .view-display-id-block_coupon_categories .view-content .views-row,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row,
+.view-display-id-block_store_categories_coupon .view-content .views-row,
+.view-display-id-block_coupon_store .view-content .views-row,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 20px 16px 20px;
@@ -623,7 +626,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item .coupon-des p a,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item .coupon-des p a,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item .coupon-des p a,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des p a {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des p a,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item .coupon-des p a,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item .coupon-des p a,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item .coupon-des p a {
   color: #00b7f0;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item .coupon-des p a:hover,
@@ -631,7 +637,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item .coupon-des p a:hover,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item .coupon-des p a:hover,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item .coupon-des p a:hover,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des p a:hover {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des p a:hover,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item .coupon-des p a:hover,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item .coupon-des p a:hover,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item .coupon-des p a:hover {
   color: #ff9900;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item .coupon-des-ellip,
@@ -639,7 +648,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item .coupon-des-ellip,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item .coupon-des-ellip,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item .coupon-des-ellip,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-ellip {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-ellip,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item .coupon-des-ellip,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item .coupon-des-ellip,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item .coupon-des-ellip {
   display: block;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item .coupon-des-full,
@@ -647,7 +659,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item .coupon-des-full,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item .coupon-des-full,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item .coupon-des-full,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-full {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-full,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item .coupon-des-full,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item .coupon-des-full,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item .coupon-des-full {
   display: none;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item .coupon-des-full.not-substr,
@@ -655,7 +670,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item .coupon-des-full.not-substr,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item .coupon-des-full.not-substr,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item .coupon-des-full.not-substr,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-full.not-substr {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item .coupon-des-full.not-substr,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item .coupon-des-full.not-substr,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item .coupon-des-full.not-substr,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item .coupon-des-full.not-substr {
   display: block;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
@@ -663,7 +681,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item.show-full .coupon-des-ellip {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item.show-full .coupon-des-ellip,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item.show-full .coupon-des-ellip {
   display: none;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-item.show-full .coupon-des-full,
@@ -671,7 +692,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-item.show-full .coupon-des-full,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-item.show-full .coupon-des-full,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-item.show-full .coupon-des-full,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item.show-full .coupon-des-full {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-item.show-full .coupon-des-full,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-item.show-full .coupon-des-full,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-item.show-full .coupon-des-full,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-item.show-full .coupon-des-full {
   display: block;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .store-thumb-link .store-thumb a,
@@ -679,7 +703,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .store-thumb-link .store-thumb a,
 .view-display-id-block_coupon_categories .view-content .views-row .store-thumb-link .store-thumb a,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .store-thumb-link .store-thumb a,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a,
+.view-display-id-block_store_categories_coupon .view-content .views-row .store-thumb-link .store-thumb a,
+.view-display-id-block_coupon_store .view-content .views-row .store-thumb-link .store-thumb a,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .store-thumb-link .store-thumb a {
   border: 2px solid #f5f5f5;
   border-radius: 2px;
   display: block;
@@ -691,7 +718,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .store-thumb-link .store-thumb a:hover,
 .view-display-id-block_coupon_categories .view-content .views-row .store-thumb-link .store-thumb a:hover,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .store-thumb-link .store-thumb a:hover,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a:hover {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a:hover,
+.view-display-id-block_store_categories_coupon .view-content .views-row .store-thumb-link .store-thumb a:hover,
+.view-display-id-block_coupon_store .view-content .views-row .store-thumb-link .store-thumb a:hover,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .store-thumb-link .store-thumb a:hover {
   border-color: #00b7f0;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .store-thumb-link .store-thumb a img,
@@ -699,7 +729,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .store-thumb-link .store-thumb a img,
 .view-display-id-block_coupon_categories .view-content .views-row .store-thumb-link .store-thumb a img,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .store-thumb-link .store-thumb a img,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a img {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .store-thumb-link .store-thumb a img,
+.view-display-id-block_store_categories_coupon .view-content .views-row .store-thumb-link .store-thumb a img,
+.view-display-id-block_coupon_store .view-content .views-row .store-thumb-link .store-thumb a img,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .store-thumb-link .store-thumb a img {
   margin: 0 auto;
   max-height: 115px;
   width: auto;
@@ -710,7 +743,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .coupon-title,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .coupon-title,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .coupon-title,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .coupon-title {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .coupon-title,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .coupon-title,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .coupon-title,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .coupon-title {
   margin-top: 0px;
   font-size: 17px;
   margin-bottom: 5px;
@@ -722,7 +758,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .coupon-title a,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .coupon-title a,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .coupon-title a,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .coupon-title a {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .coupon-title a,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .coupon-title a,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .coupon-title a,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .coupon-title a {
   color: #00b7f0;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .latest-coupon .c-type,
@@ -730,7 +769,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .c-type,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .c-type,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .c-type,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .c-type,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .c-type,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .c-type {
   margin: 0px 0px 4px;
   display: inline-block;
 }
@@ -739,7 +781,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .c-type .c-code,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .c-type .c-code,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .c-type .c-code,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .c-code {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .c-code,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .c-type .c-code,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .c-type .c-code,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .c-type .c-code {
   background: #00b7f0;
   color: white;
   padding: 4px 10px 4px;
@@ -756,7 +801,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .c-type .c-sale,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .c-type .c-sale,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .c-type .c-sale,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .c-sale {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .c-sale,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .c-type .c-sale,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .c-type .c-sale,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .c-type .c-sale {
   background: #ea4c89;
   padding: 3px 10px 5px;
 }
@@ -765,7 +813,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .latest-coupon .c-type .exp,
 .view-display-id-block_coupon_categories .view-content .views-row .latest-coupon .c-type .exp,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .latest-coupon .c-type .exp,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .exp {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .latest-coupon .c-type .exp,
+.view-display-id-block_store_categories_coupon .view-content .views-row .latest-coupon .c-type .exp,
+.view-display-id-block_coupon_store .view-content .views-row .latest-coupon .c-type .exp,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .latest-coupon .c-type .exp {
   font-size: 14px;
   color: #999999;
   margin-left: 10px;
@@ -775,7 +826,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail {
   text-align: center;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-detail .coupon-button,
@@ -783,7 +837,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button {
   margin-bottom: 10px;
   text-transform: uppercase;
   cursor: pointer;
@@ -798,7 +855,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal {
   background-color: #00b7f0;
   box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset;
   padding: 14px 38px;
@@ -815,7 +875,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal:hover {
   opacity: 0.9;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-detail .coupon-button.coupon-code,
@@ -823,7 +886,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code {
   color: #444444;
   background: linear-gradient(315deg, rgba(0, 0, 0, 0.06) 10%, transparent 15%, transparent 35%, rgba(0, 0, 0, 0.06) 40%, rgba(0, 0, 0, 0.06) 60%, transparent 65%, transparent 85%, rgba(0, 0, 0, 0.06) 90%) repeat scroll 0 0/6px 6px transparent;
   text-align: right;
@@ -837,7 +903,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code:hover {
   opacity: 0.9;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
@@ -845,7 +914,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .code-text {
   text-transform: uppercase;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
@@ -853,7 +925,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code {
   background-color: #00b7f0;
   position: absolute;
   left: -2px;
@@ -871,7 +946,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover {
   padding-right: 5px;
   transition: all 0.5s ease;
 }
@@ -880,7 +958,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after {
   content: "";
   display: block;
   width: 0;
@@ -896,7 +977,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-footer,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-footer,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-footer,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-footer,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-footer,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-footer {
   margin-top: 20px;
   padding: 10px 10px 0px 10px;
   border-top: 1px solid #e9e9e9;
@@ -906,7 +990,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-footer ul,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-footer ul,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-footer ul,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-footer ul,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-footer ul,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-footer ul {
   margin: 0px;
   padding: 0px;
   list-style: none;
@@ -916,7 +1003,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-footer ul li,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-footer ul li,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-footer ul li,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul li {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul li,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-footer ul li,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-footer ul li,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-footer ul li {
   padding: 0;
   display: inline-block;
   float: left;
@@ -927,7 +1017,10 @@ a:hover, a:focus {
 #block-views-coupon-block-coupon-store .view-content .views-row .coupon-footer ul li span,
 .view-display-id-block_coupon_categories .view-content .views-row .coupon-footer ul li span,
 #block-custom-blocks-list-coupon-and-sale-homepage #coupon .view-content .views-row .coupon-footer ul li span,
-#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul li span {
+#block-custom-blocks-list-coupon-and-sale-homepage #sale .view-content .views-row .coupon-footer ul li span,
+.view-display-id-block_store_categories_coupon .view-content .views-row .coupon-footer ul li span,
+.view-display-id-block_coupon_store .view-content .views-row .coupon-footer ul li span,
+.view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-footer ul li span {
   font-size: 12px;
   color: #999999;
 }
@@ -946,7 +1039,8 @@ a:hover, a:focus {
 
 #block-views-product-block .view-content .views-row,
 .page-san-pham .view-id-product .view-content .views-row,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row,
+.view-display-id-block_product_by_stores_categories .view-content .views-row {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -960,7 +1054,12 @@ a:hover, a:focus {
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-4,
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-7,
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-10,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row-13 {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row-13,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-1,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-4,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-7,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-10,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-13 {
   padding-left: 0px;
 }
 #block-views-product-block .view-content .views-row-3, #block-views-product-block .view-content .views-row-6, #block-views-product-block .view-content .views-row-9, #block-views-product-block .view-content .views-row-12, #block-views-product-block .view-content .views-row-15,
@@ -973,12 +1072,18 @@ a:hover, a:focus {
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-6,
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-9,
 .view-display-id-block_product_by_coupon_categories .view-content .views-row-12,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row-15 {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row-15,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-3,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-6,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-9,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-12,
+.view-display-id-block_product_by_stores_categories .view-content .views-row-15 {
   padding-right: 0px;
 }
 #block-views-product-block .view-content .views-row .block-dark-border,
 .page-san-pham .view-id-product .view-content .views-row .block-dark-border,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .block-dark-border {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .block-dark-border,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .block-dark-border {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 15px;
@@ -990,7 +1095,8 @@ a:hover, a:focus {
 }
 #block-views-product-block .view-content .views-row .views-field-field-image img,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-image img,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-image img {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-image img,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-image img {
   max-width: 100%;
   width: auto;
   height: auto;
@@ -998,12 +1104,14 @@ a:hover, a:focus {
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser {
   margin-top: 10px;
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-title a,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-title a,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-title a {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-title a,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-title a {
   color: #00b7f0;
   margin-top: 0px;
   font-size: 17px;
@@ -1013,21 +1121,24 @@ a:hover, a:focus {
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-info,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-info,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-info {
   margin: 10px auto;
   display: block;
   overflow: hidden;
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-info span,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-info span,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info span {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info span,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-info span {
   font-size: 14px;
   font-weight: bold;
   color: #00b7f0;
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-info span.price_old,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-info span.price_old,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info span.price_old {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-info span.price_old,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-info span.price_old {
   font-weight: normal;
   text-decoration: line-through;
   float: right;
@@ -1036,14 +1147,16 @@ a:hover, a:focus {
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-footer,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-footer,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-footer {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-footer,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-footer {
   text-align: center;
   margin: 15px auto;
   display: block;
 }
 #block-views-product-block .view-content .views-row .views-field-field-teaser .article-footer a,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-teaser .article-footer a,
-.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-footer a {
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .views-field-field-teaser .article-footer a,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .views-field-field-teaser .article-footer a {
   text-transform: uppercase;
   color: white;
   font-size: 13px;
