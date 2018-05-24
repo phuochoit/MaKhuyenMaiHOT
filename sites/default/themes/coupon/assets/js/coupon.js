@@ -10,12 +10,7 @@
             nav: true,
             dots: false
         });
-        if (typeof coupon_categories !== 'undefined'){
-            var categories_lenght = JSON.parse(coupon_categories);
-            $("#block-quicktabs-category #quicktabs-category #quicktabs-tab-category-0").append("<span class='offer-count code-count'>" + categories_lenght.coupon_lenght + "</span>");
-
-            $("#block-quicktabs-category #quicktabs-category #quicktabs-tab-category-1").append("<span class='offer-count product-count'>" + categories_lenght.product_lenght + "</span>");
-        }
+        
         result = $("#block-system-main-menu").height();
         if (parseInt(result) > 0) {
             setHeightHeaderLogo(result);
@@ -98,6 +93,10 @@
         page_height_title = getPageProductTitleHeight();
         page_height_article = getPageProductArticleHeight();
 
+        product_coupon_categories_height = get_product_coupon_categorie_height();
+        product_coupon_categories_height_article = get_product_coupon_categorie_article_height();
+        product_coupon_categories_height_article_title = get_product_coupon_categorie_article_height();
+
         $('#block-views-product-block .views-row .block-dark-border').height(block_height);
         $('#block-views-product-block .views-row .article-item').height(block_height_article + 20);
         $('#block-views-product-block .views-row .article-item .article-title').height(block_height_title);
@@ -106,8 +105,41 @@
         $('.page-san-pham .view-id-product  .views-row .article-item').height(page_height_article);
         $('.page-san-pham .view-id-product .views-row .article-item .article-title').height(page_height_title);
 
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border').height(product_coupon_categories_height);
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item').height(product_coupon_categories_height_article);
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title').height(product_coupon_categories_height_article_title);
+
     }
 
+    // product_coupon_categories
+    function get_product_coupon_categorie_height() {
+        $('#product').show();
+        max_height = 0;
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        $('#product').removeAttr('style');
+        return max_height;
+    }
+    function get_product_coupon_categorie_article_height() {
+        $('#product').show();
+        max_height = 0;
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        $('#product').removeAttr('style');
+        return max_height;
+    }
+    function get_product_coupon_categorie_article_height() {
+        $('#product').show();
+        max_height = 0;
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title').each(function (i, val) {
+            max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
+        });
+        $('#product').removeAttr('style');
+        return max_height;
+    }
+    
     // page prodct
     function getPageProductArticleHeight() {
         max_height = 0;

@@ -14,8 +14,16 @@ function custom_module_menu() {
         'access arguments' => array('access simple page'),
     );
    $items['danh-muc/%'] = array(
-        'title' => 'Danh muc',
-        'page callback' => 'custom_module_category_page',
+        'title' => 'Danh mục',
+        'page callback' => 'custom_module_coupon_categories_page',
+        'page arguments' => array(1),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access content'),
+    );
+    $items['linh-vuc/%'] = array(
+        'title' => 'Lĩnh Vực',
+        'page callback' => 'custom_module_stores_categories_page',
         'page arguments' => array(1),
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
@@ -126,33 +134,104 @@ function _custom_module_update_node_counter($nid){
     }
 }
 
-function custom_module_category_page(){
-    $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+function custom_module_coupon_categories_page($tname){
+    $term_path = drupal_get_normal_path('coupon-categories/'.$tname);
     $tid = basename($term_path);
 
-    $query_product = db_query("SELECT COUNT(n.nid) AS cproduct FROM  node AS n INNER JOIN field_data_field_coupon_categories As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'products', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    $query_product = db_query("SELECT COUNT(n.nid) AS cproduct FROM  {node} AS n INNER JOIN {field_data_field_coupon_categories} As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'products', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
     
-    $query_coupon = db_query("SELECT COUNT(n.nid) AS ccoupon FROM  node AS n INNER JOIN field_data_field_coupon_categories As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'coupons', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    $query_coupon = db_query("SELECT COUNT(n.nid) AS ccoupon FROM  {node} AS n INNER JOIN {field_data_field_coupon_categories} As cc ON cc.entity_id = n.nid WHERE n.type = :type AND n.status = :status AND cc.field_coupon_categories_tid = :tid", array(':type' => 'coupons', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
     $data = array(
         'product_lenght' => !empty($query_product) ? $query_product->cproduct : 0,
         'coupon_lenght' => !empty($query_coupon) ? $query_coupon->ccoupon : 0,
     );
-    $content = '<script type="text/javascript">
-        var coupon_categories = JSON.stringify('.json_encode($data).');
-    </script>';
+    $block_coupon = views_embed_view('coupon', 'block_coupon_categories');
+    $block_product = views_embed_view('product', 'block_product_by_coupon_categories');
+
+    $content ='
+    <div class="coupon-categories-content">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Khuyến Mại
+                    <span class="badge">'.$data['coupon_lenght'].'</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#product" aria-controls="product" role="tab" data-toggle="tab">
+                    Sản Phẩm
+                    <span class="badge">'.$data['product_lenght'].'</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="product">'.$block_product.'</div>
+        </div>
+    </div>';
+    return $content;
+}
+
+function custom_module_stores_categories_page($tname){
+    $term_path = drupal_get_normal_path('stores-categories/'.$tname);
+    $tid = basename($term_path);
+    
+    $query_product = db_query("SELECT COUNT(n.nid) AS cproduct FROM {node} AS n INNER JOIN {field_data_field_store} AS fs ON fs.entity_id = n.nid INNER JOIN {field_data_field_stores_categories} AS sc ON sc.entity_id = fs.field_store_nid WHERE n.status = :status AND n.type = :type  AND sc.field_stores_categories_tid = :tid", array(':type' => 'products', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    
+    $query_coupon = db_query("SELECT COUNT(n.nid) AS ccoupon FROM {node} AS n INNER JOIN {field_data_field_store} AS fs ON fs.entity_id = n.nid INNER JOIN {field_data_field_stores_categories} AS sc ON sc.entity_id = fs.field_store_nid WHERE n.status = :status AND n.type = :type  AND sc.field_stores_categories_tid = :tid", array(':type' => 'coupons', ':status' => 1 , ':tid' =>  $tid))->fetchObject();
+    $data = array(
+        'product_lenght' => !empty($query_product) ? $query_product->cproduct : 0,
+        'coupon_lenght' => !empty($query_coupon) ? $query_coupon->ccoupon : 0,
+    );
+    $block_coupon = views_embed_view('coupon', 'block_store_categories_coupon');
+    $block_product = views_embed_view('product', 'block_product_by_stores_categories');
+
+    $content ='
+    <div class="stores-categories-content">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Khuyến Mại
+                    <span class="badge">'.$data['coupon_lenght'].'</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#product" aria-controls="product" role="tab" data-toggle="tab">
+                    Sản Phẩm
+                    <span class="badge">'.$data['product_lenght'].'</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="product">'.$block_product.'</div>
+        </div>
+    </div>';
     return $content;
 }
 
 function custom_module_views_query_alter(&$view, &$query) {
-    $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+    if(arg(0) == 'linh-vuc'){
+        $term_path = drupal_get_normal_path('stores-categories/'.arg(1));
+    }else{
+        $term_path = drupal_get_normal_path('coupon-categories/'.arg(1));
+    }
     $tid = basename($term_path);
 
-    if($view->name == 'coupon' && $view->current_display =='block_coupon_categories' && !path_is_admin(current_path())){
-        $query->where[1]['conditions'][2]['value'] = $tid;
+    if($view->name == 'coupon' && !path_is_admin(current_path())){
+        if($view->current_display =='block_coupon_categories' || $view->current_display =='block_store_categories_coupon'){
+            $query->where[1]['conditions'][2]['value'] = $tid;
+        }
     }
-    if($view->name == 'product' && $view->current_display =='block_product_by_coupon_categories' && !path_is_admin(current_path())){
-        $query->where[1]['conditions'][2]['value'] = $tid;
+    
+    if($view->name == 'product' && !path_is_admin(current_path())){
+        if($view->current_display =='block_product_by_coupon_categories' || $view->current_display =='block_product_by_stores_categories'){
+            $query->where[1]['conditions'][2]['value'] = $tid;
+        }
+        
     }
-
-
 }

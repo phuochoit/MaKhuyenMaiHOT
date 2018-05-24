@@ -46,5 +46,6 @@
         <div class="node-products-wrap-content node-post-wrap-content">
             <?php print $node->body['und'][0]['value'];?>
         </div>
+       <?php print render($content['facebook_comments']); ?>
     </div>
 </article> <!-- /.node -->
