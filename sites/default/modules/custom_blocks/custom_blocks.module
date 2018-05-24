@@ -72,17 +72,17 @@ function _custom_blocks_list_coupon_and_sale_store(){
     $content ='
     <div class="coupon-sale-store">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
                     Code
-                    <span class="badge">'.$query_coupon.'</span>
+                    <span class="badge badge-coupon">'.$query_coupon.'</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
                     Sale
-                    <span class="badge">'.$query_sale.'</span>
+                    <span class="badge badge-sale">'.$query_sale.'</span>
                 </a>
             </li>
         </ul>
@@ -96,38 +96,46 @@ function _custom_blocks_list_coupon_and_sale_store(){
 }
 
 function _custom_blocks_list_coupon_and_sale_homepage(){
+    $block_all = views_embed_view('coupon', 'block_coupon_homepage_all');
     $block_coupon = views_embed_view('coupon', 'coupon_homepage');
     $block_sale = views_embed_view('coupon', 'block_sale_homepage');
 
     // get count all coupon
 
-    $query_coupon = db_query("SELECT COUNT(n.nid) AS count_coupon FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NOT NULL", array(':type' => 'coupons', ':status' => 1))->fetchObject();
-    $count_coupon = empty($query_coupon) ? 0 : $query_coupon->count_coupon;
+    $query_coupon = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NOT NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
     
     // get count all sale
-    $query_sale = db_query("SELECT COUNT(n.nid) AS count_sale FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NULL", array(':type' => 'coupons', ':status' => 1))->fetchObject();
-    $count_sale = empty($query_sale) ? 0 : $query_sale->count_sale;
-    
+    $query_sale = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
+
+    $all_coupon = intval($query_coupon) + intval($query_sale);
+
     $content ='
-    <div class="coupon-sale-homepage">
+    <div class="coupon-sale-homepage ">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
+        <li role="presentation" class="active">
+                <a href="#all" aria-controls="all" role="tab" data-toggle="tab">
+                    All
+                    <span class="badge badge-all">'.$all_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation" class="">
                 <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
                     Code
-                    <span class="badge">'.$count_coupon.'</span>
+                    <span class="badge badge-coupon">'.$query_coupon.'</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
                     Sale
-                    <span class="badge">'.$count_sale.'</span>
+                    <span class="badge badge-sale">'.$query_sale.'</span>
                 </a>
             </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane active" id="all">'.$block_all.'</div>
+            <div role="tabpanel" class="tab-pane" id="coupon">'.$block_coupon.'</div>
             <div role="tabpanel" class="tab-pane" id="sale">'.$block_sale.'</div>
         </div>
     </div>';

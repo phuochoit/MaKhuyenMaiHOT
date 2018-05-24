@@ -1,0 +1,13 @@
+.page-linh-vuc{
+    #main{
+        .stores-categories-content{
+            .nav-tabs{
+                &.custom-tabs{
+                    li{
+                        width: 50%;
+                    }  
+                } 
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.page-danh-muc{
+    #main{
+        .coupon-categories-content{
+            .nav-tabs{
+                &.custom-tabs{
+                    li{
+                        width: 50%;
+                    }  
+                } 
+            }
+        }
+    }
+}

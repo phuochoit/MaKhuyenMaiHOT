@@ -151,17 +151,17 @@ function custom_module_coupon_categories_page($tname){
     $content ='
     <div class="coupon-categories-content">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
                     Khuyến Mại
-                    <span class="badge">'.$data['coupon_lenght'].'</span>
+                    <span class="badge badge-coupon">'.$data['coupon_lenght'].'</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#product" aria-controls="product" role="tab" data-toggle="tab">
                     Sản Phẩm
-                    <span class="badge">'.$data['product_lenght'].'</span>
+                    <span class="badge badge-sale">'.$data['product_lenght'].'</span>
                 </a>
             </li>
         </ul>
@@ -191,17 +191,17 @@ function custom_module_stores_categories_page($tname){
     $content ='
     <div class="stores-categories-content">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
                     Khuyến Mại
-                    <span class="badge">'.$data['coupon_lenght'].'</span>
+                    <span class="badge badge-coupon">'.$data['coupon_lenght'].'</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#product" aria-controls="product" role="tab" data-toggle="tab">
                     Sản Phẩm
-                    <span class="badge">'.$data['product_lenght'].'</span>
+                    <span class="badge badge-sale">'.$data['product_lenght'].'</span>
                 </a>
             </li>
         </ul>

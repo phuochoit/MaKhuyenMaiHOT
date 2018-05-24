@@ -132,3 +132,82 @@ a{
         }
     }
 }
+.nav-tabs{
+    &.custom-tabs{
+        border-radius: 0px;
+        @include  box-background-shadow();
+        border: none;
+        margin-bottom: 20px;
+        li{
+            width: 33.3333%;
+            justify-content: center;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 0;
+            position: relative;
+            &:hover{
+                background: rgba(0,0,0,.03);
+            }
+            &:last-child{
+                &:before{
+                    display: none;
+                }
+            }
+            &:before{
+                background: linear-gradient(rgba(0, 0, 0, 0.04) 0px, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.04) 100%) repeat scroll 0 0 transparent;
+                position: absolute;
+                content: '';
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 1px;
+            }
+            &:after{
+                visibility: visible;
+                position: absolute;
+                content: '';
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                background: 0 0;
+                margin: .5px 0 0;
+                width: .57142857em;
+                height: .57142857em;
+                border: none;
+                border-bottom: 1px solid #D4D4D5;
+                border-right: 1px solid #D4D4D5;
+                z-index: 2;
+                -webkit-transition: background .1s ease;
+                transition: background .1s ease;
+                display: none;
+            }
+            a{
+                width: 100%;
+                background: transparent !important;
+                border: none !important;
+                padding: 11.5px 15px;
+                .badge{
+                    border-radius: 2px;
+                    &-all{
+                        background-color: #b9dc2f;
+                    }
+                    &-coupon{
+                        background-color: #00b7f0;
+                    }
+                    &-sale{
+                        background-color: #ea4c89;
+                    }
+                }
+            }
+            &.active{
+                box-shadow: none;
+                background:safe-rgba(orange , 0.9);
+                border: none;
+                &:after{
+                    background: orange;
+                    display: block;
+                }
+            }
+        }
+    }
+}

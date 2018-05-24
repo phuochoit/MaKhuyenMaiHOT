@@ -31,5 +31,14 @@
                 }
             }
        }
+       .coupon-sale-store{
+           .nav-tabs{
+                &.custom-tabs{
+                    li{
+                        width: 50%;
+                    }
+                }
+            } 
+       }
     }
 }

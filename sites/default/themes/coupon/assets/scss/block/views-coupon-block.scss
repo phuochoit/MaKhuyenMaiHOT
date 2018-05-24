@@ -10,7 +10,8 @@
 #block-custom-blocks-list-coupon-and-sale-homepage #sale,
 .view-display-id-block_store_categories_coupon,
 .view-display-id-block_coupon_store,
-.view-display-id-block_coupon_by_store_sale{
+.view-display-id-block_coupon_by_store_sale,
+.view-display-id-block_coupon_homepage_all{
     .view-content{
         .views-row{
             @include  box-background-shadow();
