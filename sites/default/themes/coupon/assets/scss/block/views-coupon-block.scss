@@ -5,7 +5,9 @@
 #block-views-coupon-coupon-homepage,
 .page-ma-khuyen-mai .view-id-coupon,
 #block-views-coupon-block-coupon-store,
-.view-display-id-block_coupon_categories{
+.view-display-id-block_coupon_categories,
+#block-custom-blocks-list-coupon-and-sale-homepage #coupon,
+#block-custom-blocks-list-coupon-and-sale-homepage #sale{
     .view-content{
         .views-row{
             @include  box-background-shadow();
