@@ -139,17 +139,14 @@ a:hover, a:focus {
 
 .nav-tabs.custom-tabs {
   border-radius: 0px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   border: none;
   margin-bottom: 20px;
 }
 .nav-tabs.custom-tabs li {
   width: 33.3333%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   text-align: center;
   display: inline-block;
   margin-bottom: 0;
@@ -176,8 +173,7 @@ a:hover, a:focus {
   content: '';
   top: 100%;
   left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   background: 0 0;
   margin: .5px 0 0;
   width: .57142857em;
@@ -209,8 +205,7 @@ a:hover, a:focus {
   background-color: #ea4c89;
 }
 .nav-tabs.custom-tabs li.active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background: rgba(255, 165, 0, 0.9);
   border: none;
 }
@@ -231,8 +226,7 @@ a:hover, a:focus {
 #header-logo .content {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 /* end block header-logo*/
@@ -308,8 +302,7 @@ a:hover, a:focus {
   background: white;
   padding: 6px 12px;
   border: 1px solid white;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 #block-search-form .content .btn-primary {
   color: white;
@@ -324,8 +317,7 @@ a:hover, a:focus {
   margin-bottom: 40px;
 }
 #block-views-store-block-store-carousel .content {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 10px;
 }
@@ -361,8 +353,7 @@ a:hover, a:focus {
   position: relative;
   top: 50%;
   text-align: center;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 #block-views-store-block-store-carousel .content .owl-nav div {
   cursor: pointer;
@@ -404,8 +395,7 @@ a:hover, a:focus {
   min-height: 250px;
   text-align: center;
   background: white;
-  -webkit-box-shadow: 0px 4px 8px #999;
-          box-shadow: 0px 4px 8px #999;
+  box-shadow: 0px 4px 8px #999;
   overflow: hidden;
 }
 .page-outlink #main .cloakpl .cloakpl-frame {
@@ -453,8 +443,7 @@ a:hover, a:focus {
 }
 
 .page-store #main .content-area .view-id-store {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 10px;
   width: 100%;
@@ -478,8 +467,7 @@ a:hover, a:focus {
   position: relative;
   top: 50%;
   text-align: center;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image a {
   border: 2px solid #f5f5f5;
@@ -503,8 +491,7 @@ a:hover, a:focus {
 }
 
 .page-node #main .node-products {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 15px;
   margin-bottom: 30px;
@@ -546,8 +533,7 @@ a:hover, a:focus {
 .node-type-stores #main .inner {
   margin: 30px auto;
   padding: 0px 30px 30px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
 }
 .node-type-stores #main .inner .inner-content {
@@ -603,8 +589,7 @@ a:hover, a:focus {
 }
 #block-views-store-block-deals-more .content {
   padding: 20px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
 }
 #block-views-store-block-deals-more .content .view-content {
@@ -657,8 +642,7 @@ a:hover, a:focus {
 #block-custom-blocks-list-featured-coupon-categories .content,
 #block-custom-blocks-list-featured-store-categories .content {
   padding: 20px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: #FFFFFF;
 }
 #block-custom-blocks-list-featured-coupon-categories .content .cat-column,
@@ -692,8 +676,7 @@ a:hover, a:focus {
 }
 #block-custom-blocks-list-featured-coupon-categories .content .cat-column li a span,
 #block-custom-blocks-list-featured-store-categories .content .cat-column li a span {
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
   background: #f9f9f9;
   padding: 3px;
   min-width: 30px;
@@ -722,8 +705,7 @@ a:hover, a:focus {
 .view-display-id-block_coupon_store .view-content .views-row,
 .view-display-id-block_coupon_by_store_sale .view-content .views-row,
 .view-display-id-block_coupon_homepage_all .view-content .views-row {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 20px 16px 20px;
   margin-bottom: 15px;
@@ -986,8 +968,7 @@ a:hover, a:focus {
 .view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-deal,
 .view-display-id-block_coupon_homepage_all .view-content .views-row .coupon-detail .coupon-button.coupon-deal {
   background-color: #00b7f0;
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset;
   padding: 14px 38px;
   color: white;
   display: inline-block;
@@ -1070,7 +1051,6 @@ a:hover, a:focus {
   padding: 15px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
-  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   height: 52px;
 }
@@ -1085,7 +1065,6 @@ a:hover, a:focus {
 .view-display-id-block_coupon_by_store_sale .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover,
 .view-display-id-block_coupon_homepage_all .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:hover {
   padding-right: 5px;
-  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .coupon-detail .coupon-button.coupon-code .get-code:after,
@@ -1224,8 +1203,7 @@ a:hover, a:focus {
 .page-san-pham .view-id-product .view-content .views-row .block-dark-border,
 .view-display-id-block_product_by_coupon_categories .view-content .views-row .block-dark-border,
 .view-display-id-block_product_by_stores_categories .view-content .views-row .block-dark-border {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
   padding: 20px 15px;
   margin-bottom: 15px;
@@ -1233,6 +1211,23 @@ a:hover, a:focus {
   float: left;
   overflow: hidden;
   position: relative;
+}
+#block-views-product-block .view-content .views-row .block-dark-border .product-hot,
+.page-san-pham .view-id-product .view-content .views-row .block-dark-border .product-hot,
+.view-display-id-block_product_by_coupon_categories .view-content .views-row .block-dark-border .product-hot,
+.view-display-id-block_product_by_stores_categories .view-content .views-row .block-dark-border .product-hot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 35px;
+  height: 35px;
+  background: #00b7f0;
+  border-radius: 50%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
 }
 #block-views-product-block .view-content .views-row .views-field-field-image img,
 .page-san-pham .view-id-product .view-content .views-row .views-field-field-image img,

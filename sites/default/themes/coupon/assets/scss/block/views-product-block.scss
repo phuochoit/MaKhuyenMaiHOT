@@ -31,6 +31,20 @@
                 float: left;
                 overflow: hidden;
                 position: relative;
+                .product-hot {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 35px;
+                    height: 35px;
+                    background:$baseBackgroundHeader;
+                    border-radius: 50%;
+                    padding: 10px 0;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #fff;
+                }
             }
             .views-field{
                 

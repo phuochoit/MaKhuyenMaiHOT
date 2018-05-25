@@ -6,7 +6,6 @@ function cron_mkmh_cron() {
     ini_set('memory_limit', -1);
     ini_set('max_execution_time', 0);
     if(isset($_GET['cron_key']) && !empty($_GET['cron_key'])){
-        _cron_mkmh_set_unpublished();
         $coupon =  _cron_mkmh_get_offers_informations();
         if(!empty($coupon)){
             _cron_mkmh_coupon_save_node($coupon->data);
@@ -27,6 +26,7 @@ function cron_mkmh_cron() {
             _cron_mkmh_coupon_masoffer_promotions_save_node($coupon_masoffer->data->promotions);
             // watchdog('my_debug',  var_export($coupon_masoffer->data->promotions) );
         }
+        _cron_mkmh_set_unpublished();
     }
 }
 
@@ -35,20 +35,21 @@ function _cron_mkmh_product_save_node($data, $hot){
     if(empty($data)) return;
     $vidCategory = _get_vid_by_name('coupon_categories');
     $tid = null;
-
+    $product = null;
     for ($i=0; $i < count($data) ; $i++) { 
         $val = $data[$i];
+        $title = $val->name;
         if($hot == 1){
             $host = _parse_url($val->link); 
             $vallink = $val->link;
             $category_name = _convert_category_name($val->category_name);    
+            $product[$i] = $title;
         }else{
             $host = _parse_url($val->url); 
             $vallink = $val->url;
             $category_name = $val->cate;
         }
 
-        $title = $val->name;
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $title, ':type' => 'products'))->rowCount();
         if(!$query){
             $merchant = _get_merchant_name($host);
@@ -114,6 +115,10 @@ function _cron_mkmh_product_save_node($data, $hot){
             }
         }
     }
+
+    if($hot == 1 && !empty($product)){
+        variable_set('top_product', $product);
+    }
 }
 
 function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
@@ -168,13 +173,13 @@ function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
                     $node->field_coupon_code['und'][0]['value'] = !empty($val->coupon_code) ? $val->coupon_code : null ;
                 }
 
-                if(isset($val->category_name)){
+                if(isset($val->category_name) && !empty($val->category_name)){
                     $tidCategories = _get_tid_by_name(trim($val->category_name),'coupon_categories');
                     if(!empty($tidCategories)){
                         $node->field_coupon_categories['und'][0]['tid'] = $tidCategories;
                     }
                 }
-                if(!isset($val->category_name)){
+                if(!isset($val->category_name) || empty($val->category_name)){
                     $node->field_coupon_categories['und'][0]['tid'] = 168;
                 }
 
@@ -268,11 +273,29 @@ function _cron_mkmh_coupon_save_node($data){
 function _cron_mkmh_set_unpublished(){
     $end_time = date('Y-m-d',strtotime('-1 day', time()));
     $query = db_query("SELECT node.nid FROM node AS {node} INNER JOIN {field_data_field_end_time} AS et ON et.entity_id = node.nid WHERE node.type = :type AND node.status = :status AND et.field_end_time_value < :date_end", array(':type' => 'coupons',':status' => 1,':date_end' => $end_time))->fetchAll();
+
     if(!empty($query)){
         $nid= [];
         foreach ($query as $key => $val) {
             $node = node_load($val->nid);
             $node->status = 0;
+            node_save($node);
+        }
+    }
+
+    // unset product hot
+    $product = variable_get('top_product', '');
+    if(!empty($product)){
+        $query_product = db_select('node', 'n');
+        $query_product->fields('n',array('nid'));
+        $query_product->leftJoin('field_data_field_product_hot', 'ph', 'ph.entity_id = n.nid');
+        $query_product->condition('n.status', 1);
+        $query_product->condition('n.type', 'products');
+        $query_product->condition('n.title', $product, 'NOT IN');
+        $result = $query_product->execute()->fetchAll();
+        foreach ($result as $k => $v) {
+            $node = node_load($v->nid); 
+            $node->field_product_hot['und'][0]['value'] = 0;
             node_save($node);
         }
     }
@@ -313,6 +336,7 @@ function _get_merchant_name($merchant){
             $name = 'fptshop';
             break;
         case 'nguyenkim.com':
+		case 'nguyenkim':
             $name = 'nguyenkimvn';
             break;
         case 'tiki.vn':

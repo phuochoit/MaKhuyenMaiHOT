@@ -21,7 +21,6 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-// dpm($row);
 $path = drupal_get_path_alias('node/'.$row->nid ); 
 $store_path = drupal_get_path_alias($row->field_field_store[0]['rendered']['#href']); 
 $store_title = $row->field_field_store[0]['rendered']['#title'];
