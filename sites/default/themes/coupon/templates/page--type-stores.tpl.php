@@ -82,7 +82,7 @@
 		<div class="container">	
 			<div class="row">
 				<?php if($messages):?>
-					<section class="col-sm-12 col-md-12">
+					<section class="col-sm-12 col-md-12 messages-area">
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
@@ -91,7 +91,7 @@
                     $aff_link = '/outlink/'.base64_encode($node->nid);
                     $img = file_create_url($node->field_image['und'][0]['uri']);    
                 ?>
-                    <section class="col-sm-12 col-md-12">
+                    <section class="col-sm-12 col-md-12 content-area-header">
                         <div class="inner shadow-box">
                             <div class="inner-content clearfix">
                                 <div class="header-thumb col-sm-12 col-md-3">
@@ -123,13 +123,13 @@
                 <?php endif; ?>
 
 				<?php if ($page['sidebar_second']): ?>
-					<div class="col-sm-12 col-md-4">
+					<div class="col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  
 					</div>
 				<?php endif; ?>
-                <div class="col-sm-12 col-md-8">
+                <div class="col-sm-12 col-md-8 content-area">
                     <?php if (!empty($tabs['#primary'])): ?>
                         <section class="tabs-wrapper clearfix">
                             <?php print render($tabs); ?>

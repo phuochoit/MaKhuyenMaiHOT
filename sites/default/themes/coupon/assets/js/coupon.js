@@ -1,4 +1,10 @@
 (function ($) {
+    var is_support_copy_command = function () {
+        if (typeof document.queryCommandSupported !== "undefined") {
+            return document.queryCommandSupported("copy");
+        }
+        return false;
+    };
     $(document).ready(function () {
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,
@@ -17,6 +23,25 @@
         }
         show_full_coupon_item();
         SetProductHeight();
+
+        $('body').on('click', '.modal-coupon .modal-body #btn-savecoupon', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var p = btn.closest('.coupon-code');
+            var code = p.find('input.code-text').val();
+            console.log('code', code);
+            if (code) {
+                if (copyText(code)) {
+                    btn.find('.btn-text').html('Copied');
+                    setTimeout(function () {
+                        btn.find('.btn-text').html('Copy');
+                    }, 3000);
+                } else {
+
+                }
+            }
+
+        });
     });
 
     $(document).ajaxComplete(function (event, xhr, settings) {
@@ -120,11 +145,36 @@
         });
         return max_height;
     }
-
-
-
     function setHeightHeaderLogo(height) {
         $("#header-logo").height(height);
     }
-
+    function copyText(text) {
+        var textArea = document.createElement("textarea");
+        textArea.style.position = 'fixed';
+        textArea.style.top = 0;
+        textArea.style.left = 0;
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+        textArea.style.padding = 0;
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+        textArea.style.background = 'transparent';
+        textArea.value = text;
+        textArea.id = 'ta';
+        document.body.appendChild(textArea);
+        //textArea.select();
+        var range = document.createRange();
+        range.selectNode(textArea);
+        textArea.select();
+        window.getSelection().addRange(range);
+        try {
+            var successful = document.execCommand('copy');
+        } catch (err) {
+            alert('Oops, unable to copy');
+        }
+        document.body.removeChild(textArea);
+        return successful;
+    }
+   
 })(jQuery);

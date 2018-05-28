@@ -134,6 +134,7 @@ function _cron_mkmh_coupon_masoffer_promotions_save_node($data){
         $query = db_query("SELECT node.nid FROM {node} AS node WHERE node.type = :type AND node.status = 1 AND node.title = :title", array(':title' => $val->title, ':type' => 'coupons'))->rowCount();
 
         if(!$query){
+            watchdog('my_debug',  var_export($val->offer_id) );
             $merchant = _get_merchant_name($val->offer_id);
             $query_merchant = db_query("SELECT n.nid FROM {node} AS n INNER JOIN {field_data_field_merchant} AS fm ON fm.entity_id = n.nid WHERE n.type = :type AND fm.field_merchant_value = :merchant", array(":type" => 'stores', ':merchant' => $merchant) )->fetchObject();
 
@@ -291,6 +292,7 @@ function _cron_mkmh_set_unpublished(){
         $query_product->leftJoin('field_data_field_product_hot', 'ph', 'ph.entity_id = n.nid');
         $query_product->condition('n.status', 1);
         $query_product->condition('n.type', 'products');
+        $query_product->condition('ph.field_product_hot_value', 1);
         $query_product->condition('n.title', $product, 'NOT IN');
         $result = $query_product->execute()->fetchAll();
         foreach ($result as $k => $v) {
@@ -327,6 +329,8 @@ function _convert_category_name($name){
 function _get_merchant_name($merchant){
     if(empty($merchant)) return;
     $name = null;
+    
+   
     switch ($merchant) {
         case 'lazada':
         case 'lazada.vn':
@@ -355,6 +359,13 @@ function _get_merchant_name($merchant){
         case 'adayroi.com':
             $name = 'adayroi';
             break;
+        case 'fptplay':
+            $name = 'fpt';
+            break;
+        case 'shopee.vn':
+            $name = 'shopee';
+            break;
+            
         default:
             $name = $merchant ;
         break;

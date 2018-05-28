@@ -209,6 +209,10 @@ function _dom_html_from_url($url, $domain){
             $dom = _getUrlContent($url);
             $bodycontainer = _getHTMLByCLASS('product-detail__description', $dom);
             return $bodycontainer;
+        case 'shopee':
+            $dom = _getUrlContent($url);
+            $bodycontainer = _getHTMLByCLASS('shopee-product-detail__description', $dom);
+            return $bodycontainer;
     }
 }
 
