@@ -10,8 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title><?php print $head_title; ?></title>
 
+        <link rel="stylesheet" id="redux-google-fonts-st_options-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&amp;ver=1526702456" type="text/css" media="all">
         <?php print $styles; ?>
-        
         <!-- IE Fix for HTML5 Tags -->
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,7 +27,15 @@
                 script.async = true;
                 (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(script);
             })();
+            // window.__at_smartwidget = {
+            //     atid: 4731474359141607542, // accesstrade user id
+            //     //row: 3, // number of row
+            //     //product_size: 4, // number of product on one row,
+            //     keyword: "ha noi",
+            //     utm_source: "phuochoit"
+            // };
         </script>
+        
     </head>
 
     <body class="<?php print $classes; ?>" <?php print $attributes;?>>
@@ -125,6 +133,7 @@
                 });
             </script>
         <?php endif;?>
+        <!-- <script type="text/javascript" src="http://smartwidget.isvn.dungnt.net/smartwidget.js"></script> -->
     </body>
    
 </html>

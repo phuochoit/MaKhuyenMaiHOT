@@ -1,24 +1,47 @@
 /* block main menu*/
 #block-system-main-menu{
+    padding: 0;
     .menu{
-        max-width: 500px;
         padding: 0;
         margin: 0;
         li {
-            margin: 0 0 10px;
+            // margin: 0 0 10px;
             padding: 0;
             list-style-type: none;
-            display: block;
+            display: inline-block;
             padding: 0;
             background: none !important;
-            width: 50%;
-            float: left;
+            &:hover,
+            &:focus{
+                &:before{
+                    color: $baseBackgroundHeader !important;
+                    cursor: pointer;
+                }
+                a{
+                    background: none;
+                    color: $baseBackgroundHeader;
+                }
+            }
+
+            &.first {
+                &:before{
+                    font: normal normal normal 14px/1 FontAwesome;
+                    margin-right: 10px;
+                    font-size: 15px;
+                    color: #888888;
+                }
+                a{
+                    padding-left: 0;
+                    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+                    display: inline-block;
+                }
+            }
             a {
-                color: #fff;
-                font-size: 16px;
-                font-weight: 400;
-                background: none !important;
-                padding: 0;
+                color: #888888;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 0.2px;
+                text-transform: uppercase;
             }
         }
     }

@@ -2,6 +2,20 @@
     display: none;
 }
 
+#block-custom-blocks-list-coupon-and-sale-homepage{
+    .view-coupon{
+        .store-thumb{
+            a{
+                max-height: 115px;
+                text-align: center;
+                padding: 10px;
+                img{
+                    max-height: 80px !important;
+                }
+            }
+        }
+    }
+}
 #block-views-coupon-coupon-homepage,
 .page-ma-khuyen-mai .view-id-coupon,
 #block-views-coupon-block-coupon-store,
