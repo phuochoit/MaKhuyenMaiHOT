@@ -83,11 +83,11 @@
         $('#block-views-product-block .views-row .article-item').height(block_height_article + 20);
         $('#block-views-product-block .views-row .article-item .article-title').height(block_height_title);;
 
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border,.view-display-id-block_product_by_stores_categories .views-row .block-dark-border,.page-san-pham .view-id-product  .views-row .block-dark-border').height(product_coupon_categories_height);
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border,.view-display-id-block_product_by_stores_categories .views-row .block-dark-border,.page-san-pham .view-id-product  .views-row .block-dark-border,.page-tim-kiem .coupon-product-search-content #product .views-row .block-dark-border').height(product_coupon_categories_height);
 
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item,.view-display-id-block_product_by_stores_categories .views-row .article-item,.page-san-pham .view-id-product  .views-row .article-item').height(product_coupon_categories_height_article);
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item,.view-display-id-block_product_by_stores_categories .views-row .article-item,.page-san-pham .view-id-product  .views-row .article-item,.page-tim-kiem .coupon-product-search-content #product .views-row .article-item').height(product_coupon_categories_height_article);
 
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title,.view-display-id-block_product_by_stores_categories .views-row .article-item .article-title,.page-san-pham .view-id-product .views-row .article-item .article-title').height(product_coupon_categories_height_article_title);
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title,.view-display-id-block_product_by_stores_categories .views-row .article-item .article-title,.page-san-pham .view-id-product .views-row .article-item .article-title,.page-tim-kiem .coupon-product-search-content #product .views-row .article-item .article-title').height(product_coupon_categories_height_article_title);
 
     }
 
@@ -95,7 +95,7 @@
     function get_product_coupon_categorie_height() {
         $('#product').show();
         max_height = 0;
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border,.view-display-id-block_product_by_stores_categories .views-row .block-dark-border,.page-san-pham .view-id-product .views-row .block-dark-border').each(function (i, val) {
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .block-dark-border,.view-display-id-block_product_by_stores_categories .views-row .block-dark-border,.page-san-pham .view-id-product .views-row .block-dark-border,.page-tim-kiem .coupon-product-search-content #product .views-row .block-dark-border').each(function (i, val) {
             max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
         });
         $('#product').removeAttr('style');
@@ -104,7 +104,7 @@
     function get_product_coupon_categorie_article_height() {
         $('#product').show();
         max_height = 0;
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item,,.view-display-id-block_product_by_stores_categories .views-row .article-item,.page-san-pham .view-id-product .views-row .article-item').each(function (i, val) {
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item,,.view-display-id-block_product_by_stores_categories .views-row .article-item,.page-san-pham .view-id-product .views-row .article-item,.page-tim-kiem .coupon-product-search-content #product .views-row .article-item').each(function (i, val) {
             max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
         });
         $('#product').removeAttr('style');
@@ -113,7 +113,7 @@
     function get_product_coupon_categorie_article_height() {
         $('#product').show();
         max_height = 0;
-        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title,.view-display-id-block_product_by_stores_categories .views-row .article-item .article-title,.page-san-pham .view-id-product .views-row .article-item .article-title').each(function (i, val) {
+        $('#product .view-display-id-block_product_by_coupon_categories .views-row .article-item .article-title,.view-display-id-block_product_by_stores_categories .views-row .article-item .article-title,.page-san-pham .view-id-product .views-row .article-item .article-title,.page-tim-kiem .coupon-product-search-content #product .views-row .article-item .article-title').each(function (i, val) {
             max_height = (max_height <= $(this).height()) ? $(this).height() : max_height;
         });
         $('#product').removeAttr('style');

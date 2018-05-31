@@ -151,7 +151,11 @@
 	<?php if ($page['ads_footer']): ?>
 		<!-- ads_footer -->
 		<section id="advertise-footer" role="footer" class="block-mkmh-footer-advertise">
-			<?php print render($page['ads_footer']); ?>
+			<div class="container">	
+				<div class="row">
+					<?php print render($page['ads_footer']); ?>
+				</div>
+			</div>
 		</section> 
 		<!-- end ads_footer -->
 	<?php endif; ?>

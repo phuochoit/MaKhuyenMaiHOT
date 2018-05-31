@@ -9,18 +9,31 @@
         }
         .tab-content{
             .view-filters{
-                #edit-keys-wrapper{
+                .views-exposed-form{
+                    @include  box-background-shadow();
+                    padding: 20px 10px;
+                    margin-bottom: 20px;
+                    .views-exposed-widgets{
+                        margin-bottom: 0;
+                    }
+                }
+                #edit-keys-wrapper,
+                #edit-keys--2-wrapper{
                     label{
                         display: none;
                     }
-                    #edit-keys{
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
+                    #edit-keys,
+                    #edit-keys--2{
+                        border-radius: 0;
+                        padding: 19px 15px;
+                        box-shadow: none;
+                        border-color: #f5f5f5;
                     }
                 }
                 .views-exposed-widget{
                     padding: 0;
-                    #edit-submit-search{
+                    #edit-submit-search,
+                    #edit-submit-search--2{
                         margin-top: 0;
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
@@ -29,6 +42,13 @@
                         border-color: $baseBackgroundHeader;
                         letter-spacing: -1px;
                         width: 40px;
+                        height: 40px;
+                        &:focus,
+                        &:active{
+                            outline: none;
+                            outline-offset: unset;
+                            box-shadow: none;
+                        }
                         &:before{
                             font: normal normal normal 14px/1 FontAwesome;
                             content: "\f002";
@@ -37,9 +57,27 @@
                         }
                     }
                 }
-                #edit-keys-wrapper {
+                #edit-keys-wrapper,
+                #edit-keys--2-wrapper {
                     padding: 0;
                     width: calc(100% - 40px);
+                }
+            }
+            .view-empty{
+                @include  box-background-shadow();
+                padding: 20px 10px;
+                margin-bottom: 20px;
+                p{
+                    font-size: 20px;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                }
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        display: block;
+                    }
                 }
             }
         }

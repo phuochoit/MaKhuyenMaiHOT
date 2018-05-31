@@ -1,0 +1,27 @@
+#ads_app_android{
+    .block-title {
+        @include  block-title();
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+    .content{
+        ul{
+            margin: 0;
+            padding: 0;
+            li{
+                display: inline-block;
+                margin: 2px 5px;
+                &:first-child{
+                    margin-left: 0;
+                }
+                a{
+                    img{
+                        max-width: 75px;
+                        height: auto;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

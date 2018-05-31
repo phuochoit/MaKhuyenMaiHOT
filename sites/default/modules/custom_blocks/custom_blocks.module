@@ -26,6 +26,11 @@ function custom_blocks_block_info() {
 		'info' => t('Coupon And Sale Store'),
         'cache' => DRUPAL_CACHE_GLOBAL,
         'status' => 0,		
+    );
+    $block['ads_block_fotter'] = array(
+		'info' => t('Ads Fotter'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
 	);
 	return $block;
 }
@@ -54,6 +59,12 @@ function custom_blocks_block_view($delta = '') {
             $block = array(
 				'subject' => "Coupon And Sale Store",
 				'content' => _custom_blocks_list_coupon_and_sale_store()
+            );
+            break;
+        case 'ads_block_fotter':
+            $block = array(
+				'subject' => "Ads Fotter",
+				'content' => _custom_blocks_ads_fotter()
             );
             break;
     }
@@ -194,4 +205,8 @@ function _custom_blocks_get_vid_by_name($name){
     $vocab = taxonomy_vocabulary_machine_name_load($name);
     $vid = $vocab->vid;
     return $vid;
+}
+
+function _custom_blocks_ads_fotter(){
+    return '<div id="at-smartwidget-root"></div>';
 }

@@ -20,6 +20,8 @@
             var __atsmarttag = {
                 pub_id: '4731474359141607542'
             };
+            var key = ["hà nội","ha noi","đà nẵng","da nang","phú quốc","phu quoc","nha trang","hội an","hoi an","tp ho chi minh","tp hồ chí minh","đà lạt","da lat","phú yên","phu yen ","vũng tàu","vung tau","bangkok","manila","hue", "tp hue", "huế"];
+            var rand_key = key[Math.floor(Math.random() * key.length)];
             (function () {
                 var script = document.createElement('script');
                 script.src = '//static.accesstrade.vn/js/atsmarttag.min.js?v=1.1.0';
@@ -27,13 +29,13 @@
                 script.async = true;
                 (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(script);
             })();
-            // window.__at_smartwidget = {
-            //     atid: 4731474359141607542, // accesstrade user id
-            //     //row: 3, // number of row
-            //     //product_size: 4, // number of product on one row,
-            //     keyword: "ha noi",
-            //     utm_source: "phuochoit"
-            // };
+            window.__at_smartwidget = {
+                atid: 4731474359141607542, // accesstrade user id
+                row: 1, // number of row
+                product_size: 3, // number of product on one row,
+                keyword: rand_key,
+                utm_source: "phuochoit"
+            };
         </script>
         
     </head>
@@ -133,7 +135,8 @@
                 });
             </script>
         <?php endif;?>
-        <!-- <script type="text/javascript" src="http://smartwidget.isvn.dungnt.net/smartwidget.js"></script> -->
+        <script type="text/javascript" src="http://smartwidget.isvn.dungnt.net/smartwidget.js"></script>
+        <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
     </body>
    
 </html>
