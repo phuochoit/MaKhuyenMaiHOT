@@ -29,6 +29,20 @@ function custom_module_menu() {
         'type' => MENU_CALLBACK,
         'access arguments' => array('access content'),
     );
+    $items['khuyen-mai'] = array(
+        'title' => 'Khuyến Mại',
+        'page callback' => 'custom_module_coupon_sale_page',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access content'),
+    );
+    $items['tim-kiem'] = array(
+        'title' => 'Tìm kiếm',
+        'page callback' => 'custom_module_search_page',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access content'),
+    );
     return $items;
 }
 
@@ -42,6 +56,82 @@ function custom_module_permission() {
             'description' => t('Allow users to access simple page'),
         ),
     );
+}
+
+function custom_module_search_page(){
+    $block_coupon = views_embed_view('search', 'block_search_coupon','lazada');
+    $block_product = views_embed_view('search', 'block_search_product','lazada');
+    $content ='
+    <div class="coupon-product-search-content">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Khuyến Mại
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#product" aria-controls="product" role="tab" data-toggle="tab">
+                    Sản Phẩm
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="product">'.$block_product.'</div>
+        </div>
+    </div>';
+    return $content;
+
+}
+/**
+ * 
+ */
+function custom_module_coupon_sale_page(){
+    $block_all = views_embed_view('coupon', 'block_coupon_page_all');
+    $block_coupon = views_embed_view('coupon', 'block_coupon_page_coupon');
+    $block_sale = views_embed_view('coupon', 'block_sale_page_coupon');
+    // get count all coupon
+
+    $query_coupon = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NOT NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
+    
+    // get count all sale
+    $query_sale = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
+
+    $all_coupon = intval($query_coupon) + intval($query_sale);
+
+    $content ='
+    <div class="custom-page-coupon-sale">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
+        <li role="presentation" class="active">
+                <a href="#all" aria-controls="all" role="tab" data-toggle="tab">
+                    All
+                    <span class="badge badge-all">'.$all_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation" class="">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Code
+                    <span class="badge badge-coupon">'.$query_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+                    Sale
+                    <span class="badge badge-sale">'.$query_sale.'</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">'.$block_all.'</div>
+            <div role="tabpanel" class="tab-pane" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="sale">'.$block_sale.'</div>
+        </div>
+    </div>';
+    return $content;
 }
 
 /**
@@ -67,7 +157,12 @@ function custom_module_page_outlink($nav){
 
     $url = $query_aff_link->url;
     $acces_link = 'https://fast.accesstrade.com.vn/deep_link/4731474359141607542';
-
+    // <div class="cloakpl-frame">
+    //     <iframe src="'.$acces_link.'?url=https://shopee.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+    //     <iframe src="'.$acces_link.'?url=https://mytour.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+    //     <iframe src="'.$acces_link.'?url=https://www.lotte.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+    //     <iframe src="'.$acces_link.'?url=https://canifa.com/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
+    // </div>
     $content = '
     <div class="cloakpl col-sm-12 col-md-6 col-md-offset-3">
         <div class="cloakpl-wrap">
@@ -77,12 +172,6 @@ function custom_module_page_outlink($nav){
                 <img src="/'.path_to_theme().'/assets/images/loading.gif" alt="Vui lòng chờ trong giây lát">
             </div>
             <a class="cloakpl-now-btn" rel="nofollow" href="'.$url.'">Chuyển nhanh tới trang »</a>
-        </div>
-        <div class="cloakpl-frame">
-            <iframe src="'.$acces_link.'?url=https://shopee.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://mytour.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://www.lotte.vn/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
-            <iframe src="'.$acces_link.'?url=https://canifa.com/&utm_medium=cokies&utm_source=phuochoit" sandbox="allow-forms allow-scripts" width="1" height="1"></iframe>
         </div>
     </div>';
                   
@@ -223,6 +312,7 @@ function custom_module_views_query_alter(&$view, &$query) {
     $tid = basename($term_path);
 
     if($view->name == 'coupon' && !path_is_admin(current_path())){
+        
         if($view->current_display =='block_coupon_categories' || $view->current_display =='block_store_categories_coupon'){
             $query->where[1]['conditions'][2]['value'] = $tid;
         }
@@ -234,4 +324,13 @@ function custom_module_views_query_alter(&$view, &$query) {
         }
         
     }
+}
+function custom_module_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id =='search_block_form'){
+        $form['#submit'][] = 'search_form_submit_handler';        
+    }
+}
+function search_form_submit_handler(&$form, &$form_state) {
+    global $base_url;
+    $form_state['redirect'] = $base_url.'/tim-kiem?keys='.$form_state['input']['search_block_form'];
 }

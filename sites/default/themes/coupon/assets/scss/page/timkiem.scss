@@ -1,0 +1,47 @@
+.page-tim-kiem{
+    .coupon-product-search-content{
+        .nav-tabs{
+            &.custom-tabs{
+                li{
+                    width: 50%;
+                }
+            }
+        }
+        .tab-content{
+            .view-filters{
+                #edit-keys-wrapper{
+                    label{
+                        display: none;
+                    }
+                    #edit-keys{
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                }
+                .views-exposed-widget{
+                    padding: 0;
+                    #edit-submit-search{
+                        margin-top: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        color: transparent;
+                        background-color: $baseBackgroundHeader;
+                        border-color: $baseBackgroundHeader;
+                        letter-spacing: -1px;
+                        width: 40px;
+                        &:before{
+                            font: normal normal normal 14px/1 FontAwesome;
+                            content: "\f002";
+                            letter-spacing: normal;
+                            color: #fff;
+                        }
+                    }
+                }
+                #edit-keys-wrapper {
+                    padding: 0;
+                    width: calc(100% - 40px);
+                }
+            }
+        }
+    }
+}

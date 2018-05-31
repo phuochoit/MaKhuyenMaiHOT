@@ -158,5 +158,55 @@
             } 
        }
     }
-
+    &.page-node-209{
+        #webform-client-form-209 {
+            width: 50%;
+            float: left;
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            .control-label{
+                font-weight: normal;
+                font-size: 14px;
+            }
+            .form-control{
+                border-radius: 0;
+            }
+            .form-actions{
+                text-align: center;
+                .form-submit{
+                    background-color: $baseBackgroundHeader;
+                    border-color: $baseBackgroundHeader;
+                    border-radius: 0;
+                    color: #fff;
+                }
+            }
+        }
+        .field-name-body{
+            @include  box-background-shadow();
+            margin-left: 30px;
+            width: calc(100% - 54%);
+            float: left;
+            padding: 20px 15px;
+            margin-bottom: 30px;
+        }
+        .list-inline{
+            display: none;
+        }
+    }
+    &.page-node-done{
+        .webform-confirmation{
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px; 
+            p{
+                text-align: center
+            }
+        }
+        .links{
+            display: none;
+        }
+    }
+    
 }
+

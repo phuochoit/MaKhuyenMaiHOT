@@ -25,7 +25,8 @@
 .view-display-id-block_store_categories_coupon,
 .view-display-id-block_coupon_store,
 .view-display-id-block_coupon_by_store_sale,
-.view-display-id-block_coupon_homepage_all{
+.view-display-id-block_coupon_homepage_all,
+.custom-page-coupon-sale .tab-content{
     .view-content{
         .views-row{
             @include  box-background-shadow();

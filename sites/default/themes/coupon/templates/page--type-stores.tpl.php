@@ -28,43 +28,48 @@
 			<?php endif; ?>
 
 			<?php print render($page['header']); ?>
-
-			<?php if ($main_menu || $secondary_menu || !empty($page['navigation'])): ?>
-				<nav id="navigation" role="navigation" class="clearfix">
-					<?php if (!empty($page['navigation'])): ?> <!--if block in navigation region, override $main_menu and $secondary_menu-->
-						<?php print render($page['navigation']); ?>
-					<?php endif; ?>
-					<?php if (empty($page['navigation'])): ?>
-				<?php print theme('links__system_main_menu', array(
-							'links' => $main_menu,
-							'attributes' => array(
-								'id' => 'main-menu',
-								'class' => array('links', 'clearfix'),
-							),
-							'heading' => array(
-								'text' => t('Main menu'),
-								'level' => 'h2',
-								'class' => array('element-invisible'),
-							),
-						)); ?>
-				<?php print theme('links__system_secondary_menu', array(
-							'links' => $secondary_menu,
-							'attributes' => array(
-								'id' => 'secondary-menu',
-								'class' => array('links', 'clearfix'),
-							),
-							'heading' => array(
-								'text' => t('Secondary menu'),
-								'level' => 'h2',
-								'class' => array('element-invisible'),
-							),
-						)); ?>
-					<?php endif; ?>
-				</nav> <!-- /#navigation -->
-			<?php endif; ?>
 		</div>
 	</header> <!-- /#header -->
 	
+	<section id="navigation-menu" class="clearfix">
+		<div class="container">		
+			<div class="row">
+				<?php if ($main_menu || $secondary_menu || !empty($page['navigation'])): ?>
+					<nav id="navigation" role="navigation" class="clearfix">
+						<?php if (!empty($page['navigation'])): ?> <!--if block in navigation region, override $main_menu and $secondary_menu-->
+							<?php print render($page['navigation']); ?>
+						<?php endif; ?>
+						<?php if (empty($page['navigation'])): ?>
+							<?php print theme('links__system_main_menu', array(
+								'links' => $main_menu,
+								'attributes' => array(
+									'id' => 'main-menu',
+									'class' => array('links', 'clearfix'),
+								),
+								'heading' => array(
+									'text' => t('Main menu'),
+									'level' => 'h2',
+									'class' => array('element-invisible'),
+								),
+							)); ?>
+							<?php print theme('links__system_secondary_menu', array(
+								'links' => $secondary_menu,
+								'attributes' => array(
+									'id' => 'secondary-menu',
+									'class' => array('links', 'clearfix'),
+								),
+								'heading' => array(
+									'text' => t('Secondary menu'),
+									'level' => 'h2',
+									'class' => array('element-invisible'),
+								),
+							)); ?>
+						<?php endif; ?>
+					</nav> <!-- /#navigation -->
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
 	<?php if ($page['ads_banner']): ?>
 		<!-- ads_banner -->
 		<section id="advertise-banner" class="block-mkmh-banner-advertise">
@@ -75,7 +80,7 @@
 			</div>
 		</section>
 		<!-- end ads_banner -->
-	<?php endif; ?>  
+	<?php endif; ?>
 	
 	<!-- main -->
 	<main id="main" role="main" class="clearfix">
