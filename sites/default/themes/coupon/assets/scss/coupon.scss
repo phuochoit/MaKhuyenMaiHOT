@@ -14,13 +14,17 @@
 @import "./page/linhvuc.scss";
 @import "./page/danhmuc.scss";
 @import "./page/timkiem.scss";
+@import "./page/huongdan.scss";
 // node
 @import "./node/type-stores.scss";
+@import "./node/type-article.scss";
+@import "./node/type-products.scss";
 // block
 @import "./block/views-store-block-deals-more.scss";
 @import "./block/custom-blocks-list-featured-coupon-categories.scss";
 @import "./block/views-coupon-block.scss";
 @import "./block/views-product-block.scss";
+@import "./block/new-article.scss";
 // footer
 @import "./footer.scss";
 

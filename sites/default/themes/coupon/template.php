@@ -4,9 +4,20 @@
  * We are overwriting the default meta character type tag with HTML5 version.
  */
 function coupon_html_head_alter(&$head_elements) {
-  $head_elements['system_meta_content_type']['#attributes'] = array(
-    'charset' => 'utf-8'
-  );
+    $head_elements['system_meta_content_type']['#attributes'] = array(
+        'charset' => 'utf-8'
+    );
+    // $path_alias = drupal_get_path_alias();
+    // dpm($path_alias);
+    // switch ($path_alias) {
+    //     case 'khuyen-mai':
+    //         # code...
+    //         break;
+        
+    //     default:
+    //         # code...
+    //         break;
+    // }
 }
 
 /**

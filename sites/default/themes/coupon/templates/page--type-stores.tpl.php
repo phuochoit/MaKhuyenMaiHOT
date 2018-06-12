@@ -1,3 +1,6 @@
+<?php
+	global $base_url;
+?>
 <div id="container" class="clearfix container-fluid">
 	<div id="skip-link">
 		<div class="container">
@@ -108,7 +111,9 @@
                                 </div>
                                 <div class="header-content col-sm-12 col-md-9">
                                     <h1> Khuyến mại &amp; Mã giảm giá <strong><?php print $node->title;?></strong></h1>
-                                    <p><?php print $node->field_teaser['und'][0]['value'];?></p>
+									<p><?php print $node->field_teaser['und'][0]['value'];?></p>
+									
+									<span class="addthis_inline_share_toolbox" data-url="<?php print $base_url.'/'.drupal_get_path_alias('node/'.$node->nid);?>"></span>
                                 </div>
                             </div>
                         </div>

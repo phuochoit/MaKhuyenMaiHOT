@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Metatag feature.
+ */
+
+include_once 'meta_tag.features.inc';

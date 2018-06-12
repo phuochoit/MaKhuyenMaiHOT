@@ -1,3 +1,6 @@
+<?php 
+    global $base_url;
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
@@ -16,6 +19,16 @@
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110122717-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-110122717-1');
+        </script>
+
         <script type="text/javascript">
             var __atsmarttag = {
                 pub_id: '4731474359141607542'
@@ -38,6 +51,7 @@
             };
         </script>
         
+        
     </head>
 
     <body class="<?php print $classes; ?>" <?php print $attributes;?>>
@@ -57,6 +71,8 @@
                 $file = file_load($qstore->fid);
                 $uri = $file->uri;
                 $img = file_create_url($uri);
+                $store_path = drupal_get_path_alias($_GET['q']);
+                $share_path = $base_url.'/'.$store_path.'?coupon-id='.$_GET['coupon-id'];
             ?>
             <div class="modal modal-coupon fade" id="modal-coupon-<?php print $node_coupon->nid?>" tabindex="-1" role="dialog" aria-labelledby="modal-coupon-<?php print $node_coupon->nid?>">
                 <div class="modal-dialog" role="document">
@@ -122,6 +138,9 @@
                                         <?php endif;?>
                                     </span>
                                 </li>
+                                <li>
+                                    <span class="addthis_inline_share_toolbox" data-url="<?php print $share_path?>"></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -136,7 +155,11 @@
             </script>
         <?php endif;?>
         <script type="text/javascript" src="http://smartwidget.isvn.dungnt.net/smartwidget.js"></script>
-        <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+        <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"> 
+        </script>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b1bdfac58b0de6d"></script>
+
     </body>
    
 </html>

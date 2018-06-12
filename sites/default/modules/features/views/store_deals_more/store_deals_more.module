@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Store Deals More feature.
+ */
+
+include_once 'store_deals_more.features.inc';

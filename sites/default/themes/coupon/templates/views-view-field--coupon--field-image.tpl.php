@@ -21,7 +21,7 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-
+global $base_url;
 $store_nid = $row->node_field_data_field_store_nid;
 $img = file_create_url($row->field_field_image[0]['raw']['uri']);
 $store_path = drupal_get_path_alias('node/'.$store_nid); 
@@ -103,6 +103,9 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
                     <i class="fa fa-eye" aria-hidden="true"></i> 
                     <?php print !empty($row->node_counter_totalcount) ? $row->node_counter_totalcount : 0;?> đã xem - <?php print !empty($row->node_counter_daycount) ? $row->node_counter_daycount : 0;?> hôm nay
                 </span>
+            </li>
+            <li>
+                <span class="addthis_inline_share_toolbox" data-url="<?php print $base_url.'/'.$store_path;?>?coupon-id=<?php print $row->nid;?>"></span>
             </li>
         </ul>
     </div>

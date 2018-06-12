@@ -1,0 +1,6 @@
+name = Coupon
+description = View Coupon
+core = 7.x
+package = MKMH Views
+features[features_api][] = api:2
+project path = sites/default/modules/features

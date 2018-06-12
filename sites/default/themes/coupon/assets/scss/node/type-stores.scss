@@ -31,5 +31,11 @@
                 }
             }
         }
+        .view-display-id-block_coupon_store{
+            .view-empty{
+                @include  box-background-shadow();
+                padding: 20px 15px;
+            }
+        }
     }
 }

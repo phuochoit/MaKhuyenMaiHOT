@@ -1,9 +1,17 @@
 /* block header-logo*/
 #header-logo{
+    padding-left: 0;
     .content{
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        p{
+            a{
+                img{
+                    margin-left: -20px;
+                }
+            }
+        }
     }
         
 }

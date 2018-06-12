@@ -9,25 +9,27 @@
 	</div>
 	<header id="header" role="banner" class="clearfix full-left-right">
 		<div class="container">
-			<?php if ($logo): ?>
-				<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-					<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-				</a>
-			<?php endif; ?>
-			<?php if ($site_name || $site_slogan): ?>
-				<hgroup id="site-name-slogan">
-					<?php if ($site_name): ?>
-						<h1 id="site-name">
-							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><span><?php print $site_name; ?></span></a>
-						</h1>
-					<?php endif; ?>
-					<?php if ($site_slogan): ?>
-						<h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-					<?php endif; ?>
-				</hgroup>
-			<?php endif; ?>
+			<div class="row">
+				<?php if ($logo): ?>
+					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
+						<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+					</a>
+				<?php endif; ?>
+				<?php if ($site_name || $site_slogan): ?>
+					<hgroup id="site-name-slogan">
+						<?php if ($site_name): ?>
+							<h1 id="site-name">
+								<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><span><?php print $site_name; ?></span></a>
+							</h1>
+						<?php endif; ?>
+						<?php if ($site_slogan): ?>
+							<h2 id="site-slogan"><?php print $site_slogan; ?></h2>
+						<?php endif; ?>
+					</hgroup>
+				<?php endif; ?>
 
-			<?php print render($page['header']); ?>
+				<?php print render($page['header']); ?>
+			</div>
 		</div>
 	</header> <!-- /#header -->
 	<section id="navigation-menu" class="clearfix">

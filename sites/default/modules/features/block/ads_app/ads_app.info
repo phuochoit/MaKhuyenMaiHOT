@@ -1,0 +1,8 @@
+name = ADS APP
+core = 7.x
+package = MKMH Block
+dependencies[] = fe_block
+features[fe_block_boxes][] = ads_my_app
+features[fe_block_settings][] = block-ads_my_app
+features[features_api][] = api:2
+project path = sites\default\modules\features\block

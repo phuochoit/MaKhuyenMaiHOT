@@ -36,12 +36,41 @@
                     display: inline-block;
                 }
             }
+            &.dropdown.open{
+                &:hover{
+                    .dropdown-menu{
+                        li{
+                            a{
+                                color: #888888;
+                            }
+                        }
+                    }
+                }
+            }
             a {
                 color: #888888;
                 font-size: 14px;
                 font-weight: 600;
                 letter-spacing: 0.2px;
                 text-transform: uppercase;
+            }
+            .dropdown-menu{
+                border: none;
+                border-radius: 0;
+                padding: 10px 15px;
+                li{
+                    display: block;
+                    width: 100%;
+                    &:hover{
+                        a{
+                            color: $baseBackgroundHeader !important;
+                        }
+                    }
+                    a{
+                        padding: 10px 0;
+                        background-color: transparent;
+                    }
+                }
             }
         }
     }

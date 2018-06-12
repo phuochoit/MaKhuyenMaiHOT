@@ -5,7 +5,10 @@
         }
         return false;
     };
+
     $(document).ready(function () {
+        SetProductHeight();
+        
         $('#block-views-store-block-store-carousel #block_store_carousel').owlCarousel({
             items: 5,
             loop: true,
@@ -22,14 +25,13 @@
             setHeightHeaderLogo(result);
         }
         show_full_coupon_item();
-        SetProductHeight();
+        
 
         $('body').on('click', '.modal-coupon .modal-body #btn-savecoupon', function (e) {
             e.preventDefault();
             var btn = $(this);
             var p = btn.closest('.coupon-code');
             var code = p.find('input.code-text').val();
-            console.log('code', code);
             if (code) {
                 if (copyText(code)) {
                     btn.find('.btn-text').html('Copied');
@@ -43,7 +45,7 @@
 
         });
     });
-
+   
     $(document).ajaxComplete(function (event, xhr, settings) {
         show_full_coupon_item();
         SetProductHeight();

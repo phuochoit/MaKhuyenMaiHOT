@@ -10,154 +10,6 @@
             margin-bottom: 30px;
         }
     }
-    #main{
-       .node-products{
-           @include  box-background-shadow();
-            padding: 20px 15px;
-            margin-bottom: 30px;
-            .node-title{
-                font-size: 22px;
-                color: #484747;
-                font-weight: 700;
-                line-height: 1.3em;
-                margin-bottom: 20px;
-            }
-            &-wrap-info {
-                .left_top_content{
-                    .node-post-image{
-                        text-align: center;
-                        img{
-                            max-height: 265px;
-                            width: auto;
-                            max-width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-                .right_top_content{
-                    .products_price_all{
-                        width: 100%;
-                        margin-bottom: 20px;
-                        .price-detail{
-                            width: 50%;
-                            float: left;
-                        }
-                        span{
-                            float: left;
-                            &.price-discount{
-                                font-size: 16px;
-                                font-weight: bold;
-                                color: $baseBackgroundHeader;
-                            }
-                            &.price-price{
-                                color: #7a7a7a;
-                                text-decoration: line-through;
-                                margin: 10px 0 0;
-                                height: 18px;
-                            }
-                            &.price-discount-amount{
-                                strong{
-                                    color: $baseBackgroundHeader;
-                                }
-                            }
-                            &.price-rate{
-                                margin: 10px 0 0;
-                                strong{
-                                    color: $baseBackgroundHeader;
-                                }
-                            }
-                        }
-                        
-                    }
-                    .box_promotion{
-                        position: relative;
-                        border: 1px solid #ededed;
-                        border-left: 3px solid $baseBackgroundHeader;
-                        font-size: 13px;
-                        margin: 20px 0 25px;
-                        box-sizing: border-box;
-                        width: 100%;
-                        &::before {
-                            content: "";
-                            width: 10px;
-                            height: 10px;
-                            background: #fff;
-                            border: 1px solid #ededed;
-                            border-left: 0;
-                            border-bottom: 0;
-                            position: absolute;
-                            left: 48px;
-                            top: -6px;
-                            z-index: 2;
-                            -ms-transform: rotate(-46deg);
-                            -webkit-transform: rotate(-46deg);
-                            transform: rotate(-46deg);
-                        }
-                        ul{
-                            margin: 10px;
-                            position: relative;
-                            padding: 0;
-                            li{
-                                display: block;
-                                list-style: none;
-                                color: #979897;
-                                font-size: 12px;
-                                &:before {
-                                    content: '-';
-                                    margin: 0 5px;
-                                }
-                                a{
-                                    color: $baseBackgroundHeader;
-                                    font-weight: bold;
-                                }
-                            }
-                        }
-                    }
-                    .products-outlink{
-                        @include block-title();
-                        a{
-                            color: $baseColorWhite;
-                        }
-                    }
-                }
-            }
-            &-wrap-content{
-                margin-top: 20px;
-                h3{
-                    font-size: 23px;
-                }
-                h5{
-                    font-size: 20px;
-                }
-                h3,h5{
-                    font-weight: bold;
-                    margin-top: 20px;
-                    margin-bottom: 5px;
-                }
-                p{
-                    b{
-                        i{
-                            font-style: normal;
-                        }
-                    }
-                    img{
-                        max-width: 100%;
-                        width: auto !important;
-                        height: auto !important;
-                    }
-                }
-            }
-       }
-       .coupon-sale-store{
-           .nav-tabs{
-                &.custom-tabs{
-                    li{
-                        width: 50%;
-                    }
-                }
-            } 
-       }
-    }
     &.page-node-209{
         #webform-client-form-209 {
             width: 50%;
@@ -207,6 +59,15 @@
             display: none;
         }
     }
-    
+    &.node-type-stores{
+        article.node-stores{
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            width: 100%;
+            float: left;
+            margin-top: 30px;
+        }
+    }
 }
 

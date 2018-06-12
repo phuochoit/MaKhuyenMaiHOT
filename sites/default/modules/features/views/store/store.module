@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Store feature.
+ */
+
+include_once 'store.features.inc';

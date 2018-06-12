@@ -1,0 +1,9 @@
+name = Store Deals More
+core = 7.x
+package = MKMH Views
+dependencies[] = ctools
+dependencies[] = nodequeue
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+project path = sites\default\modules\features\views
