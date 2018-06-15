@@ -128,6 +128,23 @@ function main_menu_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_xem-thm:<front>',
   );
+  // Exported menu link: main-menu_thng-hiu:thuong-hieu.
+  $menu_links['main-menu_thng-hiu:thuong-hieu'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'thuong-hieu',
+    'router_path' => 'thuong-hieu',
+    'link_title' => 'Thương Hiệu',
+    'options' => array(
+      'identifier' => 'main-menu_thng-hiu:thuong-hieu',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_tin-khuyn-mi:tin-khuyen-mai.
   $menu_links['main-menu_tin-khuyn-mi:tin-khuyen-mai'] = array(
     'menu_name' => 'main-menu',
@@ -206,6 +223,7 @@ function main_menu_menu_default_menu_links() {
   t('Liên Hệ');
   t('Quà Tặng');
   t('Sản Phẩm');
+  t('Thương Hiệu');
   t('Tin Khuyến Mại');
   t('Trang chủ');
   t('Tư Vấn Đánh Giá');

@@ -670,7 +670,7 @@ function meta_tag_metatag_export_default() {
     'disabled' => FALSE,
     'config' => array(
       'title' => array(
-        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất - [site:name]',
       ),
       'description' => array(
         'value' => '[node:field_teaser]',
@@ -693,7 +693,7 @@ function meta_tag_metatag_export_default() {
         'value' => '[node:field_image]',
       ),
       'itemprop:name' => array(
-        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất - [site:name]',
       ),
       'itemprop:description' => array(
         'value' => '[node:field_teaser]',
@@ -705,7 +705,7 @@ function meta_tag_metatag_export_default() {
         'value' => '[current-page:url]',
       ),
       'og:title' => array(
-        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất - [site:name]',
       ),
       'og:description' => array(
         'value' => '[node:field_teaser]',
@@ -719,8 +719,14 @@ function meta_tag_metatag_export_default() {
       'og:image:secure_url' => array(
         'value' => '[node:field_image]',
       ),
+      'og:image:width' => array(
+        'value' => 1200,
+      ),
+      'og:image:height' => array(
+        'value' => 630,
+      ),
       'twitter:title' => array(
-        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất - [site:name]',
       ),
       'twitter:description' => array(
         'value' => '[node:field_teaser]',

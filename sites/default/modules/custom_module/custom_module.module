@@ -329,16 +329,6 @@ function _menu_coupon_categories_title_callback($path){
     return 'Danh mục '.$term->name ;
 }
 
-/**
- * hook callback menu
- *
- * @param [type] $callbacks
- * @return void
- */
-function custom_module_menu_alter(&$callbacks) {
-    unset($callbacks['node']);
-}
-
 function custom_module_views_query_alter(&$view, &$query) {
     if(arg(0) == 'linh-vuc'){
         $term_path = drupal_get_normal_path('stores-categories/'.arg(1));
