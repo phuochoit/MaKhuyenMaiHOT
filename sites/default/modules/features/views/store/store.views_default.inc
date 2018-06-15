@@ -159,7 +159,7 @@ function store_views_default_views() {
   $handler->display->display_options['block_description'] = 'Store Deals More';
 
   /* Display: Page Store */
-  $handler = $view->new_display('page', 'Page Store', 'page_1');
+  $handler = $view->new_display('page', 'Page Store', 'page_store');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Page Store';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -741,7 +741,7 @@ function store_views_default_views() {
       ),
     ),
   );
-  $handler->display->display_options['path'] = 'store';
+  $handler->display->display_options['path'] = 'thuong-hieu';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Thuong Hieu';
   $handler->display->display_options['menu']['weight'] = '0';

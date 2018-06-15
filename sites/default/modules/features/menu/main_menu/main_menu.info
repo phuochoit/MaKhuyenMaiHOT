@@ -11,7 +11,6 @@ features[menu_links][] = main-menu_lin-h:node/209
 features[menu_links][] = main-menu_qu-tng:qua-tang
 features[menu_links][] = main-menu_sn-phm:san-pham
 features[menu_links][] = main-menu_t-vn-nh-gi:tu-van-danh-gia
-features[menu_links][] = main-menu_thng-hiu:store
 features[menu_links][] = main-menu_tin-khuyn-mi:tin-khuyen-mai
 features[menu_links][] = main-menu_trang-ch:<front>
 features[menu_links][] = main-menu_xem-thm:<front>

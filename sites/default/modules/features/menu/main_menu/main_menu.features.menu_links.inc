@@ -59,6 +59,12 @@ function main_menu_menu_default_menu_links() {
     'link_title' => 'Liên Hệ',
     'options' => array(
       'identifier' => 'main-menu_lin-h:node/209',
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -101,7 +107,7 @@ function main_menu_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -48,
     'customized' => 1,
   );
   // Exported menu link: main-menu_t-vn-nh-gi:tu-van-danh-gia.
@@ -121,24 +127,6 @@ function main_menu_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
     'parent_identifier' => 'main-menu_xem-thm:<front>',
-  );
-  // Exported menu link: main-menu_thng-hiu:store.
-  $menu_links['main-menu_thng-hiu:store'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'store',
-    'router_path' => 'store',
-    'link_title' => 'Thương Hiệu',
-    'options' => array(
-      'attributes' => array(),
-      'identifier' => 'main-menu_thng-hiu:store',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
   );
   // Exported menu link: main-menu_tin-khuyn-mi:tin-khuyen-mai.
   $menu_links['main-menu_tin-khuyn-mi:tin-khuyen-mai'] = array(
@@ -218,7 +206,6 @@ function main_menu_menu_default_menu_links() {
   t('Liên Hệ');
   t('Quà Tặng');
   t('Sản Phẩm');
-  t('Thương Hiệu');
   t('Tin Khuyến Mại');
   t('Trang chủ');
   t('Tư Vấn Đánh Giá');

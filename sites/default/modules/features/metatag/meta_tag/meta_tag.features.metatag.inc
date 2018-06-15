@@ -16,24 +16,24 @@ function meta_tag_metatag_export_default() {
     'disabled' => FALSE,
     'config' => array(
       'title' => array(
-        'value' => '[current-page:title] | [site:name]',
+        'value' => '[current-page:title] - [site:name]',
       ),
       'description' => array(
-        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Cập nhật mã giảm giá, chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'abstract' => array(
-        'value' => 'Makhuyenmaihot.info',
+        'value' => 'Chia sẻ mã giảm giá, khuyến mại',
       ),
       'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia, voucher, coupon ',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia, voucher, coupon , khuyen mai, ma khuyen mai',
       ),
       'robots' => array(
         'value' => array(
           'index' => 'index',
           'follow' => 'follow',
-          'noarchive' => 'noarchive',
           'noindex' => 0,
           'nofollow' => 0,
+          'noarchive' => 0,
           'nosnippet' => 0,
           'noodp' => 0,
           'noydir' => 0,
@@ -42,13 +42,13 @@ function meta_tag_metatag_export_default() {
         ),
       ),
       'news_keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia, voucher, coupon , khuyen mai, ma khuyen mai',
       ),
       'standout' => array(
         'value' => '',
       ),
       'rating' => array(
-        'value' => '',
+        'value' => 'general',
       ),
       'referrer' => array(
         'value' => '',
@@ -60,7 +60,7 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'image_src' => array(
-        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'canonical' => array(
         'value' => '[current-page:url:absolute]',
@@ -115,28 +115,28 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'fb:app_id' => array(
-        'value' => '',
+        'value' => '187003351838948',
       ),
       'fb:pages' => array(
-        'value' => '',
+        'value' => 'https://www.facebook.com/makhuyenmaihot',
       ),
       'itemtype' => array(
         'value' => 'Article',
       ),
       'itemprop:name' => array(
-        'value' => '[current-page:title]',
+        'value' => '[current-page:title] - [site:name]',
       ),
       'itemprop:description' => array(
         'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'itemprop:image' => array(
-        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'author' => array(
         'value' => '',
       ),
       'publisher' => array(
-        'value' => '',
+        'value' => 'https://plus.google.com/communities/102659297950748163191',
       ),
       'og:site_name' => array(
         'value' => '[site:name]',
@@ -145,10 +145,10 @@ function meta_tag_metatag_export_default() {
         'value' => 'website',
       ),
       'og:url' => array(
-        'value' => '',
+        'value' => '[current-page:url:absolute]',
       ),
       'og:title' => array(
-        'value' => '[current-page:title] | [site:name]',
+        'value' => '[current-page:title] - [site:name]',
       ),
       'og:determiner' => array(
         'value' => '',
@@ -163,22 +163,22 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'og:image' => array(
-        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'og:image:url' => array(
-        'value' => '',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'og:image:secure_url' => array(
-        'value' => '',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'og:image:type' => array(
         'value' => '',
       ),
       'og:image:width' => array(
-        'value' => '',
+        'value' => 1200,
       ),
       'og:image:height' => array(
-        'value' => '',
+        'value' => 630,
       ),
       'og:latitude' => array(
         'value' => '',
@@ -325,10 +325,10 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'twitter:url' => array(
-        'value' => '',
+        'value' => '[current-page:url:absolute]',
       ),
       'twitter:title' => array(
-        'value' => '[current-page:title] | [site:name]',
+        'value' => '[current-page:title] - [site:name]',
       ),
       'twitter:description' => array(
         'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
@@ -337,7 +337,7 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'twitter:image' => array(
-        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
+        'value' => '[site:url]sites/default/files/logo-facebook.png',
       ),
       'twitter:image:width' => array(
         'value' => '',
@@ -346,7 +346,7 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'twitter:image:alt' => array(
-        'value' => '',
+        'value' => '[site:name]',
       ),
       'twitter:image0' => array(
         'value' => '',
@@ -397,13 +397,13 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'twitter:app:name:googleplay' => array(
-        'value' => '',
+        'value' => 'Mã Giảm Giá: Khuyến mãi, Coupon',
       ),
       'twitter:app:id:googleplay' => array(
-        'value' => '',
+        'value' => 'com.phuochoit.magiamgia',
       ),
       'twitter:app:url:googleplay' => array(
-        'value' => '',
+        'value' => 'https://play.google.com/store/apps/details?id=com.phuochoit.magiamgia',
       ),
       'twitter:label1' => array(
         'value' => '',
@@ -493,15 +493,12 @@ function meta_tag_metatag_export_default() {
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
       ),
       'description' => array(
-        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
-      ),
-      'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, voucher, coupon',
+        'value' => 'Cập nhật mã giảm giá, chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'robots' => array(
         'value' => array(
           'index' => 'index',
-          'follow' => 0,
+          'follow' => 'follow',
           'noindex' => 0,
           'nofollow' => 0,
           'noarchive' => 0,
@@ -518,6 +515,9 @@ function meta_tag_metatag_export_default() {
       'shortlink' => array(
         'value' => '[site:url]',
       ),
+      'original-source' => array(
+        'value' => '[site:url]',
+      ),
       'itemtype' => array(
         'value' => 'Blog',
       ),
@@ -530,8 +530,8 @@ function meta_tag_metatag_export_default() {
       'og:site_name' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
       ),
-      'og:type' => array(
-        'value' => 'website',
+      'og:url' => array(
+        'value' => '[site:url]',
       ),
       'og:title' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
@@ -554,65 +554,15 @@ function meta_tag_metatag_export_default() {
     'disabled' => FALSE,
     'config' => array(
       'title' => array(
-        'value' => '[node:title] | [current-page:pager][site:name]',
+        'value' => '[node:title] - [site:name]',
       ),
       'description' => array(
         'value' => '[node:summary]',
-      ),
-      'itemprop:description' => array(
-        'value' => '[node:summary]',
-      ),
-      'itemprop:name' => array(
-        'value' => '[node:title]',
-      ),
-      'itemtype' => array(
-        'value' => 'Article',
-      ),
-      'article:modified_time' => array(
-        'value' => '[node:changed:custom:c]',
-      ),
-      'article:published_time' => array(
-        'value' => '[node:created:custom:c]',
-      ),
-      'og:description' => array(
-        'value' => '[node:summary]',
-      ),
-      'og:title' => array(
-        'value' => '[node:title]',
-      ),
-      'og:updated_time' => array(
-        'value' => '[node:changed:custom:c]',
-      ),
-      'twitter:description' => array(
-        'value' => '[node:summary]',
-      ),
-      'twitter:title' => array(
-        'value' => '[node:title]',
-      ),
-    ),
-  );
-
-  // Exported Metatag config instance: node:products.
-  $config['node:products'] = array(
-    'instance' => 'node:products',
-    'disabled' => FALSE,
-    'config' => array(
-      'title' => array(
-        'value' => '[node:title] | [site:name]',
-      ),
-      'description' => array(
-        'value' => '[node:field_teaser]',
-      ),
-      'abstract' => array(
-        'value' => 'Makhuyenmaihot.info',
-      ),
-      'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
       ),
       'robots' => array(
         'value' => array(
-          'index' => 0,
-          'follow' => 0,
+          'index' => 'index',
+          'follow' => 'follow',
           'noindex' => 0,
           'nofollow' => 0,
           'noarchive' => 0,
@@ -623,8 +573,57 @@ function meta_tag_metatag_export_default() {
           'notranslate' => 0,
         ),
       ),
-      'news_keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
+      'itemprop:name' => array(
+        'value' => '[node:title] - [site:name]',
+      ),
+      'itemprop:description' => array(
+        'value' => '[node:summary]',
+      ),
+      'og:title' => array(
+        'value' => '[node:title] - [site:name]',
+      ),
+      'og:description' => array(
+        'value' => '[node:summary]',
+      ),
+      'og:updated_time' => array(
+        'value' => '[node:changed:custom:c]',
+      ),
+      'article:published_time' => array(
+        'value' => '[node:created:custom:c]',
+      ),
+      'article:modified_time' => array(
+        'value' => '[node:changed:custom:c]',
+      ),
+      'twitter:title' => array(
+        'value' => '[node:title] - [site:name]',
+      ),
+      'twitter:description' => array(
+        'value' => '[node:summary]',
+      ),
+    ),
+  );
+
+  // Exported Metatag config instance: node:products.
+  $config['node:products'] = array(
+    'instance' => 'node:products',
+    'disabled' => FALSE,
+    'config' => array(
+      'description' => array(
+        'value' => '[node:field_teaser]',
+      ),
+      'robots' => array(
+        'value' => array(
+          'index' => 'index',
+          'follow' => 'follow',
+          'noindex' => 0,
+          'nofollow' => 0,
+          'noarchive' => 0,
+          'nosnippet' => 0,
+          'noodp' => 0,
+          'noydir' => 0,
+          'noimageindex' => 0,
+          'notranslate' => 0,
+        ),
       ),
       'image_src' => array(
         'value' => '[node:field_image]',
@@ -632,23 +631,14 @@ function meta_tag_metatag_export_default() {
       'itemtype' => array(
         'value' => 'Review',
       ),
-      'itemprop:name' => array(
-        'value' => '[node:title] | [site:name]',
-      ),
       'itemprop:description' => array(
         'value' => '[node:field_teaser]',
       ),
       'itemprop:image' => array(
         'value' => '[node:field_image]',
       ),
-      'og:type' => array(
-        'value' => 'website',
-      ),
       'og:url' => array(
         'value' => '[current-page:url]',
-      ),
-      'og:title' => array(
-        'value' => '[node:title] | [site:name]',
       ),
       'og:description' => array(
         'value' => '[node:field_teaser]',
@@ -664,9 +654,6 @@ function meta_tag_metatag_export_default() {
       ),
       'twitter:url' => array(
         'value' => '[current-page:url]',
-      ),
-      'twitter:title' => array(
-        'value' => '[node:title] | [site:name]',
       ),
       'twitter:description' => array(
         'value' => '[node:field_teaser]',
@@ -688,16 +675,10 @@ function meta_tag_metatag_export_default() {
       'description' => array(
         'value' => '[node:field_teaser]',
       ),
-      'abstract' => array(
-        'value' => 'Makhuyenmaihot.info',
-      ),
-      'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
-      ),
       'robots' => array(
         'value' => array(
-          'index' => 0,
-          'follow' => 0,
+          'index' => 'index',
+          'follow' => 'follow',
           'noindex' => 0,
           'nofollow' => 0,
           'noarchive' => 0,
@@ -708,23 +689,17 @@ function meta_tag_metatag_export_default() {
           'notranslate' => 0,
         ),
       ),
-      'news_keywords' => array(
-        'value' => 'khuyến mại, Mã giảm giá,  [site:name]',
-      ),
       'image_src' => array(
         'value' => '[node:field_image]',
       ),
       'itemprop:name' => array(
-        'value' => '[node:title] khuyến mại - Mã giảm giá [node:title] mới nhất | [site:name]',
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
       ),
       'itemprop:description' => array(
         'value' => '[node:field_teaser]',
       ),
       'itemprop:image' => array(
         'value' => '[node:field_image]',
-      ),
-      'og:type' => array(
-        'value' => 'website',
       ),
       'og:url' => array(
         'value' => '[current-page:url]',
@@ -743,6 +718,9 @@ function meta_tag_metatag_export_default() {
       ),
       'og:image:secure_url' => array(
         'value' => '[node:field_image]',
+      ),
+      'twitter:title' => array(
+        'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
       ),
       'twitter:description' => array(
         'value' => '[node:field_teaser]',
@@ -805,13 +783,10 @@ function meta_tag_metatag_export_default() {
       'description' => array(
         'value' => '[view:description]',
       ),
-      'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, magiamgia, ma giam gia, coupon',
-      ),
       'robots' => array(
         'value' => array(
-          'index' => 0,
-          'follow' => 0,
+          'index' => 'index',
+          'follow' => 'follow',
           'noindex' => 0,
           'nofollow' => 0,
           'noarchive' => 0,
@@ -822,17 +797,11 @@ function meta_tag_metatag_export_default() {
           'notranslate' => 0,
         ),
       ),
-      'news_keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, magiamgia, ma giam gia, coupon',
-      ),
       'image_src' => array(
         'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'canonical' => array(
         'value' => '[view:url]',
-      ),
-      'itemtype' => array(
-        'value' => 'Article',
       ),
       'itemprop:image' => array(
         'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',

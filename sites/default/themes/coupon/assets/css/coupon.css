@@ -515,6 +515,9 @@ a:hover, a:focus {
   font-weight: 300;
   max-width: 150px;
 }
+#subscribe-top .content {
+  text-align: right;
+}
 #subscribe-top .content a, #subscribe-top .content span {
   font-size: 14px;
   color: #fff;
@@ -959,7 +962,7 @@ a:hover, a:focus {
   margin: 0 auto;
 }
 
-.page-store #main .content-area .view-id-store {
+.page-thuong-hieu #main .content-area .view-id-store {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   background: white;
@@ -967,46 +970,47 @@ a:hover, a:focus {
   width: 100%;
   float: left;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row {
   margin-bottom: 20px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .block-dark-border {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .block-dark-border {
   padding: 10px;
   height: 100px;
   border: 2px solid #f5f5f5;
   border-radius: 2px;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .block-dark-border:hover {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .block-dark-border:hover {
   border-color: #00b7f0;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .views-field-field-image {
   position: relative;
   top: 50%;
   text-align: center;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image a {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .views-field-field-image a {
   border: 2px solid #f5f5f5;
   border-radius: 2px;
   display: block;
   line-height: 107px;
   border: none;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image a:hover {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .views-field-field-image a:hover {
   border-color: #00b7f0;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image a img {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .views-field-field-image a img {
   margin: 0 auto;
   max-height: 115px;
   width: auto;
   max-width: 100%;
 }
-.page-store #main .content-area .view-id-store .view-content .views-row .views-field-field-image a img {
+.page-thuong-hieu #main .content-area .view-id-store .view-content .views-row .views-field-field-image a img {
   max-height: 90px;
   height: auto;
+  padding: 5px;
 }
 
 .page-node.node-type-stores .sidebar-second {
@@ -1683,10 +1687,10 @@ body.page-qua-tang #main .content-area .view-content .views-row .views-field-fie
 #block-custom-blocks-list-coupon-and-sale-homepage .view-coupon .store-thumb a {
   max-height: 115px;
   text-align: center;
-  padding: 10px;
 }
 #block-custom-blocks-list-coupon-and-sale-homepage .view-coupon .store-thumb a img {
-  max-height: 80px !important;
+  padding: 5px;
+  max-height: 90px !important;
 }
 
 #block-views-coupon-coupon-homepage .view-content .views-row,
@@ -1855,7 +1859,6 @@ body.page-qua-tang #main .content-area .view-content .views-row .views-field-fie
   line-height: 107px;
   line-height: initial;
   text-align: center;
-  padding: 10px;
 }
 #block-views-coupon-coupon-homepage .view-content .views-row .store-thumb-link .store-thumb a:hover,
 .page-ma-khuyen-mai .view-id-coupon .view-content .views-row .store-thumb-link .store-thumb a:hover,

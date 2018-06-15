@@ -180,15 +180,14 @@ function menu_footer_menu_default_menu_links() {
     'weight' => -44,
     'customized' => 1,
   );
-  // Exported menu link: menu-menu-footer_thng-hiu:store.
-  $menu_links['menu-menu-footer_thng-hiu:store'] = array(
+  // Exported menu link: menu-menu-footer_thng-hiu:thuong-hieu.
+  $menu_links['menu-menu-footer_thng-hiu:thuong-hieu'] = array(
     'menu_name' => 'menu-menu-footer',
-    'link_path' => 'store',
-    'router_path' => 'store',
+    'link_path' => 'thuong-hieu',
+    'router_path' => 'thuong-hieu',
     'link_title' => 'Thương Hiệu',
     'options' => array(
       'attributes' => array(
-        'title' => 'Thương Hiệu',
         'class' => array(
           0 => 'fa',
           1 => 'fa-angle-right',
@@ -199,7 +198,7 @@ function menu_footer_menu_default_menu_links() {
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-menu-footer_thng-hiu:store',
+      'identifier' => 'menu-menu-footer_thng-hiu:thuong-hieu',
     ),
     'module' => 'menu',
     'hidden' => 0,

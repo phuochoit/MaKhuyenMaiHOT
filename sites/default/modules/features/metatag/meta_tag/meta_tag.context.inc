@@ -42,10 +42,10 @@ function meta_tag_context_default_contexts() {
           'robots' => array(
             'value' => array(
               'index' => 'index',
-              'noarchive' => 'noarchive',
-              'follow' => 0,
+              'follow' => 'follow',
               'noindex' => 0,
               'nofollow' => 0,
+              'noarchive' => 0,
               'nosnippet' => 0,
               'noodp' => 0,
               'noydir' => 0,
@@ -107,7 +107,7 @@ function meta_tag_context_default_contexts() {
       'metatags' => array(
         'und' => array(
           'title' => array(
-            'value' => 'Tất cả các thương hiệu | [site:name]',
+            'value' => 'Tất cả các thương hiệu - [site:name]',
           ),
           'description' => array(
             'value' => 'Tất cả các thương hiệu và các chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
@@ -115,10 +115,10 @@ function meta_tag_context_default_contexts() {
           'robots' => array(
             'value' => array(
               'index' => 'index',
-              'noarchive' => 'noarchive',
-              'follow' => 0,
+              'follow' => 'follow',
               'noindex' => 0,
               'nofollow' => 0,
+              'noarchive' => 0,
               'nosnippet' => 0,
               'noodp' => 0,
               'noydir' => 0,
