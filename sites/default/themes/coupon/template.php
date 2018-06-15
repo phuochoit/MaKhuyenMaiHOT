@@ -143,7 +143,7 @@ function coupon_preprocess_page(&$variables) {
         unset($variables['page']['content']['system_main']);
         drupal_set_title('');
     }
-
+    
     switch ($_GET['q']) {
         case 'ma-giam-gia':
             drupal_set_title('');
@@ -170,6 +170,10 @@ function coupon_preprocess_page(&$variables) {
     }
 }
 
+function coupon_preprocess_html(&$vars) {
+    drupal_set_title("Aaaaaaaaaaaaa");
+  
+}
 function coupon_preprocess_image(&$variables) {
     $variables['attributes']['class'][] = "img-fluid";
 }

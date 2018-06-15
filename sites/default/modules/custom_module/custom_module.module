@@ -22,7 +22,8 @@ function custom_module_menu() {
         'access arguments' => array('access content'),
     );
     $items['linh-vuc/%'] = array(
-        'title' => 'Lĩnh Vực',
+        'title callback' => '_menu_example_simple_title_callback',
+        'title arguments' =>  array(1),
         'page callback' => 'custom_module_stores_categories_page',
         'page arguments' => array(1),
         'access callback' => TRUE,
@@ -301,6 +302,13 @@ function custom_module_stores_categories_page($tname){
         </div>
     </div>';
     return $content;
+}
+
+function _menu_example_simple_title_callback($tname) {
+    $term_path = drupal_get_normal_path('stores-categories/'.$tname);
+    $tid = basename($term_path);
+    $term = taxonomy_term_load($tid);
+    return 'Lĩnh Vực '.$term->name ;
 }
 
 function custom_module_views_query_alter(&$view, &$query) {

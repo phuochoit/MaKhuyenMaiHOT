@@ -5,3 +5,5 @@ sites/*/settings*.php
 # sites/*/files
 sites/*/private
 sites/*.dd
+sites/*/files/css
+sites/*/files/js
