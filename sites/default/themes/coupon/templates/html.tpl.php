@@ -11,9 +11,11 @@
         <?php print $head; ?>
         <!-- Set the viewport width to device width for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        
         <title><?php print $head_title; ?></title>
 
         <link rel="stylesheet" id="redux-google-fonts-st_options-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&amp;ver=1526702456" type="text/css" media="all">
+        
         <?php print $styles; ?>
         <!-- IE Fix for HTML5 Tags -->
         <!--[if lt IE 9]>
@@ -139,7 +141,7 @@
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="addthis_inline_share_toolbox" data-url="<?php print $share_path?>"></span>
+                                    <span class="addthis_inline_share_toolbox" data-url="<?php print $share_path?>" data-media="<?php print $img?>" data-image="<?php print $img?>"></span>
                                 </li>
                             </ul>
                         </div>

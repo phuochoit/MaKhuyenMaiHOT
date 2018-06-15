@@ -10,48 +10,28 @@
 function meta_tag_metatag_export_default() {
   $config = array();
 
-  // Exported Metatag config instance: context.
-  $config['context'] = array(
-    'instance' => 'context',
-    'config' => array(
-      'robots' => array(
-        'value' => array(
-          'index' => 'index',
-          'noarchive' => 'noarchive',
-          'follow' => 0,
-          'noindex' => 0,
-          'nofollow' => 0,
-          'nosnippet' => 0,
-          'noodp' => 0,
-          'noydir' => 0,
-          'noimageindex' => 0,
-          'notranslate' => 0,
-        ),
-      ),
-    ),
-  );
-
   // Exported Metatag config instance: global.
   $config['global'] = array(
     'instance' => 'global',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => '[current-page:title] | [site:name]',
       ),
       'description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'abstract' => array(
         'value' => 'Makhuyenmaihot.info',
       ),
       'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, ma giam gia, magiamgia, voucher, coupon ',
       ),
       'robots' => array(
         'value' => array(
           'index' => 'index',
+          'follow' => 'follow',
           'noarchive' => 'noarchive',
-          'follow' => 0,
           'noindex' => 0,
           'nofollow' => 0,
           'nosnippet' => 0,
@@ -80,7 +60,7 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'image_src' => array(
-        'value' => '',
+        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'canonical' => array(
         'value' => '[current-page:url:absolute]',
@@ -141,16 +121,16 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'itemtype' => array(
-        'value' => '',
+        'value' => 'Article',
       ),
       'itemprop:name' => array(
         'value' => '[current-page:title]',
       ),
       'itemprop:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'itemprop:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'author' => array(
         'value' => '',
@@ -162,7 +142,7 @@ function meta_tag_metatag_export_default() {
         'value' => '[site:name]',
       ),
       'og:type' => array(
-        'value' => '',
+        'value' => 'website',
       ),
       'og:url' => array(
         'value' => '',
@@ -174,7 +154,7 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'og:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'og:updated_time' => array(
         'value' => '',
@@ -183,13 +163,13 @@ function meta_tag_metatag_export_default() {
         'value' => '',
       ),
       'og:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'og:image:url' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => '',
       ),
       'og:image:secure_url' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => '',
       ),
       'og:image:type' => array(
         'value' => '',
@@ -351,13 +331,13 @@ function meta_tag_metatag_export_default() {
         'value' => '[current-page:title] | [site:name]',
       ),
       'twitter:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada, khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'twitter:dnt' => array(
         'value' => '',
       ),
       'twitter:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'twitter:image:width' => array(
         'value' => '',
@@ -507,18 +487,16 @@ function meta_tag_metatag_export_default() {
   // Exported Metatag config instance: global:frontpage.
   $config['global:frontpage'] = array(
     'instance' => 'global:frontpage',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
       ),
       'description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
-      ),
-      'abstract' => array(
-        'value' => 'Makhuyenmaihot.info',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, voucher, coupon',
       ),
       'robots' => array(
         'value' => array(
@@ -547,10 +525,7 @@ function meta_tag_metatag_export_default() {
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
       ),
       'itemprop:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
-      ),
-      'itemprop:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'og:site_name' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
@@ -561,8 +536,14 @@ function meta_tag_metatag_export_default() {
       'og:title' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
       ),
+      'og:description' => array(
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+      ),
       'twitter:title' => array(
         'value' => 'Makhuyenmaihot.info - Tổng hợp khuyến mại, mã giảm giá mới nhất',
+      ),
+      'twitter:description' => array(
+        'value' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon, voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
     ),
   );
@@ -614,6 +595,7 @@ function meta_tag_metatag_export_default() {
   // Exported Metatag config instance: node:products.
   $config['node:products'] = array(
     'instance' => 'node:products',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => '[node:title] | [site:name]',
@@ -698,6 +680,7 @@ function meta_tag_metatag_export_default() {
   // Exported Metatag config instance: node:stores.
   $config['node:stores'] = array(
     'instance' => 'node:stores',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => 'Khuyến mại [node:title] - Mã giảm giá [node:title] mới nhất | [site:name]',
@@ -814,6 +797,7 @@ function meta_tag_metatag_export_default() {
   // Exported Metatag config instance: view.
   $config['view'] = array(
     'instance' => 'view',
+    'disabled' => FALSE,
     'config' => array(
       'title' => array(
         'value' => '[view:title] | [site:name]',
@@ -821,11 +805,8 @@ function meta_tag_metatag_export_default() {
       'description' => array(
         'value' => '[view:description]',
       ),
-      'abstract' => array(
-        'value' => 'Makhuyenmaihot.info',
-      ),
       'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, magiamgia, ma giam gia, coupon',
       ),
       'robots' => array(
         'value' => array(
@@ -842,16 +823,25 @@ function meta_tag_metatag_export_default() {
         ),
       ),
       'news_keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, magiamgia, ma giam gia, coupon',
       ),
       'image_src' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'canonical' => array(
         'value' => '[view:url]',
       ),
+      'itemtype' => array(
+        'value' => 'Article',
+      ),
       'itemprop:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
+      ),
+      'og:image' => array(
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
+      ),
+      'twitter:image' => array(
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
       ),
     ),
   );

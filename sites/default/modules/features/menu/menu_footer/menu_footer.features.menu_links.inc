@@ -35,7 +35,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_khuyn-mi:khuyen-mai.
@@ -63,7 +63,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -50,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_lin-h:node/209.
@@ -92,7 +92,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -43,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_qu-tng:qua-tang.
@@ -120,7 +120,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_sn-phm:san-pham.
@@ -149,7 +149,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => -49,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_t-vn-nh-gi:tu-van-danh-gia.
@@ -177,7 +177,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -44,
     'customized' => 1,
   );
   // Exported menu link: menu-menu-footer_thng-hiu:store.
@@ -234,7 +234,7 @@ function menu_footer_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -45,
     'customized' => 1,
   );
 

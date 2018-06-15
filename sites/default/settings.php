@@ -244,7 +244,21 @@
  *   );
  * @endcode
  */
-$databases = array();
+// $databases = array (
+//   'default' => 
+//   array (
+//     'default' => 
+//     array (
+//       'database' => 'vuquocit_api.aht.com.vn',
+//       'username' => 'vuquocit_api',
+//       'password' => 'Phuochoit123!@#',
+//       'host' => 'localhost',
+//       'port' => '',
+//       'driver' => 'mysql',
+//       'prefix' => '',
+//     ),
+//   ),
+// );
 
 /**
  * Access control for update.php script.
@@ -276,7 +290,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = '';
+$drupal_hash_salt = 'P04C_UZEZzm4L86vjdIwDPHoZU8tSbuhOZrfvv7QFTs';
 
 /**
  * Base URL (optional).
@@ -615,7 +629,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  *
  * Remove the leading hash sign to enable.
  */
-// $conf['theme_debug'] = TRUE;
+# $conf['theme_debug'] = TRUE;
 
 /**
  * CSS identifier double underscores allowance:

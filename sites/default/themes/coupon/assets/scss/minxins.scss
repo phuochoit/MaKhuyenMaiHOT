@@ -8,8 +8,35 @@ $baseBackground2: safe-rgba(#f8f9f9);
 $baseBackgroundHeader: safe-rgba(#00B7F0);
 $baseBackgroundFooter: safe-rgba(#191E28);
 $baseTextColor: safe-rgba(#353941);
-
 $baseWidthPhone: 480px;
+
+$break-small-small: 320px;
+$break-small: 380px;
+$break-small-medium: 480px;
+$break-medium: 767px;
+$break-medium-large: 991px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+    @if $media == 320 {
+        @media only screen and (max-width: $break-small-small) { @content; }
+    }
+    @if $media == 360 {
+        @media only screen and (max-width: $break-small) { @content; }
+    }
+    @else if $media == 480 {
+        @media only screen and  (max-width: $break-small-medium) { @content; }
+    }
+    @else if $media == 767 {
+        @media only screen and  (max-width: $break-medium) { @content; }
+    }
+    @else if $media == 991 {
+        @media only screen and  (max-width: $break-medium-large) { @content; }
+    }
+    @else if $media ==1024 {
+        @media only screen and (min-width: $break-large) { @content; }
+    }
+}
 
 @mixin box-background-shadow(){
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);

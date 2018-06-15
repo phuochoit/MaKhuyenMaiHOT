@@ -33,7 +33,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
 ?>
 
 <div data-id="<?php print $row->nid;?>" id="coupon-item-<?php print $row->nid;?>" class="coupon-item has-thumb store-listing-item c-type-code coupon-listing-item shadow-box coupon-live coupon-item-<?php print $row->nid;?>">
-    <div class="store-thumb-link col-sm-12 col-md-3">
+    <div class="store-thumb-link col-xs-5 col-sm-3 col-md-3">
         <div class="store-thumb">
             <a href="/<?php print $store_path;?>">
                 <img src="<?php print $img;?>" class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb" alt="" >   
@@ -41,7 +41,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
         </div>
     </div>
     
-    <div class="latest-coupon col-sm-12 col-md-5">
+    <div class="latest-coupon col-xs-7 col-sm-5 col-md-5">
         <h3 class="coupon-title">
             <a title="<?php print $row->node_title;?>" rel="nofollow" class="coupon-link" data-type="<?php !empty($coupon_code) ? 'code' : 'sale'?>" data-coupon-id="<?php print $row->nid;?>" data-aff-url="<?php print $aff_link;?>" data-code="<?php print $coupon_code; ?>" href="/<?php print $store_path;?>?coupon-id=<?php print $row->nid;?>"><?php print $row->node_title;?></a>
         </h3>
@@ -78,7 +78,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
         </div>
     </div>
 
-    <div class="coupon-detail coupon-button-type col-sm-12 col-md-4">
+    <div class="coupon-detail coupon-button-type col-xs-12 col-sm-4 col-md-4">
         <?php if(!empty($coupon_code)) : ?>
             <a id="coupon-detai-c-<?php print $row->nid;?>" rel="nofollow" data-type="code" data-coupon-id="<?php print $row->nid;?>" href="javascript:void(0);" class="coupon-button coupon-code " data-tooltip="Click để Copy mã" data-position="top center" data-inverted="" data-code="<?php print $coupon_code; ?>" data-aff-url="" onclick="CouponRedirect_<?php print $row->nid;?>();">
                 <span class="code-text" rel="nofollow">
@@ -96,7 +96,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <div class="coupon-footer coupon-listing-footer col-sm-12 col-md-12">
+    <div class="coupon-footer coupon-listing-footer col-xs-12 col-sm-12 col-md-12">
         <ul class="clearfix">
             <li>
                 <span>

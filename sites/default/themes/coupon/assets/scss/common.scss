@@ -98,9 +98,21 @@ a{
 }
 .content-area{
     padding-left: 0;
+    @include respond-to(991) {
+        padding-right: 0; 
+    }
 }
 .sidebar-second{
     padding-right: 0;
+    @include respond-to(991) {
+        padding-left: 0;
+    }
+}
+#sidebar-second{
+    @include respond-to(991) {
+        width: 100%;
+        float: left;
+    }
 }
 .field-article-item{
     padding-top: 30px;
@@ -189,6 +201,9 @@ a{
                 background: transparent !important;
                 border: none !important;
                 padding: 11.5px 15px;
+                @include respond-to(480) {
+                    font-size: 70%;
+                }
                 .badge{
                     border-radius: 2px;
                     &-all{
@@ -270,7 +285,10 @@ a{
             .modal-body{
                 width: 60%;
                 padding: 50px 0 55px;
-                margin: 0 20%;
+                margin: 0 auto;
+                @include respond-to(480){
+                    width: 80%;
+                }
                 .coupon-type-text{
                     font-size: 13px;
                     display: inline-block;
@@ -284,8 +302,18 @@ a{
                     margin-bottom: 17px;
                     display: block;
                     padding: 20px;
+                    @include respond-to(360){
+                        width: 100%;
+                        float: left;
+                        padding: 0;
+                    }
                     .btn-sale{
                         @include  block-title();
+                        @include respond-to(360){
+                            width: 100%;
+                            float: left;
+                            margin-bottom: 0;
+                        }
                     }
                     .coupon-code{
                         display: block;
@@ -330,6 +358,9 @@ a{
                         a.show{
                             text-transform: uppercase;
                             margin-bottom: 20px;
+                            @include respond-to(480){
+                                text-align: center !important;
+                            }
                         }
                         .collapse{
                             font-size: 16px;
@@ -348,6 +379,10 @@ a{
                         margin: 8px 0;
                         display: block;
                         float: left;
+                        @include respond-to(480){
+                            width: 100% !important;
+                            text-align: center !important;
+                        }
                          &:first-child{
                             padding-top: 5px;
                             span{
@@ -365,4 +400,16 @@ a{
             }
         }
     }
+}
+
+.menu-hamburger{
+    border: none;
+    width: 39px;
+    height: 32px;
+    overflow: hidden;
+    text-indent: -1000px;
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: none;
 }

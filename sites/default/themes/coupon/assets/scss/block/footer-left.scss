@@ -7,6 +7,19 @@
         p{
             color: rgba(255, 255, 255, 0.3);
             font-size: 14px;
+            @include respond-to(767) {
+                &:empty{
+                    display: none;
+                }
+                img{
+                    text-align: center;
+                    margin: 0 auto;
+                    max-width: 310px;
+                    height: auto;
+                    float: none;
+                    display: block;
+                }
+            }
         }
         .app-button{
             background: rgba(255, 255, 255, 0.05);
@@ -47,5 +60,9 @@
                 line-height: 1.5;
             }
         }
+    }
+    @include respond-to(767) {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

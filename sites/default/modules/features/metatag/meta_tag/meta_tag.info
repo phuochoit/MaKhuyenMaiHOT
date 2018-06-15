@@ -8,7 +8,6 @@ features[context][] = khuyen-mai
 features[context][] = store
 features[ctools][] = context:context:3
 features[features_api][] = api:2
-features[metatag][] = context
 features[metatag][] = global
 features[metatag][] = global:403
 features[metatag][] = global:404

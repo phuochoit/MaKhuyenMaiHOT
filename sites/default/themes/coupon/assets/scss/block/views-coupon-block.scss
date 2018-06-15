@@ -64,15 +64,29 @@
             }
             
             .store-thumb-link{
+                padding-left: 0;
+                @include respond-to(480) {
+                    width: 100%;
+                    padding-right: 0;
+                    margin-bottom: 5px;
+                }
                 .store-thumb{
                     a{
                         @include store-thumb();
                         line-height: initial;
+                        text-align: center;
+                        padding: 10px;
                     }
                 }
                 
             }
             .latest-coupon{
+                padding-right: 0;
+                @include respond-to(480) {
+                    width: 100%;
+                    padding-left: 0;
+                    margin-bottom: 5px;
+                }
                 .coupon-title{
                     margin-top: 0px;
                     font-size: 17px;
@@ -110,7 +124,13 @@
                 }
             }
             .coupon-detail{
-                text-align: center;
+                padding-right: 0;
+                text-align: right;
+                @include respond-to(767) {
+                    padding-left: 0;
+                    text-align: center;
+                    margin-top: 15px;
+                }
                 .coupon-button {
                     margin-bottom: 10px;
                     text-transform: uppercase;
@@ -192,6 +212,12 @@
                         display: inline-block;
                         float: left;
                         width: 50%;
+                        @include respond-to(360) {
+                            display:block;
+                            width: 100%;
+                            margin: 5px auto;
+                            text-align: center !important;
+                        }
                         &:first-child{
                             padding-top: 5px;
                             span{
@@ -202,6 +228,9 @@
                         &:last-child{
                             float: right;
                             text-align: right;
+                            @include respond-to(360) {
+                                margin-bottom: 0;
+                            }
                         }
                         
                     }

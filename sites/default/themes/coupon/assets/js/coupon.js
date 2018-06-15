@@ -17,7 +17,22 @@
             responsiveClass: true,
             autoplay: true,
             nav: true,
-            dots: false
+            dots: false,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 2,
+                },
+                768: {
+                    items: 3,
+                },
+                1023: {
+                    items: 4,
+                }
+            }
         });
         
         result = $("#block-system-main-menu").height();
@@ -44,6 +59,23 @@
             }
 
         });
+        $('.menu-hamburger').click(function () {
+            $('#highlighted').toggleClass('open');
+        });
+
+        //Load content for mobile menu
+        $('.mobile-menu-content').each(function () {
+            $('.menu-content--item', $(this)).each(function () {
+                var attr = $(this).attr('data-key');
+                if (typeof attr !== typeof undefined && attr !== false) {
+                    $item_id = $(this).data('key');
+                    $data_content = $('#' + $item_id).clone();
+
+                    $(this).html('').append($data_content);
+                }
+            })
+        });
+        
     });
    
     $(document).ajaxComplete(function (event, xhr, settings) {

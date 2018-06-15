@@ -19,7 +19,7 @@ function ads_app_default_fe_block_settings() {
     'machine_name' => 'ads_my_app',
     'module' => 'block',
     'node_types' => array(),
-    'options' => 'a:1:{s:10:"attributes";a:2:{s:5:"class";a:2:{i:0;s:9:"col-sm-12";i:1;s:8:"col-md-3";}s:2:"id";s:15:"ads_app_android";}}',
+    'options' => 'a:1:{s:10:"attributes";a:2:{s:5:"class";a:3:{i:0;s:9:"col-xs-12";i:1;s:9:"col-sm-12";i:2;s:8:"col-md-3";}s:2:"id";s:15:"ads_app_android";}}',
     'pages' => '',
     'roles' => array(),
     'themes' => array(

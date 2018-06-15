@@ -14,7 +14,7 @@ function footer_left_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Block Footer Left';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'block_footer_left';
-  $fe_block_boxes->body = '<p><img alt="" src="/sites/default/files/logo.png" /></p>
+  $fe_block_boxes->body = '<p><a href="/"><img alt="" src="/sites/default/files/logo.png" /></a></p>
 
 <p>&nbsp;</p>
 

@@ -1,0 +1,5 @@
+#block-custom-blocks-ads-block-fotter{
+    @include respond-to(767) {
+        display: none;
+    }
+}

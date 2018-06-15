@@ -87,16 +87,16 @@
 		<div class="container">	
 			<section class="row">
 				<?php if($messages):?>
-					<section class="col-sm-12 col-md-12 messages-area">
+					<section class="col-xs-12 col-sm-12 col-md-12 messages-area">
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
 				<?php if ($page['highlighted']): ?>
-					<div id="highlighted">
+					<section class="col-xs-12 col-sm-12 col-md-12 highlighted-area no-padding" id="highlighted">
 						<?php print render($page['highlighted']); ?>
-					</div>
+					</section>
 				<?php endif; ?>
-				<section class="col-sm-12 col-md-8 content-area">				
+				<section class="col-xs-12 col-sm-12 col-md-8 content-area">				
 					<?php if (!empty($tabs['#primary'])): ?>
 						<section class="tabs-wrapper clearfix">
 							<?php print render($tabs); ?>
@@ -117,7 +117,7 @@
 					<?php print render($page['content']); ?>
 				</section>
 				<?php if ($page['sidebar_second']): ?>
-					<section class="col-sm-12 col-md-4 sidebar-second">
+					<section class="col-xs-12 col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-first" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  

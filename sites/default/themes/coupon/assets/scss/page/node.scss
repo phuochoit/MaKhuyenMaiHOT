@@ -3,11 +3,26 @@
         .sidebar-second{
             padding-right: 15px;
             padding-left: 0;
+            @include respond-to(991){
+                padding-right: 0;
+            }
         }
         .content-area{
             padding-right: 0;
             padding-left: 15px;
             margin-bottom: 30px;
+            @include respond-to(991){
+                padding-left: 0;
+                margin-top: 30px;
+            }
+        }
+        article.node-stores{
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            width: 100%;
+            float: left;
+            margin-top: 30px;
         }
     }
     &.page-node-209{
@@ -17,6 +32,10 @@
             @include  box-background-shadow();
             padding: 20px 15px;
             margin-bottom: 30px;
+            @include respond-to(991) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
             .control-label{
                 font-weight: normal;
                 font-size: 14px;
@@ -41,6 +60,13 @@
             float: left;
             padding: 20px 15px;
             margin-bottom: 30px;
+            @media screen and (min-width: 992px) and (max-width: 1199px) {
+                width: calc(100% - 56%);
+            }
+            @include respond-to(991) {
+               width:100%;
+               margin-left: 0; 
+            }
         }
         .list-inline{
             display: none;
@@ -57,16 +83,6 @@
         }
         .links{
             display: none;
-        }
-    }
-    &.node-type-stores{
-        article.node-stores{
-            @include  box-background-shadow();
-            padding: 20px 15px;
-            margin-bottom: 30px;
-            width: 100%;
-            float: left;
-            margin-top: 30px;
         }
     }
 }

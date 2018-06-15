@@ -38,7 +38,7 @@ function product_views_default_views() {
   $handler->display->display_options['pager']['options']['effects']['type'] = 'fade';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4 col-sm-6 ';
+  $handler->display->display_options['style_options']['row_class'] = 'col-xs-6 col-md-4 col-sm-6 ';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
@@ -137,7 +137,7 @@ function product_views_default_views() {
   $handler->display->display_options['title'] = 'Top Product Homepage';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4 col-sm-6 ';
+  $handler->display->display_options['style_options']['row_class'] = 'col-xs-6 col-sm-6  col-md-4 ';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -169,7 +169,7 @@ function product_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['empty'] = '<a href="[path]" title="[title] ">
-<img typeof="foaf:Image" class="img-fluid" src="/sites/makhuyenmaihot.dd/files/no_image_available.png">
+<img typeof="foaf:Image" class="img-fluid" src="/sites/default/files/no_image_available.png">
 </a>';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -287,7 +287,7 @@ function product_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['empty'] = '<a href="[path]" title="[title] ">
-<img typeof="foaf:Image" class="img-fluid" src="/sites/makhuyenmaihot.dd/files/no_image_available.png">
+<img typeof="foaf:Image" class="img-fluid" src="/sites/default/files/no_image_available.png">
 </a>';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -932,7 +932,7 @@ function product_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['empty'] = '<a href="[path]" title="[title] ">
-<img typeof="foaf:Image" class="img-fluid" src="/sites/makhuyenmaihot.dd/files/no_image_available.png">
+<img typeof="foaf:Image" class="img-fluid" src="/sites/default/files/no_image_available.png">
 </a>';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -1066,7 +1066,7 @@ function product_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['empty'] = '<a href="[path]" title="[title] ">
-<img typeof="foaf:Image" class="img-fluid" src="/sites/makhuyenmaihot.dd/files/no_image_available.png">
+<img typeof="foaf:Image" class="img-fluid" src="/sites/default/files/no_image_available.png">
 </a>';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(

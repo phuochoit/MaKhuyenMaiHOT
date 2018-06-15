@@ -94,12 +94,17 @@
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
+				<?php if ($page['highlighted']): ?>
+					<section class="col-xs-12 col-sm-12 col-md-12 highlighted-area no-padding" id="highlighted">
+						<?php print render($page['highlighted']); ?>
+					</section>
+				<?php endif; ?>
                 <?php if(isset($node)) : ?>
                 <?php 
                     $aff_link = '/outlink/'.base64_encode($node->nid);
                     $img = file_create_url($node->field_image['und'][0]['uri']);    
                 ?>
-                    <section class="col-sm-12 col-md-12 content-area-header">
+                    <section class="col-xs-12 col-sm-12 col-md-12 content-area-header">
                         <div class="inner shadow-box">
                             <div class="inner-content clearfix">
                                 <div class="header-thumb col-sm-12 col-md-3">
@@ -119,11 +124,6 @@
                         </div>
                     </section>
                 <?php endif;?>
-				<?php if ($page['highlighted']): ?>
-					<section id="highlighted">
-						<?php print render($page['highlighted']); ?>
-					</section>
-				<?php endif; ?>
 				
 				<?php print render($page['help']); ?>
 				<?php if ($action_links): ?>
@@ -133,13 +133,13 @@
                 <?php endif; ?>
 
 				<?php if ($page['sidebar_second']): ?>
-					<div class="col-sm-12 col-md-4 sidebar-second">
+					<div class="col-xs-12 col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  
 					</div>
 				<?php endif; ?>
-                <div class="col-sm-12 col-md-8 content-area">
+                <div class="col-xs-12 col-sm-12 col-md-8 content-area">
                     <?php if (!empty($tabs['#primary'])): ?>
                         <section class="tabs-wrapper clearfix">
                             <?php print render($tabs); ?>

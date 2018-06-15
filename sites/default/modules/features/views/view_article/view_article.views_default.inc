@@ -1250,7 +1250,7 @@ function view_article_views_default_views() {
         'default' => '[view:title] | [site:name]',
       ),
       'description' => array(
-        'value' => '[view:description]',
+        'value' => 'Tổng hợp tin khuyến mãi HOT, sự kiện khuyến mãi cực sốc của các web bán hàng uy tín tại Việt Nam như Lazada, Tiki, Zalora, Cdiscount.',
         'default' => '[view:description]',
       ),
       'abstract' => array(
@@ -1258,7 +1258,7 @@ function view_article_views_default_views() {
         'default' => 'Makhuyenmaihot.info',
       ),
       'keywords' => array(
-        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
+        'value' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info, magiamgia, ma giam gia',
         'default' => 'chương trình khuyến mại, khuyến mại, Mã giảm giá,  [site:name], Makhuyenmaihot.info',
       ),
       'robots' => array(
@@ -1386,11 +1386,11 @@ function view_article_views_default_views() {
         'default' => '[current-page:title]',
       ),
       'itemprop:description' => array(
-        'value' => '',
-        'default' => '',
+        'value' => 'Tổng hợp tin khuyến mãi HOT, sự kiện khuyến mãi cực sốc của các web bán hàng uy tín tại Việt Nam như Lazada, Tiki, Zalora, Cdiscount.',
+        'default' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'itemprop:image' => array(
-        'value' => '/sites/default/files/logo.png',
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
         'default' => '/sites/default/files/logo.png',
       ),
       'author' => array(
@@ -1418,8 +1418,8 @@ function view_article_views_default_views() {
         'default' => '',
       ),
       'og:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
-        'default' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Tổng hợp tin khuyến mãi HOT, sự kiện khuyến mãi cực sốc của các web bán hàng uy tín tại Việt Nam như Lazada, Tiki, Zalora, Cdiscount.',
+        'default' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'og:updated_time' => array(
         'value' => '',
@@ -1430,16 +1430,16 @@ function view_article_views_default_views() {
         'default' => '',
       ),
       'og:image' => array(
-        'value' => '/sites/default/files/logo.png',
-        'default' => '/sites/default/files/logo.png',
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
+        'default' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'og:image:url' => array(
-        'value' => '/sites/default/files/logo.png',
-        'default' => '/sites/default/files/logo.png',
+        'value' => '',
+        'default' => '',
       ),
       'og:image:secure_url' => array(
-        'value' => '/sites/default/files/logo.png',
-        'default' => '/sites/default/files/logo.png',
+        'value' => '',
+        'default' => '',
       ),
       'og:image:type' => array(
         'value' => '',
@@ -1626,7 +1626,7 @@ function view_article_views_default_views() {
         'default' => '',
       ),
       'twitter:card' => array(
-        'value' => '',
+        'value' => 'summary',
         'default' => '',
       ),
       'twitter:creator' => array(
@@ -1646,16 +1646,16 @@ function view_article_views_default_views() {
         'default' => '[current-page:title] | [site:name]',
       ),
       'twitter:description' => array(
-        'value' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
-        'default' => 'Chia sẻ chương trinh khuyến mại, mã giảm giá Lazada, Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
+        'value' => 'Tổng hợp tin khuyến mãi HOT, sự kiện khuyến mãi cực sốc của các web bán hàng uy tín tại Việt Nam như Lazada, Tiki, Zalora, Cdiscount.',
+        'default' => 'Cập nhật mã giảm giá , chương trình khuyến mại, voucher, coupon , voucher lazada khuyến mãi Lazada, coupon Tiki, Shopee, Adayroi, Voucher CGV, Shopee ... và nhiều thương hiệu uy tín tại Việt Nam.',
       ),
       'twitter:dnt' => array(
         'value' => '',
         'default' => '',
       ),
       'twitter:image' => array(
-        'value' => '/sites/default/files/logo.png',
-        'default' => '/sites/default/files/logo.png',
+        'value' => 'http://www.makhuyenmaihot.info/sites/default/files/logo.png',
+        'default' => 'http://makhuyenmaihot.info/sites/default/files/logo.png',
       ),
       'twitter:image:width' => array(
         'value' => '',

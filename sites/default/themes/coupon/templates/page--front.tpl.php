@@ -88,12 +88,12 @@
 		<div class="container">	
 			<div class="row">
 				<?php if($messages):?>
-					<section class="col-sm-12 col-md-12 messages-area no-padding">
+					<section class="col-xs-12 col-sm-12 col-md-12 messages-area no-padding">
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
 				<?php if ($page['highlighted']): ?>
-					<section class="col-sm-12 col-md-12 highlighted-area" id="highlighted">
+					<section class="col-xs-12 col-sm-12 col-md-12 highlighted-area no-padding" id="highlighted">
 						<?php print render($page['highlighted']); ?>
 					</section>
 				<?php endif; ?>
@@ -113,11 +113,11 @@
 						<?php print render($action_links); ?>
 					</ul>
 				<?php endif; ?>
-				<section class="col-sm-12 col-md-8 content-area">
+				<section class="col-xs-12 col-sm-12 col-md-8 content-area">
 					<?php print render($page['content']); ?>
 				</section>
 				<?php if ($page['sidebar_second']): ?>
-					<section class="col-sm-12 col-md-4 sidebar-second">
+					<section class="col-xs-12 col-sm-12 col-md-4 sidebar-second">
 						<aside id="sidebar-second" role="complementary" class="sidebar clearfix">
 							<?php print render($page['sidebar_second']); ?>
 						</aside>  

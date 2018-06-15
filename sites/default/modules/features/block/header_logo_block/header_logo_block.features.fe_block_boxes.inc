@@ -14,7 +14,7 @@ function header_logo_block_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Header Logo Block';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'header_block';
-  $fe_block_boxes->body = '<p><a href="/"><img alt="" src="/sites/default/files/logo.png" /></a></p>
+  $fe_block_boxes->body = '<p><a href="/"><img alt="" src="/sites/default/files/logo.png" /></a><button class="menu-hamburger">Menu</button></p>
 ';
 
   $export['header_block'] = $fe_block_boxes;

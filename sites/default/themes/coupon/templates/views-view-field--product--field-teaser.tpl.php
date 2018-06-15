@@ -30,10 +30,10 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
 
 
 <div class="article-item row">
-    <div class="article-title col-sm-12">
+    <div class="article-title col-xs-12">
         <a href="<?php print $path;?>" title="<?php print $row->node_title ;?>"><?php print $row->node_title ;?></a>  
     </div>
-    <div class="article-info col-sm-12">
+    <div class="article-info col-xs-12">
         <?php if(empty($row->field_field_discount) || $row->field_field_discount[0]['raw']['value'] == 0) :?>
             <span><?php print $row->field_field_price[0]['rendered']['#markup'];?></span>
         <?php else:?>
@@ -44,7 +44,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
             <?php print $store_title;?>
         </a> -->
     </div>
-    <div class="article-footer col-sm-12">
+    <div class="article-footer col-xs-12">
         <a href="<?php print $aff_link;?>" target="_blank">Mua Ngay</a>
     </div>   
 </div>

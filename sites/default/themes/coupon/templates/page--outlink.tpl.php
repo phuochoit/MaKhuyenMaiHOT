@@ -77,12 +77,12 @@
 		<div class="container">	
 			<div class="row">
 				<?php if($messages):?>
-					<section class="col-sm-12 col-md-12">
+					<section class="col-sm-12 col-md-12 messages-area">
 						<?php print $messages; ?>
 					</section>
 				<?php endif;?>
 				<?php if ($page['highlighted']): ?>
-					<section id="highlighted">
+					<section class="col-xs-12 col-sm-12 col-md-12 highlighted-area no-padding" id="highlighted">
 						<?php print render($page['highlighted']); ?>
 					</section>
 				<?php endif; ?>
@@ -93,7 +93,7 @@
 				<?php endif; ?>
 				<?php print render($page['help']); ?>
 				<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-				<div class="col-sm-12 col-md-12">
+				<div class="col-xs-12 col-sm-12 col-md-12">
 					<?php print render($page['content']); ?>
 				</div>
 			</div>
