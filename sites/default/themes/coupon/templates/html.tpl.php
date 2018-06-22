@@ -52,17 +52,40 @@
                 utm_source: "phuochoit"
             };
         </script>
-        
-        
+        <script>
+            window.fbMessengerPlugins = window.fbMessengerPlugins || {
+                init: function () {
+                FB.init({
+                    appId            : '1678638095724206',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v2.10'
+                });
+                }, callable: []
+            };
+            window.fbAsyncInit = window.fbAsyncInit || function () {
+                window.fbMessengerPlugins.callable.forEach(function (item) { item(); });
+                window.fbMessengerPlugins.init();
+            };
+            setTimeout(function () {
+                (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            }, 0);
+        </script>
     </head>
 
     <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-
+        <div class="fb-customerchat" page_id="2130358683869169" ref=""></div>
         <?php print $page_top; ?>
         <?php print $page; ?>
         <?php print $scripts; ?>
         <?php print $page_bottom; ?>
-        
         <?php if(isset($_GET['coupon-id']) && !empty($_GET['coupon-id'])) : ?>
             <?php
                 $node_coupon = node_load($_GET['coupon-id']);
@@ -161,7 +184,8 @@
         </script>
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b1bdfac58b0de6d"></script>
-
+        
+        
     </body>
    
 </html>

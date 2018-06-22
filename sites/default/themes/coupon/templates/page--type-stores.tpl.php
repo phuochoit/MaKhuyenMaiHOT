@@ -1,6 +1,4 @@
-<?php
-	global $base_url;
-?>
+<?php global $base_url;?>
 <div id="container" class="clearfix container-fluid">
 	<div id="skip-link">
 		<div class="container">
@@ -102,9 +100,9 @@
                 <?php if(isset($node)) : ?>
                 <?php 
                     $aff_link = '/outlink/'.base64_encode($node->nid);
-					$img = file_create_url($node->field_image['und'][0]['uri']);  
-					$img_facebook = image_style_url('thumbnail_facebook', $node->field_image['und'][0]['uri']);
-                ?>
+					$img = file_create_url($node->field_image['und'][0]['uri']);    
+				?>
+				
                     <section class="col-xs-12 col-sm-12 col-md-12 content-area-header">
                         <div class="inner shadow-box">
                             <div class="inner-content clearfix">
@@ -119,7 +117,7 @@
                                     <h1> Khuyến mại &amp; Mã giảm giá <strong><?php print $node->title;?></strong></h1>
 									<p><?php print $node->field_teaser['und'][0]['value'];?></p>
 									
-									<span class="addthis_inline_share_toolbox" data-url="<?php print $base_url.'/'.drupal_get_path_alias('node/'.$node->nid);?>" data-media="<?php print $img_facebook;?>"></span>
+									<div class="addthis_inline_share_toolbox" data-url="<?php print $base_url.'/'.drupal_get_path_alias('node/'.$node->nid);?>"></div>
                                 </div>
                             </div>
                         </div>

@@ -8,3 +8,4 @@ sites/*.dd
 sites/*/files/css
 sites/*/files/js
 sites/*/files/update-*/*
+sites/*/files/xmlsitemap/*

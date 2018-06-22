@@ -5,7 +5,8 @@ define('AUTHORIZATION', 'Token iDKOG4khkBOkyMHYS7Y3jFS09Yy4WYX5'); // current CO
 function cron_mkmh_cron() {
     ini_set('memory_limit', -1);
     ini_set('max_execution_time', 0);
-    if(isset($_GET['cron_key']) && !empty($_GET['cron_key'])){
+    // watchdog('my_debug',  var_export('1111') );
+    // if(isset($_GET['cron_key']) && !empty($_GET['cron_key'])){
         $coupon =  _cron_mkmh_get_offers_informations();
         if(!empty($coupon)){
             _cron_mkmh_coupon_save_node($coupon->data);
@@ -42,7 +43,7 @@ function cron_mkmh_cron() {
         }
 
         _cron_mkmh_set_unpublished();
-    }
+    // }
 }
 
 

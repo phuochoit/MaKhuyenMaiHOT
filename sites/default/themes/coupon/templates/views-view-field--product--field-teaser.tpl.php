@@ -31,7 +31,7 @@ $aff_link = '/outlink/'.base64_encode($row->nid);
 
 <div class="article-item row">
     <div class="article-title col-xs-12">
-        <a href="<?php print $path;?>" title="<?php print $row->node_title ;?>"><?php print $row->node_title ;?></a>  
+        <a href="/<?php print $path;?>" title="<?php print $row->node_title ;?>"><?php print $row->node_title ;?></a>  
     </div>
     <div class="article-info col-xs-12">
         <?php if(empty($row->field_field_discount) || $row->field_field_discount[0]['raw']['value'] == 0) :?>

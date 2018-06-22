@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Facebook random post module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function fb_random_autopost_schema() {
+  $schema = array();
+
+  $schema['fb_random_autopost_nodes'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'fb_post_id' => array(
+        'description' => 'Facebook post ID',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'post_date' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'nid' => array('nid'),
+      'post_date' => array('post_date'),
+    ),
+  );
+
+  $schema['fb_random_autopost_fb_pages'] = array(
+    'fields' => array(
+      'page_id' => array(
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'page_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'access_token' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+    ),
+    'indexes' => array(
+      'page_id' => array('page_id'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function fb_random_autopost_uninstall() {
+  variable_del('fb_random_autopost_app_id');
+  variable_del('fb_random_autopost_app_secret');
+  variable_del('fb_random_autopost_node_types');
+  variable_del('fb_random_autopost_post_times');
+  variable_del('fb_random_autopost_timezone');
+  variable_del('fb_random_autopost_older_than');
+  variable_del('fb_random_autopost_repeat_days');
+  variable_del('fb_random_autopost_fb_page');
+}

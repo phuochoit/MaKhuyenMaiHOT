@@ -1,0 +1,380 @@
+<?php
+
+/**
+ * @file
+ * Allows publishing random nodes to Facebook automatically.
+ */
+
+// Facebook namespaces.
+use Facebook\Facebook;
+use Facebook\Exceptions\FacebookSDKException;
+use Facebook\Exceptions\FacebookResponseException;
+
+/**
+ * Implements hook_help().
+ */
+function fb_random_autopost_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#fb_random_autopost':
+      return '<p>' . t('Facebook Random Autopost allows you to publish random nodes to a selected facebook page at the specified hours/minutes using cron. !link.', array('!link' => l(t('Configure Facebook Random Autopost'), 'admin/config/services/fb-random-autopost'))) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function fb_random_autopost_menu() {
+  $items = array();
+
+  $items['admin/config/services/fb-random-autopost'] = array(
+    'title' => 'Facebook random autopost',
+    'description' => 'Facebook random autopost settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('fb_random_autopost_admin_settings_form'),
+    'access arguments' => array('administer fb random autopost'),
+    'file' => 'includes/fb_random_autopost.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/reports/fb-random-autopost'] = array(
+    'title' => 'Facebook random autopost report',
+    'description' => 'Facebook random autopost report',
+    'page callback' => 'fb_random_autopost_report',
+    'access arguments' => array('view facebook random autopost report'),
+    'file' => 'includes/fb_random_autopost.reports.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['fb-random-autopost-callback'] = array(
+    'title' => 'Facebook callback',
+    'page callback' => 'fb_random_autopost_fb_callback',
+    'access arguments' => array('administer fb random autopost'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function fb_random_autopost_permission() {
+  return array(
+    'administer fb random autopost post' => array(
+      'title' => t('Administer facebook random autopost'),
+      'description' => t('Administer facebook random autopost'),
+    ),
+    'view facebook random autopost report' => array(
+      'title' => t('View Facebook random autopost report'),
+      'description' => t('View Facebook random autopost report'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_cron().
+ */
+function fb_random_autopost_cron() {
+    $post_times = variable_get('fb_random_autopost_post_times', array());
+        
+
+    if (!$post_times) {
+        watchdog('fb_random_autopost', 'No post times configured.');
+    }
+    else {
+        $post_times = array_values($post_times);
+
+        // Current time in 24 hour format.
+        $curr_time = date('H');
+
+        if (in_array($curr_time, $post_times)) {
+            if ($nid = fb_random_autopost_random_node()) {
+                fb_random_autopost_publish_to_facebook($nid);
+            }
+        }
+    }
+}
+
+/**
+ * Load facebook php sdk.
+ */
+function fb_random_autopost_load_sdk() {
+  // If libraries module is enabled use its function.
+  if (module_exists('libraries')) {
+    $lib_path = libraries_get_path('php-graph-sdk');
+  }
+  else {
+    $lib_path = 'sites/all/libraries/php-graph-sdk';
+  }
+
+  if (!file_exists($lib_path . '/src/Facebook/autoload.php')) {
+    watchdog('fb_random_autopost', 'Facebook PHP sdk missing.', array(), WATCHDOG_ERROR);
+  }
+  else {
+    require_once $lib_path . '/src/Facebook/autoload.php';
+
+    if (!variable_get('fb_random_autopost_app_id') || !variable_get('fb_random_autopost_app_secret')) {
+      watchdog('fb_random_autopost', 'Facebook app details not configured', array(), WATCHDOG_ERROR);
+    }
+    else {
+      $fb = new Facebook([
+        'app_id' => variable_get('fb_random_autopost_app_id'),
+        'app_secret' => variable_get('fb_random_autopost_app_secret'),
+        'default_graph_version' => 'v2.8',
+      ]);
+
+      return $fb;
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Select a random node to post on facebook.
+ */
+function fb_random_autopost_random_node() {
+    $repeat_after = variable_get('fb_random_autopost_repeat_days', 30);
+    $older_than = variable_get('fb_random_autopost_older_than', 0);
+
+    $node_types = variable_get('fb_random_autopost_node_types', array());
+
+    if (!empty($node_types)) {
+        $query = db_select('node', 'n');
+        $query->fields('n', array('nid'));
+        $query->condition('n.type', $node_types, 'IN');
+
+        if ($older_than) {
+            // $date = strtotime('-' . $older_than . ' days');
+            $start_time = strtotime('-1 day', time());
+            $end_time = time();
+            // Add a condition to include posts older than specified days in settings.
+            $query->condition('n.created', array($start_time, $end_time), 'BETWEEN');
+        }
+
+        if ($repeat_after) {
+            $repeat_after_seconds = $repeat_after * 86400;
+            $query->leftJoin('fb_random_autopost_nodes', 'f', 'n.nid = f.nid');
+
+            // Add a condition to include posts that were not published
+            // within specified number of days.
+            $query->where('(f.post_date + :repeat_after_seconds) <= :now OR f.nid IS NULL',
+                array(
+                ':repeat_after_seconds' => $repeat_after_seconds,
+                ':now' => time(),
+                )
+            );
+        }
+
+        $query->condition('n.status', 1);
+        // $query->range(0, 1);
+        // $query->orderRandom();
+        $query->orderBy('created', 'DESC');
+        $nid = $query->execute()->fetchField();
+
+        if (!empty($nid)) {
+            return $nid;
+        }
+    }
+}
+
+/**
+ * Return a keyed array of available facebook pages.
+ */
+function fb_random_autopost_fb_page_list() {
+  $pages = array('' => t('- Select -'));
+
+  $result = db_query("SELECT page_name, page_id FROM {fb_random_autopost_fb_pages}");
+
+  foreach ($result as $row) {
+    $pages[$row->page_id] = $row->page_name;
+  }
+
+  return $pages;
+}
+
+/**
+ * Handles the facebook api callback.
+ */
+function fb_random_autopost_fb_callback() {
+  $error = 0;
+  $fb = fb_random_autopost_load_sdk();
+  $helper = $fb->getRedirectLoginHelper();
+
+  try {
+    $access_token = $helper->getAccessToken();
+  }
+  catch (FacebookResponseException $e) {
+    $error = 1;
+    watchdog('fb_random_autopost', 'Failed to connect facebook account: !error_msg', array('!error_msg' => $e->getMessage()), WATCHDOG_ERROR);
+  }
+
+  if ($error) {
+    drupal_set_message(t('Facebook account could not be connected.'), 'error');
+  }
+  elseif (isset($access_token)) {
+    // The OAuth 2.0 client handler helps us manage access tokens.
+    $oauth2_client = $fb->getOAuth2Client();
+
+    // Exchanges a short-lived access token for a long-lived one.
+    try {
+      $long_lived_access_token = $oauth2_client->getLongLivedAccessToken($access_token);
+    }
+    catch (FacebookSDKException $e) {
+      watchdog('fb_random_autopost', 'Error getting long-lived access token: !error_msg', array('!error_msg' => $e->getMessage()), WATCHDOG_ERROR);
+    }
+
+    if (isset($long_lived_access_token)) {
+      if (fb_random_autopost_get_fb_pages($fb, $long_lived_access_token)) {
+        drupal_set_message(t('Facebook pages imported successfully.'));
+      }
+      else {
+        drupal_set_message(t('Failed to import facebook pages.'), 'error');
+      }
+    }
+  }
+
+  drupal_goto('admin/config/services/fb-random-autopost');
+}
+
+/**
+ * Fetches user's facebook pages using graph API.
+ */
+function fb_random_autopost_get_fb_pages($fb, $long_lived_access_token) {
+  try {
+    $response = $fb->get('/me/accounts', $long_lived_access_token);
+  }
+  catch (FacebookResponseException $e) {
+    watchdog('fb_random_autopost', 'Failed to fetch user\'s pages: !error_msg', array('!error_msg' => $e->getMessage()), WATCHDOG_ERROR);
+    return FALSE;
+  }
+
+  $graph_edge = $response->getGraphEdge();
+
+  foreach ($graph_edge as $graph_node) {
+    $id = $graph_node['id'];
+
+    // Insert only if not in database.
+    if (!fb_random_autopost_fb_page_load($id)) {
+      $fields = array(
+        'page_id' => $id,
+        'page_name' => $graph_node['name'],
+        'access_token' => $graph_node['access_token'],
+      );
+
+      fb_random_autopost_fb_page_insert($fields);
+    }
+  }
+
+  return TRUE;
+}
+
+/**
+ * Loads a fb page object from db.
+ */
+function fb_random_autopost_fb_page_load($page_id) {
+  $page_obj = db_query("SELECT * FROM {fb_random_autopost_fb_pages} WHERE page_id = :id", array(':id' => $page_id))->fetchObject();
+  return $page_obj;
+}
+
+/**
+ * Inserts fb page details into db.
+ */
+function fb_random_autopost_fb_page_insert($fields) {
+  db_insert('fb_random_autopost_fb_pages')->fields($fields)->execute();
+}
+
+/**
+ * Publishes node url to facebook page.
+ */
+function fb_random_autopost_publish_to_facebook($nid) {
+    if ($fb_page_id = variable_get('fb_random_autopost_fb_page', '')) {
+        global $base_url;
+        $alias = drupal_get_path_alias('node/' . $nid);
+        $node_url = $base_url . '/' . $alias;
+        $node = node_load($nid);
+        $fb = fb_random_autopost_load_sdk();
+        $page = fb_random_autopost_fb_page_load($fb_page_id);
+
+        switch ($node->type) {
+            case 'coupons':
+                // $node_store = node_load($node->field_store['und']['0']['nid']);
+                // $store_path = drupal_get_path_alias('node/'.$node->field_store['und']['0']['nid']); 
+                if(empty($node->field_coupon_code)){
+                    $message_coupon_code = '#magiamgia, #makhuyenmai';
+                    $message = 'Chương trình giảm giá '.$node->field_teaser['und'][0]['value'].'
+                    '.$message_coupon_code;
+                }else{
+                    $message_coupon_code = '#khuyenmai';
+                    $message = 'Chương trình khuyến mại '.$node->field_teaser['und'][0]['value'].'
+                    '.$message_coupon_code;
+                }
+                
+                break;
+            case 'products':
+                // $message_product = '#sanpham';
+                $message = $node->field_teaser['und'][0]['value'].'
+                #sanpham';
+                break;
+            case 'article':
+                switch ($node->field_categories['und'][0]['value']) {
+                    case 1:
+                        $message_article = '#huongdan';
+                        break;
+                    
+                    case 2:
+                        $message_article = '#quatang';
+                        break;
+                    case 3:
+                        $message_article = '#tinkhuyenmain';
+                        break;
+                    case 4:
+                        $message_article = '#danhgia, #tuvan';
+                        break;
+                }
+                $message = $node->field_teaser['und'][0]['value']. '
+                '. $message_article;
+                break;
+            
+        }
+
+        $data = array(
+            'link' => $node_url,
+            'message' => $message,
+        );
+
+        try {
+            $response = $fb->post('/' . $fb_page_id . '/feed', $data, $page->access_token);
+        }
+        catch (FacebookResponseException $e) {
+            watchdog('fb_random_autopost', 'Failed to publish post: !error_msg', array('!error_msg' => $e->getMessage()), WATCHDOG_ERROR);
+            return FALSE;
+        }
+
+        $graph_node = $response->getGraphNode();
+
+        if (isset($graph_node['id'])) {
+            $fields = array(
+                'nid' => $nid,
+                'fb_post_id' => $graph_node['id'],
+                'post_date' => time(),
+            );
+
+            fb_random_autopost_fb_post_insert($fields);
+            // Maybe log a success message to database??
+        }
+    }
+}
+
+/**
+ * Inserts published post into db.
+ */
+function fb_random_autopost_fb_post_insert($fields) {
+  return db_insert('fb_random_autopost_nodes')->fields($fields)->execute();
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function fb_random_autopost_node_delete($node) {
+  db_delete('fb_random_autopost_nodes')->condition('nid', $node->nid)->execute();
+}

@@ -1,0 +1,322 @@
+<?php
+
+/**
+ *  @see hook_menu()
+ */
+function api_chatbot_menu() {
+    $items = array();
+    $items['api/chatbot/coupons/%'] = array(
+        'title' => 'Chatbot Api coupon',
+        'page callback' => 'api_chatbot_page_chatbot_coupon',
+        'page arguments' => array(3),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access simple page'),
+    );
+
+    $items['api/chatbot/coupon/%'] = array(
+        'title' => 'Chatbot Api coupon',
+        'page callback' => 'api_chatbot_page_chatbot_coupon_test',
+        'page arguments' => array(3),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access simple page'),
+    );
+
+    $items['api/chatbot/promotion/%'] = array(
+        'title' => 'Chatbot Api promotion',
+        'page callback' => 'api_chatbot_page_chatbot_promotion',
+        'page arguments' => array(3),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access simple page'),
+    );
+
+    $items['api/chatbot/product/%'] = array(
+        'title' => 'Chatbot Api Product',
+        'page callback' => 'api_chatbot_page_chatbot_product',
+        'page arguments' => array(3),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access simple page'),
+    );
+
+    return $items;
+}
+
+/**
+ * get mã giảm giá
+ */
+
+function api_chatbot_page_chatbot_coupon_test($store_id){
+    global $base_url;
+    if(!is_numeric($store_id) && !empty($store_id)){
+        $result['messages'] = array(
+            'text' => 'Oh. Không có mã giảm giá nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+
+    $db_coupon = db_query("SELECT n.nid, fi.field_image_fid, fs.field_store_nid, n.title, ft.field_teaser_value FROM node AS n LEFT JOIN field_data_field_store AS fs ON fs.entity_id = n.nid LEFT JOIN field_data_field_coupon_code AS fc ON fc.entity_id = n.nid LEFT JOIN field_data_field_image AS fi ON fi.entity_id = fs.field_store_nid LEFT JOIN field_data_field_teaser AS ft ON ft.entity_id = n.nid WHERE n.type = :type AND fs.field_store_nid = :store_nid AND  n.status = :status  AND fc.field_coupon_code_value IS NOT NULL ORDER BY n.created DESC LIMIT 4 OFFSET 0", array(':store_nid' => $store_id , ':status' => 1, ':type' => 'coupons'))->fetchAll();
+
+    $arr = array();
+
+    if(!empty($db_coupon)){
+        $file = file_load($db_coupon[0]->field_image_fid );
+        $uri = $file->uri;
+        $store_path = drupal_get_path_alias('node/'.$store_id); 
+        foreach ($db_coupon as $key => $val) {
+            $node = node_load($val->nid);
+            $arr[$key]['title'] = 'title';//$node->title;
+            $arr[$key]['image_url'] = file_create_url($uri);
+            $arr[$key]['subtitle'] = 'subtitle';//$node->field_teaser['und'][0]['value'];
+            $arr[$key]['buttons'] = array(
+                0   => array(
+                    'type' => 'web_url',
+                    'url' => $base_url .'/'.$store_path.'?coupon-id='.$val->nid,
+                    'title' => 'Xem ngay',
+                )
+            );
+        }
+
+        $result = array (
+  'messages' => 
+  array (
+    0 => 
+    array (
+      'attachment' => 
+      array (
+        'type' => 'template',
+        'payload' => 
+        array (
+          'template_type' => 'list',
+          'top_element_style' => 'large',
+          'elements' => 
+          array (
+            0 => 
+            array (
+              'title' => 'Classic White T-Shirt',
+              'image_url' => 'http://petersapparel.parseapp.com/img/item100-thumb.png',
+              'subtitle' => 'Soft white cotton t-shirt is back in style',
+              'buttons' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'web_url',
+                  'url' => 'https://petersapparel.parseapp.com/buy_item?item_id=101',
+                  'title' => 'Buy Item',
+                ),
+              ),
+            ),
+            1 => 
+            array (
+              'title' => 'Classic Grey T-Shirt',
+              'image_url' => 'http://petersapparel.parseapp.com/img/item100-thumb.png',
+              'subtitle' => 'Soft gray cotton t-shirt is back in style',
+              'buttons' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'web_url',
+                  'url' => 'https://petersapparel.parseapp.com/buy_item?item_id=100',
+                  'title' => 'Buy Item',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);
+        return drupal_json_output($result);
+    }else{
+        $result['messages'] = array(
+            'text' => 'Oh. Không có mã giảm giá nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+}
+
+
+/**
+ * get mã giảm giá
+ */
+
+function api_chatbot_page_chatbot_coupon($store_id){
+    global $base_url;
+    if(!is_numeric($store_id) && !empty($store_id)){
+        $result['messages'] = array(
+            'text' => 'Oh. Không có mã giảm giá nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+
+    $db_coupon = db_query("SELECT n.nid, fi.field_image_fid, fs.field_store_nid, n.title, ft.field_teaser_value FROM node AS n LEFT JOIN field_data_field_store AS fs ON fs.entity_id = n.nid LEFT JOIN field_data_field_coupon_code AS fc ON fc.entity_id = n.nid LEFT JOIN field_data_field_image AS fi ON fi.entity_id = fs.field_store_nid LEFT JOIN field_data_field_teaser AS ft ON ft.entity_id = n.nid WHERE n.type = :type AND fs.field_store_nid = :store_nid AND  n.status = :status  AND fc.field_coupon_code_value IS NOT NULL ORDER BY n.created DESC LIMIT 4 OFFSET 0", array(':store_nid' => $store_id , ':status' => 1, ':type' => 'coupons'))->fetchAll();
+
+    $arr = array();
+
+    if(!empty($db_coupon)){
+        $file = file_load($db_coupon[0]->field_image_fid );
+        $uri = $file->uri;
+        $store_path = drupal_get_path_alias('node/'.$store_id); 
+        foreach ($db_coupon as $key => $val) {
+            $node = node_load($val->nid);
+            $arr[$key]['title'] = $node->title;
+            $arr[$key]['image_url'] = file_create_url($uri);
+            $arr[$key]['subtitle'] = $node->field_teaser['und'][0]['value'];
+            $arr[$key]['buttons'] = array(
+                0   => array(
+                    'type' => 'web_url',
+                    'url' => $base_url .'/'.$store_path.'?coupon-id='.$val->nid,
+                    'title' => 'Xem ngay',
+                )
+            );
+        }
+        $result = array ('messages' => array ( 
+            0 => array (
+                'attachment' =>  array ( 
+                    'type' => 'template',
+                    'payload' =>  array (
+                        'template_type' => 'list',
+                        'top_element_style' => 'large',
+                        'elements' => $arr
+                        ),
+                    ),
+                ),
+            ),
+        );
+        return drupal_json_output($result);
+    }else{
+        $result['messages'] = array(
+            'text' => 'Oh. Không có mã giảm giá nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+}
+
+/**
+ * get chương trình khuyến mại
+ */
+function api_chatbot_page_chatbot_promotion($store_id){
+    global $base_url;
+    if(!is_numeric($store_id) && !empty($store_id)){
+        $result['messages'] = array(
+            'text' => 'Oh. Không có chương trình khuyến mại nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+    $db_coupon = db_query("SELECT n.nid, fi.field_image_fid, fs.field_store_nid, n.title, ft.field_teaser_value FROM node AS n LEFT JOIN field_data_field_store AS fs ON fs.entity_id = n.nid LEFT JOIN field_data_field_coupon_code AS fc ON fc.entity_id = n.nid LEFT JOIN field_data_field_image AS fi ON fi.entity_id = fs.field_store_nid LEFT JOIN field_data_field_teaser AS ft ON ft.entity_id = n.nid WHERE n.type = :type AND fs.field_store_nid = :store_nid AND  n.status = :status  AND fc.field_coupon_code_value IS NULL ORDER BY n.created DESC LIMIT 4 OFFSET 0", array(':store_nid' => $store_id , ':status' => 1, ':type' => 'coupons'))->fetchAll();
+
+    $arr = array();
+
+    if(!empty($db_coupon)){
+        $file = file_load($db_coupon[0]->field_image_fid );
+        $uri = $file->uri;
+        $store_path = drupal_get_path_alias('node/'.$store_id); 
+        foreach ($db_coupon as $key => $val) {
+            $node = node_load($val->nid);
+            $arr[$key]['title'] = $node->title;
+            $arr[$key]['subtitle'] = $node->field_teaser['und'][0]['value'];
+            $arr[$key]['image_url'] = file_create_url($uri);
+            $arr[$key]['buttons'] = array(
+                0   => array(
+                    'type' => 'web_url',
+                    'url' => $base_url .'/'.$store_path.'?coupon-id='.$val->nid,
+                    'title' => 'Chi tiết',
+                )
+            );
+        }
+        $result = array ('messages' => array ( 
+            0 => array (
+                'attachment' =>  array ( 
+                    'type' => 'template',
+                    'payload' =>  array (
+                        'template_type' => 'list',
+                        'top_element_style' => 'large',
+                        'elements' => $arr
+                        ),
+                    ),
+                ),
+            ),
+        );
+        return drupal_json_output($result);
+    }else{
+
+        $result['messages'] = array(
+            'text' => 'Oh. Không có chương trình khuyến mại nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+
+    }
+}
+
+function api_chatbot_page_chatbot_product($store_id){
+    global $base_url;
+    if(!is_numeric($store_id) && !empty($store_id)){
+        $result['messages'] = array(
+            'text' => 'Xin Lỗi. Không có sản phẩm nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+    $db_product = db_query("SELECT n.nid, fi.field_image_fid FROM node AS n LEFT JOIN field_data_field_store AS fs ON fs.entity_id = n.nid  LEFT JOIN field_data_field_image AS fi ON fi.entity_id = n.nid WHERE n.type = :type AND fs.field_store_nid = :store_nid AND  n.status = :status  ORDER BY n.created DESC LIMIT 5 OFFSET 0", array(':store_nid' => $store_id , ':status' => 1, ':type' => 'products'))->fetchAll();
+
+    if(!empty($db_product)){
+        
+        foreach ($db_product as $key => $val) {
+            $image_url = 'http://www.makhuyenmaihot.info/sites/default/files/no_image_available.png';
+
+            if(!empty($val->field_image_fid)){
+                $file = file_load($val->field_image_fid );
+                $uri = $file->uri;
+                $image_url = image_style_url('thumbnail_facebook',$uri);
+            }
+
+            $product_path = drupal_get_path_alias('node/'.$val->nid); 
+            $node = node_load($val->nid);
+            $aff_link = $node->field_aff_link['und'][0]['url'];
+            $arr[$key]['title'] = $node->title;
+            $arr[$key]['subtitle'] = $node->field_teaser['und'][0]['value'];
+            $arr[$key]['image_url'] = $image_url;
+            $arr[$key]['buttons'] = array(
+                0   => array(
+                    'type' => 'web_url',
+                    'url' => $base_url .'/'.$product_path,
+                    'title' => 'Chi tiết',
+                ),
+                1 => array(
+                    'type' => 'web_url',
+                    'url' => $aff_link,
+                    'title' => 'Mua Ngay',
+                )
+            );
+        }
+        $result = array ('messages' => array ( 
+            0 => array (
+                'attachment' =>  array ( 
+                    'type' => 'template',
+                    'payload' =>  array (
+                        'template_type' => 'generic',
+                        'elements' => $arr
+                        ),
+                    ),
+                ),
+            ),
+        );
+        return drupal_json_output($result);
+
+    }else{
+        $result['messages'] = array(
+            'text' => 'Xin Lỗi. Không có sản phẩm nào!'
+        );
+        $arWrapper['messages'] = array_values($result); 
+        return drupal_json_output($arWrapper);
+    }
+}

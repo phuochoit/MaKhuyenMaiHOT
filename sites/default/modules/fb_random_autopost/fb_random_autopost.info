@@ -1,0 +1,11 @@
+name = "Facebook random autopost"
+core = "7.x"
+description = "Selects random node and publishes it on facebook at specified times"
+configure = admin/config/services/fb-random-autopost
+
+; Information added by Drupal.org packaging script on 2017-04-11
+version = "7.x-1.0"
+core = "7.x"
+project = "fb_random_autopost"
+datestamp = "1491918249"
+

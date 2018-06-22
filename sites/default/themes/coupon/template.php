@@ -81,6 +81,16 @@ function coupon_preprocess_node(&$variables) {
                 drupal_goto('node/'.$variables['node']->nid);
             }
         }
+    }elseif ($variables['node']->type == 'coupons') {
+        $arr = array('query' => array(
+            'coupon-id' =>   $variables['node']->nid
+            )
+        );
+        $node = node_load($variables['node']->nid);
+
+        $store_nid = $node->field_store['und'][0]['nid'];
+        $store_path = drupal_get_path_alias('node/'.$store_nid); 
+        drupal_goto($store_path, $arr);
     }
 }
 
@@ -170,10 +180,7 @@ function coupon_preprocess_page(&$variables) {
     }
 }
 
-function coupon_preprocess_html(&$vars) {
-    drupal_set_title("Aaaaaaaaaaaaa");
-  
-}
+
 function coupon_preprocess_image(&$variables) {
     $variables['attributes']['class'][] = "img-fluid";
 }
