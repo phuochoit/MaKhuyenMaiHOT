@@ -1,12 +1,18 @@
-<div id="container" class="clearfix">
+<main class="main" id="main-container">
 	<div id="skip-link">
 		<a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
 		<?php if ($main_menu): ?>
 			<a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
 		<?php endif; ?>
 	</div>
+	<header id="header" role="banner" class="clearfix">
+	</header>
+</main>
 
-  <header id="header" role="banner" class="clearfix">
+<div id="container" class="clearfix">
+	
+
+  	<header id="header" role="banner" class="clearfix">
 	<?php if ($logo): ?>
 		<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
 			<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />

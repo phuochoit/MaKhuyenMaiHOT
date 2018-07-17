@@ -43,7 +43,6 @@
   and will display under their parents.
  */
 ?>
-
 <div class="forumsList sectionMain" id="forums">
     <?php foreach ($tables as $table_id => $table): ?>
         <?php $table_info = $table['table_info']; ?>
@@ -61,6 +60,7 @@
                 <?php endif; ?>
             <div class="forumList" id="forum-table-<?php print $table_info->tid; ?>">
                 <?php foreach ($table['items'] as $item_id => $item): ?>
+
                     <?php
                         $term_icon = taxonomy_term_load($item->tid); // Load term
                         $icon_url = image_style_url('thumbnail', $term_icon->field_icon['und'][0]['uri']);
@@ -73,21 +73,37 @@
 			                <h3 class="forumTitle">
                                 <a href="<?php print $item->link; ?>"><?php print $item->name; ?></a>
                             </h3>
+                        
                             <div class="row forumStats pairsInline">
+
                                 <div class="col col-6">
-                                    <p>Đề tài thảo luận: <?php print $table_info->total_topics?></p>
+                                    <p>Đề tài thảo luận: <?php print $item->total_topics?></p>
                                 </div>
                                 <div class="col col-6">
-                                    <p>Bài viết: <?php print $table_info->total_posts?></p> 
+                                    <p>Bài viết: <?php print $item->total_posts?></p> 
                                 </div>
                             </div>
                         </div>
                         <div class="col col-4 forumSLastPost secondaryContent">
-				            <span class="lastThreadTitle"><span><i class="fa fa-book"></i></span> <a href="posts/233/" title="Tuyển MOD cho diễn đàn lần 1">Tuyển MOD cho diễn đàn lần 1</a></span>
-                            <span class="lastThreadMeta">
-                                <span class="lastThreadUser"><a href="members/ktp.8/" class="username" dir="auto">KTP</a>,</span>
-                                <span class="DateTime muted lastThreadDate" data-latest="Mới nhất: " title="3/10/16 lúc 09:42">3/10/16</span>
-                            </span>
+                            <?php if($item->total_topics > 0):?>
+                                <div class="w-100 lastThreadTitle">
+                                    <span><i class="fa fa-book"></i></span> 
+                                    <?php $attributes = array(
+                                        'attributes' => array(
+                                            'title' => $item->last_post_obj->node_title,
+                                            'class' => 'LastPostTitle'
+                                            )
+                                        );?>
+                                    <?php print l($item->last_post_obj->node_title, 'node/'.$item->last_post_obj->nid, $attributes);?>
+                                    </span>
+                                </div>
+                                <div class="w-100 lastThreadMeta">
+                                    <span class="lastThreadUser">
+                                        <a href="<?php print url('user/1', array('absolute' => FALSE));?>" class="username" dir="auto"><?php print $item->last_post_obj->name;?></a>,
+                                    </span>
+                                    <span class="DateTime muted lastThreadDate" data-latest="Mới nhất: " title="<?php print format_date($item->last_post_obj->created,'custom','d-m-Y H:i');?>"><?php print format_date($item->last_post_obj->created,'custom','d-m-Y');?></span>
+                                </div>
+                            <?php endif;?>
 		                </div>
                     </div>
                 <?php endforeach;?>
