@@ -1,0 +1,29 @@
+/* block block-search-form*/
+#block-search-form{
+    #header-search-block{
+        font-size: 12px;
+        color: $baseColorWhite;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #search-block-form{
+        max-width: 50%;
+        width: 50%;
+        margin: 0 auto;
+    }
+    .content{
+        .form-text{
+            background: $baseColorWhite ;
+            padding: 6px 12px ;
+            border: 1px solid $baseColorWhite ;
+            box-shadow: none;
+        }
+        .btn-primary{
+            color: $baseColorWhite;
+            background-color: $baseBackgroundHeader;
+            border-color: $baseColorWhite;
+            height: 34px;
+        }
+    }
+}
+/* edn block block-search-form*/

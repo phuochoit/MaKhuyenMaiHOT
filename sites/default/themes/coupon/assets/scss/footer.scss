@@ -1,0 +1,20 @@
+// minxins
+@import "./minxins.scss";
+/* footer css */
+#footer {
+    background:#191e28;
+    position: relative;
+    padding: 25px 0 15px;
+    margin: 0 auto;
+    p{
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 14px;
+    }
+    @import "./block/footer-left.scss";
+    @import "./block/footer-copyright.scss";
+    @import "./block/footer-right.scss";
+    @import "./block/menu-footer.scss";
+    @import "./block/ads_app_android.scss";
+}
+
+/* end footer css */

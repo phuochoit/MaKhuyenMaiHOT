@@ -1,0 +1,137 @@
+.page-san-pham #page-title{
+    display: none;
+}
+.quicktabs-tabpage,
+.quicktabs-style-nostyle,
+.view-display-id-block_product_by_coupon_categories,
+.view-display-id-block_product_by_coupon_categories .view-content{
+    width: 100%;
+    float: left;
+}
+
+#block-views-product-block,
+.page-san-pham .view-id-product,
+.view-display-id-block_product_by_coupon_categories,
+.view-display-id-block_product_by_stores_categories,
+.coupon-product-search-content #product{
+    .view-content{
+        .views-row{
+            padding-left: 5px;
+            padding-right: 5px;
+            @include respond-to(480) {
+                width: 100%;
+                float: left;
+            }
+            &-1,&-4,&-7,&-10,&-13{
+               padding-left: 0px; 
+                @include respond-to(767) {
+                    padding-left: 5px; 
+                }
+            }
+            &-3,&-6,&-9,&-12,&-15{
+               padding-right: 0px; 
+               @include respond-to(767) {
+                    padding-right: 5px; 
+                }
+            }
+            .block-dark-border{
+                @include  box-background-shadow();
+                padding: 20px 15px;
+                margin-bottom: 15px;
+                width: 100%;
+                float: left;
+                overflow: hidden;
+                position: relative;
+                @include respond-to(480) {
+                    height: initial !important;
+                }
+                .product-hot {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 35px;
+                    height: 35px;
+                    background:$baseBackgroundHeader;
+                    border-radius: 50%;
+                    padding: 10px 0;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #fff;
+                }
+            }
+            .views-field{
+                
+                &-field-image{
+                    img{
+                        max-width: 100%;
+                        width: auto;
+                        height: auto;
+                        max-height: 225px;
+                        @include respond-to(767) {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+
+                &-field-teaser{
+                    margin-top: 10px;
+                    @include respond-to(480) {
+                        .article-item{
+                            height: initial !important;
+                        }
+                    }
+                    .article-title{
+                        a{
+                            color: $baseBackgroundHeader;
+                            margin-top: 0px;
+                            font-size: 17px;
+                            margin-bottom: 5px;
+                            font-weight: 400;
+                            line-height: 1.5;
+                            
+                        }
+                        @include respond-to(480) {
+                            height: initial !important;
+                        }
+                    }
+                    .article-info{
+                        margin: 10px auto;
+                        display: block;
+                        overflow: hidden;
+                        span{
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: $baseBackgroundHeader;
+                            &.price_old{
+                                font-weight: normal;
+                                text-decoration: line-through;
+                                float: right;
+                                font-size: 13px;
+                                color: #666666;
+                            }
+                        }
+                    }
+                    .article-footer{
+                        text-align: center;
+                        margin: 15px auto;
+                        display: block;
+                        a{
+                            text-transform: uppercase;
+                            color: $baseColorWhite;
+                            font-size: 13px;
+                            padding: 8px 20px;
+                            text-align: center;
+                            width: 195px;
+                            border: solid 2px $baseBackgroundHeader;
+                            border-radius: 5px;
+                            background: $baseBackgroundHeader;
+                            font-weight: 500;
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

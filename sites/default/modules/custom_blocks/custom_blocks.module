@@ -1,0 +1,212 @@
+<?php
+/**
+* hook_block_info()
+**/
+
+function custom_blocks_block_info() {
+
+	$block = array();
+
+	$block['list_featured_coupon_categories'] = array(
+		'info' => t('Featured Coupon Categories'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+    );
+    $block['list_featured_store_categories'] = array(
+		'info' => t('Featured Store Categories'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+	);
+    $block['list_coupon_and_sale_homepage'] = array(
+		'info' => t('Coupon And Sale Homepage'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+    );
+    $block['list_coupon_and_sale_store'] = array(
+		'info' => t('Coupon And Sale Store'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+    );
+    $block['ads_block_fotter'] = array(
+		'info' => t('Ads Fotter'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+	);
+	return $block;
+}
+
+function custom_blocks_block_view($delta = '') {
+    switch ($delta) {
+        case 'list_featured_coupon_categories':
+            $block = array(
+				'subject' => "Featured Coupon Categories",
+				'content' => _custom_blocks_featured_coupon_categories()
+            );
+            break;
+        case 'list_featured_store_categories':
+            $block = array(
+				'subject' => "Featured Store Categories",
+				'content' => _custom_blocks_featured_store_categories()
+            );
+            break;
+        case 'list_coupon_and_sale_homepage':
+            $block = array(
+				'subject' => "Coupon And Sale Homepage",
+				'content' => _custom_blocks_list_coupon_and_sale_homepage()
+            );
+            break;
+        case 'list_coupon_and_sale_store':
+            $block = array(
+				'subject' => "Coupon And Sale Store",
+				'content' => _custom_blocks_list_coupon_and_sale_store()
+            );
+            break;
+        case 'ads_block_fotter':
+            $block = array(
+				'subject' => "Ads Fotter",
+				'content' => _custom_blocks_ads_fotter()
+            );
+            break;
+    }
+    return $block;
+}
+
+function _custom_blocks_list_coupon_and_sale_store(){
+   
+    $query_coupon = db_query("SELECT n.nid FROM node AS n LEFT JOIN  field_data_field_store AS fs ON fs.entity_id = n.nid LEFT JOIN field_data_field_coupon_code AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND fs.field_store_nid = :nid AND cc.field_coupon_code_value IS NOT NULL",array(':type' => 'coupons', ':status' => 1,':nid' => arg(1)))->rowCount();
+
+    $query_sale = db_query("SELECT n.nid FROM node AS n LEFT JOIN  field_data_field_store AS fs ON fs.entity_id = n.nid LEFT JOIN field_data_field_coupon_code AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND fs.field_store_nid = :nid AND cc.field_coupon_code_value IS NULL",array(':type' => 'coupons', ':status' => 1,':nid' => arg(1)))->rowCount();
+
+    $block_coupon = views_embed_view('coupon', 'block_coupon_store');
+    $block_sale = views_embed_view('coupon', 'block_coupon_by_store_sale');
+
+    $content ='
+    <div class="coupon-sale-store">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Code
+                    <span class="badge badge-coupon">'.$query_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+                    Sale
+                    <span class="badge badge-sale">'.$query_sale.'</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="sale">'.$block_sale.'</div>
+        </div>
+    </div>';
+    return $content;
+}
+
+function _custom_blocks_list_coupon_and_sale_homepage(){
+    $block_all = views_embed_view('coupon', 'block_coupon_homepage_all');
+    $block_coupon = views_embed_view('coupon', 'coupon_homepage');
+    $block_sale = views_embed_view('coupon', 'block_sale_homepage');
+
+    // get count all coupon
+
+    $query_coupon = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NOT NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
+    
+    // get count all sale
+    $query_sale = db_query("SELECT n.nid FROM {node} AS n LEFT JOIN {field_data_field_coupon_code} AS cc ON n.nid = cc.entity_id WHERE n.status = :status AND n.type = :type AND cc.field_coupon_code_value IS NULL", array(':type' => 'coupons', ':status' => 1))->rowCount();
+
+    $all_coupon = intval($query_coupon) + intval($query_sale);
+
+    $content ='
+    <div class="coupon-sale-homepage ">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs custom-tabs" role="tablist">
+        <li role="presentation" class="active">
+                <a href="#all" aria-controls="all" role="tab" data-toggle="tab">
+                    All
+                    <span class="badge badge-all">'.$all_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation" class="">
+                <a href="#coupon" aria-controls="coupon" role="tab" data-toggle="tab">
+                    Code
+                    <span class="badge badge-coupon">'.$query_coupon.'</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+                    Sale
+                    <span class="badge badge-sale">'.$query_sale.'</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">'.$block_all.'</div>
+            <div role="tabpanel" class="tab-pane" id="coupon">'.$block_coupon.'</div>
+            <div role="tabpanel" class="tab-pane" id="sale">'.$block_sale.'</div>
+        </div>
+    </div>';
+    return $content;
+}
+
+function _custom_blocks_featured_coupon_categories(){
+    $vid = _custom_blocks_get_vid_by_name('coupon_categories');
+    $terms = taxonomy_get_tree($vid); 
+    $result = '<ul class="cat-column column">';
+    foreach ($terms as $key => $val) {
+        $count_taxonomy = db_query("SELECT ti.nid FROM taxonomy_index AS ti WHERE ti.tid = :tid", array(':tid' => $val->tid))->rowCount();
+        $term_alias = drupal_get_path_alias('taxonomy/term/'.$val->tid);
+        $term_alias = explode('/', $term_alias);
+        if($count_taxonomy > 0){
+            $result .= '<li class="column cat-item cat-item-'.$val->tid.'">';
+            $result .= '<a href="/danh-muc/'. $term_alias[1].'" title="'.$val->name.'">';
+            // $result .= print l($val->name, 'danh-mucs/'. $term_alias[1]);
+            $result .= '<span class="coupon-count">'.$count_taxonomy.'</span> ';
+            $result .= $val->name;
+            $result .='</a>';
+            $result .= '</li>';
+        }
+    }
+    $result .= '</ul>';
+    return $result;
+}
+
+function _custom_blocks_featured_store_categories(){
+    $vid = _custom_blocks_get_vid_by_name('stores_categories');
+    $terms = taxonomy_get_tree($vid); 
+    $result = '<ul class="cat-column column">';
+    foreach ($terms as $key => $val) {
+        $count_taxonomy = db_query("SELECT ti.nid FROM taxonomy_index AS ti WHERE ti.tid = :tid", array(':tid' => $val->tid))->rowCount();
+        
+        $query_count = db_query("SELECT n.nid AS cproduct FROM {node} AS n INNER JOIN {field_data_field_store} AS fs ON fs.entity_id = n.nid INNER JOIN {field_data_field_stores_categories} AS sc ON sc.entity_id = fs.field_store_nid WHERE n.status = :status AND n.type IN(:type1, :type2)  AND sc.field_stores_categories_tid = :tid", array(':type1' => 'products', ':type2' => 'coupons',':status' => 1 , ':tid' =>  $val->tid))->rowCount();
+
+        $term_alias = drupal_get_path_alias('taxonomy/term/'.$val->tid);
+        $term_alias = explode('/', $term_alias);
+
+        // $term_href = url('taxonomy/term/'.$val->tid);
+        if($query_count > 0){
+            $result .= '<li class="column cat-item cat-item-'.$val->tid.'">';
+            $result .= '<a href="/linh-vuc/'. $term_alias[1].'" title="'.$val->name.'">';
+            $result .= '<span class="coupon-count">'.$query_count.'</span> ';
+            $result .= $val->name;
+            $result .='</a>';
+            $result .= '</li>';
+        }
+    }
+    $result .= '</ul>';
+    return $result;
+}
+// get vid of taxonomy
+function _custom_blocks_get_vid_by_name($name){
+    $vocab = taxonomy_vocabulary_machine_name_load($name);
+    $vid = $vocab->vid;
+    return $vid;
+}
+
+function _custom_blocks_ads_fotter(){
+    return '<div id="at-smartwidget-root"></div>';
+}

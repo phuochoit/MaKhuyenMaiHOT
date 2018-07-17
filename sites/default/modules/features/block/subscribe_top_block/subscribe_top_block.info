@@ -1,0 +1,8 @@
+name = Subscribe Top Block
+core = 7.x
+package = MKMH Block
+dependencies[] = fe_block
+features[fe_block_boxes][] = header_subscribe_block
+features[fe_block_settings][] = block-header_subscribe_block
+features[features_api][] = api:2
+project path = sites\default\modules\features\block

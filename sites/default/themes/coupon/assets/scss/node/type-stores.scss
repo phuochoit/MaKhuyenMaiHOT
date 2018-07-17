@@ -1,0 +1,45 @@
+.node-type-stores{
+    #main{
+        .content-area-header{
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .inner{
+            margin: 30px auto;
+            padding: 0px 30px 30px;
+            @include  box-background-shadow();
+            .inner-content{
+                padding-top: 20px;
+                .header-thumb{
+                    padding-top: 15px;
+                    .header-store-thumb{
+                        a{
+                            text-align: center;
+                            @include  store-thumb();
+                        }
+                        img{
+                            max-width: 200px;
+                        }
+                    }
+                }
+                .header-content{
+                    font-size: 16px;
+                    font-weight: 300;
+                    h1{
+                        font-weight: 300;
+                        margin-bottom: 7px;
+                        margin-top: 3px;
+                        line-height: 1.6;
+                        letter-spacing: -1px;
+                    }
+                }
+            }
+        }
+        .view-display-id-block_coupon_store{
+            .view-empty{
+                @include  box-background-shadow();
+                padding: 20px 15px;
+            }
+        }
+    }
+}

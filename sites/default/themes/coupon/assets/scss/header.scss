@@ -1,0 +1,16 @@
+// minxins
+@import "./minxins.scss";
+/* header css */
+#header {
+    background:$baseBackgroundHeader;
+    position: relative;
+    padding: 25px 0 15px;
+    margin: 0 auto 2px;
+    @include respond-to(991) {
+        padding: 20px 0;
+    }
+}
+@import "./block/header-logo.scss";
+@import "./block/subscribe-top.scss";
+@import "./block/search-form.scss";
+/* end header css */

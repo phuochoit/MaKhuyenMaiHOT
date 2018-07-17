@@ -1,0 +1,16 @@
+name = Menu Footer
+core = 7.x
+package = MKMH Menu
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-menu-footer
+features[menu_links][] = menu-menu-footer_hng-dn:huong-dan
+features[menu_links][] = menu-menu-footer_khuyn-mi:khuyen-mai
+features[menu_links][] = menu-menu-footer_lin-h:node/209
+features[menu_links][] = menu-menu-footer_qu-tng:qua-tang
+features[menu_links][] = menu-menu-footer_sn-phm:san-pham
+features[menu_links][] = menu-menu-footer_t-vn-nh-gi:tu-van-danh-gia
+features[menu_links][] = menu-menu-footer_thng-hiu:thuong-hieu
+features[menu_links][] = menu-menu-footer_tin-khuyn-mi:tin-khuyen-mai
+project path = sites\default\modules\features\menu

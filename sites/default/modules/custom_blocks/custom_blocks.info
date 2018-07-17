@@ -1,0 +1,5 @@
+name = MKMH Custom Block
+description = MKMH Custom Block
+version = "7.x-1.x"
+core = 7.x
+package = MKMH

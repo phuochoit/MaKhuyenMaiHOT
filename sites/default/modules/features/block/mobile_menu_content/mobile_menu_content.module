@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mobile Menu Content feature.
+ */
+
+include_once 'mobile_menu_content.features.inc';

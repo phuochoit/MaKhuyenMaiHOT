@@ -121,6 +121,28 @@ function bootstrap_theme_registry_alter(&$registry) {
   // and after all includes have been loaded.
   _bootstrap_process_theme_registry_suggestions($registry, $themes);
 
+  // Merge both "html" and "page" theme hooks into "maintenance_page". Create
+  // a fake "page" variable to satisfy both "html" and "page" preprocess/process
+  // functions. Whether or not they stumble over each other doesn't matter since
+  // the "maintenance_page" theme hook uses the "content" variable instead.
+  $registry['maintenance_page']['variables']['page'] = array(
+    '#show_messages' => TRUE,
+    '#children' => NULL,
+    'page_bottom' => array(),
+    'page_top' => array(),
+  );
+  foreach (array('html', 'page') as $theme_hook) {
+    foreach (array('includes', 'preprocess functions', 'process functions') as $property) {
+      if (!isset($registry['maintenance_page'][$property])) {
+        $registry['maintenance_page'][$property] = array();
+      }
+      if (!isset($registry[$theme_hook][$property])) {
+        $registry[$theme_hook][$property] = array();
+      }
+      $registry['maintenance_page'][$property] = array_merge($registry['maintenance_page'][$property], $registry[$theme_hook][$property]);
+    }
+  }
+
   // Post-process theme registry. This happens after all altering has occurred.
   foreach ($registry as $hook => $info) {
     // Ensure uniqueness.
@@ -207,9 +229,6 @@ function _bootstrap_process_theme_registry(array &$registry, $themes) {
         // File to be included by core's theme function when a theme hook is
         // invoked.
         if (isset($registry[$hook])) {
-          if (!isset($registry[$hook][$phase_key])) {
-            $registry[$hook][$phase_key] = array();
-          }
           if (!isset($registry[$hook]['includes'])) {
             $registry[$hook]['includes'] = array();
           }
@@ -230,6 +249,11 @@ function _bootstrap_process_theme_registry(array &$registry, $themes) {
 
       // Iterate over each registered hook.
       foreach ($registry as $hook => $info) {
+        // Ensure the current phase callback functions array exists.
+        if (!isset($registry[$hook][$phase_key])) {
+          $registry[$hook][$phase_key] = array();
+        }
+
         // Remove function callbacks if a template was found.
         if (isset($info['function']) && isset($info['template'])) {
           unset($registry[$hook]['function']);

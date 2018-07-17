@@ -1,0 +1,48 @@
+.page-outlink{
+    #main{
+        margin: 30px auto;
+        .cloakpl{
+            min-height: 250px;
+            text-align: center;
+            background: $baseColorWhite;
+            box-shadow: 0px 4px 8px #999;
+            overflow: hidden;
+            .cloakpl-frame{
+                display:none;
+            }
+            .cloakpl-wrap{
+                padding: 20px 10px;
+                margin-bottom: 20px;
+                .cloakpl-logo{
+                    height: 50px;
+                    margin: 10px auto;
+                }
+                .cloakpl-des {
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 0;
+                }
+                .cloakpl-time {
+                    font-size: 15px;
+                    text-align: center;
+                }
+                .cloakpl-load {
+                    height: 100px;
+                    text-align: center;
+                    img {
+                        max-width: 100%;
+                        width: auto;
+                        height: 100px;
+                    }
+                }
+                .cloakpl-now-btn{
+                    @include block-title();
+                    display: block;
+                    max-width: 300px;
+                    margin: 0 auto;
+                }
+            }
+        }
+        
+    }
+}

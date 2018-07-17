@@ -1,0 +1,36 @@
+/* block subscribe*/
+#subscribe-top{
+    color: #fff;
+    font-weight: 300;
+    max-width: 150px;
+    .content{
+        text-align: right;
+        a,span{
+            font-size: 14px;
+            color: #fff;
+        }
+        hr{
+            margin: 10px 0 5px;
+            border-color: $baseColorWhite;
+            width: 100px;
+        }
+        ul{
+            padding: 0;
+            margin: 0 auto;
+            li{
+                list-style-type: none;
+                display: inline-block;
+                a{
+                    display: block;
+                    font-size: 30px;
+                    cursor: pointer;
+                    color: #fff;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+        
+}
+
+/* end block subscribe*/

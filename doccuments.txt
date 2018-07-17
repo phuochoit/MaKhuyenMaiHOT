@@ -1,0 +1,59 @@
+* các chức năng
+
+* MENU
+	- Tin Khuyến Mãi 
+	- Sản phẩm bán chay (all)
+	- List all (category danh mục khuyến mãi, sản phẩm)
+	- Liên Hệ
+	
+1. Home Page (full page)
+	+ top 5 : chương trinh khuyến mãi
+	+ các sản phảm bán chạy
+	+ owlcarousel các chiến dịch
+2: Chiến dịch (CÁC KHUYẾN MÃI MUA SẮM) 
+	- left
+		+ Mua Sắm
+		+ DU LỊCH
+		+ MÃI TAXI, UBER, GRAB
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy
+3: Tin Khuyến Mãi 
+	- left
+		+ TOP 3 Danh Muc
+		+ 10 danh muc (load more)
+		+ owlcarousel các chiến dịch
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy
+4:  Sản phẩm 
+	- left
+		+ TOP 5 Sản phảm
+		+ 10 Sản phảm (load more)
+		+ owlcarousel các chiến dịch
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy
+
+5:  Categori
+	- left
+		+ TOP 5 KHUYẾN mãi
+		+ 10 Sản phảm (load more)
+		+ owlcarousel các chiến dịch
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy
+6:  Tag 
+	- left
+		+ TOP 5 Sản phảm
+		+ 10 Sản phảm (load more)
+		+ owlcarousel các chiến dịch
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy
+7: Liên Hệ
+	- left 
+		- webfrom Liên Hệ
+	- right
+		+ top 5 : chương trinh khuyến mãi
+		+ top 5: các sản phảm bán chạy

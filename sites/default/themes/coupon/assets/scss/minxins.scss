@@ -1,0 +1,108 @@
+@function safe-rgba($color, $alpha: 1.0) {
+    @return rgba(red($color), green($color), blue($color), $alpha);
+}
+
+$baseFontSize: 16;
+$baseColorWhite: safe-rgba(#fff);
+$baseBackground2: safe-rgba(#f8f9f9);
+$baseBackgroundHeader: safe-rgba(#00B7F0);
+$baseBackgroundFooter: safe-rgba(#191E28);
+$baseTextColor: safe-rgba(#353941);
+$baseWidthPhone: 480px;
+
+$break-small-small: 320px;
+$break-small: 380px;
+$break-small-medium: 480px;
+$break-medium: 767px;
+$break-medium-large: 991px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+    @if $media == 320 {
+        @media only screen and (max-width: $break-small-small) { @content; }
+    }
+    @if $media == 360 {
+        @media only screen and (max-width: $break-small) { @content; }
+    }
+    @else if $media == 480 {
+        @media only screen and  (max-width: $break-small-medium) { @content; }
+    }
+    @else if $media == 767 {
+        @media only screen and  (max-width: $break-medium) { @content; }
+    }
+    @else if $media == 991 {
+        @media only screen and  (max-width: $break-medium-large) { @content; }
+    }
+    @else if $media ==1024 {
+        @media only screen and (min-width: $break-large) { @content; }
+    }
+}
+
+@mixin box-background-shadow(){
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    background: $baseColorWhite ;
+}
+@mixin block-title(){
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 400;
+    background: $baseBackgroundHeader;
+    padding: 15px 10px;
+    text-align: center;
+}
+@mixin store-thumb(){
+    border: 2px solid #f5f5f5;
+    border-radius: 2px;
+    display: block;
+    line-height: 107px;
+    &:hover{
+        border-color: $baseBackgroundHeader;
+    }
+    img{
+        margin: 0 auto;
+        max-height: 115px;
+        width: auto;
+        max-width: 100%;
+    }
+}
+@mixin input-placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+}
+
+@mixin background-before($color) {
+    position: absolute;
+    content: '';
+    height: 100%;
+    display: block;
+    width: 200%;
+    left: -50%;
+    top: 0;
+    background: $color;
+}
+
+@mixin button-default($color) {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 20px;
+    text-align: center;
+    width: 195px;
+    border: solid 2px $color;
+    border-radius: 5px;
+    background: $color !important;
+    font-weight: 500;
+}

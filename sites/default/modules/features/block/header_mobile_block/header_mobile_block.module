@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Header mobile block feature.
+ */
+
+include_once 'header_mobile_block.features.inc';

@@ -1,0 +1,53 @@
+#block-custom-blocks-list-featured-coupon-categories,
+#block-custom-blocks-list-featured-store-categories{
+    margin-bottom: 30px;
+    .block-title{
+        @include  block-title();
+    }
+    .content{
+        padding: 20px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        background: #FFFFFF;
+        .cat-column{
+            padding: 10px 0;
+            li{
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+                vertical-align: top;
+                a{
+                    width: 100%;
+                    padding: 7px 0px;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    position: relative;
+                    overflow: hidden;
+                    font-weight: normal;
+                    color: $baseBackgroundHeader;
+                    &:hover{
+                        color: #ff9900;
+                    }
+                    span{
+                        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+                        background: #f9f9f9;
+                        padding: 3px;
+                        min-width: 30px;
+                        margin-right: 7px;
+                        border-radius: 4px;
+                        text-align: center;
+                        color: #BBBBBB;
+                        display: inline-block;
+                    }
+                }
+                &:last-child{
+                    a{
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

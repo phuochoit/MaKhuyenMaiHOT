@@ -1,0 +1,80 @@
+/* block main menu*/
+#block-system-main-menu{
+    padding: 0;
+    .menu{
+        padding: 0;
+        margin: 0;
+        li {
+            // margin: 0 0 10px;
+            padding: 0;
+            list-style-type: none;
+            display: inline-block;
+            padding: 0;
+            background: none !important;
+            &:hover,
+            &:focus{
+                &:before{
+                    color: $baseBackgroundHeader !important;
+                    cursor: pointer;
+                }
+                a{
+                    background: none;
+                    color: $baseBackgroundHeader;
+                }
+            }
+
+            &.first {
+                &:before{
+                    font: normal normal normal 14px/1 FontAwesome;
+                    margin-right: 10px;
+                    font-size: 15px;
+                    color: #888888;
+                }
+                a{
+                    padding-left: 0;
+                    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+                    display: inline-block;
+                }
+            }
+            &.dropdown.open{
+                &:hover{
+                    .dropdown-menu{
+                        li{
+                            a{
+                                color: #888888;
+                            }
+                        }
+                    }
+                }
+            }
+            a {
+                color: #888888;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 0.2px;
+                text-transform: uppercase;
+            }
+            .dropdown-menu{
+                border: none;
+                border-radius: 0;
+                padding: 10px 15px;
+                li{
+                    display: block;
+                    width: 100%;
+                    &:hover{
+                        a{
+                            color: $baseBackgroundHeader !important;
+                        }
+                    }
+                    a{
+                        padding: 10px 0;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+        
+}
+
+/* end block main menu*/

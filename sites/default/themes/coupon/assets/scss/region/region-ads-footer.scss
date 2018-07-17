@@ -1,0 +1,21 @@
+
+/* region-ads-footer */
+#advertise-footer{
+    margin-top: 30px;
+    @include  box-background-shadow();
+    padding: 20px 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    .region-ads-footer{
+        position: relative;
+        #at-smartwidget-root{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    @include respond-to(767) {
+        background: transparent;
+    }
+}
+/* end region-ads-footer */

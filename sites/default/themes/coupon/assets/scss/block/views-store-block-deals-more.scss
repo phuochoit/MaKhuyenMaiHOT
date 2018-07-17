@@ -1,0 +1,34 @@
+#block-views-store-block-deals-more{
+    margin-bottom: 30px;
+    .block-title{
+        @include  block-title();
+    }
+    .content{
+        padding: 20px;
+        @include  box-background-shadow();
+        .view-content{
+            padding-left: 10px;
+            padding-right: 10px;
+            .views-field{
+                &-field-image{
+                    text-align: center;
+                }
+            }
+            .views-row{
+                padding: 10px;
+                a{
+                    @include  store-thumb();
+                    line-height: 1;
+                    img{
+                        max-height: 80px;
+                        height: auto;
+                    }
+                }
+                @include respond-to(320) {
+                    width: 100%;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}

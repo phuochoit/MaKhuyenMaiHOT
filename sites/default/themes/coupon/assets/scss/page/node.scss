@@ -1,0 +1,89 @@
+.page-node{
+    &.node-type-stores{
+        .sidebar-second{
+            padding-right: 15px;
+            padding-left: 0;
+            @include respond-to(991){
+                padding-right: 0;
+            }
+        }
+        .content-area{
+            padding-right: 0;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            @include respond-to(991){
+                padding-left: 0;
+                margin-top: 30px;
+            }
+        }
+        article.node-stores{
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            width: 100%;
+            float: left;
+            margin-top: 30px;
+        }
+    }
+    &.page-node-209{
+        #webform-client-form-209 {
+            width: 50%;
+            float: left;
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            @include respond-to(991) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            .control-label{
+                font-weight: normal;
+                font-size: 14px;
+            }
+            .form-control{
+                border-radius: 0;
+            }
+            .form-actions{
+                text-align: center;
+                .form-submit{
+                    background-color: $baseBackgroundHeader;
+                    border-color: $baseBackgroundHeader;
+                    border-radius: 0;
+                    color: #fff;
+                }
+            }
+        }
+        .field-name-body{
+            @include  box-background-shadow();
+            margin-left: 30px;
+            width: calc(100% - 54%);
+            float: left;
+            padding: 20px 15px;
+            margin-bottom: 30px;
+            @media screen and (min-width: 992px) and (max-width: 1199px) {
+                width: calc(100% - 56%);
+            }
+            @include respond-to(991) {
+               width:100%;
+               margin-left: 0; 
+            }
+        }
+        .list-inline{
+            display: none;
+        }
+    }
+    &.page-node-done{
+        .webform-confirmation{
+            @include  box-background-shadow();
+            padding: 20px 15px;
+            margin-bottom: 30px; 
+            p{
+                text-align: center
+            }
+        }
+        .links{
+            display: none;
+        }
+    }
+}
+

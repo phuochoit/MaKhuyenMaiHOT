@@ -1,0 +1,10 @@
+#navigation-menu{
+    padding: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+    @include  box-background-shadow();
+    @include respond-to(991) {
+        display: none;
+    }
+}
+@import "./block/main-menu.scss";

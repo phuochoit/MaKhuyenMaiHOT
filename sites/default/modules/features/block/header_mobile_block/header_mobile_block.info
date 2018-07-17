@@ -1,0 +1,11 @@
+name = Header mobile block
+core = 7.x
+package = MKMH Block
+dependencies[] = block_machine_name
+dependencies[] = ctools
+dependencies[] = fe_block
+features[ctools][] = block_machine_name::
+features[fe_block_boxes][] = header_mobile_block
+features[fe_block_settings][] = block-header_mobile_block
+features[features_api][] = api:2
+project path = sites\default\modules\features\block

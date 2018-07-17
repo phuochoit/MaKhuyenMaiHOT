@@ -1,0 +1,44 @@
+/* block header-logo*/
+#header-logo{
+    padding-left: 0;
+    @include respond-to(991) {
+        padding-right: 0;
+        height: 40px !important;
+    }
+    .content{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        @include respond-to(991) {
+            width: 100%;
+        }
+        p{
+            a{
+                img{
+                    margin-left: -20px;
+                }
+                @include respond-to(480) {
+                    width: calc(100% - 40px);
+                    float: left;
+                    text-align: center;
+                    img{
+                        max-width: 100%;
+                        width: auto;
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+        }
+        .menu-hamburger{
+            background: url('/sites/default/themes/coupon/assets/images/hamburg.png') no-repeat center;
+            margin-top: 5px;
+            @include respond-to(991) {
+                display: block;
+            }
+        }
+    }
+        
+}
+
+/* end block header-logo*/

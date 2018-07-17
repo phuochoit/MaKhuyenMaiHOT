@@ -1,0 +1,30 @@
+#block-footer-copyright{
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.03);
+    padding-left: 0;
+    p{
+        margin-bottom: 5px;
+        font-size: 13px;
+        a{
+            color: rgba(255,255,255,0.3);
+        }
+    }
+    @media only screen and (max-width : 767px) {
+        padding-left: 0;
+        padding-right: 0;
+        p{
+            text-align: center;
+            margin: 0 auto;
+            float: none;
+            a{
+                width: 100%;
+                float: left;
+                text-align: center;
+                margin: 0 auto;
+                img{
+                    float: none !important;
+                }
+            }
+        }
+    }
+}
