@@ -15,3 +15,5 @@ stylesheets[all][] = assets/css/bootstrap.min.css
 
 ; js
 scripts[] = 'assets/js/bootstrap.min.js'
+
+regions[header-ads]     =   Header ADS

@@ -15,20 +15,23 @@
 						</a>
 					<?php endif; ?>
 				</div>
-				<div class="col"></div>
+				<div class="col">
+					<?php print render($page['header-ads']); ?>
+				</div>
 				<div class="col col-3">
 					<?php print theme('links__system_secondary_menu', array(
-			'links' => $secondary_menu,
-			'attributes' => array(
-				'id' => 'secondary-menu',
-				'class' => array('links', 'clearfix'),
-			),
-			'heading' => array(
-				'text' => t('Secondary menu'),
-				'level' => 'h2',
-				'class' => array('element-invisible'),
-			),
-		  	)); ?>
+						'links' => $secondary_menu,
+						'attributes' => array(
+							'id' => 'secondary-menu',
+							'class' => array('links', 'clearfix'),
+						),
+						'heading' => array(
+							'text' => t('Secondary menu'),
+							'level' => 'h2',
+							'class' => array('element-invisible'),
+						),
+						)); 
+					?>
 				</div>
 			</div>
 		</div>
