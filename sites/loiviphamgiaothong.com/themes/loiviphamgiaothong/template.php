@@ -30,20 +30,60 @@ function loiviphamgiaothong_breadcrumb($variables) {
  */
 function loiviphamgiaothong_menu_local_tasks(&$variables) {
     $output = '';
-
     if (!empty($variables['primary'])) {
         $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-        $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
+        $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs clearfix">';
         $variables['primary']['#suffix'] = '</ul>';
         $output .= drupal_render($variables['primary']);
     }
     if (!empty($variables['secondary'])) {
         $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-        $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
+        $variables['secondary']['#prefix'] .= '<ul class="nav nav-tabs secondary clearfix">';
         $variables['secondary']['#suffix'] = '</ul>';
         $output .= drupal_render($variables['secondary']);
     }
     return $output;
+}
+
+/**
+ *  theme_menu_local_tasks_alter
+ *  add class to link
+ */
+function loiviphamgiaothong_menu_local_tasks_alter(&$data, $router_item, $root_path){
+    if(isset($data['tabs'][0])){
+        $tabs =  $data['tabs'][0];  
+        $i = 1; 
+        $attributes = array(
+            'attributes' => array(
+                'class' => array('nav-link')
+            )
+        );
+        foreach($tabs['output'] as &$t){
+            $t['#link']['localized_options'] = $attributes; 
+        }
+        $data['tabs'][0] = $tabs;
+    }
+}
+
+/**
+ * theme_menu_local_task
+ * remove class active in li
+ */
+function loiviphamgiaothong_menu_local_task($variables) {
+    $link = $variables['element']['#link'];
+    $link_text = $link['title'];
+    if (!empty($variables['element']['#active'])) {
+        $active = '<span class="element-invisible">' . t('(active tab)') . '</span>';
+        if (empty($link['localized_options']['html'])) {
+            $link['title'] = check_plain($link['title']);
+        }
+        $link['localized_options']['html'] = TRUE;
+        $link_text = t('!local-task-title!active', array(
+            '!local-task-title' => $link['title'],
+            '!active' => $active,
+        ));
+    }
+    return '<li class="nav-item">' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
 }
 
 /**

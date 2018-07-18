@@ -16,4 +16,12 @@ stylesheets[all][] = assets/css/bootstrap.min.css
 ; js
 scripts[] = 'assets/js/bootstrap.min.js'
 
+; create regions
+regions[navigation]     =   Top Navigation
 regions[header-ads]     =   Header ADS
+regions[highlighted]    =   Highlighted
+regions[help]           =   Help
+regions[content]        =   Content
+regions[sidebar]        =   Sidebar Right
+regions[footer-ads]     =   Footer ADS
+regions[footer]         =   Footer

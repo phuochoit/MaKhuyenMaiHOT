@@ -25,26 +25,25 @@
 ?>
 
 <?php if ($forums_defined): ?>
-  <div id="forum">
+    <section id="forum" class="col">
+        <?php print $forums; ?>
 
-    <?php print $forums; ?>
+        <?php if (!empty($forum_tools)): ?>
+            <div class="forum-tools"><?php print $forum_tools; ?></div>
+        <?php endif; ?>
 
-    <?php if (!empty($forum_tools)): ?>
-      <div class="forum-tools"><?php print $forum_tools; ?></div>
-    <?php endif; ?>
+        <?php print $topics; ?>
 
-    <?php print $topics; ?>
+        <?php if (!empty($topics)): ?>
+            <?php print $topic_legend; ?>
+        <?php endif; ?>
+        
+        <?php if (!empty($forum_legend)): ?>
+            <?php print $forum_legend; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($topics)): ?>
-      <?php print $topic_legend; ?>
-    <?php endif; ?>
-
-    <?php if (!empty($forum_legend)): ?>
-      <?php print $forum_legend; ?>
-    <?php endif; ?>
-
-     <?php if (!empty($forum_statistics)): ?>
-       <?php print $forum_statistics; ?>
-     <?php endif; ?>
-  </div>
+        <?php if (!empty($forum_statistics)): ?>
+            <?php print $forum_statistics; ?>
+        <?php endif; ?>
+  </section>
 <?php endif; ?>
