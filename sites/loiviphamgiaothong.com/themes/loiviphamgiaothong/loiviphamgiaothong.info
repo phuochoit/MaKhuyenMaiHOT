@@ -18,10 +18,10 @@ scripts[] = 'assets/js/bootstrap.min.js'
 
 ; create regions
 regions[navigation]     =   Top Navigation
-regions[header-ads]     =   Header ADS
+regions[header-banner]  =   Header Content
 regions[highlighted]    =   Highlighted
 regions[help]           =   Help
 regions[content]        =   Content
 regions[sidebar]        =   Sidebar Right
-regions[footer-ads]     =   Footer ADS
+regions[footer-content] =   Footer Content
 regions[footer]         =   Footer

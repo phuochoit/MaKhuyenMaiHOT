@@ -19,6 +19,7 @@
 					</div>
 				</div>
 			</nav>
+			<!-- /#navba-->
 		<?php endif;?>
 		<section class="header-content clearfix">
 			<div class="container">
@@ -30,16 +31,17 @@
 							</a>
 						<?php endif; ?>
 					</div>
-					<?php if(!empty($page['header-ads'])):?>
+					<?php if(!empty($page['header-banner'])):?>
 						<div class="col">
-							<?php print render($page['header-ads']); ?>
+							<?php print render($page['header-banner']); ?>
 						</div>
+						<!-- /#header-banner-->
 					<?php endif;?>
 				</div>
 			</div>
 		</section>
 	</header>
-
+	<!-- /#header-->
 	<main id="main" role="main" class="clearfix">
 		<a id="main-content"></a>
 		<?php if(!empty($messages)):?>
@@ -50,6 +52,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /#page-messages -->
 		<?php endif;?>
 		<?php if ($page['highlighted']): ?>
 			<section id="page-highlighted" class="highlighted-area">
@@ -59,6 +62,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /#page-highlighted -->
 		<?php endif; ?>
 		
 		<?php if (!empty($tabs['#primary'])): ?>
@@ -69,6 +73,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /#page-tab-primary -->
 		<?php endif; ?>
 		<?php if (!empty($page['#help'])): ?>
 			<section id="page-help" class="help-wrapper clearfix">
@@ -78,6 +83,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /#page-help -->
 		<?php endif; ?>
 		<?php if ($action_links): ?>
 			<section id="page-action" class="action-wrapper clearfix">
@@ -87,6 +93,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /#page-action -->
 		<?php endif; ?>
 		<section id="page-content" class="action-wrapper clearfix">
 			<div class="container">
@@ -96,7 +103,16 @@
 					<?php endif; ?>
 					<?php print render($title_suffix); ?>
 
-					<?php print render($page['content']); ?>
+					<?php if(!empty($page['content'])):?>
+						<section id="page-footer-content" class="footer-content-wrapper clearfix">
+							<div class="container">
+								<div class="col">
+									<?php print render($page['content']); ?>
+								</div>
+							</div>
+						</section>
+						<!-- /#content -->
+					<?php endif;?>
 					<?php if ($page['sidebar']): ?>
 						<aside id="page-sidebar" role="complementary" class="col col-4 sidebar clearfix">
 							<?php print render($page['sidebar']); ?>
@@ -105,12 +121,27 @@
 				</div>
 			</div>
 		</section>
-	</main> <!-- /#main -->
+		<!-- /#page-content -->
+	</main> 
+	<!-- /#main -->
+
+	<?php if(!empty($page['footer-content'])):?>
+		<section id="page-footer-content" class="footer-content-wrapper clearfix">
+			<div class="container">
+				<div class="col">
+					<?php print render($page['footer-content']); ?>
+				</div>
+			</div>
+		</section>
+	<?php endif;?>
+	<!-- /#page-footer-content -->
+	
 	<footer id="footer" role="contentinfo" class="clearfix">
 		<div class="container">
 			<div class="row">
 				<?php print render($page['footer']) ?>
 			</div>
 		</div>
-	</footer> <!-- /#footer -->
+	</footer> 
+	<!-- /#footer -->
 </div>
