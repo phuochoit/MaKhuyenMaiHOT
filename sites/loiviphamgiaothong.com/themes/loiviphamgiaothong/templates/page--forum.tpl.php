@@ -1,4 +1,4 @@
-<main class="main" id="main-container">
+<div class="main" id="main-container">
 	<div id="skip-link">
 		<a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
 		<?php if ($main_menu): ?>
@@ -36,7 +36,14 @@
 			</div>
 		</div>
 	</header>
-</main>
+	<footer id="footer" role="contentinfo" class="clearfix">
+		<div class="container">
+			<div class="row">
+				<?php print render($page['footer']) ?>
+			</div>
+		</div>
+	</footer> <!-- /#footer -->
+</div>
 
 <div id="container" class="clearfix">
 	
@@ -124,8 +131,11 @@
 	<?php endif; ?>
 
 	<footer id="footer" role="contentinfo" class="clearfix">
-		<?php print render($page['footer']) ?>
-		<?php print $feed_icons ?>
+		<div class="container">
+			<div class="row">
+				<?php print render($page['footer']) ?>
+			</div>
+		</div>
 	</footer> <!-- /#footer -->
 
 </div> <!-- /#container -->
