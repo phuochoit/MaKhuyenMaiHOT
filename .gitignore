@@ -10,3 +10,9 @@ sites/*/files/css
 sites/*/files/js
 sites/*/files/update-*/*
 sites/*/files/xmlsitemap/*
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
