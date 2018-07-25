@@ -5,10 +5,6 @@ core = 7.x
 engine = 'phptemplate'
 
 ; base theme
-; base theme = forum_plus
-
-; advanced forum
-plugins[advanced_forum][styles] = 'assets/advanced_forum/giaothongplus'
 
 ; css
 stylesheets[all][] = assets/css/bootstrap.min.css

@@ -111,8 +111,10 @@
         $node->language = LANGUAGE_NONE;
         $node->comment = 0;
         $node->status = 1;
+        if(drupal_strlen($value->ten_loi) < 255){
+            $node->title = drupal_substr($value->ten_loi,0,150);
+        }
 
-        $node->title = truncate_utf8($value->ten_loi,100);
         $node->field_sub_title['und'][0]['value'] = $value->ten_loi;
         
         $node->body['und'][0]['value'] = $value->noi_dung;
@@ -163,4 +165,21 @@
         node_save($node);
     }
 
+
+    global $base_url;
+    $arr = array();
+    $file = json_decode(file_get_contents($base_url.'/Question.json'));
+    $url = $base_url.'/images/images-question/';
+    foreach ($file as $key => $value) {
+        $node = new stdClass();
+        $node->type = 'violation_error';
+        $node->uid = 1;
+        $node->created = time();
+        $node->changed = $node->created;
+        $node->promote = $node->created;
+        $node->sticky  = 0;
+        $node->language = LANGUAGE_NONE;
+        $node->comment = 0;
+        $node->status = 1;
+    }
 ?>
