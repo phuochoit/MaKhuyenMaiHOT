@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var  browserSync = require('browser-sync')
+var  browserSync = require('browser-sync');
 // Compile CSS.
 var less = require('gulp-less');
 var sass = require('gulp-sass');
@@ -20,15 +20,46 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 
 
-var  reload = browserSync.reload;
+/**
+ * Launch the Server
+ */
+gulp.task('browser-sync', ['sass'], function () {
+    browserSync.init({
+        // Change as required
+        proxy: "loiviphamgiaothong.com.dd:8083",
+        socket: {
+            // For local development only use the default Browsersync local URL.
+            //domain: 'localhost:3000'
+            // For external development (e.g on a mobile or tablet) use an external URL.
+            // You will need to update this to whatever BS tells you is the external URL when you run Gulp.
+            domain: '192.168.0.13:3000'
+        }
+    });
+});
+
+/**
+ * @task clearcache
+ * Clear all caches
+ */
+gulp.task('clearcache', function (done) {
+    return cp.spawn('drush', ['cc all'], { stdio: 'inherit' })
+        .on('close', done);
+});
+
+/**
+ * @task reload
+ * Refresh the page after clearing cache
+ */
+gulp.task('reload', ['clearcache'], function () {
+    browserSync.reload();
+});
+
 // Compile Our Sass
 gulp.task('sass', function () {
     gulp.src('./assets/sass/**/*.scss')
-        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(sourcemaps.write('./'))
-        .pipe(reload)
+        .pipe(browserSync.reload({ stream: true }))
         .pipe(gulp.dest('./assets/css'));
 });
 
@@ -51,13 +82,16 @@ gulp.task('uglify', function () {
 });
 
 
-// Watch Files Sass For Changes
+/**
+ * @task watch
+ * Watch scss files for changes & recompile
+ * Clear cache when Drupal related files are changed
+ */
 gulp.task('watch', function () {
-    livereload.listen();
-
     gulp.watch('./assets/sass/**/*.scss', ['sass']);
     gulp.watch('./assets/lib/*.js', ['uglify']);
-    gulp.watch(['./assets/css/style.css', './**/*.tpl.php', './assets/js/*.js'], function (files) {
-        livereload.changed(files)
-    });
+    gulp.watch('**/*.{php,inc,info}', ['reload']);
 });
+
+
+gulp.task('default', ['browser-sync', 'watch']);
