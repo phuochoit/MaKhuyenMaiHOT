@@ -1,5 +1,3 @@
-body{
-    background: yellow;
-    color: red;
-    font-size: 30px;
-}
+@import "mixins";
+@import "common";
+@import "blocks/index";

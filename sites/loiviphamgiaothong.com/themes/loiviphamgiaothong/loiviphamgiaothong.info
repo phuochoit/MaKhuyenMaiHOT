@@ -17,6 +17,8 @@ scripts[] = 'assets/js/main.js'
 ; create regions
 regions[navigation]     =   Top Navigation
 regions[header-banner]  =   Header Content
+regions[main-menu]     =   Main Menu
+
 regions[highlighted]    =   Highlighted
 regions[help]           =   Help
 regions[content]        =   Content

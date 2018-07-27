@@ -1,1 +1,1 @@
-body{background:yellow;color:red;font-size:30px}
+html{overflow-x:hidden}html body{overflow-x:hidden}html body.admin-menu{margin-top:0 !important}#header .navbar{background-color:yellow !important}#header .header-content-row{min-height:150px}#block-system-main-menu .block-title{display:none}#block-system-main-menu .content .menu{padding-left:0}#block-system-main-menu .content .menu li{display:inline-block;padding:0 10px}#block-system-main-menu .content .menu li a{font-size:20px}

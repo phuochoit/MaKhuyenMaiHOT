@@ -18,6 +18,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+cp = require('child_process');
 
 
 /**
@@ -32,7 +33,7 @@ gulp.task('browser-sync', ['sass'], function () {
             //domain: 'localhost:3000'
             // For external development (e.g on a mobile or tablet) use an external URL.
             // You will need to update this to whatever BS tells you is the external URL when you run Gulp.
-            domain: '192.168.0.13:3000'
+            domain: '192.168.1.161:3000'
         }
     });
 });
@@ -50,7 +51,10 @@ gulp.task('clearcache', function (done) {
  * @task reload
  * Refresh the page after clearing cache
  */
-gulp.task('reload', ['clearcache'], function () {
+
+// ['clearcache']
+
+gulp.task('reload', function () {
     browserSync.reload();
 });
 
@@ -88,7 +92,7 @@ gulp.task('uglify', function () {
  * Clear cache when Drupal related files are changed
  */
 gulp.task('watch', function () {
-    gulp.watch('./assets/sass/**/*.scss', ['sass']);
+    gulp.watch(['./assets/sass/**/*.scss', './assets/sass/*.scss'], ['sass']);
     gulp.watch('./assets/lib/*.js', ['uglify']);
     gulp.watch('**/*.{php,inc,info}', ['reload']);
 });

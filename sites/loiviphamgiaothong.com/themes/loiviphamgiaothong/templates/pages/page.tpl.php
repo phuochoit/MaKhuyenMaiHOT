@@ -40,6 +40,9 @@
 				</div>
 			</div>
 		</section>
+		<section class="main-menu">
+			<?php print render($page['main-menu']); ?>
+		</section>
 	</header>
 	<!-- /#header-->
 	<main id="main" role="main" class="clearfix">

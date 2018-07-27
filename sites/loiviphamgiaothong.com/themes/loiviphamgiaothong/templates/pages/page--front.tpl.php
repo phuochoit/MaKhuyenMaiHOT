@@ -5,25 +5,24 @@
 			<a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
 		<?php endif; ?>
 	</div>
+
 	<header id="header" role="banner" class="clearfix">
 		<?php if (!empty($page['navigation'])): ?>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-menu-top header-top">
 				<div class="container">
-					<div class="col">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navabar--menu" aria-controls="navabar--menu" aria-expanded="false" aria-label="Navabar Menu">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navabar--menu">
-							<?php print render($page['navigation']); ?>
-						</div>
-					</div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navabar--menu" aria-controls="navabar--menu" aria-expanded="false" aria-label="Navabar Menu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navabar--menu">
+                        <?php print render($page['navigation']); ?>
+                    </div>
 				</div>
 			</nav>
 			<!-- /#navba-->
 		<?php endif;?>
 		<section class="header-content clearfix">
 			<div class="container">
-				<div class="row">
+				<div class="row align-items-center header-content-row">
 					<div class="col col-3">
 						<?php if ($logo): ?>
 							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
@@ -40,6 +39,13 @@
 				</div>
 			</div>
 		</section>
+        <?php if(!empty($page['main-menu'])):?>
+            <section class="main-menu clearfix">
+                <div class="container">
+                    <?php print render($page['main-menu']); ?>
+                </div>
+            </section>
+        <?php endif;?>
 	</header>
 	<!-- /#header-->
 	<main id="main" role="main" class="clearfix">

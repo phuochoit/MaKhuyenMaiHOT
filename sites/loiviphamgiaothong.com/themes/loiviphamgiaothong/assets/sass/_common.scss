@@ -1,0 +1,23 @@
+html{
+    overflow-x: hidden;
+    body{
+        overflow-x: hidden;
+        &.admin-menu {
+            margin-top: 0 !important;
+        }
+    }
+}
+
+#header{
+    .navbar{
+        background-color: yellow !important;
+    }
+    .header-content{
+        &-row{
+            min-height: 150px;
+        }
+    }
+    .main-menu{
+
+    }
+}
