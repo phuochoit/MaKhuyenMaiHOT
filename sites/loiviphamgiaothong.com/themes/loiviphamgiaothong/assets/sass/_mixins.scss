@@ -42,3 +42,44 @@
     font-size: 16px;
     @include border-radius(0px);
 }
+@mixin btn-style() {
+    background: transparent;
+    border: 1px solid $color-theme-1;
+    @include border-radius(2px);
+    color: $color-tertiary-1 !important;
+    box-sizing: border-box;
+    @include element-transition(all 0.3s ease);
+    font-size: $font-size-base;
+    background-color: $color-theme-1;
+    text-transform: uppercase;
+    padding: 10px 20px 10px;
+    line-height: normal;
+    white-space: normal;
+    width: auto;
+    min-height: 43px;
+    height: auto;
+    display: inline-block;
+    text-shadow: none;
+    box-shadow: none;
+    &:hover,
+    &:focus {
+        box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+    }
+}
+
+@mixin element-transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+@mixin input-style() {
+    @include border-radius(0);
+    line-height: normal;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid $color-tertiary-2-base;
+    min-height: 43px;
+}

@@ -1,0 +1,23 @@
+#block-top-social{
+    .menu-social-content{
+        .ul-social{
+            padding-left: 0;
+            display: block;
+            overflow: hidden;
+            margin-bottom: 0;
+            .li-socical{
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                float: left;
+                a{
+                    color: $base_color;
+                    font-size: 16px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}

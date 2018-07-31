@@ -1,0 +1,65 @@
+<?php
+
+/**
+ *  @see hook_menu()
+ */
+function custom_admin_menu() {
+    $items['admin/custom'] = array(
+		'title' => t('Custom Configuration'),
+		'description' => 'Custom configuration.',
+		'access arguments' => array('administrator site configuration'),
+        'page callback' => 'custom_configuration',
+        'type' => MENU_NORMAL_ITEM,	
+	);
+    $items['admin/custom/social-link'] = array(
+        'title' => 'Social Link',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('custom_admin_social_form'),
+        'access arguments' => array('administrator site configuration'),		
+        'type' => MENU_NORMAL_ITEM,		
+    );
+    return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function custom_admin_permission() {
+    return array(
+        'access simple page' => array(
+            'title' => t('Access simple page'),
+            'description' => t('Allow users to access simple page'),
+        ),
+    );
+}
+
+/**
+ * Custom configuration
+ */
+function custom_configuration() {
+	$out = 'Custom configuration';
+	return $out;
+}
+/**
+ * Social Form
+ */
+function custom_admin_social_form($form, &$form_state){
+    $form = array();
+    $form['social_facebook_link'] = array(
+        '#type' => 'textfield', 
+        '#title' => t('Facebook'), 
+        '#size' => 60, 
+        '#maxlength' => 255, 
+        '#required' => TRUE,
+        '#default_value' =>  variable_get('social_facebook_link', '#'),
+    );
+    $form['social_google_link'] = array(
+        '#type' => 'textfield', 
+        '#title' => t('Google'), 
+        '#size' => 60, 
+        '#maxlength' => 255, 
+        '#required' => TRUE,
+        '#default_value' =>  variable_get('social_google_link', '#'),
+    );
+    return system_settings_form($form);
+}

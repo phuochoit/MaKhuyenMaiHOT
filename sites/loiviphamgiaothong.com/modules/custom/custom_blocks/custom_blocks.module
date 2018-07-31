@@ -1,0 +1,36 @@
+<?php
+/**
+* hook_block_info()
+**/
+
+function custom_blocks_block_info() {
+	$block = array();
+	$block['top_menu_social'] = array(
+		'info' => t('Social Menu'),
+        'cache' => DRUPAL_CACHE_GLOBAL,
+        'status' => 0,		
+    );
+	return $block;
+}
+
+function custom_blocks_block_view($delta = '') {
+    switch ($delta) {
+        case 'top_menu_social':
+            $block = array(
+				'subject' => "Social Menu",
+				'content' => _custom_blocks_menu_social()
+            );
+            break;
+    }
+    return $block;
+}
+
+function _custom_blocks_menu_social(){
+    $content = '<div class="menu-social-content">';
+    $content .='<ul class="ul-social">';
+    $content .= '<li class="li-socical li-social-facebook"><a href="'.variable_get('social_facebook_link', '#').'" class="a-social a-social-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+    $content .= '<li class="li-socical li-social-google"><a href="'.variable_get('social_google_link', '#').'" class="a-social a-social-google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+    $content .='</ul>';
+    $content .='</div>';
+    return $content;
+}
