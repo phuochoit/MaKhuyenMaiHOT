@@ -63,3 +63,36 @@ function custom_admin_social_form($form, &$form_state){
     );
     return system_settings_form($form);
 }
+
+function custom_admin_views_query_alter(&$view, &$query) {
+    if($view->name  === 'violation_error' && $view->current_display == 'violation_error_page'){
+        if(arg(0) == 'loi-vi-pham'){
+            switch (arg(1)) {
+                case 'xe-moto':
+                    $query->where[0]['conditions'][0]['value'] = 0;
+                    break;
+                case 'xe-oto':
+                    $query->where[0]['conditions'][0]['value'] = 1;
+                    break;
+                case 'xe-khach':
+                    $query->where[0]['conditions'][0]['value'] = 2;
+                    break;
+                case 'xe-tai':
+                    $query->where[0]['conditions'][0]['value'] = 3;
+                    break;
+                case 'nguoi-di-bo':
+                    $query->where[0]['conditions'][0]['value'] = 4;
+                    break;
+                case 'nguoi-tham-gia-giao-thong':
+                    $query->where[0]['conditions'][0]['value'] = 5;
+                    break;
+
+                default:
+                    drupal_not_found();
+                    module_invoke_all('exit');
+                    drupal_exit();
+                    break;
+            }
+        }
+    }
+}

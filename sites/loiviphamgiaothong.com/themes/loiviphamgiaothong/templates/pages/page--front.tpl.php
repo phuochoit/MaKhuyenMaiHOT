@@ -109,11 +109,11 @@
 					<?php endif; ?>
 					<?php print render($title_suffix); ?>
 
-					<?php if(!empty($page['content'])):?>
-						<section id="page-footer-content" class="footer-content-wrapper clearfix">
+					<?php if(!empty($page['front-content'])):?>
+						<section id="page-front-content" class="front-content-wrapper clearfix">
 							<div class="container">
 								<div class="col">
-									<?php print render($page['content']); ?>
+									<?php print render($page['front-content']); ?>
 								</div>
 							</div>
 						</section>

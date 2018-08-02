@@ -146,9 +146,21 @@ function loiviphamgiaothong_process_block(&$variables, $hook) {
 function loiviphamgiaothong_preprocess_search_block_form(&$vars) {
     $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
 }
-
+/**
+ * hook preprocess_page
+ */
 function loiviphamgiaothong_preprocess_page(&$variables) {
     if(drupal_is_front_page()) {
         drupal_set_title('');
     }
+    $header = drupal_get_http_header('status'); 
+    if ($header == '404 Not Found') {     
+        $variables['theme_hook_suggestions'][] = 'page__404';
+    }
+}
+/**
+ * hook preprocess_html
+ */
+function loiviphamgiaothong_preprocess_html(&$variables) {
+
 }

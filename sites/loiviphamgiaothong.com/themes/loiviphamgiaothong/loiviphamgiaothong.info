@@ -21,6 +21,7 @@ regions[main-menu]     =   Main Menu
 
 regions[highlighted]    =   Highlighted
 regions[help]           =   Help
+regions[front-content]  =   Front Content
 regions[content]        =   Content
 regions[sidebar]        =   Sidebar Right
 regions[footer-content] =   Footer Content

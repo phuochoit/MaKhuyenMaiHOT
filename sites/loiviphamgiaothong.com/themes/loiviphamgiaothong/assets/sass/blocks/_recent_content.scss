@@ -1,0 +1,6 @@
+
+#block-recent-content{
+    .block-title{
+        @include block-title();
+    }
+}

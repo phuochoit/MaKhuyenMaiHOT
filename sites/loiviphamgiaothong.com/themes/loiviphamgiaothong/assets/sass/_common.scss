@@ -2,6 +2,7 @@ html{
     overflow-x: hidden;
     body{
         overflow-x: hidden;
+        background-color: $base_bg_color;
         &.admin-menu {
             margin-top: 0 !important;
         }
@@ -91,7 +92,7 @@ ul.btn-group {
 
 #header{
     .navbar{
-        background-color: red !important;
+        background-color: $base_primary_1  !important;
         padding: 15px 10px;
     }
     .header-content{
@@ -100,6 +101,43 @@ ul.btn-group {
         }
     }
     .main-menu{
-        background-color:white;
+        background-color:$base_primary_2;
+    }
+}
+#main{
+    #page-content{
+        
+        #page-sidebar{
+
+        }
+    }
+
+}
+
+.page-node{
+    &-8674{
+        #page-page-content{
+            .page-card{
+                margin-bottom: 15px;
+                padding-left: 5px;
+                padding-right: 5px;
+                &:nth-child(1),
+                &:nth-child(4){
+                    padding-left: $bootstrap-padding;
+                }
+                &:nth-child(3){
+                    padding-right: 0;
+                }
+                .card-img-top{
+                    height: 151px;
+                }
+                .card-body{
+                    height: 290px;
+                    .card-des{
+                        height: 150px;
+                    }
+                }
+            }
+        }
     }
 }
