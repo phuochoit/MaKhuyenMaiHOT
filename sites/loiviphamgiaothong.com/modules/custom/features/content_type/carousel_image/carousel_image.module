@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Carousel Image feature.
+ */
+
+include_once 'carousel_image.features.inc';

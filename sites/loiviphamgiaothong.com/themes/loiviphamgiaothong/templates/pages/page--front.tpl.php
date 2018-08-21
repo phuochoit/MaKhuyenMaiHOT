@@ -62,11 +62,7 @@
 		<?php endif;?>
 		<?php if ($page['highlighted']): ?>
 			<section id="page-highlighted" class="highlighted-area">
-				<div class="container">
-					<div class="col">
-						<?php print render($page['highlighted']); ?>
-					</div>
-				</div>
+				<?php print render($page['highlighted']); ?>
 			</section>
 			<!-- /#page-highlighted -->
 		<?php endif; ?>
@@ -109,11 +105,11 @@
 					<?php endif; ?>
 					<?php print render($title_suffix); ?>
 
-					<?php if(!empty($page['front-content'])):?>
+					<?php if(!empty($page['content'])):?>
 						<section id="page-front-content" class="front-content-wrapper clearfix">
 							<div class="container">
 								<div class="col">
-									<?php print render($page['front-content']); ?>
+									<?php print render($page['content']); ?>
 								</div>
 							</div>
 						</section>

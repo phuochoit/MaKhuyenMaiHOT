@@ -4,15 +4,15 @@ version = VERSION
 core = 7.x
 engine = 'phptemplate'
 
-; base theme
+base theme = bootstrap
 
 ; css
-stylesheets[all][] = assets/css/bootstrap.min.css
+; stylesheets[all][] = assets/css/bootstrap.min.css
 stylesheets[all][] = assets/css/style.css
 
 ; js
-scripts[] = 'assets/js/bootstrap.min.js'
-scripts[] = 'assets/js/main.js'
+; scripts[] = assets/js/bootstrap.min.js
+scripts[] = assets/js/main.js
 
 ; create regions
 regions[navigation]     =   Top Navigation
@@ -21,7 +21,6 @@ regions[main-menu]     =   Main Menu
 
 regions[highlighted]    =   Highlighted
 regions[help]           =   Help
-regions[front-content]  =   Front Content
 regions[content]        =   Content
 regions[sidebar]        =   Sidebar Right
 regions[footer-content] =   Footer Content
