@@ -1,5 +1,5 @@
 #block-system-main-menu{
-    border-right: 1px solid #cacaca;
+    border-right: 1px solid $color-primary-3;
     font-size: 15px;
     .block-title{
         display: none;
@@ -8,16 +8,60 @@
         .menu{
             padding-left: 0;
             li{
-                margin-left: 0;
-                display: inline-block;
-                padding: 12px 10px;
-                &.first {
-                    padding-left: 0;
-                }
-                a{
-                    font-size: 16px;
+                display: block;
+                float: left;
+                a,span{
+                    padding: 12px 15px;
+                    line-height: 22px;
+                    color: $color-primary-1;
                     text-transform: uppercase;
                     font-weight: 500;
+                    font-size: 15px;
+                    display: block;
+                    cursor: pointer;
+                }
+                span{
+                    .caret{
+                        margin-left: 7px;
+                        width: auto;
+                        height: auto;
+                        border: none;
+                        display: inline-block;
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-size: inherit;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        line-height: 20px;
+                        padding: 0;
+                        &:before{
+                            content: "\f107";
+                        }
+                    }
+                }
+                ul{
+                    background: $base_color;
+                    border-radius: 0;
+                    top: 46px;
+                    border: 0;
+                    margin: 0;
+                    padding: 0;
+                    z-index: 9999;
+                    li{
+                        width: 100%;
+                        margin: 0;
+                        border-bottom: 1px solid #d7d7d7;
+                        a{
+                            text-transform: none;
+                            padding: 5px 20px;
+                            font-weight: 400;
+                            color: $color-primary-1;
+                            background: none;
+                            line-height: 30px;
+                            font-size: 15px;
+                            display: block;
+                        }
+                    }
                 }
             }
         }

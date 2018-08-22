@@ -1,0 +1,43 @@
+#block-navigation-search{
+    background: $color-primary-2;
+    transition: all 0.5s ease 0s;
+    padding: 6px 6px 6px 15px;
+    border-radius: 0;
+    #search-block-form{
+        margin: 0;
+        .element-invisible{
+            display: none;
+        }
+        .input-group{
+            .form-control{
+                &.form-text{
+                    background: none;
+                    border: 0;
+                    border-radius: 0;
+                    color: $base_color;
+                    box-shadow: none;
+                    font-size: 18px;
+                    @include placeholder(){
+                        color: $base_color;
+                    }
+                }
+            }
+            .input-group-btn{
+               .btn{
+                   &.btn-primary{
+                        background: none;
+                        border-radius: 0;
+                        border: 0;
+                        box-shadow: none;
+                        .icon {
+                            color: $base_color;
+                        }
+                    }
+               } 
+            }
+        }
+        .form-actions{
+            margin: 0;
+        }
+    }
+}

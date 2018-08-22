@@ -8,22 +8,19 @@
 
 	<header id="header" role="banner" class="clearfix">
 		<?php if (!empty($page['navigation'])): ?>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-menu-top header-top">
+			<section class="navbar-menu-top header-top">
 				<div class="container">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navabar--menu" aria-controls="navabar--menu" aria-expanded="false" aria-label="Navabar Menu">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navabar--menu">
-                        <?php print render($page['navigation']); ?>
-                    </div>
+					<div class="row">
+						<?php print render($page['navigation']); ?>
+					</div>
 				</div>
-			</nav>
-			<!-- /#navba-->
+			</section>
+			<!-- /#section header top-->
 		<?php endif;?>
 		<section class="header-content clearfix">
 			<div class="container">
-				<div class="row align-items-center header-content-row">
-					<div class="col col-3">
+				<div class="row">
+					<div class="col-xs-12 col-sm-3 col-logo">
 						<?php if ($logo): ?>
 							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
 								<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
@@ -31,7 +28,7 @@
 						<?php endif; ?>
 					</div>
 					<?php if(!empty($page['header-banner'])):?>
-						<div class="col">
+						<div class="col-xs-12 col-sm-9 col-header-banner">
 							<?php print render($page['header-banner']); ?>
 						</div>
 						<!-- /#header-banner-->
@@ -40,9 +37,11 @@
 			</div>
 		</section>
         <?php if(!empty($page['main-menu'])):?>
-            <section class="main-menu clearfix">
+            <nav id="navigation" class="navbar navbar-default main-menu">
                 <div class="container">
-                    <?php print render($page['main-menu']); ?>
+					<div class="row">
+                    	<?php print render($page['main-menu']); ?>
+					</div>
                 </div>
             </section>
         <?php endif;?>
@@ -50,6 +49,12 @@
 	<!-- /#header-->
 	<main id="main" role="main" class="clearfix">
 		<a id="main-content"></a>
+		<?php if ($page['highlighted']): ?>
+			<section id="page-highlighted" class="highlighted-area">
+				<?php print render($page['highlighted']); ?>
+			</section>
+			<!-- /#page-highlighted -->
+		<?php endif; ?>
 		<?php if(!empty($messages)):?>
 			<section id="page-messages" class="messages-area">
 				<div class="container">
@@ -60,12 +65,6 @@
 			</section>
 			<!-- /#page-messages -->
 		<?php endif;?>
-		<?php if ($page['highlighted']): ?>
-			<section id="page-highlighted" class="highlighted-area">
-				<?php print render($page['highlighted']); ?>
-			</section>
-			<!-- /#page-highlighted -->
-		<?php endif; ?>
 		
 		<?php if (!empty($tabs['#primary'])): ?>
 			<section id="page-tab-primary" class="tabs-wrapper clearfix">

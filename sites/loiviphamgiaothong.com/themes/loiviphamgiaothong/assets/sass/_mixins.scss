@@ -34,7 +34,7 @@
 }
 
 @mixin text-field() {
-    background: $color-tertiary-1;
+    background: $color-primary-1;
     border: 0;
     line-height: 2.5;
     height: auto;
@@ -44,13 +44,13 @@
 }
 @mixin btn-style() {
     background: transparent;
-    border: 1px solid $color-theme-1;
+    border: 1px solid $color-primary-1;
     @include border-radius(2px);
-    color: $color-tertiary-1 !important;
+    color: $color-primary-1 !important;
     box-sizing: border-box;
     @include element-transition(all 0.3s ease);
     font-size: $font-size-base;
-    background-color: $color-theme-1;
+    background-color: $color-primary-1;
     text-transform: uppercase;
     padding: 10px 20px 10px;
     line-height: normal;
@@ -80,7 +80,7 @@
     line-height: normal;
     padding: 5px $base_padding;
     font-size: 16px;
-    border: 1px solid $color-tertiary-2-base;
+    border: 1px solid $color-primary-3;
     min-height: 43px;
 }
 @mixin block-title(){
