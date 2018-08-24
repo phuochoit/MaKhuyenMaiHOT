@@ -8,7 +8,7 @@
 
 	<header id="header" role="banner" class="clearfix">
 		<?php if (!empty($page['navigation'])): ?>
-			<section class="navbar-menu-top header-top">
+			<section class="navbar-menu-top header-top" id="navigation-top">
 				<div class="container">
 					<div class="row">
 						<?php print render($page['navigation']); ?>
@@ -17,12 +17,12 @@
 			</section>
 			<!-- /#section header top-->
 		<?php endif;?>
-		<section class="header-content clearfix">
+		<section class="header-content clearfix" id="header-logo">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12 col-sm-3 col-logo">
+					<div class="col-xs-12 col-sm-3 col-logo col-align col-align--center">
 						<?php if ($logo): ?>
-							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
+							<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo" class="v-center">
 								<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
 							</a>
 						<?php endif; ?>

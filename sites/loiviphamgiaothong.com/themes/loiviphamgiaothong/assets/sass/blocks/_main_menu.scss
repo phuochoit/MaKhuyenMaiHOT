@@ -10,8 +10,13 @@
             li{
                 display: block;
                 float: left;
+                &.first{
+                    a,span{
+                        padding-left: 0;
+                    }
+                }
                 a,span{
-                    padding: 12px 15px;
+                    padding: 14px 15px;
                     line-height: 22px;
                     color: $color-primary-1;
                     text-transform: uppercase;
@@ -51,6 +56,11 @@
                         width: 100%;
                         margin: 0;
                         border-bottom: 1px solid #d7d7d7;
+                        &.first{
+                            a,span{
+                                padding: 5px 20px;
+                            }
+                        }
                         a{
                             text-transform: none;
                             padding: 5px 20px;

@@ -4,9 +4,7 @@ html{
         overflow-x: hidden;
         background-color: $base_bg_color;
         font-family: $font-family-main;
-        &.admin-menu {
-            margin-top: 0 !important;
-        }
+        &.admin-menu {}
     }
 }
 ul{
@@ -64,8 +62,8 @@ a {
     font-size: 20px;
     padding: 9px 30px;
     display: inline-block;
-    border: solid 1px #fff;
-    color: #fff;
+    border: solid 1px $base_color;
+    color:$base_color;
     border-radius: 5px;
     font-weight: 300;
     background: none;
@@ -94,7 +92,27 @@ ul.btn-group {
 .label-inline {
     display: inline-block;
 }
-
+.col-align {
+    float: none;
+    display: inline-block;
+    
+    &--top {
+        vertical-align: top;
+    }
+    &--center {
+        vertical-align: middle;
+    }
+    &--bottom {
+        vertical-align: bottom;
+    }
+}
+.v-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
 .menu {
     .menu-hidden {
     display: none !important;
@@ -102,10 +120,17 @@ ul.btn-group {
 }
 
 #header{
-    .main-menu{
+    #navigation-top{
+        background-color: $base_primary_2;
+    }
+    #header-logo{
+        min-height: 100px;
+    }
+    #navigation{
         background-color:$base_primary_2;
         border-radius: 0;
         margin-bottom: 0;
+        border: none;
     }
 }
 #main{

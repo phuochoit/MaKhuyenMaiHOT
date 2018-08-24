@@ -1,7 +1,7 @@
 #block-navigation-search{
     background: $color-primary-2;
     transition: all 0.5s ease 0s;
-    padding: 6px 6px 6px 15px;
+    padding: 3.5px 6px 3.5px 15px;
     border-radius: 0;
     #search-block-form{
         margin: 0;
@@ -17,6 +17,8 @@
                     color: $base_color;
                     box-shadow: none;
                     font-size: 18px;
+                    padding: 0;
+                    height: 40px;
                     @include placeholder(){
                         color: $base_color;
                     }
@@ -29,6 +31,9 @@
                         border-radius: 0;
                         border: 0;
                         box-shadow: none;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        height: 40px;
                         .icon {
                             color: $base_color;
                         }
