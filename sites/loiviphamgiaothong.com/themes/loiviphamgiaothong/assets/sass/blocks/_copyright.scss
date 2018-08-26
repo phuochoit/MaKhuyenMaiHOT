@@ -1,0 +1,24 @@
+#block-copyright{
+    &:before{
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 500%;
+        background: $color-primary-1;
+        height: 100%;
+        content: '';
+    }
+    background: $color-primary-1;
+    color: $base_color;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding: 20px 40px;
+    font-size: 12px;
+    font-weight: 300;
+    p{
+        color: #fff;
+        position: relative;
+        font-size: 16px;
+    }
+}

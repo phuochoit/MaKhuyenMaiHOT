@@ -124,13 +124,43 @@ ul.btn-group {
         background-color: $base_primary_2;
     }
     #header-logo{
-        min-height: 100px;
+        .col-logo{
+            height: $header_logo_height;
+        }
     }
     #navigation{
         background-color:$base_primary_2;
         border-radius: 0;
         margin-bottom: 0;
         border: none;
+    }
+}
+#footer{
+    background-color: $base_primary_3;
+    &:before{
+        background-image: url($theme_path+'/assets/images/footer-right.png');
+        background-position: right center;
+    }
+    &:after{
+        background-image: url($theme_path+'/assets/images/footer-left.png');
+        background-position: left center; 
+    }
+    &:before,&:after{
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-size: 18%;
+        background-repeat: no-repeat;
+        display: inline-block;
+        visibility: visible;
+        opacity: 0.5;
+    }
+    .container{
+        position: relative;
+        z-index: 10;
     }
 }
 #main{

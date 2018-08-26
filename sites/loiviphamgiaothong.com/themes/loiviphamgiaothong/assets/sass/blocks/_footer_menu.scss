@@ -1,0 +1,72 @@
+#block-footer-menu{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .menu{
+        li{
+            width: 25%;
+            float: left;
+            padding-left: 15px;
+            padding-right: 15px;
+            .dropdown-toggle{
+                text-transform: uppercase;
+                font-size: 18px;
+                color: #f29c1a;
+                position: relative;
+                display: inline-block;
+                padding: 0 15px 0 0;
+                font-weight: 600;
+                background: none;
+                .caret{
+                    display: none;
+                }
+                &:after{
+                    content: "\f101";
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    color: #f29c1a;
+                    font-size: 18px;
+                    display: block;
+                    font-family: 'FontAwesome';
+                    font-weight: 100;
+                }
+            }
+            .dropdown-menu{
+                position: static;
+                display: block;
+                background: none;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                width: 100%;
+                clear: both;  
+                li{
+                    position: relative;
+                    line-height: 18px;
+                    display: block;
+                    width: 100%;
+                    &:before{
+                        content: "\f105";
+                        position: absolute;
+                        left: 0;
+                        top: 5px;
+                        color: $base_color;
+                        display: block;
+                        font-family: 'FontAwesome';
+                    }
+                    a{
+                        color: $base_color;
+                        display: inline-block;
+                        padding: 5px 15px;
+                        font-size: 18px;
+                        font-weight: 300;
+                        white-space: normal;
+                        &:hover,&:focus,&:active{
+                            background: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
