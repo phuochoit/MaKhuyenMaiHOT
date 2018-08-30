@@ -76,26 +76,6 @@
         node_save($node);
     }
 
-	
-	
-	
-	// update  field collection
-	// foreach($node->field_notice_board['und'] as $k => $val){
-		// $field_collection_item = entity_load_single('field_collection_item',$val['value']);
-		// $field_collection_item->field_notice_board_name['und'][0]['value'] = "new field_notice_board_name ".$val['value'];
-		// $field_collection_item->field_notice_board_body['und'][0]['value'] = "new field_notice_board_body ".$val['value'];
-		// $field_collection_item->field_image['und'][0]['fid'] = "2";
-		// $field_collection_item->save();
-	// }
-	
-	// create field collection
-	// $field_collection_item = entity_create('field_collection_item', array('field_name' => 'field_notice_board'));
-	// $field_collection_item->setHostEntity('node', $node);
-	// $field_collection_item->field_notice_board_name['und'][0]['value'] = "new field_notice_board_name";
-	// $field_collection_item->field_notice_board_body['und'][0]['value'] = "new field_notice_board_body";
-	// $field_collection_item->field_image['und'][0]['fid'] = "2";
-	// $field_collection_item->save();
-
 	global $base_url;
     $arr = array();
     $file = json_decode(file_get_contents($base_url.'/XuPhat.json'));
@@ -130,19 +110,19 @@
             case 2:
             case 66:
             case 4:
-                $node->field_vehicle_type['und'][0]['value'] = 0;
+                $node->field_vehicle['und'][0]['tid'] = 1;
                 break;
             case 1:
-                $node->field_vehicle_type['und'][0]['value'] = 1;
+                $node->field_vehicle['und'][0]['tid'] = 2;
                 break;
             case 22:
-                $node->field_vehicle_type['und'][0]['value'] = 2;
+                $node->field_vehicle['und'][0]['tid'] = 3;
                 break;
             case 33:
-                $node->field_vehicle_type['und'][0]['value'] = 3;
+                $node->field_vehicle['und'][0]['tid'] = 4;
                 break;
             case 16: 
-                $node->field_vehicle_type['und'][0]['value'] = 4;
+                $node->field_vehicle['und'][0]['tid'] = 5;
                 break;
             case 75: 
             case 11: 
@@ -158,21 +138,20 @@
             case 64:
             case 32:
             case 24:
-                $node->field_vehicle_type['und'][0]['value'] = 5;
+                $node->field_vehicle['und'][0]['tid'] = 6;
                 break;
         }
 
         node_save($node);
     }
 
-
     global $base_url;
     $arr = array();
     $file = json_decode(file_get_contents($base_url.'/Question.json'));
-    $url = $base_url.'/images/images-question/';
+    $url = $base_url.'/images/';
     foreach ($file as $key => $value) {
         $node = new stdClass();
-        $node->type = 'violation_error';
+        $node->type = 'question_exam';
         $node->uid = 1;
         $node->created = time();
         $node->changed = $node->created;
@@ -181,5 +160,26 @@
         $node->language = LANGUAGE_NONE;
         $node->comment = 0;
         $node->status = 1;
+        $node->field_id_question['und'][0]['value'] = $value->_id;
+        // cau hoi 
+        $introdution = str_replace("Câu $value->_id:","",$value->introdution);
+        $introdution = str_replace(':',"",$introdution);
+        $node->field_sub_title['und'][0]['value'] = $introdution;
+        //image
+        if(!empty($value->image)){
+            $file_info = system_retrieve_file($url.$value->image.'.png', 'public://', TRUE,FILE_EXISTS_REPLACE);
+            $node->field_image['und'][0]['fid'] = $file_info->fid;
+        }
+        $question = json_decode($value->question);
+        $answer = json_decode($value->answer);
+        for ($i=0; $i < count($question); $i++) { 
+            $new_question= str_replace(($i+1).". ","",$question[$i]);
+            $field_collection_item = entity_create('field_collection_item', array('field_name' => 'field_answer'));
+            $field_collection_item->setHostEntity('node', $node);
+            $field_collection_item->field_collections_question['und'][0]['value'] = $new_question;
+            $field_collection_item->field_collections_answer['und'][0]['value'] =$answer[$i];
+            $field_collection_item->save();
+        }
+        node_save($node);
     }
 ?>
